@@ -91,7 +91,7 @@ function mod:GetOptions()
 		236528, -- Ripple of Darkness
 		{233856, "INFOBOX"}, -- Cleansing Protocol
 		233556, -- Corrupted Matrix
-		{239739, "FLASH", "SAY", "INFOBOX"}, -- Dark Mark
+		{239739, "FLASH", "SAY", "SAY_COUNTDOWN", "INFOBOX"}, -- Dark Mark
 		darkMarkIcons,
 		235572, -- Rupture Realities
 		242017, -- Black Winds

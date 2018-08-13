@@ -16,7 +16,7 @@ function mod:GetOptions()
 		247698, -- Silence
 		{247410, "TANK"}, -- Soul Cleave
 		247416, -- Cavitation
-		{247437, "SAY", "FLASH"}, -- Seed of Destruction
+		{247437, "SAY", "SAY_COUNTDOWN", "FLASH"}, -- Seed of Destruction
 	}
 end
 

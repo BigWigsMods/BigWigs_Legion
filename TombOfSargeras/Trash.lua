@@ -121,8 +121,8 @@ function mod:GetOptions()
 		{241480, "FLASH"}, -- Summon Steam Elemental (Warlord Darjah)
 
 		--[[ Sisters of the Moon -> The Desolate Host ]]--
-		{240735, "SAY"}, -- Polymorph Bomb (Guardian Sentry)
-		{239741, "SAY"}, -- Anguish (Ghostly Acolyte)
+		{240735, "SAY", "SAY_COUNTDOWN"}, -- Polymorph Bomb (Guardian Sentry)
+		{239741, "SAY", "SAY_COUNTDOWN"}, -- Anguish (Ghostly Acolyte)
 		{241367, "FLASH"}, -- Anguishing Strike (Ryul the Fading)
 		{241675, "SAY", "PROXIMITY"}, -- Void Rift (Ryul the Fading)
 		241646, -- Soul Portal (Ryul the Fading)

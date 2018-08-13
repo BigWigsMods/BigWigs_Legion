@@ -57,11 +57,11 @@ function mod:GetOptions()
 
 		--[[ Adds ]]--
 		246664, -- Annihilation
-		246686, -- Decimation
-		{246698, "SAY"}, -- Demolish
+		{246686, "SAY", "SAY_COUNTDOWN"}, -- Decimation
+		{246698, "SAY", "SAY_COUNTDOWN"}, -- Demolish
 
 		--[[ Mythic ]]--
-		{249680, "SAY"}, -- Reverberating Decimation
+		{249680, "SAY", "SAY_COUNTDOWN"}, -- Reverberating Decimation
 	},{
 		[244312] = -16151, -- Stage: Deployment
 		[246516] = -16152, -- Stage: Construction

@@ -146,7 +146,7 @@ function mod:GetOptions()
 		tentacleMarker,
 
 		--[[ Stage Two ]]--
-		{215128, "SAY", "FLASH", "PROXIMITY"}, -- Cursed Blood
+		{215128, "SAY", "SAY_COUNTDOWN", "FLASH", "PROXIMITY"}, -- Cursed Blood
 
 		--[[ Mythic ]]--
 		218415, -- Death Blossom

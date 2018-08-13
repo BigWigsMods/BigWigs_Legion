@@ -57,7 +57,7 @@ function mod:GetOptions()
 		244172, -- Psychic Assault
 
 		--[[ Mythic ]]--
-		{244737, "SAY", "FLASH", "PROXIMITY"}, -- Shock Grenade
+		{244737, "SAY", "SAY_COUNTDOWN", "FLASH", "PROXIMITY"}, -- Shock Grenade
 	},{
 		[244625] = CL.other:format(mod:SpellName(-16099), mod:SpellName(-16100)), -- In Pod: Admiral Svirax
 		[245161] = CL.other:format(mod:SpellName(-16099), mod:SpellName(-16116)), -- In Pod: Chief Engineer Ishkar

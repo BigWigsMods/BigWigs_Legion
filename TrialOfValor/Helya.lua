@@ -100,7 +100,7 @@ function mod:GetOptions()
 
 		--[[ Grimelord ]]--
 		228390, -- Sludge Nova
-		{193367, "SAY", "FLASH", "PROXIMITY"}, -- Fetid Rot
+		{193367, "SAY", "SAY_COUNTDOWN", "FLASH", "PROXIMITY"}, -- Fetid Rot
 		228519, -- Anchor Slam
 
 		--[[ Night Watch Mariner ]]--

@@ -81,7 +81,7 @@ function mod:GetOptions()
 		{206466, "INFOBOX"}, -- Essence of Night
 
 		--[[ Felsworm Spellguard ]]--
-		{216024, "SAY", "ME_ONLY"}, -- Volatile Wound
+		{216024, "SAY", "SAY_COUNTDOWN", "ME_ONLY"}, -- Volatile Wound
 		216027, -- Nether Zone
 
 		--[[ Sightless Watcher ]]--

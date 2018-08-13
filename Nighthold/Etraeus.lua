@@ -81,9 +81,9 @@ function mod:GetOptions()
 		206464, -- Coronal Ejection
 
 		--[[ Stage Two ]]--
-		{205984, "SAY"}, -- Gravitational Pull
+		{205984, "SAY", "SAY_COUNTDOWN"}, -- Gravitational Pull
 		206589, -- Chilled
-		{206936, "SAY", "FLASH", "PROXIMITY"}, -- Icy Ejection
+		{206936, "SAY", "SAY_COUNTDOWN", "FLASH", "PROXIMITY"}, -- Icy Ejection
 		206949, -- Frigid Nova
 
 		--[[ Stage Three ]]--

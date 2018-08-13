@@ -42,7 +42,7 @@ function mod:GetOptions()
 		236603, -- Rapid Shot
 		{233263, "PROXIMITY"}, -- Embrace of the Eclipse
 		236519, -- Moon Burn
-		{236712, "SAY"}, -- Lunar Beacon
+		{236712, "SAY", "SAY_COUNTDOWN"}, -- Lunar Beacon
 		237351, -- Lunar Barrage
 		{239264, "TANK"}, -- Lunar Fire
 	},{

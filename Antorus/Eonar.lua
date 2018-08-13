@@ -173,11 +173,11 @@ function mod:GetOptions()
 		"infobox",
 		250048, -- Life Force
 		248861, -- Spear of Doom
-		{248332, "SAY", "FLASH"}, -- Rain of Fel
+		{248332, "SAY", "SAY_COUNTDOWN", "FLASH"}, -- Rain of Fel
 		249121, -- Final Doom
 		249934, -- Purge
-		{250693, "SAY", "FLASH"}, -- Arcane Buildup
-		{250691, "SAY", "FLASH"}, -- Burning Embers
+		{250693, "SAY", "SAY_COUNTDOWN", "FLASH"}, -- Arcane Buildup
+		{250691, "SAY", "SAY_COUNTDOWN", "FLASH"}, -- Burning Embers
 		250140, -- Foul Steps
 	},{
 		["warp_in"] = "general",

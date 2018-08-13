@@ -49,12 +49,12 @@ function mod:GetOptions()
 		"custom_off_webofpain_marker",
 		212364, -- Feeding Time
 		214348, -- Vile Ambush
-		{215443, "SAY", "FLASH"}, -- Necrotic Venom
+		{215443, "SAY", "SAY_COUNTDOWN", "FLASH"}, -- Necrotic Venom
 
 		--[[ Roc Form ]]--
 		212707, -- Gathering Clouds
 		210948, -- Dark Storm
-		{210864, "SAY", "FLASH"}, -- Twisting Shadows
+		{210864, "SAY", "SAY_COUNTDOWN", "FLASH"}, -- Twisting Shadows
 		210547, -- Razor Wing
 		{215582, "TANK"}, -- Raking Talons
 		218124, -- Violent Winds (mythic)

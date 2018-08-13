@@ -164,11 +164,11 @@ function mod:GetOptions()
 		"rupturingKnock",
 		240910, -- Armageddon
 		"meteorImpact",
-		{236710, "SAY", "FLASH"}, -- Shadow Reflection: Erupting
+		{236710, "SAY", "SAY_COUNTDOWN", "FLASH"}, -- Shadow Reflection: Erupting
 		eruptingMarker,
-		{238430, "SAY", "FLASH"}, -- Bursting Dreadflame
-		{238505, "SAY", "ICON", "PROXIMITY"}, -- Focused Dreadflame
-		{236378, "SAY", "FLASH"}, -- Shadow Reflection: Wailing
+		{238430, "SAY", "SAY_COUNTDOWN", "FLASH"}, -- Bursting Dreadflame
+		{238505, "SAY", "SAY_COUNTDOWN", "ICON", "PROXIMITY"}, -- Focused Dreadflame
+		{236378, "SAY", "SAY_COUNTDOWN", "FLASH"}, -- Shadow Reflection: Wailing
 		241564, -- Sorrowful Wail
 		241721, -- Illidan's Sightless Gaze
 		{"shadowsoul", "INFOBOX"}, -- Shadowsoul
@@ -181,7 +181,7 @@ function mod:GetOptions()
 		243982, -- Tear Rift
 		244856, -- Flaming Orb
 		240262, -- Burning
-		{237590, "SAY", "FLASH"}, -- Shadow Reflection: Hopeless
+		{237590, "SAY", "SAY_COUNTDOWN", "FLASH"}, -- Shadow Reflection: Hopeless
 	},{
 		["stages"] = "general",
 		[239932] = -14921, -- Stage One: The Betrayer

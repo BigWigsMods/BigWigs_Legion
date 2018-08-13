@@ -43,7 +43,7 @@ function mod:GetOptions()
 	return {
 		"stages",
 		"berserk",
-		{230139, "SAY"}, -- Hydra Shot
+		{230139, "SAY", "SAY_COUNTDOWN"}, -- Hydra Shot
 		hydraShotMarker,
 		{230201, "TANK", "FLASH"}, -- Burden of Pain
 		230227, -- From the Abyss // Showing this as an alternative to Burden of Pain for non-tanks, they are the same spell

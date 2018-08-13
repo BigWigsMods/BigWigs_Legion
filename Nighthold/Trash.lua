@@ -119,7 +119,7 @@ function mod:GetOptions()
 		224572, -- Disrupting Energy (Nighthold Protector)
 
 		--[[ Aluriel to Etraeus ]]--
-		{224632, "SAY", "FLASH"}, -- Heavenly Crash (Astrologer Jarin)
+		{224632, "SAY", "SAY_COUNTDOWN", "FLASH"}, -- Heavenly Crash (Astrologer Jarin)
 
 		--[[ Aluriel to Telarn ]]--
 		225390, -- Stellar Dust (Astral Defender)

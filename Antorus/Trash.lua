@@ -86,19 +86,19 @@ function mod:GetOptions()
 		251612, -- Bladestorm (Felsworn Ravager)
 		254500, -- Fearsome Leap
 		254512, -- Bladestorm (Imperator Deconix)
-		{253600, "SAY"}, -- Soulburn
+		{253600, "SAY", "SAY_COUNTDOWN"}, -- Soulburn
 
 		-- [[ Before Portal Keeper Hasabel ]] --
 		249212, -- Howling Shadows
 
 		-- [[ Imonar to Kin'garoth ]] --
-		{252760, "SAY"}, -- Demolish
+		{252760, "SAY", "SAY_COUNTDOWN"}, -- Demolish
 		252743, -- Annihilation
-		{252797, "SAY"}, -- Decimation
+		{252797, "SAY", "SAY_COUNTDOWN"}, -- Decimation
 
 		-- [[ Before Varimathras / Coven of Shivarra ]] --
 		{249297, "SAY"}, -- Flames of Reorigination
-		{254122, "SAY"}, -- Cloud of Confusion
+		{254122, "SAY", "SAY_COUNTDOWN"}, -- Cloud of Confusion
 
 		-- [[ Before Aggramar ]] --
 		246209, -- Punishing Flame

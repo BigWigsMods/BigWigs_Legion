@@ -62,7 +62,7 @@ function mod:GetOptions()
 		--[[ Noura, Mother of Flame ]]--
 		{244899, "TANK"}, -- Fiery Strike
 		245627, -- Whirling Saber
-		{253520, "SAY"}, -- Fulminating Pulse
+		{253520, "SAY", "SAY_COUNTDOWN"}, -- Fulminating Pulse
 
 		--[[ Asara, Mother of Night ]]--
 		246329, -- Shadow Blades
@@ -76,7 +76,7 @@ function mod:GetOptions()
 
 		--[[ Thu'raya, Mother of the Cosmos (Mythic) ]]--
 		250648, -- Touch of the Cosmos
-		{250757, "SAY", "FLASH"}, -- Cosmic Glare
+		{250757, "SAY", "SAY_COUNTDOWN", "FLASH"}, -- Cosmic Glare
 		cosmicGlareMarker,
 	},{
 		["stages"] = "general",

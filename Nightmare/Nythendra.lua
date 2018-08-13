@@ -33,7 +33,7 @@ function mod:GetOptions()
 	return {
 		--[[ General ]]--
 		202977, -- Infested Breath
-		{203096, "SAY", "FLASH", "PROXIMITY"}, -- Rot
+		{203096, "SAY", "SAY_COUNTDOWN", "FLASH", "PROXIMITY"}, -- Rot
 		rotMarker,
 		{204463, "SAY", "FLASH", "ICON"}, -- Volatile Rot
 		203552, -- Heart of the Swarm

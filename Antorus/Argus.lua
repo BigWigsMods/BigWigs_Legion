@@ -152,7 +152,7 @@ function mod:GetOptions()
 		--[[ Stage 1 ]]--
 		248165, -- Cone of Death
 		248317, -- Soulblight Orb
-		{248396, "ME_ONLY", "SAY", "FLASH"}, -- Soul Blight
+		{248396, "ME_ONLY", "SAY", "SAY_COUNTDOWN", "FLASH"}, -- Soul Blight
 		248167, -- Death Fog
 		257296, -- Tortured Rage
 		248499, -- Sweeping Scythe
@@ -160,9 +160,9 @@ function mod:GetOptions()
 		seaMarker,
 
 		--[[ Stage 2 ]]--
-		{250669, "SAY"}, -- Soulburst
+		{250669, "SAY", "SAY_COUNTDOWN"}, -- Soulburst
 		burstMarker,
-		{251570, "SAY"}, -- Soulbomb
+		{251570, "SAY", "SAY_COUNTDOWN"}, -- Soulbomb
 		bombMarker,
 		"bomb_explosions",
 		"combinedBurstAndBomb",

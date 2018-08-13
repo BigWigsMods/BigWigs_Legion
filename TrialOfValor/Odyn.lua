@@ -92,7 +92,7 @@ function mod:GetOptions()
 
 		--[[ Hyrja ]]--
 		{228029, "SAY", "ICON", "PROXIMITY"}, -- Expel Light
-		{228162, "SAY", "ICON"}, -- Shield of Light
+		{228162, "SAY", "SAY_COUNTDOWN", "ICON"}, -- Shield of Light
 
 		--[[ Odyn ]]--
 		227503, -- Draw Power

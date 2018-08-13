@@ -36,8 +36,8 @@ function mod:GetOptions()
 		243961, -- Misery
 		{243960, "TANK"}, -- Shadow Strike
 		243999, -- Dark Fissure
-		{244042, "SAY", "FLASH", "ICON"}, -- Marked Prey
-		{244094, "SAY", "FLASH", "PULSE", "PROXIMITY"}, -- Necrotic Embrace
+		{244042, "SAY", "SAY_COUNTDOWN", "FLASH", "ICON"}, -- Marked Prey
+		{244094, "SAY", "SAY_COUNTDOWN", "FLASH", "PULSE", "PROXIMITY"}, -- Necrotic Embrace
 		necroticEmbraceMarker,
 		-16350, -- Shadow of Varimathras
 	},{

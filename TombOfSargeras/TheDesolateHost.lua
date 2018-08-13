@@ -60,9 +60,9 @@ function mod:GetOptions()
 		"infobox",
 		{239006, "PROXIMITY"}, -- Dissonance
 		236678, -- Quietus
-		{235924, "SAY"}, -- Spear of Anguish
+		{235924, "SAY", "SAY_COUNTDOWN"}, -- Spear of Anguish
 		235907, -- Collapsing Fissure
-		{238570, "SAY", "ICON"}, -- Tormented Cries
+		{238570, "SAY", "SAY_COUNTDOWN", "ICON"}, -- Tormented Cries
 		235927, -- Rupturing Slam
 		236513, -- Bonecage Armor
 		"custom_on_armor_plates",
