@@ -1,7 +1,7 @@
 ## Interface: 80000
 
 ## Title: BigWigs [|cffeda55fLegion|r]
-## Title-zhCN: BigWigs [|cffeda55fLegion|r]
+## Title-zhCN: BigWigs [|cffeda55f军团再临|r]
 ## Title-zhTW: BigWigs [|cffeda55fLegion|r]
 ## Title-deDE: BigWigs [|cffeda55fLegion|r]
 ## Title-frFR: BigWigs [|cffeda55fLegion|r]
@@ -12,7 +12,7 @@
 ## Title-esES: BigWigs [|cffeda55fLegion|r]
 ## Title-esMX: BigWigs [|cffeda55fLegion|r]
 ## Notes: A collection of BigWigs modules from the Legion era.
-## Notes-zhCN: A collection of BigWigs modules from the Legion era.
+## Notes-zhCN: BigWigs 军团再临模块。
 ## Notes-zhTW: A collection of BigWigs modules from the Legion era.
 ## Notes-deDE: A collection of BigWigs modules from the Legion era.
 ## Notes-frFR: A collection of BigWigs modules from the Legion era.
