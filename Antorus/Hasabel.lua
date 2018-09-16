@@ -429,7 +429,7 @@ end
 function mod:CloyingShadows(args)
 	if self:Me(args.destGUID) then
 		self:PlaySound(args.spellId, "Info")
-		self:TargetMessage2(args.spellId, "blue", args.destName)
+		self:PersonalMessage(args.spellId)
 		self:SayCountdown(args.spellId, 30)
 	end
 end
@@ -466,7 +466,7 @@ end
 function mod:Binding(args)
 	if self:Me(args.destGUID) then
 		self:PlaySound(args.spellId, "Info")
-		self:TargetMessage2(args.spellId, "blue", args.destName)
+		self:PersonalMessage(args.spellId)
 		self:TargetBar(args.spellId, 16, args.destName)
 	end
 end

@@ -360,7 +360,7 @@ end
 function mod:ArcaneBuildup(args)
 	if self:Me(args.destGUID) then
 		self:PlaySound(args.spellId, "Alarm")
-		self:TargetMessage2(args.spellId, "blue", args.destName)
+		self:PersonalMessage(args.spellId)
 		self:Say(args.spellId)
 		self:Flash(args.spellId)
 		self:SayCountdown(args.spellId, 5)
@@ -378,7 +378,7 @@ end
 function mod:BurningEmbers(args)
 	if self:Me(args.destGUID) then
 		self:PlaySound(args.spellId, "Alarm")
-		self:TargetMessage2(args.spellId, "blue", args.destName)
+		self:PersonalMessage(args.spellId)
 		self:Say(args.spellId)
 		self:Flash(args.spellId)
 		self:SayCountdown(args.spellId, 5)

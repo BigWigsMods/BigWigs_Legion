@@ -206,7 +206,7 @@ end
 function mod:EnflamedOrSiphoned(args)
 	if self:Me(args.destGUID) then
 		self:PlaySound(args.spellId, "Warning")
-		self:TargetMessage2(args.spellId, "blue", args.destName)
+		self:PersonalMessage(args.spellId)
 		self:Say(args.spellId)
 		if self:Mythic() then
 			self:SayCountdown(args.spellId, 3, nil, 2)
@@ -260,7 +260,7 @@ do
 			if t-prev > 2 then
 				prev = t
 				self:PlaySound(args.spellId, "Alert")
-				self:TargetMessage2(args.spellId, "blue", args.destName, true)
+				self:PersonalMessage(args.spellId, "underyou")
 			end
 		end
 	end

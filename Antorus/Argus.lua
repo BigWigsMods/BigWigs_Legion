@@ -535,7 +535,7 @@ do
 			end
 		else
 			if isOnMe > -1 then -- No bomb on you (0, 3 or 7)
-				mod:TargetMessage2(251570, "orange", bombName, false, CL.count:format(mod:SpellName(251570), soulBombCounter))
+				mod:TargetMessage2(251570, "orange", bombName, CL.count:format(mod:SpellName(251570), soulBombCounter))
 			end
 			if isOnMe < 3 then -- No burst on you (0 or -1)
 				mod:TargetsMessage(250669, "red", mod:ColorName(burstList), #burstList)
@@ -645,7 +645,7 @@ do
 			if t-prev > 0.5 then -- Throttle incase you are on the edge/tank moves around slightly
 				prev = t
 				self:PlaySound(args.spellId, "Info")
-				self:TargetMessage2(args.spellId, "blue", args.destName)
+				self:PersonalMessage(args.spellId)
 			end
 		end
 	end
@@ -915,7 +915,7 @@ end
 function mod:SargerasRage(args)
 	if self:Me(args.destGUID) then
 		self:PlaySound(258068, "Warning")
-		self:TargetMessage2(258068, "blue", args.destName, false, args.spellName, args.spellId)
+		self:TargetMessage2(258068, "blue", args.destName, args.spellName, args.spellId)
 		self:Flash(258068)
 		self:Say(258068, self:SpellName(6612)) -- Rage
 	end
@@ -925,7 +925,7 @@ function mod:SargerasFear(args)
 	if self:Me(args.destGUID) then
 		fearOnMe = true
 		self:PlaySound(258068, "Warning")
-		self:TargetMessage2(258068, "blue", args.destName, false, args.spellName, args.spellId)
+		self:TargetMessage2(258068, "blue", args.destName, args.spellName, args.spellId)
 		checkForFearHelp(self)
 	end
 end

@@ -262,7 +262,7 @@ do
 			self:SayCountdown(args.spellId, 6)
 			if not appliedByTheBoss then
 				self:PlaySound(args.spellId, "Alarm")
-				self:TargetMessage2(args.spellId, "blue", args.destName) -- personal warning regardless of the source
+				self:PersonalMessage(args.spellId) -- personal warning regardless of the source
 			elseif not self:Dispeller("magic") then
 				self:PlaySound(args.spellId, "Alarm")
 			end
@@ -365,7 +365,7 @@ do
 				prev = t
 				self:Say(args.spellId)
 				self:PlaySound(args.spellId, "Warning")
-				self:TargetMessage2(args.spellId, "blue", args.destName)
+				self:PersonalMessage(args.spellId)
 			end
 			self:TargetBar(args.spellId, 6, args.destName)
 		elseif self:MobId(args.sourceGUID) == 123533 then -- don't announce those that were spread by players
