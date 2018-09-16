@@ -174,8 +174,8 @@ function mod:GetOptions()
 		--[[ Stage 3 ]]--
 		252516, -- The Discs of Norgannon
 		"custom_off_252516", -- Vulnerability Marker
-		{252729, "SAY"}, -- Cosmic Ray
-		{252616, "SAY"}, -- Cosmic Beacon
+		{252729, "SAY", "FLASH"}, -- Cosmic Ray
+		{252616, "SAY", "FLASH"}, -- Cosmic Beacon
 		-17077, -- Stellar Armory
 		255935, -- Cosmic Power
 

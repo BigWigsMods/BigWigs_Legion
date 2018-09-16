@@ -455,7 +455,7 @@ function mod:FoeBreaker(args)
 	comboSpells[#comboSpells+1] = 245458
 	comboCastEnd = GetTime() + (self:Easy() and 3.5 or 2.75)
 	if foeBreakerCount == 2 and not self:Mythic() then -- Random Combo in Mythic
-		self:Bar(args.spellId, self:Easy() and 10.1 or 7.5, CL.count:format(args.spellName, foeBreakerCount))
+		self:Bar(245458, self:Easy() and 10.1 or 7.5, CL.count:format(args.spellName, foeBreakerCount))
 	end
 	updateInfoBox(true)
 end

@@ -18,7 +18,7 @@ function mod:GetOptions()
 		{213625, "SAY"}, -- Expel Soul
 		213606, -- Soul Rend
 		213665, -- Marauding Mists
-		213588, -- Seadog's Scuttle
+		{213588, "SAY"}, -- Seadog's Scuttle
 		213420, -- Tentacle Bash
 		213532, -- Shatter Crewmen
 	}

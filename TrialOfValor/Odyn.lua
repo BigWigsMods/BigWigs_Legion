@@ -98,7 +98,7 @@ function mod:GetOptions()
 		227503, -- Draw Power
 		227629, -- Unerring Blast
 		{227626, "TANK"}, -- Odyn's Test
-		{-14495, "INFOBOX", "SAY", "PULSE"}, -- Runic Brand
+		{-14495, "INFOBOX", "SAY", "FLASH", "PULSE"}, -- Runic Brand
 		{229584, "EMPHASIZE"}, -- Protected
 
 		--[[ Stage Two: The Prime Designate ]]--
@@ -108,7 +108,7 @@ function mod:GetOptions()
 		{228918, "SAY", "ICON"}, -- Stormforged Spear
 		{227807, "SAY", "FLASH"}, -- Storm of Justice
 		227475, -- Cleansing Flame
-		{197961, "PROXIMITY", "SAY", "PULSE"}, -- Runic Brand
+		{197961, "PROXIMITY", "SAY", "FLASH", "PULSE"}, -- Runic Brand
 		231350, -- Radiant Smite
 	},{
 		["stages"] = "general",

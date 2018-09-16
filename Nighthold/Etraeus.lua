@@ -87,14 +87,14 @@ function mod:GetOptions()
 		206949, -- Frigid Nova
 
 		--[[ Stage Three ]]--
-		{214167, "SAY"}, -- Gravitational Pull
+		{214167, "SAY", "SAY_COUNTDOWN"}, -- Gravitational Pull
 		{206388, "TANK"}, -- Felburst
 		206517, -- Fel Nova
 		{205649, "SAY"}, -- Fel Ejection
 		206398, -- Felflame
 
 		--[[ Stage Four ]]--
-		{214335, "SAY"}, -- Gravitational Pull
+		{214335, "SAY", "SAY_COUNTDOWN"}, -- Gravitational Pull
 		207439, -- Void Nova
 		222761, -- Big Bang
 		216909, -- World-Devouring Force

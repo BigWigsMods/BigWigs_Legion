@@ -230,11 +230,11 @@ do
 end
 
 do
-	local function updatePower(self, id)
+	local function updatePower(self)
 		for k in next, jailList do
 			jailList[k] = UnitPower(k, 10) or 1
 		end
-		self:SetInfoByTable(id, jailList)
+		self:SetInfoByTable(236283, jailList)
 	end
 
 	function mod:BelacsPrisoner(args)
@@ -248,7 +248,7 @@ do
 		self:SetInfoTitle(args.spellId, L.infobox_title_prisoners:format(jailCount))
 		self:SetInfoByTable(args.spellId, jailList)
 		if not jailTimer then
-			jailTimer = self:ScheduleRepeatingTimer(updatePower, 1, self, args.spellId)
+			jailTimer = self:ScheduleRepeatingTimer(updatePower, 1, self)
 		end
 	end
 end
