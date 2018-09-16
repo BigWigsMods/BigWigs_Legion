@@ -158,7 +158,7 @@ do
 		if self:Me(args.destGUID) then
 			isOnMe = true
 			self:PlaySound(244410, "Warning")
-			self:PersonalMessage(244410, "blue")
+			self:PersonalMessage(244410)
 			self:Say(244410)
 			if args.spellId ~= 246919 then -- Haywire Decimation
 				self:SayCountdown(244410, 5)
