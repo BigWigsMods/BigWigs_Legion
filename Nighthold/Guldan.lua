@@ -188,7 +188,6 @@ end
 function mod:OnBossEnable()
 	self:RegisterUnitEvent("UNIT_SPELLCAST_SUCCEEDED", nil, "boss1", "boss2", "boss3", "boss4", "boss5")
 	self:RegisterEvent("CHAT_MSG_MONSTER_YELL")
-	self:RegisterEvent("INSTANCE_ENCOUNTER_ENGAGE_UNIT")
 	self:RegisterEvent("RAID_BOSS_EMOTE")
 
 	--[[ Essence of Aman'Thul ]]--
@@ -297,6 +296,9 @@ function mod:OnEngage()
 	eyeEmpowered = false
 	expectedBonds = self:Mythic() and 4 or 3
 	timers = self:Mythic() and mythicTimers or self:Heroic() and heroicTimers or normalTimers
+	self:RegisterEvent("INSTANCE_ENCOUNTER_ENGAGE_UNIT")
+	self:INSTANCE_ENCOUNTER_ENGAGE_UNIT()
+
 	if self:Mythic() then
 		phase = 2 -- Mythic skips the P1 of heroic
 		self:Bar(209011, 6.8, CL.count:format(self:SpellName(209011), bondsCount)) -- Bonds of Fel
@@ -347,7 +349,6 @@ function mod:CHAT_MSG_MONSTER_YELL(event, msg)
 end
 
 function mod:INSTANCE_ENCOUNTER_ENGAGE_UNIT()
-	self:CheckForEncounterEngage()
 	for i=1, 5 do
 		local guid = UnitGUID(("boss%d"):format(i))
 		if guid and not mobCollector[guid] then
