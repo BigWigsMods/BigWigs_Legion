@@ -193,6 +193,7 @@ function mod:OnBossEnable()
 
 	--[[ Aluriel to Etraeus ]]--
 	self:Log("SPELL_AURA_APPLIED", "HeavenlyCrash", 224632)
+	self:Log("SPELL_AURA_REMOVED", "HeavenlyCrashRemoved", 224632)
 
 	--[[ Aluriel to Telarn ]]--
 	self:Log("SPELL_AURA_APPLIED", "ChosenFate", 225845)
