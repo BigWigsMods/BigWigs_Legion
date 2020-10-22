@@ -1,5 +1,2 @@
 package-as: BigWigs_Legion
 wowi-archive-previous: no
-
-ignore:
-  - README.md
