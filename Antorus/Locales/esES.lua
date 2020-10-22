@@ -1,4 +1,4 @@
-local L = BigWigs:NewBossLocale("Argus the Unmaker", "esES") or BigWigs:NewBossLocale("Argus", "esMX")
+local L = BigWigs:NewBossLocale("Argus the Unmaker", "esES") or BigWigs:NewBossLocale("Argus the Unmaker", "esMX")
 if not L then return end
 if L then
 	--L.combinedBurstAndBomb = "Combine Soulburst and Soulbomb"
