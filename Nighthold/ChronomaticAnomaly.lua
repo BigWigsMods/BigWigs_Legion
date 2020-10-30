@@ -280,7 +280,9 @@ end
 
 local function timeBombCountdown(self)
 	local me = self:UnitName("player")
-	local name, _, _, expires = self:UnitDebuff("player", self:SpellName(206617))
+	-- 206617 on heroic & mythic, probably on normal as well.
+	-- If that's the case, then this call can be safely replaced with self:UnitDebuff("player", 206617).
+	local name, _, _, expires = self:UnitDebuff("player", self:SpellName(206617), 206617)
 	for _,timer in pairs(bombSayTimers) do
 		self:CancelTimer(timer)
 	end
