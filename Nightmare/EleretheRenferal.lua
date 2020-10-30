@@ -129,7 +129,7 @@ do
 	local key, spellName = 0, ""
 
 	function mod:UNIT_AURA(_, unit) -- XXX get Blizz to fix this
-		if self:UnitDebuff(unit, spellName) then
+		if self:UnitDebuff(unit, spellName, 215449) then -- 215449 is Necrotic Venom on Mythic
 			local guid = UnitGUID(unit)
 			if not players[guid] then
 				local spellId = key -- SetOption:215443,210864:
