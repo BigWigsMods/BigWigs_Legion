@@ -111,7 +111,7 @@ if L then
 	L.flameweaver = "Заклинатель пламени"
 
 	-- [[ Before Antoran High Command ]] --
-	L.ravager = "Присягнувший клинку опустошитель"
+	L.ravager = "Присягнувший клинку - опустошитель"
 	L.deconix = "Император Деконикс"
 	L.clobex = "Клобекc"
 

@@ -87,34 +87,34 @@ end
 L = BigWigs:NewBossLocale("Nighthold Trash", "itIT")
 if L then
 	--[[ Skorpyron to Trilliax ]]--
-	--L.torm = "Torm the Brute"
-	--L.fulminant = "Fulminant"
-	--L.pulsauron = "Pulsauron"
+	L.torm = "Torm il Bruto"
+	L.fulminant = "Fulminant"
+	L.pulsauron = "Pulsauron"
 
 	--[[ Chronomatic Anomaly to Trilliax ]]--
-	--L.sludgerax = "Sludgerax"
+	L.sludgerax = "Poltirax"
 
 	--[[ Trilliax to Aluriel ]]--
-	--L.karzun = "Kar'zun"
-	--L.guardian = "Gilded Guardian"
-	--L.battle_magus = "Duskwatch Battle-Magus"
-	--L.chronowraith = "Chronowraith"
-	--L.protector = "Nighthold Protector"
+	L.karzun = "Kar'zun"
+	L.guardian = "Guardiano Dorato"
+	L.battle_magus = "Magus da Battaglia della Guardia del Vespro"
+	L.chronowraith = "Cronopresenza"
+	L.protector = "Protettore della Rocca della Notte"
 
 	--[[ Aluriel to Etraeus ]]--
-	--L.jarin = "Astrologer Jarin"
+	L.jarin = "Astrologo Jarin"
 
 	--[[ Aluriel to Telarn ]]--
 	L.defender = "Difensore Astrale"
-	--L.weaver = "Duskwatch Weaver"
-	--L.archmage = "Shal'dorei Archmage"
-	--L.manasaber = "Domesticated Manasaber"
+	L.weaver = "Tessitore della Guardia del Vespro"
+	L.archmage = "Arcimaga Shal'dorei"
+	L.manasaber = "Manafiera Addomesticata"
 	L.naturalist = "Naturalista Shal'dorei"
 
 	--[[ Aluriel to Krosus ]]--
-	--L.infernal = "Searing Infernal"
+	L.infernal = "Infernale Rovente"
 
 	--[[ Aluriel to Tichondrius ]]--
 	L.chaosmage = "Mago del Caos Vilfedele"
-	--L.watcher = "Abyss Watcher"
+	L.watcher = "Guardiano dell'Abisso"
 end

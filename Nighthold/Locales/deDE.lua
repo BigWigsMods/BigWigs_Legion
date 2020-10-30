@@ -108,7 +108,7 @@ if L then
 	L.defender = "Astralverteidiger"
 	L.weaver = "Weber der Dämmerwache"
 	L.archmage = "Erzmagierin der Shal'dorei"
-	L.manasaber = "Zahmer Manasäbler"
+	L.manasaber = "Gezähmter Manasäbler"
 	L.naturalist = "Naturalist der Shal'dorei"
 
 	--[[ Aluriel to Krosus ]]--

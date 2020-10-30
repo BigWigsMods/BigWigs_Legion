@@ -108,7 +108,7 @@ if L then
 	L.defender = "Астральный защитник"
 	L.weaver = "Заклинатель из Сумеречной стражи"
 	L.archmage = "Шал'дорай - верховный маг"
-	L.manasaber = "Прирученный манопард"
+	L.manasaber = "Прирученный манапард"
 	L.naturalist = "Шал'дорай-натуралист"
 
 	--[[ Aluriel to Krosus ]]--

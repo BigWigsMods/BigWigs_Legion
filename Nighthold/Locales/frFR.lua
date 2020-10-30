@@ -95,9 +95,9 @@ if L then
 	L.sludgerax = "Bourberax"
 
 	--[[ Trilliax to Aluriel ]]--
-	L.karzun = "Kar'zun"
+	L.karzun = "Kar’zun"
 	L.guardian = "Gardien doré"
-	L.battle_magus = "Magus de bataille de la Garde crépusculair"
+	L.battle_magus = "Mage de bataille de la Garde crépusculaire"
 	L.chronowraith = "Chronâme en peine"
 	L.protector = "Protecteur du palais Sacrenuit"
 
