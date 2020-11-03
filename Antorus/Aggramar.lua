@@ -22,14 +22,12 @@ local comboSpells = {}
 local comboCastEnd = 0
 local currentCombo = nil
 local comboSpellLookup = {
-	[245458] = {color = "|cff00fff9", castTime = mod:Easy() and 3.5 or 2.75}, -- Foe Breaker
-	[245463] = {color = "|cffffff00", castTime = mod:Easy() and 3.5 or 2.75}, -- Flame Rend
-	[245301] = {color = "|cffffa000", castTime = 6}, -- Searing Tempest
+	[245458] = {color = "|cff00fff9", icon = 135811, castTime = mod:Easy() and 3.5 or 2.75}, -- Foe Breaker
+	[245463] = {color = "|cffffff00", icon = 460698, castTime = mod:Easy() and 3.5 or 2.75}, -- Flame Rend
+	[245301] = {color = "|cffffa000", icon = 135826, castTime = 6}, -- Searing Tempest
 }
-for id,_ in pairs(comboSpellLookup) do
+for id in pairs(comboSpellLookup) do
 	comboSpellLookup[id].name = mod:SpellName(id)
-	local _, _, icon = GetSpellInfo(id)
-	comboSpellLookup[id].icon = icon
 end
 
 local blazeTick = 1
