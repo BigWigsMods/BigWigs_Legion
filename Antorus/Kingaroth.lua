@@ -174,7 +174,7 @@ end
 do
 	local function printTarget(self, name, guid)
 		self:PlaySound(254926, "Alert", nil, name)
-		self:TargetMessage2(254926, "yellow", name)
+		self:TargetMessage(254926, "yellow", name)
 		if self:Me(guid) and not self:LFR() then
 			self:Say(254926)
 			self:Flash(254926)

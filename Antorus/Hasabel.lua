@@ -374,7 +374,7 @@ end
 function mod:FelsilkWrap(args)
 	if self:GetOption("custom_on_filter_platforms") and playerPlatform ~= 3 then return end
 	self:PlaySound(args.spellId, "Warning")
-	self:TargetMessage2(args.spellId, "orange", args.destName)
+	self:TargetMessage(args.spellId, "orange", args.destName)
 	self:CDBar(args.spellId, 17)
 	if self:Me(args.destGUID) then
 		self:Say(args.spellId)

@@ -153,7 +153,7 @@ function mod:MarkedPrey(args)
 		self:PlaySound(args.spellId, "Alarm")
 	end
 	self:PrimaryIcon(args.spellId, args.destName)
-	self:TargetMessage2(args.spellId, "red", args.destName)
+	self:TargetMessage(args.spellId, "red", args.destName)
 	self:TargetBar(args.spellId, 5, args.destName)
 	self:CDBar(args.spellId, 32.8)
 end
@@ -193,7 +193,7 @@ do
 		if self:Me(args.destGUID) then
 			isOnMe = true
 			self:PlaySound(args.spellId, "Warning")
-			self:TargetMessage2(args.spellId, "orange", args.destName, CL.count_icon:format(args.spellName, count, icon))
+			self:TargetMessage(args.spellId, "orange", args.destName, CL.count_icon:format(args.spellName, count, icon))
 			self:Say(args.spellId, CL.count_rticon:format(args.spellName, count, icon))
 			self:Flash(args.spellId, icon)
 			self:SayCountdown(args.spellId, 6, icon)

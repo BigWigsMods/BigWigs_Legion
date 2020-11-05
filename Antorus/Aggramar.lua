@@ -409,7 +409,7 @@ do
 		if self:Me(args.destGUID) then
 			blazeOnMe = true
 			self:PlaySound(args.spellId, "Warning")
-			self:TargetMessage2(args.spellId, "red", args.destName)
+			self:TargetMessage(args.spellId, "red", args.destName)
 			self:Say(args.spellId)
 		end
 		if #blazeProxList == 1 then
@@ -433,7 +433,7 @@ end
 do
 	local function printTarget(self, name, guid)
 		self:PlaySound(244693, "Alert", nil, name)
-		self:TargetMessage2(244693, "yellow", name)
+		self:TargetMessage(244693, "yellow", name)
 		if self:Me(guid) then
 			self:Say(244693)
 		end

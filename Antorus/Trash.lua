@@ -369,7 +369,7 @@ do
 			end
 			self:TargetBar(args.spellId, 6, args.destName)
 		elseif self:MobId(args.sourceGUID) == 123533 then -- don't announce those that were spread by players
-			self:TargetMessage2(args.spellId, "red", args.destName)
+			self:TargetMessage(args.spellId, "red", args.destName)
 		end
 	end
 end
@@ -393,7 +393,7 @@ function mod:CloudOfConfusion(args)
 		self:PlaySound(args.spellId, "Alarm")
 	end
 	self:TargetBar(args.spellId, 10, args.destName)
-	self:TargetMessage2(args.spellId, "orange", args.destName)
+	self:TargetMessage(args.spellId, "orange", args.destName)
 end
 
 function mod:CloudOfConfusionRemoved(args)

@@ -379,7 +379,7 @@ function mod:SoulBlightApplied(args)
 		self:SayCountdown(args.spellId, 8)
 		checkForFearHelp(self)
 	end
-	self:TargetMessage2(args.spellId, "orange", args.destName)
+	self:TargetMessage(args.spellId, "orange", args.destName)
 end
 
 function mod:SoulBlightRemoved(args)
@@ -535,7 +535,7 @@ do
 			end
 		else
 			if isOnMe > -1 then -- No bomb on you (0, 3 or 7)
-				mod:TargetMessage2(251570, "orange", bombName, CL.count:format(mod:SpellName(251570), soulBombCounter))
+				mod:TargetMessage(251570, "orange", bombName, CL.count:format(mod:SpellName(251570), soulBombCounter))
 			end
 			if isOnMe < 3 then -- No burst on you (0 or -1)
 				mod:TargetsMessage(250669, "red", mod:ColorName(burstList), #burstList)
@@ -630,7 +630,7 @@ function mod:AvatarofAggramar(args)
 	if self:Me(args.destGUID) then
 		self:PlaySound(args.spellId, "Long")
 	end
-	self:TargetMessage2(args.spellId, "green", args.destName)
+	self:TargetMessage(args.spellId, "green", args.destName)
 	avatarCounter = avatarCounter + 1
 	if stage == 2 then -- Don't trigger if it procs after stage 3 RP has started
 		self:Bar(args.spellId, 60, CL.count:format(args.spellName, avatarCounter))
@@ -915,7 +915,7 @@ end
 function mod:SargerasRage(args)
 	if self:Me(args.destGUID) then
 		self:PlaySound(258068, "Warning")
-		self:TargetMessage2(258068, "blue", args.destName, args.spellName, args.spellId)
+		self:TargetMessage(258068, "blue", args.destName, args.spellName, args.spellId)
 		self:Flash(258068)
 		self:Say(258068, self:SpellName(6612)) -- Rage
 	end
@@ -925,7 +925,7 @@ function mod:SargerasFear(args)
 	if self:Me(args.destGUID) then
 		fearOnMe = true
 		self:PlaySound(258068, "Warning")
-		self:TargetMessage2(258068, "blue", args.destName, args.spellName, args.spellId)
+		self:TargetMessage(258068, "blue", args.destName, args.spellName, args.spellId)
 		checkForFearHelp(self)
 	end
 end
