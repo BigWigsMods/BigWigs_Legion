@@ -287,7 +287,7 @@ do
 	function mod:MarkOfFrostApplied(args)
 		list[#list+1] = args.destName
 		if #list == 1 then
-			self:ScheduleTimer("TargetMessage", 1, args.spellId, list, "orange")
+			self:ScheduleTimer("TargetMessageOld", 1, args.spellId, list, "orange")
 		end
 
 		if self:Me(args.destGUID) then
@@ -388,7 +388,7 @@ do
 	function mod:PreSearingBrandApplied(args)
 		list[#list+1] = args.destName
 		if #list == 1 then
-			self:ScheduleTimer("TargetMessage", 0.3, args.spellId, list, "orange")
+			self:ScheduleTimer("TargetMessageOld", 0.3, args.spellId, list, "orange")
 		end
 
 		if not tContains(searingBrandTargets, args.destName) then

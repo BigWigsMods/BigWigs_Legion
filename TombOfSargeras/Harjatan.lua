@@ -207,7 +207,7 @@ do
 		playerList[#playerList+1] = args.destName
 
 		if #playerList == 1 then
-			self:ScheduleTimer("TargetMessage", 0.3, args.spellId, playerList, "red", "Alarm")
+			self:ScheduleTimer("TargetMessageOld", 0.3, args.spellId, playerList, "red", "Alarm")
 		end
 	end
 end

@@ -198,7 +198,7 @@ do
 	function mod:Sterilize(args)
 		list[#list+1] = args.destName
 		if #list == 1 then
-			self:ScheduleTimer("TargetMessage", 0.1, args.spellId, list, "red", "Warning")
+			self:ScheduleTimer("TargetMessageOld", 0.1, args.spellId, list, "red", "Warning")
 		end
 
 		if self:Me(args.destGUID) then

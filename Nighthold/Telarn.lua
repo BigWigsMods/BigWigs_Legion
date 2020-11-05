@@ -196,7 +196,7 @@ do
 
 		playerList[#playerList+1] = args.destName
 		if #playerList == 1 then
-			self:ScheduleTimer("TargetMessage", 0.1, args.spellId, playerList, "red", "Alert")
+			self:ScheduleTimer("TargetMessageOld", 0.1, args.spellId, playerList, "red", "Alert")
 			self:Bar(args.spellId, (self:Mythic() and (phase == 2 and 55 or phase == 3 and 35 or 65)) or self:Easy() and 71.5 or 50)
 		end
 

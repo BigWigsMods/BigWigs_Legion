@@ -152,7 +152,7 @@ do
 					if #list == 2 then
 						self:TargetMessageOld(spellId, list, "orange", "Warning")
 					else
-						scheduled = self:ScheduleTimer("TargetMessage", 0.5, spellId, list, "orange", "Warning")
+						scheduled = self:ScheduleTimer("TargetMessageOld", 0.5, spellId, list, "orange", "Warning")
 					end
 				end
 			end

@@ -163,7 +163,7 @@ do
 	function mod:CarrionPlague(args)
 		list[#list+1] = args.destName
 		if #list == 1 then
-			self:ScheduleTimer("TargetMessage", 0.1, args.spellId, list, "yellow", "Warning")
+			self:ScheduleTimer("TargetMessageOld", 0.1, args.spellId, list, "yellow", "Warning")
 		end
 
 		if self:Me(args.destGUID) then
@@ -194,7 +194,7 @@ do
 	function mod:BrandOfArgus(args)
 		list[#list+1] = args.destName
 		if #list == 1 then
-			self:ScheduleTimer("TargetMessage", 0.1, args.spellId, list, "green", "Alarm", CL.count:format(args.spellName, brandOfArgusCount-1))
+			self:ScheduleTimer("TargetMessageOld", 0.1, args.spellId, list, "green", "Alarm", CL.count:format(args.spellName, brandOfArgusCount-1))
 		end
 
 		if self:Me(args.destGUID) then
@@ -329,7 +329,7 @@ do
 			elseif not args.amount then -- 1 stack
 				list[#list+1] = args.destName
 				if #list == 1 then
-					self:ScheduleTimer("TargetMessage", 0.5, args.spellId, list, "orange", "Alarm")
+					self:ScheduleTimer("TargetMessageOld", 0.5, args.spellId, list, "orange", "Alarm")
 				end
 			end
 		end

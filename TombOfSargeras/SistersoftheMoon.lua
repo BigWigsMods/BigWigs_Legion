@@ -312,7 +312,7 @@ do
 	function mod:MoonBurnApplied(args)
 		playerList[#playerList+1] = args.destName
 		if #playerList == 1 then
-			self:ScheduleTimer("TargetMessage", 0.3, args.spellId, playerList, "yellow", "Alert")
+			self:ScheduleTimer("TargetMessageOld", 0.3, args.spellId, playerList, "yellow", "Alert")
 		end
 	end
 end

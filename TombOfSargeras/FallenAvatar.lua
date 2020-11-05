@@ -491,7 +491,7 @@ do
 		end
 
 		if count == 1 then
-			self:ScheduleTimer("TargetMessage", 0.3, args.spellId, list, "yellow", "Alarm")
+			self:ScheduleTimer("TargetMessageOld", 0.3, args.spellId, list, "yellow", "Alarm")
 			darkMarkCounter = darkMarkCounter + 1
 			self:Bar(args.spellId, self:Mythic() and (darkMarkCounter == 2 and 25.5 or 30.5) or 34, CL.count:format(args.spellName, darkMarkCounter))
 			self:OpenInfo(args.spellId, args.spellName)

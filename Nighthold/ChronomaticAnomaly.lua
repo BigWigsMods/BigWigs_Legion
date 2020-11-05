@@ -419,7 +419,7 @@ do
 		list[#list+1] = args.destName
 		infoBoxList[#infoBoxList+1] = {args.destName, args.amount}
 		if #list == 1 then
-			self:ScheduleTimer("TargetMessage", 0.1, args.spellId, list, "orange")
+			self:ScheduleTimer("TargetMessageOld", 0.1, args.spellId, list, "orange")
 		end
 
 		if #infoBoxList == 1 and self:CheckOption(args.spellId, "INFOBOX") then
@@ -473,7 +473,7 @@ do
 	function mod:TimeBomb(args)
 		list[#list+1] = args.destName
 		if #list == 1 then
-			self:ScheduleTimer("TargetMessage", 0.2, args.spellId, list, "red", "Alert")
+			self:ScheduleTimer("TargetMessageOld", 0.2, args.spellId, list, "red", "Alert")
 
 			bombCount = bombCount + 1
 			local bombTime = currentTimers and currentTimers[args.spellId][bombCount]

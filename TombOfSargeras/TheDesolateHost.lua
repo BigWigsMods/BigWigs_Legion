@@ -457,7 +457,7 @@ do
 	function mod:ShatteringScream(args)
 		list[#list+1] = args.destName
 		if #list == 1 then
-			self:ScheduleTimer("TargetMessage", 0.5, args.spellId, list, "yellow", "Warning")
+			self:ScheduleTimer("TargetMessageOld", 0.5, args.spellId, list, "yellow", "Warning")
 		end
 	end
 end

@@ -129,7 +129,7 @@ do
 	function mod:BurningBomb(args)
 		list[#list+1] = args.destName
 		if #list == 1 then
-			self:ScheduleTimer("TargetMessage", 0.3, args.spellId, list, "yellow", "Alert", nil, nil, self:Dispeller("magic"))
+			self:ScheduleTimer("TargetMessageOld", 0.3, args.spellId, list, "yellow", "Alert", nil, nil, self:Dispeller("magic"))
 		end
 		if self:Me(args.destGUID) then
 			self:OpenProximity(args.spellId, 10)

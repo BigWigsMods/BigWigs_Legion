@@ -337,7 +337,7 @@ do
 				self:RegisterTargetEvents("MarkShadowWrap")
 				self:ScheduleTimer("UnregisterTargetEvents", 10)
 			end
-			self:ScheduleTimer("TargetMessage", 0.3, args.spellId, list, "yellow", "Warning", nil, nil, true)
+			self:ScheduleTimer("TargetMessageOld", 0.3, args.spellId, list, "yellow", "Warning", nil, nil, true)
 		end
 		if self:Me(args.destGUID) then
 			self:Say(args.spellId)
@@ -422,7 +422,7 @@ end
 function mod:ArcanicRelease(args)
 	list[#list+1] = args.destName
 	if #list == 1 then
-		self:ScheduleTimer("TargetMessage", 1, args.spellId, list, "yellow", "Alert", nil, nil, true)
+		self:ScheduleTimer("TargetMessageOld", 1, args.spellId, list, "yellow", "Alert", nil, nil, true)
 	end
 	self:TargetBar(args.spellId, 6, args.destName)
 	if self:Me(args.destGUID) then

@@ -283,7 +283,7 @@ do
 
 		if #bladeList == 1 then
 			self:CDBar(args.spellId, phase == 1 and 15.5 or 31)
-			timer = self:ScheduleTimer("TargetMessage", 0.5, args.spellId, bladeList, "red", "Alert")
+			timer = self:ScheduleTimer("TargetMessageOld", 0.5, args.spellId, bladeList, "red", "Alert")
 		else
 			self:CancelTimer(timer)
 			timer = nil
@@ -333,7 +333,7 @@ do
 		bondList[#bondList+1] = args.destName
 		if #bondList == 1 then
 			self:CDBar(209034, 14.5)
-			timer = self:ScheduleTimer("TargetMessage", 0.3, 209034, bondList, "red", "Alert")
+			timer = self:ScheduleTimer("TargetMessageOld", 0.3, 209034, bondList, "red", "Alert")
 		else -- applied on both
 			if isOnMe and otherPlayer then
 				self:Message(209034, "blue", "Warning", L.linked:format(self:ColorName(otherPlayer)))

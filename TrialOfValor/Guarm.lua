@@ -135,7 +135,7 @@ do
 		end
 		list[#list+1] = args.destName
 		if #list == 1 then
-			self:ScheduleTimer("TargetMessage", 0.4, args.spellId, list, "orange", "Alarm", nil, nil, self:Dispeller("magic"))
+			self:ScheduleTimer("TargetMessageOld", 0.4, args.spellId, list, "orange", "Alarm", nil, nil, self:Dispeller("magic"))
 		end
 	end
 end
@@ -149,7 +149,7 @@ do
 		end
 		list[#list+1] = args.destName
 		if #list == 1 then
-			self:ScheduleTimer("TargetMessage", 0.4, args.spellId, list, "orange", "Alarm")
+			self:ScheduleTimer("TargetMessageOld", 0.4, args.spellId, list, "orange", "Alarm")
 		end
 	end
 end
@@ -163,7 +163,7 @@ do
 		end
 		list[#list+1] = args.destName
 		if #list == 1 then
-			self:ScheduleTimer("TargetMessage", 0.4, args.spellId, list, "orange", "Alarm")
+			self:ScheduleTimer("TargetMessageOld", 0.4, args.spellId, list, "orange", "Alarm")
 		end
 	end
 end

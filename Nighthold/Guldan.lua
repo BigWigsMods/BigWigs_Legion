@@ -427,7 +427,7 @@ do
 	function mod:ScatteringField(args)
 		list[#list+1] = args.destName
 		if #list == 1 then
-			self:ScheduleTimer("TargetMessage", 0.5, args.spellId, list, "green", "Info", nil, nil, true)
+			self:ScheduleTimer("TargetMessageOld", 0.5, args.spellId, list, "green", "Info", nil, nil, true)
 		end
 		if self:Me(args.sourceGUID) then
 			self:Say(args.spellId)
@@ -618,7 +618,7 @@ do
 	function mod:BondsOfFel(args)
 		list[#list+1] = args.destName
 		if #list == 1 then
-			scheduled = self:ScheduleTimer("TargetMessage", 1, 209011, list, "red", "Warning", CL.count:format(self:SpellName(209011), bondsCount-1), nil, true) -- Have the bonds number in the list warning also
+			scheduled = self:ScheduleTimer("TargetMessageOld", 1, 209011, list, "red", "Warning", CL.count:format(self:SpellName(209011), bondsCount-1), nil, true) -- Have the bonds number in the list warning also
 		end
 		if self:Me(args.destGUID) then
 			self:Say(209011, CL.count:format(args.spellName, #list))
@@ -748,7 +748,7 @@ do
 	function mod:SoulSiphon(args)
 		list[#list+1] = args.destName
 		if #list == 1 then
-			self:ScheduleTimer("TargetMessage", 1, args.spellId, list, "red")
+			self:ScheduleTimer("TargetMessageOld", 1, args.spellId, list, "red")
 		end
 	end
 end
@@ -854,7 +854,7 @@ do
 		playerList[#playerList+1] = args.destName
 
 		if #playerList == 1 then
-			self:ScheduleTimer("TargetMessage", 0.1, args.spellId, playerList, "orange", "Alarm", nil, nil, true)
+			self:ScheduleTimer("TargetMessageOld", 0.1, args.spellId, playerList, "orange", "Alarm", nil, nil, true)
 		end
 	end
 end
@@ -898,7 +898,7 @@ do
 		if #playerList == 0 then -- First fixate
 			first = args.destName
 			playerList[#playerList+1] = args.destName
-			self:ScheduleTimer("TargetMessage", 0.1, args.spellId, playerList, "red", "Info")
+			self:ScheduleTimer("TargetMessageOld", 0.1, args.spellId, playerList, "red", "Info")
 		end
 		if args.destName ~= first and #playerList < 2 then -- Second Fixate
 			playerList[#playerList+1] = args.destName

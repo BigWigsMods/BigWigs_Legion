@@ -398,7 +398,7 @@ do
 			elseif self:Mythic() and stage == 1 then
 				self:Bar(args.spellId, 109, INLINE_DAMAGER_ICON.." "..L.reflectionErupting)
 			end
-			self:ScheduleTimer("TargetMessage", 0.3, args.spellId, playerList, "orange", "Alert", L.reflectionErupting)
+			self:ScheduleTimer("TargetMessageOld", 0.3, args.spellId, playerList, "orange", "Alert", L.reflectionErupting)
 		end
 
 		if self:GetOption(eruptingMarker) then
@@ -474,7 +474,7 @@ do
 		end
 		playerList[#playerList+1] = args.destName
 		if #playerList == 1 then
-			self:ScheduleTimer("TargetMessage", 0.3, args.spellId, playerList, "red", "Warning")
+			self:ScheduleTimer("TargetMessageOld", 0.3, args.spellId, playerList, "red", "Warning")
 			burstingDreadflameCount = burstingDreadflameCount + 1
 			self:Bar(args.spellId, timers[args.spellId][stage][stage == 3 and (burstingDreadflameCount % 2 == 0 and 2 or 3) or burstingDreadflameCount])
 		end
@@ -834,7 +834,7 @@ do
 		if #playerList == 1 then
 			self:Bar(args.spellId, 196.0, INLINE_HEALER_ICON.." "..L.reflectionHopeless)
 			self:Bar(args.spellId, 8, INLINE_HEALER_ICON.." "..CL.adds)
-			self:ScheduleTimer("TargetMessage", 0.3, args.spellId, playerList, "orange", "Alert", L.reflectionHopeless)
+			self:ScheduleTimer("TargetMessageOld", 0.3, args.spellId, playerList, "orange", "Alert", L.reflectionHopeless)
 		end
 	end
 	function mod:ShadowReflectionHopelessRemoved(args)

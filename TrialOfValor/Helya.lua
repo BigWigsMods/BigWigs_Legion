@@ -380,7 +380,7 @@ do
 		list[#list+1] = args.destName
 		if #list == 1 then
 			taintMarkerCount = 4
-			timer = self:ScheduleTimer("TargetMessage", 0.4, args.spellId, list, "yellow", "Alert", CL.count:format(args.spellName, taintCount), nil, self:Dispeller("magic"))
+			timer = self:ScheduleTimer("TargetMessageOld", 0.4, args.spellId, list, "yellow", "Alert", CL.count:format(args.spellName, taintCount), nil, self:Dispeller("magic"))
 			taintCount = taintCount + 1
 			self:CDBar(args.spellId, phase == 1 and (self:LFR() and 17 or 12.1) or (self:Mythic() and 20 or 28), CL.count:format(args.spellName, taintCount))
 		elseif #list == 5 or (#list == 3 and not self:Mythic()) then

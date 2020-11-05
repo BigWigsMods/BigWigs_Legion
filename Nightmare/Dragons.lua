@@ -269,7 +269,7 @@ do
 	function mod:VolatileInfection(args)
 		list[#list+1] = args.destName
 		if #list == 1 then
-			self:ScheduleTimer("TargetMessage", 0.1, args.spellId, list, "yellow", "Alert", nil, nil, self:Dispeller("magic"))
+			self:ScheduleTimer("TargetMessageOld", 0.1, args.spellId, list, "yellow", "Alert", nil, nil, self:Dispeller("magic"))
 			self:Bar(args.spellId, 45)
 		end
 

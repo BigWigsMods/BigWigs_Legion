@@ -53,7 +53,7 @@ do
 			self:Flash(args.spellId)
 		end
 		if #playerList == 1 then
-			self:ScheduleTimer("TargetMessage", 0.3, args.spellId, playerList, "yellow", "Alert")
+			self:ScheduleTimer("TargetMessageOld", 0.3, args.spellId, playerList, "yellow", "Alert")
 		end
 	end
 end

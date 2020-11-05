@@ -120,7 +120,7 @@ do
 
 		playerList[#playerList+1] = args.destName
 		if #playerList == 1 then
-			self:ScheduleTimer("TargetMessage", 0.1, args.spellId, playerList, "red", "Warning")
+			self:ScheduleTimer("TargetMessageOld", 0.1, args.spellId, playerList, "red", "Warning")
 			rotCount = rotCount + 1
 
 			if self:BarTimeLeft(203552) > 15.9 then -- Heart of the Swarm

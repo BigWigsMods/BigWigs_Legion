@@ -209,7 +209,7 @@ do
 		if count == 1 then
 			self:StopBar(CL.count:format(self:SpellName(230139), hydraShotCounter)) -- Stop previous one if early
 			self:CastBar(args.spellId, 6, CL.count:format(args.spellName, hydraShotCounter))
-			self:ScheduleTimer("TargetMessage", 0.3, args.spellId, list, "red", "Warning", nil, nil, true)
+			self:ScheduleTimer("TargetMessageOld", 0.3, args.spellId, list, "red", "Warning", nil, nil, true)
 			hydraShotCounter = hydraShotCounter + 1
 			-- Normal stage 3 seems to swing between 41-43 or 51-53
 			self:CDBar(args.spellId, self:Mythic() and 30.5 or stage == 2 and 30 or (self:Normal() and stage == 3 and 41.3) or 40, CL.count:format(args.spellName, hydraShotCounter))
@@ -278,7 +278,7 @@ do
 	function mod:ConsumingHungerApplied(args)
 		list[#list+1] = args.destName
 		if #list == 1 then
-			self:ScheduleTimer("TargetMessage", 0.3, 230384, list, "yellow", "Alert", nil, nil, true)
+			self:ScheduleTimer("TargetMessageOld", 0.3, 230384, list, "yellow", "Alert", nil, nil, true)
 		end
 	end
 end

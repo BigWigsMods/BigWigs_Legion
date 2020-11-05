@@ -77,7 +77,7 @@ do
 			self:SayCountdown(args.spellId, 4)
 		end
 		if #playerList == 1 then
-			self:ScheduleTimer("TargetMessage", 0.3, args.spellId, playerList, "orange", "Warning", nil, nil, true)
+			self:ScheduleTimer("TargetMessageOld", 0.3, args.spellId, playerList, "orange", "Warning", nil, nil, true)
 		end
 	end
 
