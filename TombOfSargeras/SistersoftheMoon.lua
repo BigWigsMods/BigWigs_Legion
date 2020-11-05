@@ -175,7 +175,7 @@ end
 
 function mod:TwilightGlaiveApplied(args)
 	twilightGlaiveCounter = twilightGlaiveCounter + 1
-	self:TargetMessage(236541, args.destName, "yellow")
+	self:TargetMessageOld(236541, args.destName, "yellow")
 	if self:Me(args.destGUID) then
 		self:PlaySound(236541, "Warning")
 		self:Say(236541)
@@ -202,7 +202,7 @@ function mod:MoonGlaive(args)
 end
 
 function mod:Discorporate(args)
-	self:TargetMessage(args.spellId, args.destName, "orange", "Alarm", nil, nil, self:Tank())
+	self:TargetMessageOld(args.spellId, args.destName, "orange", "Alarm", nil, nil, self:Tank())
 end
 
 function mod:GlaiveStorm(args)
@@ -212,7 +212,7 @@ function mod:GlaiveStorm(args)
 end
 
 function mod:IncorporealShotApplied(args)
-	self:TargetMessage(args.spellId, args.destName, "orange", "Warning", nil, nil, true)
+	self:TargetMessageOld(args.spellId, args.destName, "orange", "Warning", nil, nil, true)
 	self:TargetBar(args.spellId, 6, args.destName)
 	if self:Me(args.destGUID) then
 		self:Say(args.spellId)
@@ -233,7 +233,7 @@ end
 
 do
 	local function printTarget(self, name, guid)
-		self:TargetMessage(236442, name, "yellow", "Alert", nil, nil, true)
+		self:TargetMessageOld(236442, name, "yellow", "Alert", nil, nil, true)
 		if self:Me(guid) then
 			self:Say(236442)
 		end
@@ -280,7 +280,7 @@ function mod:DeadlyScreech(args)
 end
 
 function mod:RapidShotApplied(args)
-	self:TargetMessage(236603, args.destName, "yellow", "Warning")
+	self:TargetMessageOld(236603, args.destName, "yellow", "Warning")
 	rapidShotCounter = rapidShotCounter + 1
 	self:Bar(236603, rapidShotCounter % 2 == 0 and 18.5 or 30.5)
 end
@@ -323,7 +323,7 @@ do
 	local function printTarget(self, name, guid)
 		if not self:Tank(name) then -- sometimes takes really long, so we might return early
 			targetFound = true
-			self:TargetMessage(236712, name, "yellow", "Alert")
+			self:TargetMessageOld(236712, name, "yellow", "Alert")
 			if self:Me(guid) then
 				self:Say(236712)
 			end

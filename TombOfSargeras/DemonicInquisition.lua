@@ -239,7 +239,7 @@ do
 
 	function mod:BelacsPrisoner(args)
 		if self:Me(args.destGUID)then
-			self:TargetMessage(args.spellId, args.destName, "blue", "Alert")
+			self:TargetMessageOld(args.spellId, args.destName, "blue", "Alert")
 		end
 
 		-- Add person to InfoBox
@@ -273,7 +273,7 @@ end
 
 do
 	local function printTarget(self, name, guid)
-		self:TargetMessage(233431, name, "orange", "Alert", nil, nil, true)
+		self:TargetMessageOld(233431, name, "orange", "Alert", nil, nil, true)
 		if self:Me(guid) then
 			self:Say(233431)
 		end

@@ -113,7 +113,7 @@ function mod:BurningArmorSuccess(args)
 end
 
 function mod:BurningArmor(args)
-	self:TargetMessage(args.spellId, args.destName, "yellow", not self:UnitDebuff("player", self:SpellName(234264), 234264) and "Warning" or "Alarm", nil, nil, true)
+	self:TargetMessageOld(args.spellId, args.destName, "yellow", not self:UnitDebuff("player", self:SpellName(234264), 234264) and "Warning" or "Alarm", nil, nil, true)
 	if self:Me(args.destGUID) then
 		self:Say(args.spellId)
 	end
@@ -126,7 +126,7 @@ function mod:MeltedArmorRemoved(args)
 end
 
 function mod:ShatteringStarDebuff(args)
-	self:TargetMessage(233279, args.destName, "yellow", "Alarm", CL.count:format(args.spellName, shatteringCounter))
+	self:TargetMessageOld(233279, args.destName, "yellow", "Alarm", CL.count:format(args.spellName, shatteringCounter))
 	self:CastBar(233279, 6, CL.count:format(args.spellName, shatteringCounter)) -- <cast: Shattering Star>
 	shatteringCounter = shatteringCounter + 1
 	local t = (self:Mythic() and shatteringTimersMythic[shatteringCounter] or shatteringTimers[shatteringCounter]) or (self:Mythic() and 29 or (shatteringCounter % 2 == 0 and 19 or 41))

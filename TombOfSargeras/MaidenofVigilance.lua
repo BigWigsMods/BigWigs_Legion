@@ -168,7 +168,7 @@ do
 			local t = GetTime()
 			if t-prev > 1.5 then
 				prev = t
-				self:TargetMessage(235117, args.destName, "blue", "Alarm")
+				self:TargetMessageOld(235117, args.destName, "blue", "Alarm")
 			end
 			-- Duration can be longer if the debuff gets refreshed
 			local _, _, _, expires = self:UnitDebuff(args.destName, args.spellId)

@@ -63,6 +63,6 @@ end
 
 function mod:SearApplied(args)
 	if self:Tank() and (self:Me(args.destGUID) or self:Tank(args.destName)) then
-		self:TargetMessage(args.spellId, args.destName, "green", "Alarm", nil, nil, true)
+		self:TargetMessageOld(args.spellId, args.destName, "green", "Alarm", nil, nil, true)
 	end
 end

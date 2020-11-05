@@ -418,7 +418,7 @@ end
 --[[ Essence of Aman'Thul ]]--
 function mod:TimeDilation(args)
 	if self:Me(args.destGUID) then
-		self:TargetMessage(args.spellId, args.destName, "blue")
+		self:TargetMessageOld(args.spellId, args.destName, "blue")
 	end
 end
 
@@ -436,7 +436,7 @@ do
 end
 
 function mod:ResonantBarrier(args)
-	self:TargetMessage(args.spellId, args.destName, "green")
+	self:TargetMessageOld(args.spellId, args.destName, "green")
 	self:TargetBar(args.spellId, 6, args.destName)
 end
 
@@ -550,7 +550,7 @@ end
 
 function mod:Drain(args)
 	if self:Dispeller("magic") or self:Me(args.destGUID) then
-		self:TargetMessage(args.spellId, args.destName, "orange", "Alarm")
+		self:TargetMessageOld(args.spellId, args.destName, "orange", "Alarm")
 	end
 end
 
@@ -626,7 +626,7 @@ do
 		end
 		if #list == expectedBonds then
 			self:CancelTimer(scheduled)
-			self:TargetMessage(209011, list, "red", "Warning", CL.count:format(self:SpellName(209011), bondsCount-1), nil, true) -- Have the bonds number in the list warning also
+			self:TargetMessageOld(209011, list, "red", "Warning", CL.count:format(self:SpellName(209011), bondsCount-1), nil, true) -- Have the bonds number in the list warning also
 		end
 	end
 end
@@ -791,12 +791,12 @@ do
 	local prev = 0
 	function mod:FlamesOfSargerasSoon(args)
 		if self:Me(args.destGUID) then
-			self:TargetMessage(args.spellId, args.destName, "blue", "Warning")
+			self:TargetMessageOld(args.spellId, args.destName, "blue", "Warning")
 			self:Say(args.spellId)
 			self:Flash(args.spellId)
 			self:TargetBar(args.spellId, 6, args.destName)
 		elseif self:Tank(args.destName) and self:Tank() then -- Tank taunt mechanic in P3
-			self:TargetMessage(args.spellId, args.destName, "blue", "Warning")
+			self:TargetMessageOld(args.spellId, args.destName, "blue", "Warning")
 		end
 		local t = GetTime()
 		if t-prev > 5 then
@@ -914,7 +914,7 @@ end
 
 function mod:ShearedSoul(args)
 	if self:Me(args.destGUID) then
-		self:TargetMessage(220957, args.destName, "blue", "Alert")
+		self:TargetMessageOld(220957, args.destName, "blue", "Alert")
 	end
 end
 

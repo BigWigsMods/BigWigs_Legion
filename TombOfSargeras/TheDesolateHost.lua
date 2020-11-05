@@ -290,7 +290,7 @@ function mod:Quietus(args)
 end
 
 function mod:SpearofAnguish(args)
-	self:TargetMessage(args.spellId, args.destName, "orange", "Alarm", CL.count:format(args.spellName, spearCount), nil, true)
+	self:TargetMessageOld(args.spellId, args.destName, "orange", "Alarm", CL.count:format(args.spellName, spearCount), nil, true)
 	if self:Me(args.destGUID) then
 		self:Say(args.spellId)
 		self:SayCountdown(args.spellId, 6)
@@ -321,7 +321,7 @@ function mod:TormentedCries(args)
 end
 
 function mod:TormentedCriesApplied(args)
-	self:TargetMessage(238570, args.destName, "orange", "Alarm")
+	self:TargetMessageOld(238570, args.destName, "orange", "Alarm")
 	if self:Me(args.destGUID) then
 		self:Say(238570, L.tormentingCriesSay)
 		self:SayCountdown(238570, 4)
@@ -395,7 +395,7 @@ end
 
 function mod:Wither(args)
 	if self:Me(args.destGUID) then
-		self:TargetMessage(236131, args.destName, "blue", "Alarm")
+		self:TargetMessageOld(236131, args.destName, "blue", "Alarm")
 	end
 end
 
@@ -464,7 +464,7 @@ end
 
 function mod:SpiritChains(args)
 	if self:Me(args.destGUID) then
-		self:TargetMessage(args.spellId, args.destName, "blue", "Alert")
+		self:TargetMessageOld(args.spellId, args.destName, "blue", "Alert")
 	end
 end
 

@@ -45,7 +45,7 @@ end
 
 do
 	local function printTarget(self, player)
-		self:TargetMessage(219803, player, "green")
+		self:TargetMessageOld(219803, player, "green")
 	end
 	function mod:IceHurl(args)
 		self:GetUnitTarget(printTarget, 0.3, args.sourceGUID)
@@ -68,7 +68,7 @@ end
 
 function mod:SnowPlowApplied(args)
 	if self:MobId(args.destGUID) ~= 110378 then -- Skip the boss
-		self:TargetMessage(args.spellId, args.destName, "green", "Alarm")
+		self:TargetMessageOld(args.spellId, args.destName, "green", "Alarm")
 		self:PrimaryIcon(args.spellId, args.destName)
 		if self:Me(args.destGUID) then
 			self:Say(args.spellId)

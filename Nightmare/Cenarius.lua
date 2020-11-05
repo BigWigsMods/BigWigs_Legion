@@ -333,7 +333,7 @@ do
 end
 
 function mod:DreadThorns(args)
-	self:TargetMessage(args.spellId, args.destName, "orange", "Alarm")
+	self:TargetMessageOld(args.spellId, args.destName, "orange", "Alarm")
 	self:Bar(args.spellId, 45, CL.on:format(args.spellName, args.destName))
 end
 
@@ -345,7 +345,7 @@ function mod:DreadThornsRemoved(args)
 end
 
 function mod:EntanglingNightmares(args)
-	self:TargetMessage(args.spellId, args.destName, "orange", "Alarm")
+	self:TargetMessageOld(args.spellId, args.destName, "orange", "Alarm")
 	self:CDBar(args.spellId, 51)
 end
 
@@ -428,7 +428,7 @@ function mod:BreathTarget(event, unit) -- They love to drop their target after c
 	if self:Me(guid) then
 		self:Say(211192)
 	end
-	self:TargetMessage(211192, self:UnitName(target), "yellow", "Alert", nil, nil, true)
+	self:TargetMessageOld(211192, self:UnitName(target), "yellow", "Alert", nil, nil, true)
 end
 
 --[[ Twisted Sister ]]--
@@ -439,7 +439,7 @@ function mod:TwistedTouchOfLife(args)
 end
 
 function mod:TwistedTouchOfLifeApplied(args)
-	self:TargetMessage(args.spellId, args.destName, "orange", "Alarm", nil, nil, self:Dispeller("magic", true, args.spellId))
+	self:TargetMessageOld(args.spellId, args.destName, "orange", "Alarm", nil, nil, self:Dispeller("magic", true, args.spellId))
 end
 
 do
@@ -455,7 +455,7 @@ do
 
 	function mod:ScornedTouch(args)
 		if self:Me(args.destGUID) then
-			self:TargetMessage(args.spellId, args.destName, "blue", "Alert")
+			self:TargetMessageOld(args.spellId, args.destName, "blue", "Alert")
 			isOnMe = true
 			self:Flash(args.spellId)
 			self:Say(args.spellId)
@@ -499,7 +499,7 @@ end
 
 function mod:UnboundTouch(args)
 	if self:Me(args.destGUID) then
-		self:TargetMessage(args.spellId, args.destName, "blue", "Alert")
+		self:TargetMessageOld(args.spellId, args.destName, "blue", "Alert")
 		self:Say(args.spellId)
 	end
 end

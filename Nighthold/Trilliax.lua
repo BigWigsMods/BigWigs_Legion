@@ -260,7 +260,7 @@ end
 
 function mod:SucculentFeastApplied(args)
 	if self:Me(args.destGUID) then
-		self:TargetMessage(207502, args.destName, "blue", "Info")
+		self:TargetMessageOld(207502, args.destName, "blue", "Info")
 	end
 end
 

@@ -58,7 +58,7 @@ end
 
 function mod:HeartBreakerApplied(args)
 	if self:Me(args.destGUID) then
-		self:TargetMessage(args.spellId, args.destName, "blue", "Info")
+		self:TargetMessageOld(args.spellId, args.destName, "blue", "Info")
 	end
 end
 

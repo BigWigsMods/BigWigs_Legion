@@ -188,7 +188,7 @@ do
 end
 
 function mod:OrbOfDescructionApplied(args)
-	self:TargetMessage(args.spellId, args.destName, "orange", "Warning", CL.count:format(args.spellName, orbCount), nil, self:Ranged())
+	self:TargetMessageOld(args.spellId, args.destName, "orange", "Warning", CL.count:format(args.spellName, orbCount), nil, self:Ranged())
 	self:TargetBar(args.spellId, 5, args.destName, 230932, args.spellId) -- Orb
 	if self:Me(args.destGUID) then
 		self:Flash(args.spellId)

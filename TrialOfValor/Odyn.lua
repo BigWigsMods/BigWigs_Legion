@@ -296,7 +296,7 @@ do
 			self:SayCountdown(228162, t)
 		end
 		self:PrimaryIcon(228162, player)
-		self:TargetMessage(228162, player, "red", "Alarm", nil, nil, true)
+		self:TargetMessageOld(228162, player, "red", "Alarm", nil, nil, true)
 		self:TargetBar(228162, t, player)
 	end
 
@@ -341,7 +341,7 @@ end
 
 function mod:StormOfJustice(args)
 	if self:Me(args.destGUID) then
-		self:TargetMessage(args.spellId, args.destName, "blue", "Alarm")
+		self:TargetMessageOld(args.spellId, args.destName, "blue", "Alarm")
 		self:TargetBar(args.spellId, 5, args.destName)
 		self:Say(args.spellId)
 		self:Flash(args.spellId)
@@ -371,7 +371,7 @@ function mod:OdynsTest(args)
 end
 
 function mod:StormforgedSpear(args)
-	self:TargetMessage(args.spellId, args.destName, "red", "Alarm")
+	self:TargetMessageOld(args.spellId, args.destName, "red", "Alarm")
 	self:TargetBar(args.spellId, 6, args.destName)
 	self:Bar(args.spellId, spearCount % 3 == 0 and 13.5 or 11)
 	self:PrimaryIcon(args.spellId, args.destName)
@@ -400,7 +400,7 @@ end
 
 do
 	function mod:ExpelLightApplied(args)
-		self:TargetMessage(args.spellId, args.destName, "red", "Alarm")
+		self:TargetMessageOld(args.spellId, args.destName, "red", "Alarm")
 		self:PrimaryIcon(args.spellId, args.destName)
 		if self:Me(args.destGUID) then
 			self:Say(args.spellId)
@@ -421,7 +421,7 @@ function mod:Revivify(args)
 		castingHorn = false
 		self:CloseProximity(228012) -- Horn of Valor
 	end
-	self:TargetMessage(args.spellId, args.sourceName, "green", "Long")
+	self:TargetMessageOld(args.spellId, args.sourceName, "green", "Long")
 	local text = CL.other:format(args.sourceName, args.spellName)
 	revivifyBarTexts[#revivifyBarTexts+1] = text
 	self:Bar(args.spellId, self:Easy() and 15 or 10, text)

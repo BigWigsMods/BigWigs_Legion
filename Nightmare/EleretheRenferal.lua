@@ -150,7 +150,7 @@ do
 						scheduled = nil
 					end
 					if #list == 2 then
-						self:TargetMessage(spellId, list, "orange", "Warning")
+						self:TargetMessageOld(spellId, list, "orange", "Warning")
 					else
 						scheduled = self:ScheduleTimer("TargetMessage", 0.5, spellId, list, "orange", "Warning")
 					end

@@ -332,7 +332,7 @@ end
 
 function mod:UnboundChaos(args)
 	if self:Me(args.destGUID) then
-		self:TargetMessage(args.spellId, args.destName, "orange", "Alarm")
+		self:TargetMessageOld(args.spellId, args.destName, "orange", "Alarm")
 	end
 end
 

@@ -53,7 +53,7 @@ function mod:CryOfTheTormented(args)
 end
 
 function mod:DreadFlame(args)
-	self:TargetMessage(args.spellId, args.destName, "yellow", "Alarm")
+	self:TargetMessageOld(args.spellId, args.destName, "yellow", "Alarm")
 	self:CDBar(args.spellId, 16)
 end
 

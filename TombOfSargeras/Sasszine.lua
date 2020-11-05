@@ -236,7 +236,7 @@ end
 function mod:BurdenofPain(args)
 	burdenCounter = burdenCounter + 1
 	-- Tanks: Burden of Pain
-	self:TargetMessage(args.spellId, args.destName, "orange", "Alarm", nil, nil, true)
+	self:TargetMessageOld(args.spellId, args.destName, "orange", "Alarm", nil, nil, true)
 	self:Bar(args.spellId, 25.5, CL.count:format(args.spellName, burdenCounter)) -- Timer until cast_start
 	if not self:Tank() or self:GetOption(args.spellId) == 0 then -- Non-Tanks: From the Abyss
 		self:Message(230227, "orange", "Alarm", CL.count:format(self:SpellName(230227), burdenCounter-1))
@@ -309,7 +309,7 @@ end
 
 function mod:DeliciousBufferfish(args)
 	if self:Me(args.destGUID) then
-		self:TargetMessage(239362, args.destName, "blue", "Alert")
+		self:TargetMessageOld(239362, args.destName, "blue", "Alert")
 	end
 end
 

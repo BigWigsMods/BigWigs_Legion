@@ -81,7 +81,7 @@ end
 
 function mod:ReapApplied(args)
 	if self:Me(args.destGUID) then
-		self:TargetMessage(args.spellId, args.destName, "blue", "Alarm")
+		self:TargetMessageOld(args.spellId, args.destName, "blue", "Alarm")
 	end
 end
 
@@ -103,6 +103,6 @@ end
 
 function mod:DeathFieldApplied(args)
 	if self:Me(args.destGUID) then
-		self:TargetMessage(args.spellId, args.destName, "blue", "Alarm")
+		self:TargetMessageOld(args.spellId, args.destName, "blue", "Alarm")
 	end
 end

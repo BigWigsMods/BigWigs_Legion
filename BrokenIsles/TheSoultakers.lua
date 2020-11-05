@@ -47,7 +47,7 @@ end
 function mod:ExpelSoul(args)
 	if self:Me(args.destGUID) then
 		self:Say(args.spellId)
-		self:TargetMessage(args.spellId, args.destName, "blue", "Alarm")
+		self:TargetMessageOld(args.spellId, args.destName, "blue", "Alarm")
 	end
 end
 
@@ -69,7 +69,7 @@ do
 		if self:Me(guid) then
 			self:Say(213588)
 		end
-		self:TargetMessage(213588, player, "red", "Alert", nil, nil, true)
+		self:TargetMessageOld(213588, player, "red", "Alert", nil, nil, true)
 	end
 
 	function mod:SeadogsScuttle(args)

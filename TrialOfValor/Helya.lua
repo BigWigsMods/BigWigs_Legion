@@ -298,7 +298,7 @@ do
 
 	local function warn(self, spellId, spellName)
 		if not isOnMe then
-			self:TargetMessage(spellId, list, "orange", "Warning", CL.count:format(spellName, orbCount - 1)) -- gets incremented on the cast
+			self:TargetMessageOld(spellId, list, "orange", "Warning", CL.count:format(spellName, orbCount - 1)) -- gets incremented on the cast
 		else
 			wipe(list)
 		end
@@ -369,7 +369,7 @@ end
 
 function mod:BilewaterRedox(args)
 	if self:Tank(args.destName) then -- others might get hit, only tank is relevant
-		self:TargetMessage(args.spellId, args.destName, "orange", not self:Me(args.destGUID) and "Alarm", nil, nil, true)
+		self:TargetMessageOld(args.spellId, args.destName, "orange", not self:Me(args.destGUID) and "Alarm", nil, nil, true)
 		self:TargetBar(args.spellId, 30, args.destName)
 	end
 end
@@ -386,7 +386,7 @@ do
 		elseif #list == 5 or (#list == 3 and not self:Mythic()) then
 			self:CancelTimer(timer)
 			timer = nil
-			self:TargetMessage(args.spellId, list, "yellow", "Alert", CL.count:format(args.spellName, taintCount-1), nil, self:Dispeller("magic"))
+			self:TargetMessageOld(args.spellId, list, "yellow", "Alert", CL.count:format(args.spellName, taintCount-1), nil, self:Dispeller("magic"))
 		end
 
 		if self:GetOption(taintMarker) then
@@ -509,7 +509,7 @@ do
 	function mod:FetidRot(args)
 		if self:Me(args.destGUID) then
 			isOnMe = true
-			self:TargetMessage(args.spellId, args.destName, "blue", "Warning")
+			self:TargetMessageOld(args.spellId, args.destName, "blue", "Warning")
 			self:Flash(args.spellId)
 			self:Say(args.spellId)
 			local _, _, _, expires = self:UnitDebuff("player", args.spellName, 193367) -- 193367 on LFR
@@ -631,7 +631,7 @@ end
 
 function mod:DarkHatred(args)
 	if self:Tank(args.destName) then -- others might get hit, only tank is relevant
-		self:TargetMessage(args.spellId, args.destName, "orange", not self:Me(args.destGUID) and "Alarm", nil, nil, true)
+		self:TargetMessageOld(args.spellId, args.destName, "orange", not self:Me(args.destGUID) and "Alarm", nil, nil, true)
 		self:TargetBar(args.spellId, 12, args.destName)
 	end
 end
@@ -642,7 +642,7 @@ do
 	local function warn(self, spellId)
 		if not isOnMe then
 			if #list < 6 then -- If the pools don't get soaked, everyone gets a debuff
-				self:TargetMessage(spellId, list, "yellow", "Long", nil, nil, true)
+				self:TargetMessageOld(spellId, list, "yellow", "Long", nil, nil, true)
 			else
 				self:Message(spellId, "yellow", "Long")
 			end
@@ -657,7 +657,7 @@ do
 		end
 
 		if self:Me(args.destGUID) then
-			self:TargetMessage(args.spellId, args.destName, "blue", "Long")
+			self:TargetMessageOld(args.spellId, args.destName, "blue", "Long")
 			isOnMe = true
 		end
 	end

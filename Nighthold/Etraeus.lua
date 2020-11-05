@@ -278,7 +278,7 @@ do
 	}
 	function mod:GravitationalPullSuccess(args)
 		-- Only show this once by using the success event
-		self:TargetMessage(args.spellId, args.destName, "orange", "Warning", nil, nil, self:Tank())
+		self:TargetMessageOld(args.spellId, args.destName, "orange", "Warning", nil, nil, self:Tank())
 		self:CDBar(args.spellId, timers[args.spellId])
 		if self:Me(args.destGUID) then
 			self:Say(args.spellId)
@@ -313,7 +313,7 @@ end
 
 function mod:IcyEjectionApplied(args)
 	if self:Me(args.destGUID) then
-		self:TargetMessage(args.spellId, args.destName, "yellow", "Warning")
+		self:TargetMessageOld(args.spellId, args.destName, "yellow", "Warning")
 		self:Say(args.spellId)
 		self:OpenProximity(args.spellId, 8)
 		self:TargetBar(args.spellId, 10, args.destName)
@@ -340,7 +340,7 @@ end
 
 function mod:Chilled(args)
 	if self:Me(args.destGUID) then
-		self:TargetMessage(args.spellId, args.destName, "blue")
+		self:TargetMessageOld(args.spellId, args.destName, "blue")
 		self:TargetBar(args.spellId, 12, args.destName)
 	end
 end
@@ -370,7 +370,7 @@ end
 
 function mod:FelEjectionApplied(args)
 	if self:Me(args.destGUID) then
-		self:TargetMessage(args.spellId, args.destName, "blue", "Warning")
+		self:TargetMessageOld(args.spellId, args.destName, "blue", "Warning")
 		self:Say(args.spellId)
 		self:TargetBar(args.spellId, 8, args.destName)
 	end
@@ -479,7 +479,7 @@ do
 			for i = 1, #starSignTables[mySign] do
 				playerList[#playerList+1] = starSignTables[mySign][i]
 			end
-			self:TargetMessage(205408, playerList, mySign == 205429 and "yellow" or mySign == 205445 and "red" or mySign == 216345 and "green" or "blue", "Warning", mySign, mySign)
+			self:TargetMessageOld(205408, playerList, mySign == 205429 and "yellow" or mySign == 205445 and "red" or mySign == 216345 and "green" or "blue", "Warning", mySign, mySign)
 		end
 	end
 

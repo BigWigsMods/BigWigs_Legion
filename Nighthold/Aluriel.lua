@@ -266,7 +266,7 @@ do
 	function mod:PreMarkOfFrostApplied(args)
 		if self:Me(args.destGUID) then
 			preDebuffApplied = GetTime()
-			self:TargetMessage(args.spellId, args.destName, "yellow", "Alert")
+			self:TargetMessageOld(args.spellId, args.destName, "yellow", "Alert")
 			self:Say(args.spellId)
 			self:Flash(args.spellId)
 			markOfFrostOnMe = true
@@ -294,7 +294,7 @@ do
 			markOfFrostOnMe = true
 			local t = GetTime()
 			if t-preDebuffApplied > 5.5 then
-				self:TargetMessage(args.spellId, args.destName, "yellow", "Alert")
+				self:TargetMessageOld(args.spellId, args.destName, "yellow", "Alert")
 				self:Say(args.spellId)
 				self:Flash(args.spellId)
 			end

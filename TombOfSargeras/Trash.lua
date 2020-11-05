@@ -233,7 +233,7 @@ do
 end
 
 function mod:CurseOfGuldan(args)
-	self:TargetMessage(args.spellId, args.destName, "yellow", "Warning", nil, nil, true)
+	self:TargetMessageOld(args.spellId, args.destName, "yellow", "Warning", nil, nil, true)
 	self:TargetBar(args.spellId, 180, args.destName)
 	self:Flash(args.spellId)
 end
@@ -266,7 +266,7 @@ function mod:WallOfDoom(args)
 end
 
 function mod:LunarBomb(args)
-	self:TargetMessage(args.spellId, args.destName, "yellow", "Warning")
+	self:TargetMessageOld(args.spellId, args.destName, "yellow", "Warning")
 	self:TargetBar(args.spellId, 10, args.destName)
 
 	if self:Me(args.destGUID) then
@@ -284,7 +284,7 @@ end
 
 --[[ Harjatan -> Mistress Sassz'ine ]]--
 function mod:EmbraceOfTheTides(args)
-	self:TargetMessage(args.spellId, args.destName, "yellow", "Alert")
+	self:TargetMessageOld(args.spellId, args.destName, "yellow", "Alert")
 	self:TargetBar(args.spellId, 20, args.destName)
 	if self:Me(args.destGUID) then
 		self:OpenProximity(args.spellId, 8)
@@ -326,7 +326,7 @@ function mod:IcyTalons(args)
 end
 
 function mod:BloodDrain(args)
-	self:TargetMessage(args.spellId, args.destName, "yellow", "Warning", nil, nil, self:Dispeller("magic"))
+	self:TargetMessageOld(args.spellId, args.destName, "yellow", "Warning", nil, nil, self:Dispeller("magic"))
 	self:Bar(args.spellId, 13.3)
 end
 
@@ -383,7 +383,7 @@ end
 
 --[[ Sisters of the Moon -> The Desolate Host ]]--
 function mod:PolymorphBomb(args)
-	self:TargetMessage(args.spellId, args.destName, "orange", "Alarm")
+	self:TargetMessageOld(args.spellId, args.destName, "orange", "Alarm")
 	self:TargetBar(args.spellId, 10, args.destName)
 
 	if self:Me(args.destGUID) then
@@ -400,7 +400,7 @@ function mod:PolymorphBombRemoved(args)
 end
 
 function mod:Anguish(args)
-	self:TargetMessage(args.spellId, args.destName, "orange", "Alarm")
+	self:TargetMessageOld(args.spellId, args.destName, "orange", "Alarm")
 	self:TargetBar(args.spellId, 6, args.destName)
 
 	if self:Me(args.destGUID) then
@@ -417,7 +417,7 @@ function mod:AnguishRemoved(args)
 end
 
 function mod:AnguishingStrike(args)
-	self:TargetMessage(args.spellId, args.destName, "yellow", "Warning", nil, nil, self:Tank())
+	self:TargetMessageOld(args.spellId, args.destName, "yellow", "Warning", nil, nil, self:Tank())
 	self:Bar(args.spellId, 15.8)
 	if not self:Me(args.destGUID) and self:Tank() then
 		self:Flash(args.spellId)
@@ -429,7 +429,7 @@ function mod:AnguishingStrikeApplied(args)
 end
 
 function mod:VoidRift(args)
-	self:TargetMessage(args.spellId, args.destName, "orange", "Alert")
+	self:TargetMessageOld(args.spellId, args.destName, "orange", "Alert")
 	if self:Me(args.destGUID) then
 		self:OpenProximity(args.spellId, 10)
 		self:Say(args.spellId)

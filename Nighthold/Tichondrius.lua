@@ -234,7 +234,7 @@ function mod:BrandOfArgusSuccess(args)
 end
 
 function mod:FeastOfBlood(args)
-	self:TargetMessage(args.spellId, args.destName, "orange", "Long", CL.count:format(args.spellName, feastOfBloodCount), nil, true)
+	self:TargetMessageOld(args.spellId, args.destName, "orange", "Long", CL.count:format(args.spellName, feastOfBloodCount), nil, true)
 	feastOfBloodCount = feastOfBloodCount + 1
 	local timer = timers[args.spellId][feastOfBloodCount]
 	if timer then
@@ -319,7 +319,7 @@ do
 		if UnitIsPlayer(args.destName) then
 			if self:Me(args.destGUID) then
 				if not args.amount then
-					self:TargetMessage(args.spellId, args.destName, "blue", "Alarm")
+					self:TargetMessageOld(args.spellId, args.destName, "blue", "Alarm")
 				elseif args.amount % 2 == 0 then
 					self:StackMessage(args.spellId, args.destName, args.amount, "blue", "Alarm")
 				end
@@ -356,7 +356,7 @@ end
 
 --[[ Sightless Watcher ]]--
 function mod:BurningSoul(args)
-	self:TargetMessage(args.spellId, args.destName, "yellow", "Warning")
+	self:TargetMessageOld(args.spellId, args.destName, "yellow", "Warning")
 	if self:Me(args.destGUID) then
 		self:Say(args.spellId)
 		self:OpenProximity(args.spellId, 8)

@@ -612,7 +612,7 @@ end
 
 function mod:SlowTime(args)
 	if self:Me(args.destGUID)then
-		self:TargetMessage(args.spellId, args.destName, "blue", "Long")
+		self:TargetMessageOld(args.spellId, args.destName, "blue", "Long")
 		local _, _, _, expires = self:UnitDebuff("player", args.spellName, args.spellId)
 		local t = expires - GetTime()
 		self:TargetBar(args.spellId, t, args.destName)
@@ -685,7 +685,7 @@ function mod:DelphuricBeam(args)
 		local _, _, _, expires = self:UnitDebuff("player", args.spellName, args.spellId)
 		local t = expires - GetTime()
 		self:TargetBar(args.spellId, t, args.destName)
-		self:TargetMessage(args.spellId, args.destName, "red", "Alarm")
+		self:TargetMessageOld(args.spellId, args.destName, "red", "Alarm")
 	end
 end
 
@@ -696,7 +696,7 @@ function mod:EpochericOrb() -- l11n
 end
 
 function mod:AblatingExplosion(args)
-	self:TargetMessage(args.spellId, args.destName, "yellow", "Long")
+	self:TargetMessageOld(args.spellId, args.destName, "yellow", "Long")
 	ablatingCount = ablatingCount + 1
 
 	if self:Me(args.destGUID) then

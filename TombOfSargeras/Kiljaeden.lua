@@ -289,7 +289,7 @@ end
 
 function mod:CHAT_MSG_RAID_BOSS_EMOTE(_, msg, _, _, _, target)
 	if msg:find("238502", nil, true) then -- Focused Dreadflame Target
-		self:TargetMessage(238505, target, "yellow", "Alarm", nil, nil, true)
+		self:TargetMessageOld(238505, target, "yellow", "Alarm", nil, nil, true)
 		self:TargetBar(238505, 5, target)
 		self:PrimaryIcon(238505, target)
 		local guid = UnitGUID(target)
@@ -510,7 +510,7 @@ end
 -- Stage Two: Reflected Souls
 do
 	function mod:ShadowReflectionWailing(args)
-		self:TargetMessage(args.spellId, args.destName, "orange", "Alert", CL.count:format(L.reflectionWailing, wailingCounter), nil, true)
+		self:TargetMessageOld(args.spellId, args.destName, "orange", "Alert", CL.count:format(L.reflectionWailing, wailingCounter), nil, true)
 		self:Bar(args.spellId, 7, INLINE_TANK_ICON.." "..CL.add)
 		wailingCounter = wailingCounter + 1
 		local timer = 114

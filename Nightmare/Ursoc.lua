@@ -127,7 +127,7 @@ function mod:RendFleshCast(args)
 end
 
 function mod:RendFlesh(args)
-	self:TargetMessage(args.spellId, args.destName, "yellow", "Info")
+	self:TargetMessageOld(args.spellId, args.destName, "yellow", "Info")
 	self:Bar(args.spellId, 20)
 end
 
@@ -149,7 +149,7 @@ function mod:FocusedGaze(args)
 	end
 
 	self:PrimaryIcon(args.spellId, args.destName)
-	self:TargetMessage(args.spellId, args.destName, "red", "Warning", countMessage, args.spellId, true)
+	self:TargetMessageOld(args.spellId, args.destName, "red", "Warning", countMessage, args.spellId, true)
 	self:TargetBar(args.spellId, 6, args.destName, countMessage)
 	focusedGazeCount = focusedGazeCount + 1
 	if showingIcons then

@@ -337,7 +337,7 @@ end
 -- Nightmare Ichor
 function mod:Fixate(args)
 	if self:Me(args.destGUID) then
-		self:TargetMessage(args.spellId, args.destName, "yellow", "Info")
+		self:TargetMessageOld(args.spellId, args.destName, "yellow", "Info")
 	end
 end
 
@@ -480,7 +480,7 @@ do
 	function mod:CursedBlood(args)
 		if self:Me(args.destGUID) then
 			isOnMe = true
-			self:TargetMessage(args.spellId, args.destName, "blue", "Warning")
+			self:TargetMessageOld(args.spellId, args.destName, "blue", "Warning")
 			self:Flash(args.spellId)
 			self:Say(args.spellId)
 			self:TargetBar(args.spellId, 8, args.destName)

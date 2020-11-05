@@ -76,7 +76,7 @@ function mod:StaticCharge(args)
 end
 
 function mod:StaticChargeApplied(args)
-	self:TargetMessage(args.spellId, args.destName, "green", "Warning")
+	self:TargetMessageOld(args.spellId, args.destName, "green", "Warning")
 	if self:Me(args.destGUID) then
 		self:Say(args.spellId)
 	end

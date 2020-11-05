@@ -289,7 +289,7 @@ end
 --[[ Naturalist Tel'arn ]]--
 function mod:ToxicSpores(args)
 	if self:Me(args.destGUID) then
-		self:TargetMessage(args.spellId, args.destName, "blue", "Info")
+		self:TargetMessageOld(args.spellId, args.destName, "blue", "Info")
 		self:TargetBar(args.spellId, 12, args.destName)
 	end
 end
@@ -311,7 +311,7 @@ do
 		local t = GetTime()
 		if t-prev > 1.5 then
 			prev = t
-			self:TargetMessage(218927, args.destName, "orange", self:Tank() and "Alarm")
+			self:TargetMessageOld(218927, args.destName, "orange", self:Tank() and "Alarm")
 		end
 	end
 end
@@ -330,7 +330,7 @@ do
 		local t = GetTime()
 		if t-prev > 5 then
 			prev = t
-			self:TargetMessage(args.spellId, args.destName, "orange", self:Dispeller("magic") and "Alarm")
+			self:TargetMessageOld(args.spellId, args.destName, "orange", self:Dispeller("magic") and "Alarm")
 		end
 		if self:Me(args.destGUID) then
 			self:Say(args.spellId)
@@ -360,7 +360,7 @@ end
 
 function mod:Fixate(args)
 	if self:Me(args.destGUID) then
-		self:TargetMessage(args.spellId, args.destName, "blue", "Info", self:SpellName(177643)) -- Fixate
+		self:TargetMessageOld(args.spellId, args.destName, "blue", "Info", self:SpellName(177643)) -- Fixate
 		self:Flash(args.spellId)
 	end
 end

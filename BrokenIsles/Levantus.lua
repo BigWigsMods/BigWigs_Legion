@@ -73,7 +73,7 @@ end
 
 function mod:GustOfWind(args)
 	if self:Me(args.destGUID) then
-		self:TargetMessage(args.spellId, args.destName, "blue")
+		self:TargetMessageOld(args.spellId, args.destName, "blue")
 		self:TargetBar(args.spellId, 45, args.destName)
 	end
 end

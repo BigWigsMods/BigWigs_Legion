@@ -54,7 +54,7 @@ end
 
 do
 	local function printTarget(self, player, guid)
-		self:TargetMessage(216428, player, "yellow", "Alarm")
+		self:TargetMessageOld(216428, player, "yellow", "Alarm")
 		if self:Me(guid) then
 			self:Say(216428)
 		end
@@ -71,7 +71,7 @@ end
 
 do
 	local function printTarget(self, player, guid)
-		self:TargetMessage(216432, player, "red", "Alert")
+		self:TargetMessageOld(216432, player, "red", "Alert")
 		if self:Me(guid) then
 			self:Say(216432)
 		end
@@ -92,7 +92,7 @@ function mod:YouGoBang(args)
 end
 
 function mod:YouGoBangApplied(args)
-	self:TargetMessage(args.spellId, args.destName, "red", "Warning", nil, nil, true)
+	self:TargetMessageOld(args.spellId, args.destName, "red", "Warning", nil, nil, true)
 	self:TargetBar(args.spellId, 12, args.destName, self:SpellName(47496)) -- 47496 = "Explode"
 	if self:Me(args.destGUID) then
 		self:Say(args.spellId)

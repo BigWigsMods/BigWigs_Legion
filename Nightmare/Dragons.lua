@@ -256,7 +256,7 @@ do
 		end
 
 		if not isOnMe and self:Me(args.destGUID) then
-			self:TargetMessage(args.spellId, args.destName, "blue", "Alarm")
+			self:TargetMessageOld(args.spellId, args.destName, "blue", "Alarm")
 			self:Say(args.spellId)
 			isOnMe = true
 		end
@@ -322,7 +322,7 @@ end
 
 function mod:ShadowBurst(args)
 	if self:Me(args.destGUID) then
-		self:TargetMessage(args.spellId, args.destName, "blue", "Warning")
+		self:TargetMessageOld(args.spellId, args.destName, "blue", "Warning")
 		self:TargetBar(args.spellId, 10, args.destName)
 	end
 end

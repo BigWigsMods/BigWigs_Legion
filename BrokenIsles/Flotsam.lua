@@ -47,7 +47,7 @@ do
 		if self:Me(guid) then
 			self:Say(220295)
 		end
-		self:TargetMessage(220295, player, "green", "Alarm")
+		self:TargetMessageOld(220295, player, "green", "Alarm")
 	end
 
 	local prev = nil

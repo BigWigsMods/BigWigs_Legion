@@ -185,7 +185,7 @@ end
 
 function mod:DecentIntoMadness(args)
 	if self:Me(args.destGUID) then
-		self:TargetMessage(args.spellId, args.destName, "blue", "Alarm")
+		self:TargetMessageOld(args.spellId, args.destName, "blue", "Alarm")
 		self:TargetBar(args.spellId, 20, args.destName)
 	end
 end
@@ -197,13 +197,13 @@ function mod:DecentIntoMadnessRemoved(args)
 end
 
 function mod:Madness(args)
-	self:TargetMessage(args.spellId, args.destName, "red", "Alarm", nil, nil, true)
+	self:TargetMessageOld(args.spellId, args.destName, "red", "Alarm", nil, nil, true)
 end
 
 function mod:DreamSimulacrum(args)
 	if self:Me(args.destGUID) then
 		isInDream = true
-		self:TargetMessage(args.spellId, args.destName, "blue", "Info")
+		self:TargetMessageOld(args.spellId, args.destName, "blue", "Info")
 		self:TargetBar(args.spellId, 180, args.destName)
 	end
 	if self:Healer(args.destName) then
@@ -287,7 +287,7 @@ do
 		else
 			self:CancelTimer(timer)
 			timer = nil
-			self:TargetMessage(args.spellId, bladeList, "red", "Alert")
+			self:TargetMessageOld(args.spellId, bladeList, "red", "Alert")
 		end
 	end
 
@@ -314,7 +314,7 @@ end
 
 function mod:TormentingFixation(args)
 	if self:Me(args.destGUID) then
-		self:TargetMessage(args.spellId, args.destName, "blue", "Long")
+		self:TargetMessageOld(args.spellId, args.destName, "blue", "Long")
 	end
 end
 
@@ -342,7 +342,7 @@ do
 			else
 				self:CancelTimer(timer)
 				timer = nil
-				self:TargetMessage(209034, bondList, "red", "Alert")
+				self:TargetMessageOld(209034, bondList, "red", "Alert")
 			end
 		end
 	end
@@ -364,7 +364,7 @@ function mod:BlackeningSoul(args)
 end
 
 function mod:NightmareInfusion(args)
-	self:TargetMessage(args.spellId, args.destName, "orange", "Alarm", nil, nil, true)
+	self:TargetMessageOld(args.spellId, args.destName, "orange", "Alarm", nil, nil, true)
 	self:Bar(args.spellId, phase == 2 and 62 or 31.6)
 end
 
@@ -374,7 +374,7 @@ function mod:CallOfNightmares(args)
 end
 
 function mod:CorruptionMeteor(args)
-	self:TargetMessage(args.spellId, args.destName, "yellow", "Info", nil, nil, isInDream)
+	self:TargetMessageOld(args.spellId, args.destName, "yellow", "Info", nil, nil, isInDream)
 	self:TargetBar(args.spellId, 5, args.destName)
 	self:Bar(args.spellId, phase == 2 and 28 or 35.3)
 end

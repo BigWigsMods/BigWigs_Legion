@@ -238,7 +238,7 @@ end
 
 do
 	local function printTarget(self, player, guid)
-		self:TargetMessage(231086, player, "orange", "Long", nil, nil, true)
+		self:TargetMessageOld(231086, player, "orange", "Long", nil, nil, true)
 		if self:Me(guid) then
 			self:Say(231086)
 			self:Flash(231086)
@@ -288,7 +288,7 @@ do
 	local prev = nil
 	local function printTarget(self, player, guid)
 		prev = player
-		self:TargetMessage(223655, player, "red", "Warning")
+		self:TargetMessageOld(223655, player, "red", "Warning")
 		self:PrimaryIcon(223655, player)
 		if self:Me(guid) then
 			self:Say(223655)
@@ -391,7 +391,7 @@ end
 
 --[[ Aluriel to Etraeus ]]--
 function mod:HeavenlyCrash(args)
-	self:TargetMessage(args.spellId, args.destName, "orange", "Warning", nil, nil, true)
+	self:TargetMessageOld(args.spellId, args.destName, "orange", "Warning", nil, nil, true)
 
 	local _, _, _, expires = self:UnitDebuff(args.destName, args.spellId)
 	local t = expires - GetTime()
@@ -414,7 +414,7 @@ end
 --[[ Aluriel to Telarn ]]--
 function mod:ChosenFate(args)
 	if self:Me(args.destGUID) then
-		self:TargetMessage(args.spellId, args.destName, "blue", "Warning")
+		self:TargetMessageOld(args.spellId, args.destName, "blue", "Warning")
 		self:Flash(args.spellId)
 	end
 end
@@ -461,7 +461,7 @@ end
 
 --[[ Aluriel to Krosos ]]--
 function mod:AnnihilatingOrb(args)
-	self:TargetMessage(args.spellId, args.destName, "red", "Warning")
+	self:TargetMessageOld(args.spellId, args.destName, "red", "Warning")
 	self:TargetBar(args.spellId, 5, args.destName, 230932, args.spellId) -- Orb
 	self:Bar(args.spellId, 35)
 	if self:Me(args.destGUID) then
@@ -481,7 +481,7 @@ end
 --[[ Aluriel to Tichondrius ]]--
 function mod:WillOfTheLegion(args)
 	local fear = self:SpellName(5782) -- "Fear"
-	self:TargetMessage("fear", args.destName, "red", "Long", fear, args.spellId, true)
+	self:TargetMessageOld("fear", args.destName, "red", "Long", fear, args.spellId, true)
 	self:TargetBar("fear", 10, args.destName, fear, args.spellId)
 	if self:Me(args.destGUID) then
 		self:Say("fear", fear)
@@ -495,7 +495,7 @@ function mod:WillOfTheLegionRemoved(args)
 end
 
 function mod:FelGlare(args)
-	self:TargetMessage(args.spellId, args.destName, "red", "Warning", nil, nil, true)
+	self:TargetMessageOld(args.spellId, args.destName, "red", "Warning", nil, nil, true)
 	self:TargetBar(args.spellId, 10, args.destName)
 	if self:Me(args.destGUID) then
 		self:Say(args.spellId)

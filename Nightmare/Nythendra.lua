@@ -158,7 +158,7 @@ function mod:VolatileRot(args)
 		self:Flash(args.spellId)
 	end
 	self:PrimaryIcon(args.spellId, args.destName)
-	self:TargetMessage(args.spellId, args.destName, "orange", "Warning", nil, nil, self:Tank())
+	self:TargetMessageOld(args.spellId, args.destName, "orange", "Warning", nil, nil, self:Tank())
 	self:TargetBar(args.spellId, 8, args.destName)
 	if self:BarTimeLeft(203552) > 23 then -- Heart of the Swarm
 		self:CDBar(args.spellId, 23)

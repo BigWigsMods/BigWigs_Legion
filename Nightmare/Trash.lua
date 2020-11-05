@@ -79,13 +79,13 @@ function mod:UnstableDecay(args)
 	if self:Me(args.destGUID) then
 		self:Say(args.spellId)
 		self:TargetBar(args.spellId, 9, args.destName)
-		self:TargetMessage(args.spellId, args.destName, "blue", "Warning")
+		self:TargetMessageOld(args.spellId, args.destName, "blue", "Warning")
 	end
 end
 
 --[[ Taintheart Befouler ]]--
 function mod:Befoulment(args)
-	self:TargetMessage(args.spellId, args.destName, "green", "Alert", nil, nil, true)
+	self:TargetMessageOld(args.spellId, args.destName, "green", "Alert", nil, nil, true)
 	self:TargetBar(args.spellId, 15, args.destName)
 	if self:Me(args.destGUID) then
 		self:Say(args.spellId)
