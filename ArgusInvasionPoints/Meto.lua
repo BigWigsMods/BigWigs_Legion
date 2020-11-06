@@ -54,7 +54,7 @@ do
 			local t = GetTime()
 			if t-prev > 1.5 then
 				prev = t
-				self:Message(spellId, "orange", "Long")
+				self:MessageOld(spellId, "orange", "Long")
 				self:CDBar(spellId, 30)
 			end
 		end
@@ -68,14 +68,14 @@ do
 			local t = GetTime()
 			if t-prev > 1.5 then
 				prev = t
-				self:Message(247585, "green", "Info", args.spellName, args.spellId)
+				self:MessageOld(247585, "green", "Info", args.spellName, args.spellId)
 			end
 		end
 	end
 end
 
 function mod:Reap(args)
-	self:Message(args.spellId, "yellow", "Alert")
+	self:MessageOld(args.spellId, "yellow", "Alert")
 	self:CDBar(args.spellId, 20)
 end
 
@@ -86,7 +86,7 @@ function mod:ReapApplied(args)
 end
 
 function mod:Sow(args)
-	self:Message(args.spellId, "yellow", "Alert")
+	self:MessageOld(args.spellId, "yellow", "Alert")
 	self:CDBar(args.spellId, 15)
 end
 

@@ -65,7 +65,7 @@ do
 end
 
 function mod:EarthshakeStomp(args)
-	self:Message(args.spellId, "orange", "Info", CL.casting:format(args.spellName))
+	self:MessageOld(args.spellId, "orange", "Info", CL.casting:format(args.spellName))
 	self:CDBar(args.spellId, 34)
 end
 
@@ -83,7 +83,7 @@ do
 end
 
 function mod:MakeTheSnow(args)
-	self:Message(args.spellId, "green", "Long")
+	self:MessageOld(args.spellId, "green", "Long")
 	self:CDBar(args.spellId, 34)
 end
 
@@ -105,7 +105,7 @@ do
 		local t = GetTime()
 		if self:Me(args.destGUID) and t-prev > 3 then
 			prev = t
-			self:Message(args.spellId, "blue", "Alert", CL.underyou:format(args.spellName))
+			self:MessageOld(args.spellId, "blue", "Alert", CL.underyou:format(args.spellName))
 		end
 	end
 end

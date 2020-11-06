@@ -179,7 +179,7 @@ do
 			local t = GetTime()
 			if t-prev > 1.5 then
 				prev = t
-				self:Message(args.spellId, "blue", "Alert", CL.underyou:format(args.spellName))
+				self:MessageOld(args.spellId, "blue", "Alert", CL.underyou:format(args.spellName))
 			end
 		end
 	end
@@ -187,7 +187,7 @@ end
 
 -- [[ Before Garothi Worldbreaker ]] --
 function mod:Annihilation()
-	self:Message(252743, "red", "Long")
+	self:MessageOld(252743, "red", "Long")
 end
 
 -- [[ After Garothi Worldbreaker ]] --
@@ -202,11 +202,11 @@ do
 		tbl[#tbl + 1] = { guid = args.destGUID, name = args.destName }
 		if #tbl == 2 then
 			if self:Me(tbl[1].guid) then
-				self:Message(args.spellId, "blue", "Alarm", CL.link:format(self:ColorName(tbl[2].name)))
+				self:MessageOld(args.spellId, "blue", "Alarm", CL.link:format(self:ColorName(tbl[2].name)))
 			elseif self:Me(tbl[2].guid) then
-				self:Message(args.spellId, "blue", "Alarm", CL.link:format(self:ColorName(tbl[1].name)))
+				self:MessageOld(args.spellId, "blue", "Alarm", CL.link:format(self:ColorName(tbl[1].name)))
 			elseif not self:CheckOption(args.spellId, "ME_ONLY") then
-				self:Message(args.spellId, "yellow", nil, CL.link_both:format(self:ColorName(tbl[1].name), self:ColorName(tbl[2].name)))
+				self:MessageOld(args.spellId, "yellow", nil, CL.link_both:format(self:ColorName(tbl[1].name), self:ColorName(tbl[2].name)))
 			end
 			wipe(tbl)
 		else
@@ -233,14 +233,14 @@ do
 			local t = GetTime()
 			if (not self:Melee() and t-prev > 1.5) or t-prev > 6 then
 				prev = t
-				self:Message(args.spellId, "blue", "Alert", CL.underyou:format(args.spellName))
+				self:MessageOld(args.spellId, "blue", "Alert", CL.underyou:format(args.spellName))
 			end
 		end
 	end
 end
 
 function mod:FearsomeLeap(args)
-	self:Message(args.spellId, "red", self:Melee() and "Warning" or "Long", CL.casting:format(args.spellName))
+	self:MessageOld(args.spellId, "red", self:Melee() and "Warning" or "Long", CL.casting:format(args.spellName))
 	self:CastBar(args.spellId, 3)
 end
 
@@ -284,7 +284,7 @@ do
 
 	function mod:SoulburnDispelled(args)
 		if args.extraSpellId == 253600 and self:Me(args.destGUID) then
-			self:Message(253600, "green", "Info", CL.removed_by:format(args.extraSpellName, self:ColorName(args.sourceName)))
+			self:MessageOld(253600, "green", "Info", CL.removed_by:format(args.extraSpellName, self:ColorName(args.sourceName)))
 		end
 	end
 end
@@ -295,7 +295,7 @@ do
 		local t = GetTime()
 		if t-prev > 1 then
 			prev = t
-			self:Message(args.spellId, "red", "Warning", CL.casting:format(args.spellName))
+			self:MessageOld(args.spellId, "red", "Warning", CL.casting:format(args.spellName))
 		end
 	end
 end
@@ -322,7 +322,7 @@ do
 	function mod:UNIT_SPELLCAST_SUCCEEDED(_, _, spellGUID, spellId)
 		if spellId == 252740 and spellGUID ~= prev then -- Annihilation
 			prev = spellGUID
-			self:Message(252743, "red", "Long")
+			self:MessageOld(252743, "red", "Long")
 		end
 	end
 end
@@ -405,7 +405,7 @@ end
 
 -- [[ Before Aggramar ]] --
 function mod:PunishingFlames(args)
-	self:Message(args.spellId, "yellow", "Long", CL.casting:format(args.spellName))
+	self:MessageOld(args.spellId, "yellow", "Long", CL.casting:format(args.spellName))
 	self:CastBar(args.spellId, 5)
 end
 

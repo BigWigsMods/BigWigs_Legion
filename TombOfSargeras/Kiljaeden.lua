@@ -304,7 +304,7 @@ function mod:CHAT_MSG_RAID_BOSS_EMOTE(_, msg, _, _, _, target)
 		-- Schedule fake success in case the target uses invis, etc
 		self:ScheduleTimer("FocusedDreadflameSuccess", 5.5)
 	elseif msg:find("235059", nil, true) then -- Rupturing Singularity
-		self:Message(235059, "orange", "Warning", CL.count:format(self:SpellName(235059), singularityCount))
+		self:MessageOld(235059, "orange", "Warning", CL.count:format(self:SpellName(235059), singularityCount))
 		self:Bar("rupturingKnock", 9.85, CL.count:format(L.singularityImpact, singularityCount), 235059)
 		singularityCount = singularityCount + 1
 		local timer = 0
@@ -329,14 +329,14 @@ do
 		local t = GetTime()
 		if self:Me(args.destGUID) and t-prev > 1.5 then
 			prev = t
-			self:Message(args.spellId, "blue", "Alert", CL.underyou:format(args.spellName))
+			self:MessageOld(args.spellId, "blue", "Alert", CL.underyou:format(args.spellName))
 		end
 	end
 end
 
 function mod:UNIT_SPELLCAST_SUCCEEDED(_, _, _, spellId)
 	if spellId == 244856 then -- Flaming Orb
-		self:Message(spellId, "yellow", "Alert", CL.count:format(self:SpellName(spellId), flamingOrbCount))
+		self:MessageOld(spellId, "yellow", "Alert", CL.count:format(self:SpellName(spellId), flamingOrbCount))
 		flamingOrbCount = (flamingOrbCount % (self:Mythic() and 3 or 2)) + 1
 		self:Bar(spellId, self:Mythic() and (flamingOrbCount == 2 and 15.0 or flamingOrbCount == 3 and 16.0 or 64) or flamingOrbCount == 2 and 30 or 64, CL.count:format(self:SpellName(spellId), flamingOrbCount))
 	end
@@ -344,11 +344,11 @@ end
 
 -- Stage One: The Betrayer
 function mod:Felclaws(args)
-	self:Message(args.spellId, "red", "Alarm", CL.casting:format(args.spellName))
+	self:MessageOld(args.spellId, "red", "Alarm", CL.casting:format(args.spellName))
 end
 
 function mod:FelclawsApplied(args)
-	self:Message(args.spellId, "red", "Info")
+	self:MessageOld(args.spellId, "red", "Info")
 	felclawsCount = felclawsCount + 1
 	if self:Mythic() and stage == 3 then
 		self:Bar(args.spellId, felclawsCount % 4 == 0 and 29 or felclawsCount % 4 == 1 and 16 or 24)
@@ -363,7 +363,7 @@ function mod:FelclawsApplied(args)
 end
 
 function mod:Armageddon(args)
-	self:Message(args.spellId, "red", "Warning", CL.count:format(args.spellName, armageddonCount))
+	self:MessageOld(args.spellId, "red", "Warning", CL.count:format(args.spellName, armageddonCount))
 	armageddonCount = armageddonCount + 1
 	local timer = 0
 	if inIntermission then -- Intermission timer
@@ -424,7 +424,7 @@ end
 
 -- Intermission: Eternal Flame
 function mod:NetherGale(args)
-	self:Message("stages", "green", "Long", CL.intermission, false)
+	self:MessageOld("stages", "green", "Long", CL.intermission, false)
 
 	self:StopBar(CL.count:format(self:SpellName(240910), armageddonCount)) -- Armageddon
 	self:StopBar(CL.count:format(self:SpellName(235059), singularityCount)) -- Rupturing Singularity
@@ -484,7 +484,7 @@ end
 function mod:NetherGaleRemoved() -- Stage 2
 	inIntermission = nil
 	stage = 2
-	self:Message("stages", "green", "Long", CL.stage:format(stage), false)
+	self:MessageOld("stages", "green", "Long", CL.stage:format(stage), false)
 	focusedDreadflameCount = 1
 	burstingDreadflameCount = 1
 	singularityCount = 1
@@ -533,7 +533,7 @@ do
 	end
 
 	function mod:SorrowfulWail(args)
-		self:Message(args.spellId, "yellow", "Alarm")
+		self:MessageOld(args.spellId, "yellow", "Alarm")
 		self:Bar(args.spellId, 15.8)
 	end
 
@@ -649,7 +649,7 @@ do
 
 	function mod:DeceiversVeilCast() -- Intermission 2
 		inIntermission = true
-		self:Message("stages", "green", "Long", CL.intermission, false)
+		self:MessageOld("stages", "green", "Long", CL.intermission, false)
 		self:StopBar(CL.count:format(self:SpellName(240910), armageddonCount)) -- Armageddon
 		self:StopBar(INLINE_DAMAGER_ICON.." "..L.reflectionErupting) -- Shadow Reflection: Erupting
 		self:StopBar(INLINE_TANK_ICON.." "..CL.count:format(L.reflectionWailing, wailingCounter)) -- Shadow Reflection: Wailing
@@ -751,7 +751,7 @@ do
 			end
 		end
 
-		self:Message("stages", "green", "Long", CL.stage:format(stage), false)
+		self:MessageOld("stages", "green", "Long", CL.stage:format(stage), false)
 		self:Bar(238999, 2, CL.count:format(L.darkness, darknessCount)) -- Darkness of a Thousand Souls
 		self:Bar(239932, 11) -- Felclaws
 		self:Bar(243982, 15) -- Tear Rift
@@ -772,7 +772,7 @@ do
 		if self:Me(args.destGUID) then
 			if t-prev > 1.5 then
 				prev = t
-				self:Message(args.spellId, "blue", "Long", CL.you:format(args.spellName))
+				self:MessageOld(args.spellId, "blue", "Long", CL.you:format(args.spellName))
 			end
 			self:Bar(args.spellId, 20)
 		end
@@ -781,13 +781,13 @@ end
 
 function mod:IllidansSightlessGazeRemoved(args)
 	if stage == 2 and self:Me(args.destGUID) then -- Don't warn in p3
-		self:Message(args.spellId, "blue", "Alert", CL.removed:format(args.spellName))
+		self:MessageOld(args.spellId, "blue", "Alert", CL.removed:format(args.spellName))
 	end
 end
 
 -- Stage Three: Darkness of A Thousand Souls
 function mod:DarknessofaThousandSouls(args)
-	self:Message(args.spellId, "orange", "Long", CL.casting:format(CL.count:format(args.spellName, darknessCount)))
+	self:MessageOld(args.spellId, "orange", "Long", CL.casting:format(CL.count:format(args.spellName, darknessCount)))
 	self:CastBar(args.spellId, 9, CL.count:format(L.darkness, darknessCount))
 	darknessCount = darknessCount + 1
 	self:Bar(args.spellId, darknessCount == 2 and 90 or 95, CL.count:format(L.darkness, darknessCount))
@@ -808,7 +808,7 @@ end
 function mod:StartObeliskTimer(t)
 	local obeliskCounter = self:Mythic() and (obeliskCount+2) or self:Heroic() and (darknessCount+1) or darknessCount -- Mythic: 3-4-5-6-7... Heroic: 3-3-4-4-5... Normal: 2-2-3-3-4...
 	self:Bar(-15543, t, L.countx:format(self:SpellName(-15543), obeliskCounter))
-	self:ScheduleTimer("Message", t, -15543, "yellow", "Info", CL.spawned:format(L.countx:format(self:SpellName(-15543), obeliskCounter)))
+	self:ScheduleTimer("MessageOld", t, -15543, "yellow", "Info", CL.spawned:format(L.countx:format(self:SpellName(-15543), obeliskCounter)))
 	self:ScheduleTimer("CastBar", t, "obeliskExplosion", 13, L.obeliskExplosion, -15543) -- will get readjusted in :DemonicObelisk()
 	obeliskCount = obeliskCount + 1
 	if obeliskCount % 2 == 0 then
@@ -817,7 +817,7 @@ function mod:StartObeliskTimer(t)
 end
 
 function mod:TearRift(args)
-	self:Message(args.spellId, "red", "Alarm")
+	self:MessageOld(args.spellId, "red", "Alarm")
 	self:Bar(args.spellId, obeliskCount == 1 and 90 or 95)
 end
 

@@ -187,12 +187,12 @@ function mod:UNIT_SPELLCAST_SUCCEEDED(_, unit, _, spellId)
 			self:StopBar(205298) -- Essence of Corruption
 		end
 	elseif spellId == 203147 then -- Ysondre: Nightmare Blast
-		self:Message(spellId, "red", "Alert")
+		self:MessageOld(spellId, "red", "Alert")
 		self:CDBar(spellId, 16)
 	elseif spellId == 205331 then -- Taerar: Seeping Fog
-		self:Message(205341, "orange", "Alarm")
+		self:MessageOld(205341, "orange", "Alarm")
 	elseif spellId == 205528 then -- Emeriss: Corruption of the Dream
-		self:Message(204245, "yellow", "Alarm")
+		self:MessageOld(204245, "yellow", "Alarm")
 	end
 end
 
@@ -217,7 +217,7 @@ end
 
 function mod:MarkRemoved(args)
 	if self:Me(args.destGUID) then
-		self:Message(-12809, "green", "Info", CL.removed:format(args.spellName), args.spellId)
+		self:MessageOld(-12809, "green", "Info", CL.removed:format(args.spellName), args.spellId)
 		self:StopBar(CL.count:format(args.spellName, markStacks[args.spellId]), args.destName)
 		markStacks[args.spellId] = 0
 	end
@@ -227,7 +227,7 @@ do
 	local prev = 0
 	function mod:CorruptedBreath(args)
 		local t = GetTime()
-		self:Message(args.spellId, "orange", t-prev > 0.5 and "Info", CL.other:format(args.sourceName, args.spellName))
+		self:MessageOld(args.spellId, "orange", t-prev > 0.5 and "Info", CL.other:format(args.sourceName, args.spellName))
 		self:CDBar(args.spellId, 30, CL.other:format(args.sourceName, args.spellName))
 		prev = t
 	end
@@ -235,7 +235,7 @@ end
 
 --[[ Ysondre ]]--
 function mod:CallDefiledSpiritCast(args)
-	self:Message(args.spellId, "red")
+	self:MessageOld(args.spellId, "red")
 	self:Bar(args.spellId, 33)
 end
 
@@ -244,7 +244,7 @@ do
 
 	local function warn(self, spellId)
 		if not isOnMe then
-			self:Message(spellId, "yellow", self:Dispeller("magic") and "Alert")
+			self:MessageOld(spellId, "yellow", self:Dispeller("magic") and "Alert")
 		end
 		scheduled = nil
 		isOnMe = nil
@@ -298,7 +298,7 @@ function mod:VolatileInfectionRemoved(args)
 end
 
 function mod:EssenceOfCorruption(args)
-	self:Message(args.spellId, "yellow", "Long")
+	self:MessageOld(args.spellId, "yellow", "Long")
 	self:Bar(args.spellId, 30)
 end
 
@@ -307,7 +307,7 @@ do
 	function mod:Corruption(args)
 		local t = GetTime()
 		if t-prev > 1.5 then
-			self:Message(args.spellId, "yellow", "Info", CL.casting:format(args.spellName))
+			self:MessageOld(args.spellId, "yellow", "Info", CL.casting:format(args.spellName))
 			self:Bar(args.spellId, 15)
 			prev = t
 		end
@@ -316,7 +316,7 @@ end
 
 --[[ Lethon ]]--
 function mod:SiphonSpirit(args)
-	self:Message(args.spellId, "red", "Alert")
+	self:MessageOld(args.spellId, "red", "Alert")
 	self:Bar(args.spellId, 49.5)
 end
 
@@ -329,7 +329,7 @@ end
 
 --[[ Taerar ]]--
 function mod:ShadesOfTaerar(args)
-	self:Message(args.spellId, "orange", "Long", CL.incoming:format(args.spellName))
+	self:MessageOld(args.spellId, "orange", "Long", CL.incoming:format(args.spellName))
 	self:Bar(args.spellId, 49)
 end
 
@@ -338,7 +338,7 @@ do
 	function mod:ShadeCorruptedBreath(args)
 		local t = GetTime()
 		if t-prev > 1.5 then
-			self:Message(args.spellId, "yellow", t-prev > 0.5 and "Long", CL.other:format(args.sourceName, args.spellName)) -- "Shade" instead of "Shade of Taerar"
+			self:MessageOld(args.spellId, "yellow", t-prev > 0.5 and "Long", CL.other:format(args.sourceName, args.spellName)) -- "Shade" instead of "Shade of Taerar"
 			self:CDBar(args.spellId, 17, CL.other:format(self:SpellName(24313), args.spellName))
 			prev = t
 		end
@@ -346,7 +346,7 @@ do
 end
 
 function mod:BellowingRoar(args)
-	self:Message(args.spellId, "red", "Alarm", CL.casting:format(args.spellName))
+	self:MessageOld(args.spellId, "red", "Alarm", CL.casting:format(args.spellName))
 	self:CastBar(args.spellId, 6)
 	self:Bar(args.spellId, 51)
 end
@@ -355,6 +355,6 @@ end
 function mod:NightmareSouls()
 	local spell = mythicAdd == 1 and 214610 or mythicAdd == 2 and 214588 or 214604 -- Dream Essence: Hinterlands / Ashenvale / Feralas
 	local percentage = mythicAdd == 1 and "90% - " or mythicAdd == 2 and "60% - " or "30% - "
-	self:Message(-13460, "cyan", "Long", percentage .. self:SpellName(spell), spell)
+	self:MessageOld(-13460, "cyan", "Long", percentage .. self:SpellName(spell), spell)
 	mythicAdd = mythicAdd + 1
 end

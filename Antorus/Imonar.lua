@@ -122,7 +122,7 @@ end
 function mod:UNIT_HEALTH_FREQUENT(event, unit)
 	local hp = UnitHealth(unit) / UnitHealthMax(unit) * 100
 	if hp < nextIntermissionWarning then
-		self:Message("stages", "green", nil, CL.soon:format(CL.intermission), false)
+		self:MessageOld("stages", "green", nil, CL.soon:format(CL.intermission), false)
 		nextIntermissionWarning = nextIntermissionWarning - (self:Mythic() and 20 or 33)
 		if nextIntermissionWarning < 20 then
 			self:UnregisterUnitEvent(event, unit)
@@ -211,7 +211,7 @@ end
 
 function mod:UNIT_SPELLCAST_SUCCEEDED(_, _, _, spellId)
 	if spellId == 248995 or spellId == 248194 then -- Jetpacks (Intermission 1), Jetpacks (Intermission 2)
-		self:Message("stages", "green", "Long", CL.intermission, false)
+		self:MessageOld("stages", "green", "Long", CL.intermission, false)
 		-- Stage 1 timers
 		self:StopBar(247367) -- Shock Lance
 		self:StopBar(254244) -- Sleep Canister
@@ -229,7 +229,7 @@ end
 
 function mod:IntermissionOver()
 	stage = stage + 1
-	self:Message("stages", "green", "Long", CL.stage:format(stage), false)
+	self:MessageOld("stages", "green", "Long", CL.stage:format(stage), false)
 	if stage == 2 then
 		self:CDBar(247687, 7.7) -- Sever
 		self:CDBar(248254, 10.6) -- Charged Blast
@@ -270,7 +270,7 @@ function mod:ShockLanceSuccess(args)
 end
 
 function mod:PulseGrenade(args)
-	self:Message(args.spellId, "yellow", "Alert")
+	self:MessageOld(args.spellId, "yellow", "Alert")
 	self:Bar(args.spellId, 17.0)
 end
 
@@ -285,13 +285,13 @@ function mod:SeverSuccess(args)
 end
 
 function mod:ChargedBlasts(args)
-	self:Message(args.spellId, "orange", "Warning", CL.incoming:format(args.spellName))
+	self:MessageOld(args.spellId, "orange", "Warning", CL.incoming:format(args.spellName))
 	self:CastBar(args.spellId, 8.6)
 	self:Bar(args.spellId, self:Mythic() and (stage == 2 and 14.5 or 18.2) or 18.2)
 end
 
 function mod:ShrapnelBlast(args)
-	self:Message(args.spellId, "yellow", "Alert")
+	self:MessageOld(args.spellId, "yellow", "Alert")
 	self:Bar(args.spellId, self:Mythic() and (stage == 2 and 17 or 14.6) or 13.4)
 end
 
@@ -306,13 +306,13 @@ function mod:EmpoweredShockLanceSuccess(args)
 end
 
 function mod:EmpoweredPulseGrenade(args)
-	self:Message(args.spellId, "yellow", "Alert")
+	self:MessageOld(args.spellId, "yellow", "Alert")
 	self:Bar(args.spellId, stage == 5 and 13.3 or 26.7) -- Stage 5 mythic only
 
 end
 
 function mod:EmpoweredShrapnelBlast(args)
-	self:Message(args.spellId, "orange", "Warning")
+	self:MessageOld(args.spellId, "orange", "Warning")
 	empoweredSchrapnelBlastCount = empoweredSchrapnelBlastCount + 1
 	self:CDBar(args.spellId, stage == 4 and 26.8 or timers[args.spellId][empoweredSchrapnelBlastCount] or 9.6)
 end

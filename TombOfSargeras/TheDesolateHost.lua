@@ -181,7 +181,7 @@ end
 
 function mod:UNIT_SPELLCAST_SUCCEEDED(_, _, _, spellId)
 	if spellId == 235885 then -- Collapsing Fissure
-		self:Message(235907, "yellow", "Alert", spellId, 235907)
+		self:MessageOld(235907, "yellow", "Alert", spellId, 235907)
 		local t = stage == 2 and 15.8 or 30.5
 		local remaining = nextTormentedCries - GetTime()
 		if stage ~= 2 and remaining < 30.5 and remaining > 0 then
@@ -252,7 +252,7 @@ do
 		tDeleteItem(unphasedList, args.destName)
 		if self:Me(args.destGUID) then
 			myRealm = 1
-			self:Message(239006, "cyan", "Info", self:SpellName(-14857), false) -- Dissonance // Spirit Realm
+			self:MessageOld(239006, "cyan", "Info", self:SpellName(-14857), false) -- Dissonance // Spirit Realm
 		end
 		if not self:Easy() then -- No Dissonance in LFR/Normal
 			updateProximity(self)
@@ -265,7 +265,7 @@ do
 		tDeleteItem(phasedList, args.destName)
 		if self:Me(args.destGUID) then
 			myRealm = 0 -- Corporeal Realm
-			self:Message(239006, "cyan", "Info", self:SpellName(-14856), false) -- Dissonance // Corporeal Realm
+			self:MessageOld(239006, "cyan", "Info", self:SpellName(-14856), false) -- Dissonance // Corporeal Realm
 		end
 		if not self:Easy() then -- No Dissonance in LFR/Normal
 			updateProximity(self)
@@ -280,13 +280,13 @@ do
 		local t = GetTime()
 		if self:Me(args.destGUID) and t-prev > 1.5 then
 			prev = t
-			self:Message(args.spellId, "blue", "Alert", CL.underyou:format(args.spellName))
+			self:MessageOld(args.spellId, "blue", "Alert", CL.underyou:format(args.spellName))
 		end
 	end
 end
 
 function mod:Quietus(args)
-	self:Message(args.spellId, "red", "Warning")
+	self:MessageOld(args.spellId, "red", "Warning")
 end
 
 function mod:SpearofAnguish(args)
@@ -311,7 +311,7 @@ function mod:SpearofAnguishRemoved(args)
 end
 
 function mod:TormentedCries(args)
-	self:Message(args.spellId, "yellow", "Info", CL.incoming:format(args.spellName))
+	self:MessageOld(args.spellId, "yellow", "Info", CL.incoming:format(args.spellName))
 	tormentedCriesCounter = tormentedCriesCounter + 1
 	if tormentedCriesCounter <= 2 then -- Does a 3rd cast exist?
 		nextTormentedCries = GetTime() + 120
@@ -342,7 +342,7 @@ do
 		local t = GetTime()
 		if self:Me(args.destGUID) and t-prev > 1.5 then
 			prev = t
-			self:Message(238570, "blue", "Alert", CL.underyou:format(args.spellName))
+			self:MessageOld(238570, "blue", "Alert", CL.underyou:format(args.spellName))
 		end
 	end
 end
@@ -353,7 +353,7 @@ do
 		local t = GetTime()
 		if t-prev > 3 then
 			prev = t
-			self:Message(args.spellId, "yellow", "Alert", CL.incoming:format(args.spellName))
+			self:MessageOld(args.spellId, "yellow", "Alert", CL.incoming:format(args.spellName))
 		end
 	end
 end
@@ -361,11 +361,11 @@ end
 do
 	local function printArmorApplied(self, spellId, spellName)
 		armorAppliedTimer = nil
-		self:Message(spellId, "yellow", "Warning", CL.count:format(spellName, boneArmorCounter))
+		self:MessageOld(spellId, "yellow", "Warning", CL.count:format(spellName, boneArmorCounter))
 	end
 	local function printArmorRemoved(self, spellId, spellName)
 		armorRemovedTimer = nil
-		self:Message(spellId, "green", "Info", L.armor_remaining:format(spellName, boneArmorCounter))
+		self:MessageOld(spellId, "green", "Info", L.armor_remaining:format(spellName, boneArmorCounter))
 	end
 
 	function mod:BonecageArmor(args)
@@ -422,11 +422,11 @@ do
 				SetRaidTarget(args.destName, 4)
 			end
 			if self:Me(args.destGUID) then
-				self:Message(args.spellId, "blue", "Warning", CL.link:format(soulList[1]))
+				self:MessageOld(args.spellId, "blue", "Warning", CL.link:format(soulList[1]))
 			elseif linkOnMe then
-				self:Message(args.spellId, "blue", "Warning", CL.link:format(soulList[2]))
+				self:MessageOld(args.spellId, "blue", "Warning", CL.link:format(soulList[2]))
 			elseif not self:CheckOption(args.spellId, "ME_ONLY") then
-				self:Message(args.spellId, "green", "Info", CL.link_both:format(soulList[1], soulList[2]))
+				self:MessageOld(args.spellId, "green", "Info", CL.link_both:format(soulList[1], soulList[2]))
 			end
 			wipe(soulList)
 		end
@@ -435,7 +435,7 @@ end
 
 function mod:SoulbindRemoved(args)
 	if self:Me(args.destGUID) then
-		self:Message(args.spellId, "blue", "Long", CL.link_removed)
+		self:MessageOld(args.spellId, "blue", "Long", CL.link_removed)
 	end
 	if self:GetOption(soulBindMarker) then
 		SetRaidTarget(args.destName, 0)
@@ -443,7 +443,7 @@ function mod:SoulbindRemoved(args)
 end
 
 function mod:WailingSouls(args)
-	self:Message(args.spellId, "red", "Warning")
+	self:MessageOld(args.spellId, "red", "Warning")
 	wailingSoulsCounter = wailingSoulsCounter + 1
 	if wailingSoulsCounter <= 2 then -- XXX Does a 3rd cast exist?
 		nextWailingSouls = GetTime() + 120
@@ -469,13 +469,13 @@ function mod:SpiritChains(args)
 end
 
 function mod:SunderingDoom(args)
-	self:Message(args.spellId, "red", "Warning")
+	self:MessageOld(args.spellId, "red", "Warning")
 	self:Bar(args.spellId, self:Easy() and 26.5 or 25)
 	self:CastBar(args.spellId, self:Easy() and 6 or self:Heroic() and 5 or 4)
 end
 
 function mod:DoomedSundering(args)
-	self:Message(args.spellId, "red", "Warning")
+	self:MessageOld(args.spellId, "red", "Warning")
 	self:Bar(args.spellId, self:Easy() and 26.5 or 25)
 	self:CastBar(args.spellId, self:Easy() and 6 or self:Heroic() and 5 or 4)
 end

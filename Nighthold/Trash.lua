@@ -225,14 +225,14 @@ do
 		local t = GetTime()
 		if self:Me(args.destGUID) and t-prev > 1.5 then
 			prev = t
-			self:Message(args.spellId, "blue", "Alert", CL.underyou:format(args.spellName))
+			self:MessageOld(args.spellId, "blue", "Alert", CL.underyou:format(args.spellName))
 		end
 	end
 end
 
 --[[ Skorpyron to Chronomatic Anomaly ]]--
 function mod:DevastatingStrike(args)
-	self:Message(args.spellId, "red", "Alarm")
+	self:MessageOld(args.spellId, "red", "Alarm")
 	self:CDBar(args.spellId, 7.5)
 end
 
@@ -250,7 +250,7 @@ do
 end
 
 function mod:RumblingBlow(args)
-	self:Message(args.spellId, "yellow", "Info")
+	self:MessageOld(args.spellId, "yellow", "Info")
 end
 
 function mod:TormDeath()
@@ -263,7 +263,7 @@ do
 		local t = GetTime()
 		if t-prev > 2 then
 			prev = t
-			self:Message(args.spellId, "red", "Alarm")
+			self:MessageOld(args.spellId, "red", "Alarm")
 		end
 		local pad = strrep(" ", fulminateCount) -- hack so i can have two bars/messages for the same thing up
 		self:Bar(args.spellId, 5, CL.cast:format(args.spellName)..pad)
@@ -277,7 +277,7 @@ do
 		local t = GetTime()
 		if t-prev > 2 then
 			prev = t
-			self:Message(args.spellId, "orange", t-prev > 2 and "Long")
+			self:MessageOld(args.spellId, "orange", t-prev > 2 and "Long")
 			self:Bar(args.spellId, 15)
 		end
 	end
@@ -346,16 +346,16 @@ do
 end
 
 function mod:ArcaneEmanations(args)
-	self:Message(args.spellId, "red", "Long", CL.casting:format(args.spellName))
+	self:MessageOld(args.spellId, "red", "Long", CL.casting:format(args.spellName))
 end
 
 function mod:GravityWell(args)
-	self:Message(args.spellId, "yellow", "Info")
+	self:MessageOld(args.spellId, "yellow", "Info")
 	self:CDBar(args.spellId, 23)
 end
 
 function mod:CrushingStomp(args)
-	self:Message(args.spellId, "orange", "Warning")
+	self:MessageOld(args.spellId, "orange", "Warning")
 	self:CDBar(args.spellId, 23)
 	self:Flash(args.spellId)
 end
@@ -371,13 +371,13 @@ do
 		local t = GetTime()
 		if t-prev > 2 then
 			prev = t
-			self:Message(args.spellId, "yellow", "Long")
+			self:MessageOld(args.spellId, "yellow", "Long")
 		end
 	end
 end
 
 function mod:MassSiphon(args)
-	self:Message(args.spellId, "orange", self:Interrupter(args.sourceGUID) and "Info", CL.casting:format(args.spellName))
+	self:MessageOld(args.spellId, "orange", self:Interrupter(args.sourceGUID) and "Info", CL.casting:format(args.spellName))
 	self:Bar(args.spellId, 15)
 end
 
@@ -386,7 +386,7 @@ function mod:ChronowraithDeath()
 end
 
 function mod:MassSuppress(args)
-	self:Message(args.spellId, "yellow", self:Interrupter(args.sourceGUID) and "Long")
+	self:MessageOld(args.spellId, "yellow", self:Interrupter(args.sourceGUID) and "Long")
 end
 
 --[[ Aluriel to Etraeus ]]--
@@ -445,7 +445,7 @@ do
 		local t = GetTime()
 		if t-prev > 0.5 then
 			prev = t
-			self:Message(args.spellId, "red", self:Dispeller("magic", true) and "Info")
+			self:MessageOld(args.spellId, "red", self:Dispeller("magic", true) and "Info")
 		end
 	end
 end

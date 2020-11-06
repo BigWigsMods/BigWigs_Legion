@@ -136,7 +136,7 @@ do
 				players[guid] = true
 				list[#list+1] = self:UnitName(unit)
 				if unit == "player" then
-					self:Message(spellId, "blue", "Long", CL.you:format(spellName))
+					self:MessageOld(spellId, "blue", "Long", CL.you:format(spellName))
 					self:Flash(spellId)
 					self:Say(spellId)
 
@@ -184,13 +184,13 @@ end
 --[[ Spider Form ]]--
 function mod:UNIT_SPELLCAST_SUCCEEDED(_, _, _, spellId)
 	if spellId == 212364 then -- Feeding Time, there is also 214305, fires about 1.2s later
-		self:Message(spellId, "red", "Info")
+		self:MessageOld(spellId, "red", "Info")
 		self:Bar(214348, 8.2) -- Vile Ambush
 		if timeToTransform(self) > 51 then
 			self:Bar(spellId, 51)
 		end
 	elseif spellId == 226039 then -- Bird Transform => Roc Form
-		self:Message("stages", "cyan", "Info", -13263, "inv_ravenlordmount") -- Roc Form
+		self:MessageOld("stages", "cyan", "Info", -13263, "inv_ravenlordmount") -- Roc Form
 		twistingShadowsCount = 1
 		self:CDBar(210864, 8) -- Twisting Shadows
 		self:CDBar(212707, 15.7) -- Gathering Clouds
@@ -202,7 +202,7 @@ function mod:UNIT_SPELLCAST_SUCCEEDED(_, _, _, spellId)
 		end
 		self:Bar("stages", 134, -13259, "inv_spidermount") -- Spider Form
 	elseif spellId == 226055 then -- Spider Transform => Spider Form
-		self:Message("stages", "cyan", "Info", -13259, "inv_spidermount") -- Spider Form
+		self:MessageOld("stages", "cyan", "Info", -13259, "inv_spidermount") -- Spider Form
 		self:Bar(215300, 6) -- Web of Pain
 		self:Bar(212364, 16) -- Feeding Time
 		self:Bar("stages", 97, -13263, "inv_ravenlordmount") -- Roc Form
@@ -211,17 +211,17 @@ end
 
 function mod:WebOfPainApplied(args)
 	if self:Me(args.destGUID) then
-		self:Message(args.spellId, "blue", "Warning", L.yourLink:format(self:ColorName(args.sourceName)))
+		self:MessageOld(args.spellId, "blue", "Warning", L.yourLink:format(self:ColorName(args.sourceName)))
 		local _, _, _, expires = self:UnitDebuff("player", args.spellName)
 		local remaining = expires-GetTime()
 		self:Bar(args.spellId, remaining, L.yourLinkShort:format(self:ColorName(args.sourceName)))
 	elseif self:Me(args.sourceGUID) then
-		self:Message(args.spellId, "blue", "Warning", L.yourLink:format(self:ColorName(args.destName)))
+		self:MessageOld(args.spellId, "blue", "Warning", L.yourLink:format(self:ColorName(args.destName)))
 		local _, _, _, expires = self:UnitDebuff("player", args.spellName)
 		local remaining = expires-GetTime()
 		self:Bar(args.spellId, remaining, L.yourLinkShort:format(self:ColorName(args.destName)))
 	elseif not self:CheckOption(args.spellId, "ME_ONLY") then
-		self:Message(args.spellId, "yellow", nil, L.isLinkedWith:format(self:ColorName(args.sourceName), self:ColorName(args.destName)))
+		self:MessageOld(args.spellId, "yellow", nil, L.isLinkedWith:format(self:ColorName(args.sourceName), self:ColorName(args.destName)))
 	end
 	if self:GetOption("custom_off_webofpain_marker") then -- TODO
 		webOfPainTargets[args.sourceName] = true
@@ -246,23 +246,23 @@ function mod:WebOfPainRemoved(args)
 end
 
 function mod:VileAmbush(args)
-	self:Message(args.spellId, "yellow", "Alarm")
+	self:MessageOld(args.spellId, "yellow", "Alarm")
 end
 
 function mod:GatheringCloudsStart(args)
-	self:Message(args.spellId, "yellow", "Long", CL.casting:format(args.spellName))
+	self:MessageOld(args.spellId, "yellow", "Long", CL.casting:format(args.spellName))
 	self:CastBar(args.spellId, 10.5) -- 2.5s cast + 8s duration = 10.5s total
 end
 
 --[[ Roc Form ]]--
 
 function mod:DarkStorm(args)
-	self:Message(args.spellId, "cyan", "Info")
+	self:MessageOld(args.spellId, "cyan", "Info")
 end
 
 
 function mod:RazorWing(args)
-	self:Message(args.spellId, "red", "Alarm")
+	self:MessageOld(args.spellId, "red", "Alarm")
 	self:CastBar(args.spellId, 4.5)
 	if timeToTransform(self) > 32.9 then
 		self:Bar(args.spellId, 32.9)
@@ -270,14 +270,14 @@ function mod:RazorWing(args)
 end
 
 function mod:RakingTalons(args)
-	self:Message(args.spellId, "yellow", "Long")
+	self:MessageOld(args.spellId, "yellow", "Long")
 	if timeToTransform(self) > 32.9 then
 		self:Bar(args.spellId, 32.9)
 	end
 end
 
 function mod:ViolentWinds(args)
-	self:Message(args.spellId, "orange", "Info")
+	self:MessageOld(args.spellId, "orange", "Info")
 	self:CastBar(args.spellId, 6)
 	if timeToTransform(self) > 39 then
 		self:Bar(args.spellId, 39)
@@ -291,7 +291,7 @@ do
 		local t = GetTime()
 		if self:Me(args.destGUID) and t-prev > 1.5 then
 			prev = t
-			self:Message(213124, "blue", "Alert", CL.underyou:format(args.spellName))
+			self:MessageOld(213124, "blue", "Alert", CL.underyou:format(args.spellName))
 		end
 	end
 end

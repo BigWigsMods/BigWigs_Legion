@@ -89,7 +89,7 @@ end
 
 function mod:UNIT_SPELLCAST_START(_, _, _, spellId)
 	if spellId == 202977 then -- Infested Breath
-		self:Message(spellId, "orange", "Alarm", CL.casting:format(self:SpellName(spellId)))
+		self:MessageOld(spellId, "orange", "Alarm", CL.casting:format(self:SpellName(spellId)))
 		self:CastBar(spellId, 8) -- 3s cast time + 5s channel
 
 		if self:BarTimeLeft(203552) > 37 then -- Heart of the Swarm
@@ -170,7 +170,7 @@ function mod:VolatileRotRemoved(args)
 end
 
 function mod:HeartOfTheSwarm(args)
-	self:Message(args.spellId, "cyan", "Info", CL.casting:format(args.spellName))
+	self:MessageOld(args.spellId, "cyan", "Info", CL.casting:format(args.spellName))
 	self:CastBar(args.spellId, 23.7) -- 3.7s cast time + 20s channel
 	-- This is basically a phase, so start timers for next "normal" phase here
 	self:CDBar(args.spellId, 120)
@@ -189,7 +189,7 @@ do
 		local t = GetTime()
 		if self:Me(args.destGUID) and t-prev > 1.5 then
 			prev = t
-			self:Message(args.spellId, "blue", "Alert", CL.underyou:format(args.spellName))
+			self:MessageOld(args.spellId, "blue", "Alert", CL.underyou:format(args.spellName))
 		end
 	end
 end
@@ -225,11 +225,11 @@ end
 
 function mod:InfestedMindCast(args)
 	if myInfestedStacks > 9 then
-		self:Message(args.spellId, "blue", "Long", CL.you:format(args.spellName))
+		self:MessageOld(args.spellId, "blue", "Long", CL.you:format(args.spellName))
 		self:Flash(args.spellId)
 		self:Say(args.spellId)
 	else
-		self:Message(args.spellId, "yellow", "Long", CL.incoming:format(args.spellName))
+		self:MessageOld(args.spellId, "yellow", "Long", CL.incoming:format(args.spellName))
 	end
 
 	self:CastBar(args.spellId, 3)

@@ -53,17 +53,17 @@ do
 end
 
 function mod:SnowCrash(args)
-	self:Message(args.spellId, "red", self:Melee() and "Alert")
+	self:MessageOld(args.spellId, "red", self:Melee() and "Alert")
 	self:CDBar(args.spellId, 19)
 end
 
 function mod:Avalanche(args)
-	self:Message(args.spellId, "yellow", "Warning")
+	self:MessageOld(args.spellId, "yellow", "Warning")
 	self:Flash(args.spellId)
 end
 
 function mod:SnowPlow(args)
-	self:Message(219602, "orange", "Long", CL.incoming:format(args.spellName))
+	self:MessageOld(219602, "orange", "Long", CL.incoming:format(args.spellName))
 end
 
 function mod:SnowPlowApplied(args)

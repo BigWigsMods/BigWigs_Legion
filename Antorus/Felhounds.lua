@@ -114,13 +114,13 @@ end
 
 function mod:UNIT_SPELLCAST_SUCCEEDED(_, _, _, spellId)
 	if spellId == 244159 then -- Consuming Sphere
-		self:Message(244131, "yellow", "Alert")
+		self:MessageOld(244131, "yellow", "Alert")
 		consumingSphereCount = consumingSphereCount + 1
 		self:Bar(244131, self:Mythic() and (consumingSphereCount % 2 == 1 and 86 or 72.5) or self:Easy() and 85 or 78.5)
 	elseif spellId == 244069 then -- Weight of Darkness
 		weightofDarknessCount = weightofDarknessCount + 1
 		self:Flash(254429)
-		self:Message(254429, "orange", "Warning")
+		self:MessageOld(254429, "orange", "Warning")
 		self:Bar(254429, self:Mythic() and (weightofDarknessCount % 2 == 1 and 72.5 or 86) or 78.5)
 	elseif spellId == 244064 then -- Desolate Gaze
 		self:Bar(244768, self:Mythic() and 103 or self:Easy() and 104 or 96.5)
@@ -128,7 +128,7 @@ function mod:UNIT_SPELLCAST_SUCCEEDED(_, _, _, spellId)
 end
 
 function mod:BurningMaw(args)
-	self:Message(args.spellId, "red", "Alarm")
+	self:MessageOld(args.spellId, "red", "Alarm")
 	self:CDBar(args.spellId, self:Mythic() and 10.9 or 11)
 end
 
@@ -172,14 +172,14 @@ function mod:DesolateGazeRemoved(args)
 end
 
 function mod:EnflameCorruption(args)
-	self:Message(args.spellId, "yellow", "Alert")
+	self:MessageOld(args.spellId, "yellow", "Alert")
 	enflameCorruptionCount = enflameCorruptionCount + 1
 	self:Bar(args.spellId, self:Mythic() and (enflameCorruptionCount % 2 == 1 and 88.8 or 104.6) or self:Easy() and 104 or 95.5)
 	self:CastBar(args.spellId, 9)
 end
 
 function mod:CorruptingMaw(args)
-	self:Message(args.spellId, "red", "Alarm")
+	self:MessageOld(args.spellId, "red", "Alarm")
 	self:CDBar(args.spellId, self:Mythic() and 10.9 or 11)
 end
 
@@ -197,7 +197,7 @@ function mod:WeightofDarknessRemoved(args)
 end
 
 function mod:SiphonCorruption(args)
-	self:Message(args.spellId, "yellow", "Alert")
+	self:MessageOld(args.spellId, "yellow", "Alert")
 	siphonCorruptionCount = siphonCorruptionCount + 1
 	self:Bar(args.spellId, self:Mythic() and (siphonCorruptionCount % 2 == 1 and 86.3 or 73) or self:Easy() and 85 or 78.5)
 	self:CastBar(args.spellId, 9)
@@ -228,7 +228,7 @@ do
 		local t = GetTime()
 		if t-prev > 0.5 then
 			prev = t
-			self:Message(244050, "orange", "Warning", args.spellName, args.spellId)
+			self:MessageOld(244050, "orange", "Warning", args.spellName, args.spellId)
 		end
 	end
 end
@@ -239,7 +239,7 @@ do
 		local t = GetTime()
 		if t-prev > 1.5 then
 			prev = t
-			self:Message(args.spellId, "cyan", "Info")
+			self:MessageOld(args.spellId, "cyan", "Info")
 			self:Bar(args.spellId, 15)
 		end
 	end
@@ -248,7 +248,7 @@ end
 --[[ Mythic ]]--
 function mod:Touched(args)
 	if self:Me(args.destGUID) then
-		self:Message(args.spellId, args.spellId == 244054 and "red" or "blue", "Warning", CL.you:format(args.spellName)) -- Red for Flame, Blue for Shadow
+		self:MessageOld(args.spellId, args.spellId == 244054 and "red" or "blue", "Warning", CL.you:format(args.spellName)) -- Red for Flame, Blue for Shadow
 	end
 end
 

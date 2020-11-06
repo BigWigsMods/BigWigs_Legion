@@ -119,7 +119,7 @@ end
 
 function mod:drawInCheck(self)
 	if skipDrawIn then
-		self:Message(232061, "orange", "Alarm", CL.interrupted:format(self:SpellName(232061))) -- Draw In Interrupted
+		self:MessageOld(232061, "orange", "Alarm", CL.interrupted:format(self:SpellName(232061))) -- Draw In Interrupted
 		nextDrawIn = GetTime() + 58
 		self:CDBar(232061, 58) -- Draw In
 		self:ScheduleTimer("drawInCheck", 58, self)
@@ -128,7 +128,7 @@ end
 
 function mod:UNIT_SPELLCAST_SUCCEEDED(_, _, _, spellId)
 	if spellId == 232192 then -- Commanding Roar
-		self:Message(spellId, "red", "Alert")
+		self:MessageOld(spellId, "red", "Alert")
 		roarCounter = roarCounter + 1
 		if (nextDrawIn > GetTime() + 32.8) or skipDrawIn then
 			self:Bar(spellId, 32.8)
@@ -138,7 +138,7 @@ end
 
 function mod:RAID_BOSS_WHISPER(event, msg)
 	if msg:find("240319", nil, true) then -- Hatching
-		self:Message(240319, "red", "Warning")
+		self:MessageOld(240319, "red", "Warning")
 		self:CastBar(240319, 22)
 		if (nextDrawIn > GetTime() + 40) or skipDrawIn then
 			self:Bar(240319, 40)
@@ -153,7 +153,7 @@ do
 		local t = GetTime()
 		if self:Me(args.destGUID) and t-prev > 1.5 then
 			prev = t
-			self:Message(args.spellId, "blue", "Alert", CL.underyou:format(args.spellName))
+			self:MessageOld(args.spellId, "blue", "Alert", CL.underyou:format(args.spellName))
 		end
 	end
 end
@@ -164,7 +164,7 @@ function mod:JaggedAbrasion(args)
 end
 
 function mod:UncheckedRage(args)
-	self:Message(args.spellId, "orange", "Warning")
+	self:MessageOld(args.spellId, "orange", "Warning")
 	rageCounter = rageCounter + 1
 	if (nextDrawIn > GetTime() + 20.5) or skipDrawIn then
 		self:Bar(args.spellId, 20.5)
@@ -172,7 +172,7 @@ function mod:UncheckedRage(args)
 end
 
 function mod:DrawIn(args)
-	self:Message(args.spellId, "red", "Alert", CL.casting:format(args.spellName))
+	self:MessageOld(args.spellId, "red", "Alert", CL.casting:format(args.spellName))
 	self:CastBar(args.spellId, 10)
 end
 
@@ -186,7 +186,7 @@ end
 function mod:FrostyDischarge(args)
 	roarCounter = 1
 	rageCounter = 1
-	self:Message(args.spellId, "orange", "Warning", args.spellName)
+	self:MessageOld(args.spellId, "orange", "Warning", args.spellName)
 	self:CDBar(232192, 17) -- Commanding Roar
 	self:CDBar(231854, 21.4) -- Unchecked Rage
 	if self:Mythic() then

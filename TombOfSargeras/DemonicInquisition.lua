@@ -168,7 +168,7 @@ do
 			if t-prev > 1 then
 				prev = t
 				self:Flash("fixate", 41951)
-				self:Message("fixate", "blue", "Long", CL.you:format(self:SpellName(41951)), 41951) -- 41951 = "Fixate"
+				self:MessageOld("fixate", "blue", "Long", CL.you:format(self:SpellName(41951)), 41951) -- 41951 = "Fixate"
 			end
 			if self:GetOption("custom_on_fixate_plates") then
 				self:AddPlateIcon(41951, guid)
@@ -204,7 +204,7 @@ end
 
 function mod:UNIT_SPELLCAST_SUCCEEDED(_, _, _, spellId)
 	if spellId == 233895 then -- Suffocating Dark
-		self:Message(spellId, "yellow", "Info")
+		self:MessageOld(spellId, "yellow", "Info")
 		suffocatingDarkCounter = suffocatingDarkCounter + 1
 		self:CDBar(spellId, suffocatingDarkCounter == 2 and 42 or 25)
 	end
@@ -266,7 +266,7 @@ function mod:BelacsPrisonerRemoved(args)
 end
 
 function mod:ScytheSweep(args)
-	self:Message(args.spellId, "yellow", self:Tank() and "Alert")
+	self:MessageOld(args.spellId, "yellow", self:Tank() and "Alert")
 	sweepCounter = sweepCounter + 1
 	self:CDBar(args.spellId, sweepCounter > 4 and sweepCounter % 2 == 0 and 35 or 24)
 end
@@ -286,7 +286,7 @@ do
 end
 
 function mod:BoneSaw(args)
-	self:Message(args.spellId, "red", "Warning")
+	self:MessageOld(args.spellId, "red", "Warning")
 	self:CastBar(args.spellId, 16)
 	if self:Easy() then
 		self:Bar(args.spellId, 60.5)
@@ -296,12 +296,12 @@ function mod:BoneSaw(args)
 end
 
 function mod:PangsofGuilt(args) -- Interuptable
-	self:Message(args.spellId, "red", self:Interrupter(args.sourceGUID) and "Alarm", CL.casting:format(CL.count:format(args.spellName, pangsofGuiltCounter)))
+	self:MessageOld(args.spellId, "red", self:Interrupter(args.sourceGUID) and "Alarm", CL.casting:format(CL.count:format(args.spellName, pangsofGuiltCounter)))
 	pangsofGuiltCounter = (pangsofGuiltCounter % 3) + 1
 end
 
 function mod:EchoingAnguish(args)
-	self:Message(args.spellId, "red", "Alert")
+	self:MessageOld(args.spellId, "red", "Alert")
 	self:OpenProximity(args.spellId, 8) -- Open proximity a bit before
 	self:CDBar(args.spellId, 22)
 end
@@ -337,12 +337,12 @@ do
 end
 
 function mod:TormentingBurst(args)
-	self:Message(args.spellId, "yellow", self:Healer() and "Long")
+	self:MessageOld(args.spellId, "yellow", self:Healer() and "Long")
 	self:CDBar(args.spellId, 17.1)
 end
 
 function mod:FelSquall(args)
-	self:Message(args.spellId, "red", "Warning")
+	self:MessageOld(args.spellId, "red", "Warning")
 	self:CastBar(args.spellId, 16)
 	self:Bar(args.spellId, 60.5)
 end
@@ -353,7 +353,7 @@ do
 		local t = GetTime()
 		if self:Me(args.destGUID) and t-prev > 3 then
 			prev = t
-			self:Message(233895, "blue", "Alert", CL.underyou:format(args.spellName))
+			self:MessageOld(233895, "blue", "Alert", CL.underyou:format(args.spellName))
 		end
 	end
 end

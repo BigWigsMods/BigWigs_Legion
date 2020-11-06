@@ -44,12 +44,12 @@ end
 --
 
 function mod:Silence(args)
-	self:Message(args.spellId, "yellow", "Long", CL.casting:format(args.spellName))
+	self:MessageOld(args.spellId, "yellow", "Long", CL.casting:format(args.spellName))
 	self:CDBar(args.spellId, 25)
 end
 
 function mod:SoulCleave(args)
-	self:Message(args.spellId, "red", "Alarm")
+	self:MessageOld(args.spellId, "red", "Alarm")
 	self:CDBar(args.spellId, 25)
 end
 
@@ -59,7 +59,7 @@ function mod:ClovenSoul(args)
 end
 
 function mod:Cavitation(args)
-	self:Message(args.spellId, "yellow", "Alert")
+	self:MessageOld(args.spellId, "yellow", "Alert")
 	self:CDBar(args.spellId, 25)
 end
 

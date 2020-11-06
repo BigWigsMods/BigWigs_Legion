@@ -66,12 +66,12 @@ function mod:DrainStacks(args)
 end
 
 function mod:Stomp(args)
-	self:Message(args.spellId, "orange", "Warning")
+	self:MessageOld(args.spellId, "orange", "Warning")
 	self:CastBar(args.spellId, 2)
 	self:CDBar(args.spellId, 17)
 end
 
 function mod:FelBreath(args)
-	self:Message(args.spellId, "red", "Long")
+	self:MessageOld(args.spellId, "red", "Long")
 	self:CDBar(args.spellId, 15.5)
 end

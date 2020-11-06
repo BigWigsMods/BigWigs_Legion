@@ -60,17 +60,17 @@ do
 end
 
 function mod:Breaksam(args)
-	self:Message(args.spellId, "red", self:Melee() and "Alert")
+	self:MessageOld(args.spellId, "red", self:Melee() and "Alert")
 end
 
 function mod:Getsam(args)
-	self:Message(args.spellId, "yellow", "Warning", CL.incoming:format(args.spellName))
+	self:MessageOld(args.spellId, "yellow", "Warning", CL.incoming:format(args.spellName))
 	self:CDBar(args.spellId, 53)
 	self:Flash(args.spellId)
 end
 
 function mod:Yaksam(args)
-	self:Message(args.spellId, "orange", "Long", CL.casting:format(args.spellName))
+	self:MessageOld(args.spellId, "orange", "Long", CL.casting:format(args.spellName))
 	self:CDBar(args.spellId, 50)
 end
 

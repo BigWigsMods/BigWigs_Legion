@@ -48,16 +48,16 @@ function mod:BOSS_KILL(_, id)
 end
 
 function mod:Quake(args)
-	self:Message(args.spellId, "orange", "Warning")
+	self:MessageOld(args.spellId, "orange", "Warning")
 	self:CDBar(args.spellId, 23.3)
 end
 
 function mod:FelfireMissiles(args)
-	self:Message(args.spellId, "yellow", "Long")
+	self:MessageOld(args.spellId, "yellow", "Long")
 end
 
 function mod:Sear(args)
-	self:Message(args.spellId, "red", self:Melee() and "Info")
+	self:MessageOld(args.spellId, "red", self:Melee() and "Info")
 	self:CDBar(args.spellId, 22)
 end
 

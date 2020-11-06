@@ -364,7 +364,7 @@ do
 	local prev = 0
 	function mod:UNIT_SPELLCAST_SUCCEEDED(_, _, _, spellId)
 		if spellId == 211614 then -- Slow
-			self:Message("recursive_elemental", "cyan", "Info", L.recursive_elemental, L.recursive_elemental_icon)
+			self:MessageOld("recursive_elemental", "cyan", "Info", L.recursive_elemental, L.recursive_elemental_icon)
 			slowElementalCount = slowElementalCount + 1
 			local timer = nil
 			if self:Mythic() then
@@ -376,7 +376,7 @@ do
 				self:Bar("recursive_elemental", timer, L.recursive_elemental, L.recursive_elemental_icon)
 			end
 		elseif spellId == 211616 then -- Fast
-			self:Message("expedient_elemental", "cyan", "Info", L.expedient_elemental, L.expedient_elemental_icon)
+			self:MessageOld("expedient_elemental", "cyan", "Info", L.expedient_elemental, L.expedient_elemental_icon)
 			fastElementalCount = fastElementalCount + 1
 			local timer = nil
 			if self:Mythic() then
@@ -388,7 +388,7 @@ do
 				self:Bar("expedient_elemental", timer, L.expedient_elemental, L.expedient_elemental_icon)
 			end
 		elseif spellId == 209170 or spellId == 209171 then -- Spanning Singularity heroic / mythic
-			self:Message(209170, "yellow", "Info")
+			self:MessageOld(209170, "yellow", "Info")
 			singularityCount = singularityCount + 1
 			local timer = timers[209170][singularityCount]
 			if timer then
@@ -398,7 +398,7 @@ do
 			local t = GetTime()
 			if t-prev > 1.5 then -- event can fire twice
 				prev = t
-				self:Message(209170, "yellow", "Info")
+				self:MessageOld(209170, "yellow", "Info")
 				singularityCount = singularityCount + 1
 				local timer = timers[209170][singularityCount]
 				if self:LFR() then -- XXX Unsure if timers are complete
@@ -462,7 +462,7 @@ function mod:CHAT_MSG_MONSTER_YELL(event, msg)
 	-- l11n END
 
 	if msg == L.ring_yell or (localized_ring_msg and msg:find(localized_ring_msg)) then -- Arcanetic Ring, l11n
-		self:Message(228877, "yellow", "Alarm", CL.count:format(self:SpellName(228877), ringCount))
+		self:MessageOld(228877, "yellow", "Alarm", CL.count:format(self:SpellName(228877), ringCount))
 		ringCount = ringCount + 1
 		local timer = timers[228877][ringCount]
 		if self:LFR() then -- XXX Unsure if timers are complete
@@ -472,7 +472,7 @@ function mod:CHAT_MSG_MONSTER_YELL(event, msg)
 		end
 
 	elseif msg == L.orb_yell or (localized_orb_msg and msg:find(localized_orb_msg)) then -- Epocheric Orb, l11n
-		self:Message(210022, "orange", "Alert", CL.count:format(self:SpellName(210022), orbCount))
+		self:MessageOld(210022, "orange", "Alert", CL.count:format(self:SpellName(210022), orbCount))
 		orbCount = orbCount + 1
 		local timer = timers[210022][orbCount] or self:Easy() and 15
 		if self:LFR() then -- XXX Unsure if timers are complete
@@ -483,7 +483,7 @@ function mod:CHAT_MSG_MONSTER_YELL(event, msg)
 
 	-- Should be in DelphuricBeamCast XXX remove if confirmed
 	--elseif msg:find(L.beam_msg) then
-	--	self:Message(209244, "orange", "Alert")
+	--	self:MessageOld(209244, "orange", "Alert")
 	--	beamCount = beamCount + 1
 	--	if not savedBeamCount or beamCount < savedBeamCount then
 	--		local t = timers[209244][beamCount]
@@ -494,7 +494,7 @@ function mod:CHAT_MSG_MONSTER_YELL(event, msg)
 
 	-- Should be in StartSingularityTimer XXX remove if confirmed
 	--elseif msg:find(L.singularity_msg) and phase == 2 or phase == 3 then -- Mythic only, zones apears 2s after the message.
-	--	self:ScheduleTimer("Message", 2, 209170, "yellow", "Info", self:SpellName(209170))
+	--	self:ScheduleTimer("MessageOld", 2, 209170, "yellow", "Info", self:SpellName(209170))
 	end
 end
 
@@ -515,7 +515,7 @@ end
 
 function mod:TimeStop(args)
 	isPhaseTransition = true
-	self:Message("stages", "cyan", "Info", args.spellName, args.spellId)
+	self:MessageOld("stages", "cyan", "Info", args.spellName, args.spellId)
 	self:Bar("stages", 9.7, CL.stage:format(phase+1), args.spellId)
 	self:Bar("stages", 13.2, L.elisande, "Achievement_thenighthold_grandmagistrixelisande")
 	-- Stop old bars
@@ -542,7 +542,7 @@ function mod:LeavetheNightwell()
 	end
 
 	if phase == 2 then
-		self:Message("stages", "cyan", "Long", CL.stage:format(phase), false)
+		self:MessageOld("stages", "cyan", "Long", CL.stage:format(phase), false)
 
 		savedRingCount = ringCount
 		savedSingularityCount = singularityCount
@@ -557,7 +557,7 @@ function mod:LeavetheNightwell()
 		self:Bar(210022, timers[210022][orbCount]) -- Epocheric Orb
 		self:Bar(209973, self:Easy() and 12.1 or timers[209973][ablatingCount]) -- Ablating Explosion
 	elseif phase == 3 then
-		self:Message("stages", "cyan", "Long", CL.stage:format(phase), false)
+		self:MessageOld("stages", "cyan", "Long", CL.stage:format(phase), false)
 
 		savedOrbCount = orbCount
 		savedBeamCount = beamCount
@@ -601,12 +601,12 @@ end
 
 --[[ Recursive Elemental ]]--
 function mod:Recursion(args)
-	self:Message(args.spellId, "red", self:Interrupter(args.sourceGUID) and "Alert")
+	self:MessageOld(args.spellId, "red", self:Interrupter(args.sourceGUID) and "Alert")
 end
 
 function mod:Blast(args)
 	if self:Interrupter(args.sourceGUID) then
-		self:Message(args.spellId, "red", "Alert")
+		self:MessageOld(args.spellId, "red", "Alert")
 	end
 end
 
@@ -621,12 +621,12 @@ end
 
 --[[ Expedient Elemental ]]--
 function mod:Expedite(args)
-	self:Message(args.spellId, "yellow", self:Interrupter(args.sourceGUID) and "Info")
+	self:MessageOld(args.spellId, "yellow", self:Interrupter(args.sourceGUID) and "Info")
 end
 
 function mod:FastTime(args)
 	if self:Me(args.destGUID)then
-		self:Message(args.spellId, "green", "Long", CL.you:format(args.spellName))
+		self:MessageOld(args.spellId, "green", "Long", CL.you:format(args.spellName))
 		local _, _, _, expires = self:UnitDebuff("player", args.spellName, args.spellId)
 		local t = expires - GetTime()
 		self:TargetBar(args.spellId, t, args.destName)
@@ -654,7 +654,7 @@ do
 		local t = GetTime()
 		if self:Me(args.destGUID) and t-prev > 1.5 then
 			prev = t
-			self:Message(209170, "blue", "Alert", CL.underyou:format(args.spellName))
+			self:MessageOld(209170, "blue", "Alert", CL.underyou:format(args.spellName))
 		end
 	end
 end
@@ -668,7 +668,7 @@ end
 
 --[[ Time Layer 2 ]]--
 function mod:DelphuricBeamCast()
-	self:Message(209244, "orange", "Alert")
+	self:MessageOld(209244, "orange", "Alert")
 	beamCount = beamCount + 1
 	local timer = timers[209244][beamCount]
 	if self:LFR() then
@@ -761,7 +761,7 @@ do
 end
 
 function mod:AblativePulse(args)
-	self:Message(args.spellId, "red", "Alert", CL.casting:format(args.spellName))
+	self:MessageOld(args.spellId, "red", "Alert", CL.casting:format(args.spellName))
 end
 
 function mod:Ablated(args)

@@ -88,7 +88,7 @@ end
 --
 
 function mod:RoaringCacophony(args)
-	self:Message(args.spellId, "orange", nil, CL.casting:format(CL.count:format(args.spellName, cacophonyCount)))
+	self:MessageOld(args.spellId, "orange", nil, CL.casting:format(CL.count:format(args.spellName, cacophonyCount)))
 end
 
 function mod:RoaringCacophonySuccess(args)
@@ -96,7 +96,7 @@ function mod:RoaringCacophonySuccess(args)
 	if self:Mythic() and cacophonyCount > 2 and cacophonyCount % 2 == 1 then
 		text = text.." - ".. CL.spawning:format(CL.add)
 	end
-	self:Message(args.spellId, "orange", "Alarm", text)
+	self:MessageOld(args.spellId, "orange", "Alarm", text)
 
 	cacophonyCount = cacophonyCount + 1
 
@@ -117,7 +117,7 @@ function mod:Overwhelm(args)
 end
 
 function mod:RendFleshCast(args)
-	self:Message(204859, "yellow", nil, CL.casting:format(args.spellName))
+	self:MessageOld(204859, "yellow", nil, CL.casting:format(args.spellName))
 	if self:Tank() and not UnitDetailedThreatSituation("player", "boss1") then
 		local _, _, _, expiration = self:UnitDebuff("player", self:SpellName(197943)) -- Overwhelm
 		if not expiration or expiration-GetTime() < 2.5 then
@@ -176,7 +176,7 @@ do
 		local t = GetTime()
 		if self:Me(args.destGUID) and t-prev > 1.5 then
 			prev = t
-			self:Message(205611, "blue", "Alert", CL.underyou:format(args.spellName))
+			self:MessageOld(205611, "blue", "Alert", CL.underyou:format(args.spellName))
 		end
 	end
 end
@@ -185,10 +185,10 @@ function mod:UNIT_HEALTH_FREQUENT(event, unit)
 	local hp = UnitHealth(unit) / UnitHealthMax(unit)
 	if hp < 0.35 then -- Blood Frenzy at 30%
 		self:UnregisterUnitEvent(event, unit)
-		self:Message(198388, "cyan", "Info", CL.soon:format(self:SpellName(198388))) -- Blood Frenzy
+		self:MessageOld(198388, "cyan", "Info", CL.soon:format(self:SpellName(198388))) -- Blood Frenzy
 	end
 end
 
 function mod:BloodFrenzy(args)
-	self:Message(args.spellId, "orange", "Long", "30% - ".. args.spellName)
+	self:MessageOld(args.spellId, "orange", "Long", "30% - ".. args.spellName)
 end

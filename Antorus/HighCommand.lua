@@ -121,13 +121,13 @@ end
 --
 function mod:UNIT_SPELLCAST_SUCCEEDED(_, _, _, spellId)
 	if spellId == 245304 then -- Entropic Mines
-		self:Message(245161, "yellow", "Info")
+		self:MessageOld(245161, "yellow", "Info")
 		local cooldown = 10
 		if nextAssumeCommand > GetTime() + cooldown then
 			self:Bar(245161, cooldown)
 		end
 	elseif spellId == 245546 then -- Summon Reinforcements
-		self:Message(245546, "red", "Alarm")
+		self:MessageOld(245546, "red", "Alarm")
 		local cooldown = 35
 		if nextAssumeCommand > GetTime() + cooldown then
 			self:Bar(245546, cooldown)
@@ -136,7 +136,7 @@ function mod:UNIT_SPELLCAST_SUCCEEDED(_, _, _, spellId)
 end
 
 function mod:AssumeCommand(args)
-	self:Message(args.spellId, "cyan", "Long", CL.incoming:format(incomingBoss[assumeCommandCount % 3]))
+	self:MessageOld(args.spellId, "cyan", "Long", CL.incoming:format(incomingBoss[assumeCommandCount % 3]))
 
 	if assumeCommandCount % 3 == 1 then -- Chief Engineer Ishkar
 		self:StopBar(245161) -- Entropic Mines
@@ -176,11 +176,11 @@ function mod:ExploitWeaknessApplied(args)
 end
 
 function mod:Pyroblast(args)
-	self:Message(args.spellId, "orange", "Alert")
+	self:MessageOld(args.spellId, "orange", "Alert")
 end
 
 function mod:Fusillade(args)
-	self:Message(args.spellId, "orange", "Warning", CL.count:format(self:SpellName(244625), fusilladeCount))
+	self:MessageOld(args.spellId, "orange", "Warning", CL.count:format(self:SpellName(244625), fusilladeCount))
 	self:CastBar(args.spellId, 5, CL.count:format(self:SpellName(244625), fusilladeCount))
 	fusilladeCount = fusilladeCount + 1
 	local cooldown = 30
@@ -191,7 +191,7 @@ end
 
 
 function mod:ShockGrenadeStart(args)
-	self:Message(244737, "yellow", nil, CL.incoming:format(args.spellName))
+	self:MessageOld(244737, "yellow", nil, CL.incoming:format(args.spellName))
 	local cooldown = 14.5
 	if nextAssumeCommand > GetTime() + cooldown then
 		self:Bar(244737, cooldown)
@@ -221,7 +221,7 @@ do
 	function mod:FelshieldUp(args)
 		if args.destGUID ~= prev then
 			prev = args.destGUID
-			self:Message(244910, "green", nil, L.felshieldActivated:format(self:ColorName(args.sourceName)))
+			self:MessageOld(244910, "green", nil, L.felshieldActivated:format(self:ColorName(args.sourceName)))
 			self:Bar(244910, 10, L.felshieldUp)
 		end
 	end
@@ -229,13 +229,13 @@ end
 
 function mod:Felshield(args)
 	if self:Me(args.destGUID) then
-		self:Message(args.spellId, "green", "Info", CL.you:format(args.spellName))
+		self:MessageOld(args.spellId, "green", "Info", CL.you:format(args.spellName))
 	end
 end
 
 function mod:FelshieldRemoved(args)
 	if self:Me(args.destGUID) then
-		self:Message(args.spellId, "blue", nil, CL.removed:format(args.spellName))
+		self:MessageOld(args.spellId, "blue", nil, CL.removed:format(args.spellName))
 	end
 end
 

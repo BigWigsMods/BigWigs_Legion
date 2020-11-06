@@ -50,7 +50,7 @@ function mod:InfectedClaws(args)
 end
 
 function mod:SlumberingGasp(args)
-	self:Message(args.spellId, "orange", "Warning")
+	self:MessageOld(args.spellId, "orange", "Warning")
 	self:CDBar(args.spellId, 55)
 	self:CastBar(args.spellId, 17)
 end
@@ -64,12 +64,12 @@ end
 
 function mod:FelBlast(args)
 	if self:Interrupter(args.sourceGUID) then
-		self:Message(args.spellId, "yellow", "Alert")
+		self:MessageOld(args.spellId, "yellow", "Alert")
 	end
 end
 
 function mod:GrotesqueSpawn(args)
-	self:Message(args.spellId, "red", "Alarm")
+	self:MessageOld(args.spellId, "red", "Alarm")
 	self:CDBar(args.spellId, 34)
 end
 

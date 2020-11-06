@@ -42,13 +42,13 @@ end
 --
 
 function mod:BeguilingCharm(args)
-	self:Message(args.spellId, "orange", "Warning")
+	self:MessageOld(args.spellId, "orange", "Warning")
 	self:CDBar(args.spellId, 37.5)
 	self:CastBar(args.spellId, 4.5)
 end
 
 function mod:FelLash(args)
-	self:Message(args.spellId, "yellow", "Alarm")
+	self:MessageOld(args.spellId, "yellow", "Alarm")
 	self:CDBar(args.spellId, 32)
 end
 

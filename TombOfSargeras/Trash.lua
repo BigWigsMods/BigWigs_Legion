@@ -227,7 +227,7 @@ do
 		local t = GetTime()
 		if self:Me(args.destGUID) and t-prev > 1.5 then
 			prev = t
-			self:Message(args.spellId, "blue", "Alert", CL.underyou:format(args.spellName))
+			self:MessageOld(args.spellId, "blue", "Alert", CL.underyou:format(args.spellName))
 		end
 	end
 end
@@ -248,7 +248,7 @@ do
 	function mod:MassiveEruption(args)
 		local t = GetTime()
 		if t-prev > 3 then
-			self:Message(args.spellId, "orange", "Long")
+			self:MessageOld(args.spellId, "orange", "Long")
 		end
 	end
 end
@@ -261,7 +261,7 @@ end
 
 --[[ Goroth -> Sisters of the Moon ]]--
 function mod:WallOfDoom(args)
-	self:Message(args.spellId, "yellow", "Info")
+	self:MessageOld(args.spellId, "yellow", "Info")
 	self:CDBar(args.spellId, 6.1)
 end
 
@@ -300,19 +300,19 @@ function mod:EmbraceOfTheTidesRemoved(args)
 end
 
 function mod:ElectricShock(args)
-	self:Message(args.spellId, "red", "Alarm")
+	self:MessageOld(args.spellId, "red", "Alarm")
 	self:CastBar(args.spellId, 4)
 end
 
 function mod:FrostFingeredFear(args)
 	local fear = self:SpellName(5782) -- "Fear"
-	self:Message(args.spellId, "yellow", "Long", CL.casting:format(fear))
+	self:MessageOld(args.spellId, "yellow", "Long", CL.casting:format(fear))
 	self:CDBar(args.spellId, 31, fear)
 end
 
 function mod:MistFilledPools(args)
 	self:Flash(args.spellId)
-	self:Message(args.spellId, "red", "Warning", CL.incoming:format(args.spellName))
+	self:MessageOld(args.spellId, "red", "Warning", CL.incoming:format(args.spellName))
 	self:CDBar(args.spellId, 23)
 end
 
@@ -343,7 +343,7 @@ end
 
 function mod:BloodDrainDispelled(args)
 	if args.extraSpellId == 241716 then
-		self:Message(241716, "green", "Info", CL.removed_by:format(args.extraSpellName, self:ColorName(args.sourceName)))
+		self:MessageOld(241716, "green", "Info", CL.removed_by:format(args.extraSpellName, self:ColorName(args.sourceName)))
 	end
 end
 
@@ -361,19 +361,19 @@ end
 
 function mod:CoralCutRemoved(args)
 	if self:Me(args.destGUID) then
-		self:Message(args.spellId, "green", self:Tank() and "Warning", CL.removed:format(args.spellName))
+		self:MessageOld(args.spellId, "green", self:Tank() and "Warning", CL.removed:format(args.spellName))
 	else
-		self:Message(args.spellId, "green", nil, CL.removed_from:format(args.spellName, self:ColorName(args.destName)))
+		self:MessageOld(args.spellId, "green", nil, CL.removed_from:format(args.spellName, self:ColorName(args.destName)))
 	end
 end
 
 function mod:SonicScream(args)
-	self:Message(args.spellId, "red", "Long", CL.casting:format(args.spellName))
+	self:MessageOld(args.spellId, "red", "Long", CL.casting:format(args.spellName))
 	self:CastBar(args.spellId, 2)
 end
 
 function mod:SummonSteamElemental(args)
-	self:Message(args.spellId, "orange")
+	self:MessageOld(args.spellId, "orange")
 	if self:Damager() then
 		self:Flash(args.spellId)
 		self:PlaySound(args.spellId, "Warning")
@@ -443,7 +443,7 @@ function mod:VoidRiftRemoved(args)
 end
 
 function mod:SoulPortal(args)
-	self:Message(args.spellId, "green", nil, CL.spawned:format(args.spellName))
+	self:MessageOld(args.spellId, "green", nil, CL.spawned:format(args.spellName))
 	self:Bar(args.spellId, 15.8)
 end
 
@@ -452,7 +452,7 @@ end
 
 --[[ Maiden of Vigilance -> Fallen Avatar ]]--
 function mod:LuminescentBarrier(args)
-	self:Message(args.spellId, "yellow", self:Dispeller("magic", true) and "Warning", CL.on:format(args.spellName, args.sourceName))
+	self:MessageOld(args.spellId, "yellow", self:Dispeller("magic", true) and "Warning", CL.on:format(args.spellName, args.sourceName))
 end
 
 --[[ Fallen Avatar -> Kil'jaeden ]]--

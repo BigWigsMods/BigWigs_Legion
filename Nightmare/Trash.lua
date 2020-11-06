@@ -71,7 +71,7 @@ end
 --[[ Gelatinized Decay ]]--
 function mod:WaveofDecay(args)
 	if not self:LFR() then
-		self:Message(args.spellId, "orange", self:Interrupter(args.sourceGUID) and "Info", CL.casting:format(args.spellName))
+		self:MessageOld(args.spellId, "orange", self:Interrupter(args.sourceGUID) and "Info", CL.casting:format(args.spellName))
 	end
 end
 
@@ -97,7 +97,7 @@ do
 	local guids = {}
 	local nextIcon = 8
 	function mod:CorruptedTotem(args)
-		self:Message("totem", "red", "Long", args.spellName, L.totem_icon)
+		self:MessageOld("totem", "red", "Long", args.spellName, L.totem_icon)
 		if self:GetOption(totemMarker) then
 			if not next(guids) then
 				nextIcon = 8

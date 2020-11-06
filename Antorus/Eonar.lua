@@ -293,14 +293,14 @@ function mod:UNIT_POWER_FREQUENT(_, unit)
 	local power = UnitPower(unit, 10) -- Enum.PowerType.Alternate = 10
 	if power >= 80 and shouldAnnounceEnergy then
 		shouldAnnounceEnergy = nil
-		self:Message(250048, "cyan", "Info", CL.soon:format(L.lifeforce_casts:format(self:SpellName(250048), lifeForceCounter, lifeForceNeeded))) -- Life Force (n/4) soon!
+		self:MessageOld(250048, "cyan", "Info", CL.soon:format(L.lifeforce_casts:format(self:SpellName(250048), lifeForceCounter, lifeForceNeeded))) -- Life Force (n/4) soon!
 	end
 	self:SetInfo("infobox", 4, ("%.0f"):format(power))
 	self:SetInfoBar("infobox", 3, power/100, .7, .7, 0, 0.3) -- yellow
 end
 
 function mod:LifeForce(args)
-	self:Message(args.spellId, "green", "Long", CL.casting:format(L.lifeforce_casts:format(args.spellName, lifeForceCounter, lifeForceNeeded)))
+	self:MessageOld(args.spellId, "green", "Long", CL.casting:format(L.lifeforce_casts:format(args.spellName, lifeForceCounter, lifeForceNeeded)))
 	lifeForceCounter = lifeForceCounter + 1
 end
 
@@ -310,7 +310,7 @@ end
 
 function mod:CHAT_MSG_RAID_BOSS_EMOTE(_, msg)
 	if msg:find("248861") then -- Spear of Doom
-		self:Message(248861, "red", "Warning")
+		self:MessageOld(248861, "red", "Warning")
 		spearCounter = spearCounter + 1
 		self:CDBar(248861, timers[248861][spearCounter])
 	end
@@ -345,7 +345,7 @@ do
 end
 
 function mod:FinalDoom(args)
-	self:Message(args.spellId, "red", "Warning", CL.count:format(args.spellName, finalDoomCounter))
+	self:MessageOld(args.spellId, "red", "Warning", CL.count:format(args.spellName, finalDoomCounter))
 	self:CastBar(args.spellId, 50, CL.count:format(args.spellName, finalDoomCounter))
 	finalDoomCounter = finalDoomCounter + 1
 	self:Bar(args.spellId, timers[args.spellId][finalDoomCounter], CL.count:format(args.spellName, finalDoomCounter))
@@ -353,7 +353,7 @@ end
 
 function mod:Purge(args)
 	self:StopBar(CL.cast:format(CL.count:format(self:SpellName(249121), finalDoomCounter-1)))
-	self:Message(249121, "green", "Info", CL.interrupted:format(self:SpellName(249121))) -- Final Doom
+	self:MessageOld(249121, "green", "Info", CL.interrupted:format(self:SpellName(249121))) -- Final Doom
 	self:CastBar(args.spellId, 30)
 end
 

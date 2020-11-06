@@ -135,10 +135,10 @@ function mod:UNIT_SPELLCAST_SUCCEEDED(_, _, _, spellId)
 			bufferfishCounter = bufferfishCounter + 1
 			self:Bar(239362, 22.5, CL.count:format(self:SpellName(239362), bufferfishCounter)) -- Delicious Bufferfish
 			if dreadSharkCounter == 3 or dreadSharkCounter == 5 then
-				self:Message(239436, "orange", "Warning")
+				self:MessageOld(239436, "orange", "Warning")
 				stage = stage + 1
 			else
-				self:Message(239436, "orange", "Warning")
+				self:MessageOld(239436, "orange", "Warning")
 				return -- No stage change yet
 			end
 		end
@@ -158,7 +158,7 @@ function mod:UNIT_SPELLCAST_SUCCEEDED(_, _, _, spellId)
 		burdenCounter = 1
 		hydraShotCounter = 1
 
-		self:Message("stages", "cyan", "Long", CL.stage:format(stage), false)
+		self:MessageOld("stages", "cyan", "Long", CL.stage:format(stage), false)
 		if stage == 2 then
 			self:Bar(232913, 11) -- Befouling Ink
 			if not self:LFR() then
@@ -230,7 +230,7 @@ do
 end
 
 function mod:BurdenofPainCast(args)
-	self:Message(args.spellId, "yellow", "Warning", CL.casting:format(args.spellName))
+	self:MessageOld(args.spellId, "yellow", "Warning", CL.casting:format(args.spellName))
 end
 
 function mod:BurdenofPain(args)
@@ -239,7 +239,7 @@ function mod:BurdenofPain(args)
 	self:TargetMessageOld(args.spellId, args.destName, "orange", "Alarm", nil, nil, true)
 	self:Bar(args.spellId, 25.5, CL.count:format(args.spellName, burdenCounter)) -- Timer until cast_start
 	if not self:Tank() or self:GetOption(args.spellId) == 0 then -- Non-Tanks: From the Abyss
-		self:Message(230227, "orange", "Alarm", CL.count:format(self:SpellName(230227), burdenCounter-1))
+		self:MessageOld(230227, "orange", "Alarm", CL.count:format(self:SpellName(230227), burdenCounter-1))
 		self:Bar(230227, 28, CL.count:format(self:SpellName(230227), burdenCounter))
 	end
 	if self:Me(args.destGUID) then
@@ -253,14 +253,14 @@ do
 		local t = GetTime()
 		if self:Me(args.destGUID) and t-prev > 1.5 then
 			prev = t
-			self:Message(args.spellId, "blue", "Alert", CL.underyou:format(args.spellName))
+			self:MessageOld(args.spellId, "blue", "Alert", CL.underyou:format(args.spellName))
 		end
 	end
 end
 
 function mod:SlicingTornado(args)
 	slicingTornadoCounter = slicingTornadoCounter + 1
-	self:Message(args.spellId, "red", "Warning")
+	self:MessageOld(args.spellId, "red", "Warning")
 	if self:Mythic() then
 		self:CDBar(args.spellId, stage == 3 and 35.3 or 34)
 	else
@@ -269,7 +269,7 @@ function mod:SlicingTornado(args)
 end
 
 function mod:ThunderingShock(args)
-	self:Message(args.spellId, "red", "Warning")
+	self:MessageOld(args.spellId, "red", "Warning")
 	self:CDBar(args.spellId, 32.8) -- Can be delayed sometimes by other casts
 end
 
@@ -284,19 +284,19 @@ do
 end
 
 function mod:BeckonSarukel() -- Devouring Maw
-	self:Message(234621, "red", "Warning")
+	self:MessageOld(234621, "red", "Warning")
 	self:Bar(234621, 41.5)
 	self:PrepareForMaw()
 end
 
 function mod:BefoulingInk()
-	self:Message(232913, "yellow", "Info", CL.incoming:format(self:SpellName(232913))) -- Befouling Ink incoming!
+	self:MessageOld(232913, "yellow", "Info", CL.incoming:format(self:SpellName(232913))) -- Befouling Ink incoming!
 	self:CDBar(232913, stage == 3 and (self:Mythic() and 37 or 32) or 41.5)
 end
 
 function mod:CrashingWave(args)
 	waveCounter = waveCounter + 1
-	self:Message(args.spellId, "red", "Warning")
+	self:MessageOld(args.spellId, "red", "Warning")
 	self:CastBar(args.spellId, self:LFR() and 7 or 5)
 	local timer = 42
 	if self:Mythic() and stage == 3 then
@@ -315,7 +315,7 @@ end
 
 function mod:DeliciousBufferfishRemoved(args)
 	if self:Me(args.destGUID) then
-		self:Message(239362, "blue", "Alert", CL.removed:format(args.spellName))
+		self:MessageOld(239362, "blue", "Alert", CL.removed:format(args.spellName))
 	end
 end
 
@@ -388,7 +388,7 @@ do
 					end
 					total = total + n
 				end
-				self:Message(234621, "green", "Info", CL.over:format(args.spellName) .. " - " .. L.inks_fed:format(list:sub(0, list:len()-2)))
+				self:MessageOld(234621, "green", "Info", CL.over:format(args.spellName) .. " - " .. L.inks_fed:format(list:sub(0, list:len()-2)))
 				self:ScheduleTimer("CloseInfo", 5, 234621) -- delay a bit to make sure the people get enough credit
 			end
 		end

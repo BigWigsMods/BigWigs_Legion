@@ -86,7 +86,7 @@ end
 --
 function mod:UNIT_SPELLCAST_SUCCEEDED(_, _, _, spellId)
 	if spellId == 233050 then --Infernal Spike
-		self:Message(233514, "red", "Alert", CL.casting:format(self:SpellName(spellId)))
+		self:MessageOld(233514, "red", "Alert", CL.casting:format(self:SpellName(spellId)))
 		spikeCounter = spikeCounter + 1
 		if self:LFR() then
 			self:Bar(233514, spikeCounter == 4 and 26 or 16.6)
@@ -95,7 +95,7 @@ function mod:UNIT_SPELLCAST_SUCCEEDED(_, _, _, spellId)
 		end
 	elseif spellId == 233285 then -- Rain of Brimstone
 		rainCounter = rainCounter + 1
-		self:Message(238588, "orange", "Warning", CL.incoming:format(self:SpellName(spellId)))
+		self:MessageOld(238588, "orange", "Warning", CL.incoming:format(self:SpellName(spellId)))
 		self:Bar(238588, rainCounter == 5 and 68 or 60, CL.count:format(self:SpellName(spellId), rainCounter))
 		self:Bar(238588, 8, self:SpellName(182580), 238588) -- Meteor Impact
 	end
@@ -121,7 +121,7 @@ end
 
 function mod:MeltedArmorRemoved(args)
 	if self:Me(args.destGUID) then
-		self:Message(231363, "orange", "Warning", CL.removed:format(args.spellName))
+		self:MessageOld(231363, "orange", "Warning", CL.removed:format(args.spellName))
 	end
 end
 
@@ -139,7 +139,7 @@ end
 
 function mod:InfernalBurning(args)
 	burningCounter = burningCounter + 1
-	self:Message(args.spellId, "orange", "Warning", CL.casting:format(args.spellName))
+	self:MessageOld(args.spellId, "orange", "Warning", CL.casting:format(args.spellName))
 	self:CastBar(args.spellId, self:LFR() and 10 or 6)
 	self:Bar(args.spellId, self:LFR() and 64.4 or 60.5)
 end
@@ -177,7 +177,7 @@ do
 		local t = GetTime()
 		if self:Me(args.destGUID) and t-prev > 1.5 then
 			prev = t
-			self:Message(234346, "blue", "Alarm", CL.underyou:format(args.spellName))
+			self:MessageOld(234346, "blue", "Alarm", CL.underyou:format(args.spellName))
 		end
 	end
 end

@@ -181,7 +181,7 @@ function mod:CarrionPlagueSuccess(args)
 end
 
 function mod:SeekerSwarm(args)
-	self:Message(args.spellId, "orange", "Info", CL.count:format(args.spellName, seekerSwarmCount))
+	self:MessageOld(args.spellId, "orange", "Info", CL.count:format(args.spellName, seekerSwarmCount))
 	seekerSwarmCount = seekerSwarmCount + 1
 	local timer = timers[args.spellId][seekerSwarmCount]
 	if timer then
@@ -243,7 +243,7 @@ function mod:FeastOfBlood(args)
 end
 
 function mod:EchoesOfTheVoid(args)
-	self:Message(args.spellId, "red", "Long", CL.count:format(args.spellName, echoesOfTheVoidCount))
+	self:MessageOld(args.spellId, "red", "Long", CL.count:format(args.spellName, echoesOfTheVoidCount))
 	self:StopBar(CL.count:format(args.spellName, echoesOfTheVoidCount))
 	self:Bar(args.spellId, 10, CL.count:format(args.spellName, echoesOfTheVoidCount))
 	echoesOfTheVoidCount = echoesOfTheVoidCount + 1
@@ -255,7 +255,7 @@ end
 
 function mod:CHAT_MSG_MONSTER_YELL(event, msg)
 	if event == "timer" or msg == L.adds_yell1 or msg == L.adds_yell2 then
-		self:Message("adds", "cyan", "Alert", CL.count:format(L.adds, addWaveCount), 212552) -- 212552 = Wraith Walk, inv_helm_plate_raiddeathknight_p_01, id 1100041
+		self:MessageOld("adds", "cyan", "Alert", CL.count:format(L.adds, addWaveCount), 212552) -- 212552 = Wraith Walk, inv_helm_plate_raiddeathknight_p_01, id 1100041
 		addWaveCount = addWaveCount + 1
 		local timer = timers["adds"][addWaveCount]
 		if timer then
@@ -274,7 +274,7 @@ end
 function mod:IllusionaryNight(args)
 	addsKilled = 0
 	wipe(essenceTargets)
-	self:Message(args.spellId, "cyan", "Long", CL.count:format(args.spellName, illusionaryNightCount))
+	self:MessageOld(args.spellId, "cyan", "Long", CL.count:format(args.spellName, illusionaryNightCount))
 	self:CastBar(args.spellId, 32, CL.count:format(args.spellName, illusionaryNightCount))
 	illusionaryNightCount = illusionaryNightCount + 1
 	if illusionaryNightCount < 3 then
@@ -300,7 +300,7 @@ function mod:EssenceOfNight(args)
 	self:SetInfo(206466, 4, #essenceTargets)
 
 	if self:Me(args.destGUID) then
-		self:Message(args.spellId, "blue", "Info", CL.you:format(args.spellName))
+		self:MessageOld(args.spellId, "blue", "Info", CL.you:format(args.spellName))
 	end
 end
 
@@ -308,7 +308,7 @@ function mod:AddDeath()
 	addsKilled = addsKilled + 1
 	self:SetInfo(206466, 2, addsKilled)
 	if self:Mythic() and addsKilled % 5 == 0 then
-		self:Message(206466, "cyan", nil, CL.mob_killed:format(CL.adds, addsKilled, 20))
+		self:MessageOld(206466, "cyan", nil, CL.mob_killed:format(CL.adds, addsKilled, 20))
 	end
 end
 
@@ -349,7 +349,7 @@ do
 		local t = GetTime()
 		if self:Me(args.destGUID) and t-prev > 1.5 then
 			prev = t
-			self:Message(args.spellId, "blue", "Alert", CL.underyou:format(args.spellName))
+			self:MessageOld(args.spellId, "blue", "Alert", CL.underyou:format(args.spellName))
 		end
 	end
 end

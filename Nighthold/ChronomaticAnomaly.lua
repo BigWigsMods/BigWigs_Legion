@@ -311,11 +311,11 @@ function mod:UNIT_SPELLCAST_SUCCEEDED(_, _, _, spellId)
 		fastPhase = fastPhase + 1
 		currentTimers = timers["fast" .. fastPhase]
 	elseif spellId == 206700 then -- Summon Slow Add
-		self:Message(-13022, "cyan", "Info", CL.spawning:format(self:Mythic() and CL.adds or CL.add), false)
+		self:MessageOld(-13022, "cyan", "Info", CL.spawning:format(self:Mythic() and CL.adds or CL.add), false)
 	end
 
 	if spellId == 207012 or spellId == 207011 or spellId == 207013 then -- Speed: Normal / Slow / Fast
-		self:Message("stages", "cyan", "Info", spellId)
+		self:MessageOld("stages", "cyan", "Info", spellId)
 
 		timeBombCountdown(self)
 		self:ScheduleTimer(timeBombCountdown, 2, self) -- XXX let's see if this fixes wrong time bomb says
@@ -459,7 +459,7 @@ function mod:TimeReleaseRemoved(args)
 end
 
 function mod:TimeReleaseSuccess(args)
-	self:Message(206609, "yellow", "Alarm", CL.incoming:format(args.spellName))
+	self:MessageOld(206609, "yellow", "Alarm", CL.incoming:format(args.spellName))
 
 	releaseCount = releaseCount + 1
 	local releaseTime = currentTimers and currentTimers[206609][releaseCount]
@@ -490,7 +490,7 @@ do
 end
 
 function mod:TemporalOrb(args)
-	self:Message(args.spellId, "yellow", "Alert")
+	self:MessageOld(args.spellId, "yellow", "Alert")
 
 	temporalCount = temporalCount + 1
 	local temporalTime = currentTimers and currentTimers[args.spellId][temporalCount]
@@ -505,7 +505,7 @@ do
 		local t = GetTime()
 		if self:Me(args.destGUID) and t-prev > 1.5 then
 			prev = t
-			self:Message(args.spellId, "blue", "Alert", CL.underyou:format(args.spellName))
+			self:MessageOld(args.spellId, "blue", "Alert", CL.underyou:format(args.spellName))
 		end
 	end
 end
@@ -517,15 +517,15 @@ function mod:TemporalCharge(args)
 end
 
 function mod:PowerOverwhelming(args)
-	self:Message(args.spellId, "yellow", "Long", CL.casting:format(args.spellName))
+	self:MessageOld(args.spellId, "yellow", "Long", CL.casting:format(args.spellName))
 	self:StopBar(206609) -- Time Release
 	self:StopBar(206617) -- Time Bomb
 end
 
 function mod:WarpNightwell(args)
-	self:Message(args.spellId, "orange", self:Interrupter(args.sourceGUID) and "Alert")
+	self:MessageOld(args.spellId, "orange", self:Interrupter(args.sourceGUID) and "Alert")
 end
 
 function mod:FullPower(args)
-	self:Message(args.spellId, "cyan", "Long")
+	self:MessageOld(args.spellId, "cyan", "Long")
 end
