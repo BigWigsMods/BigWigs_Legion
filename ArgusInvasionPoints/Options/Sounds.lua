@@ -1,42 +1,42 @@
 
 BigWigs:AddSounds("Matron Folnuna", {
-	[247361] = "Alarm",
-	[247379] = {"Long","Warning"},
-	[247443] = "Alarm",
-	[254147] = "Alert",
+	[247361] = "alarm",
+	[247379] = {"long","warning"},
+	[247443] = "alarm",
+	[254147] = "alert",
 })
 
 BigWigs:AddSounds("Mistress Alluradel", {
-	[247517] = "Info",
-	[247544] = "Alert",
-	[247549] = "Warning",
-	[247604] = "Alarm",
+	[247517] = "info",
+	[247544] = "alert",
+	[247549] = "warning",
+	[247604] = "alarm",
 })
 
 BigWigs:AddSounds("Inquisitor Meto", {
-	[247492] = {"Alarm","Alert"},
-	[247495] = {"Alert","Warning"},
-	[247585] = {"Info","Long"},
-	[247632] = "Alarm",
+	[247492] = {"alarm","alert"},
+	[247495] = {"alert","warning"},
+	[247585] = {"info","long"},
+	[247632] = "alarm",
 })
 
 BigWigs:AddSounds("Sothanar", {
-	[247410] = {"Alarm","Info","Warning"},
-	[247416] = "Alert",
-	[247437] = "Warning",
-	[247698] = "Long",
+	[247410] = {"alarm","info","warning"},
+	[247416] = "alert",
+	[247437] = "warning",
+	[247698] = "long",
 })
 
 BigWigs:AddSounds("Occularus", {
-	[247318] = "Alarm",
-	[247320] = "Warning",
-	[247325] = "Info",
-	[247332] = {"Alarm","Alert"},
-	[247393] = {"Alarm","Long"},
+	[247318] = "alarm",
+	[247320] = "warning",
+	[247325] = "info",
+	[247332] = {"alarm","alert"},
+	[247393] = {"alarm","long"},
 })
 
 BigWigs:AddSounds("Pit Lord Vilemus", {
-	[247731] = "Long",
-	[247733] = "Warning",
-	[247739] = {"Alarm","Alert"},
+	[247731] = "long",
+	[247733] = "warning",
+	[247739] = {"alarm","alert"},
 })

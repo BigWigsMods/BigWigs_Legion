@@ -289,7 +289,7 @@ do
 		local t = GetTime()
 		if self:Me(args.destGUID) and t-prev > 1.5 then
 			prev = t
-			self:MessageOld(args.spellId, "blue", "Alert", CL.you:format(args.spellName))
+			self:MessageOld(args.spellId, "blue", "alert", CL.you:format(args.spellName))
 		end
 	end
 end
@@ -297,7 +297,7 @@ end
 -- Dominator Tentacle
 function mod:RAID_BOSS_WHISPER(_, msg)
 	if msg:find("208689", nil, true) then -- Ground Slam
-		self:MessageOld(208689, "blue", "Alarm", CL.you:format(self:SpellName(208689)))
+		self:MessageOld(208689, "blue", "alarm", CL.you:format(self:SpellName(208689)))
 		self:Flash(208689)
 		self:Say(208689)
 	end
@@ -337,7 +337,7 @@ end
 -- Nightmare Ichor
 function mod:Fixate(args)
 	if self:Me(args.destGUID) then
-		self:TargetMessageOld(args.spellId, args.destName, "yellow", "Info")
+		self:TargetMessageOld(args.spellId, args.destName, "yellow", "info")
 	end
 end
 
@@ -350,14 +350,14 @@ end
 
 -- Nightmare Horror
 function mod:SummonNightmareHorror()
-	self:MessageOld("nightmare_horror", "red", "Info", CL.spawned:format(self:SpellName(L.nightmare_horror)), L.nightmare_horror_icon)
+	self:MessageOld("nightmare_horror", "red", "info", CL.spawned:format(self:SpellName(L.nightmare_horror)), L.nightmare_horror_icon)
 	self:Bar("nightmare_horror", 220, L.nightmare_horror, L.nightmare_horror_icon) -- Summon Nightmare Horror < TODO beta timer, need live data
 	self:Bar(210984, 13.8) -- Eye of Fate
 end
 
 function mod:EyeOfFate(args)
 	local amount = args.amount or 1
-	self:StackMessage(args.spellId, args.destName, amount, "red", self:Tank() and amount > 1 and "Warning")
+	self:StackMessage(args.spellId, args.destName, amount, "red", self:Tank() and amount > 1 and "warning")
 end
 
 function mod:EyeOfFateCast(args)
@@ -373,7 +373,7 @@ do
 			local t = GetTime()
 			if t-prev > 2 then
 				prev = t
-				self:MessageOld(args.spellId, "cyan", "Info", CL.spawned:format(self:SpellName(L.corruptor_tentacle)), L.corruptor_tentacle_icon)
+				self:MessageOld(args.spellId, "cyan", "info", CL.spawned:format(self:SpellName(L.corruptor_tentacle)), L.corruptor_tentacle_icon)
 			end
 		end
 	end
@@ -384,7 +384,7 @@ do
 	function mod:SpewCorruption(args)
 		list[#list+1] = args.destName
 		if #list == 1 then
-			self:ScheduleTimer("TargetMessageOld", 0.3, args.spellId, list, "orange", "Alert")
+			self:ScheduleTimer("TargetMessageOld", 0.3, args.spellId, list, "orange", "alert")
 		end
 
 		if self:Me(args.destGUID) then
@@ -405,15 +405,15 @@ do
 			if t-prev > 2 then
 				prev = t
 				if self:Mythic() and phase == 4 then
-					self:MessageOld("shriveled_eyestalk", "cyan", "Info", CL.spawned:format(self:SpellName(L.shriveled_eyestalk)), L.shriveled_eyestalk_icon)
+					self:MessageOld("shriveled_eyestalk", "cyan", "info", CL.spawned:format(self:SpellName(L.shriveled_eyestalk)), L.shriveled_eyestalk_icon)
 				else
-					self:MessageOld(args.spellId, "cyan", "Info", CL.spawned:format(self:SpellName(L.deathglare_tentacle)), L.deathglare_tentacle_icon)
+					self:MessageOld(args.spellId, "cyan", "info", CL.spawned:format(self:SpellName(L.deathglare_tentacle)), L.deathglare_tentacle_icon)
 				end
 			end
 		end
 
 		if self:Interrupter(args.sourceGUID) then -- avoid spam
-			self:MessageOld(args.spellId, "yellow", "Info", CL.casting:format(args.spellName))
+			self:MessageOld(args.spellId, "yellow", "info", CL.casting:format(args.spellName))
 		end
 	end
 end
@@ -421,7 +421,7 @@ end
 --[[ Stage Two ]]--
 function mod:StuffOfNightmares()
 	if self.isEngaged then -- Gets buffed when the boss spawns
-		self:MessageOld("stages", "cyan", "Long", CL.stage:format(1), false)
+		self:MessageOld("stages", "cyan", "long", CL.stage:format(1), false)
 		phase = phase + 1
 		blobsRemaining = self:LFR() and 15 or self:Mythic() and 22 or 20
 		blobsMissed = 0
@@ -446,7 +446,7 @@ function mod:StuffOfNightmaresRemoved()
 	self:StopBar(nextDeathglareText)
 	self:StopBar(218415) -- Death Blossom
 
-	self:MessageOld("stages", "cyan", "Long", CL.stage:format(2), false)
+	self:MessageOld("stages", "cyan", "long", CL.stage:format(2), false)
 	phase = phase + 1
 
 	if self:Mythic() and phase == 4 then
@@ -457,13 +457,13 @@ end
 
 function mod:DarkReconstitution(args)
 	local timer = self:Mythic() and 55 or 50
-	self:DelayedMessage("stages", timer-10, "cyan", CL.custom_sec:format(CL.stage:format(1), 10), args.spellId, "Info")
+	self:DelayedMessage("stages", timer-10, "cyan", CL.custom_sec:format(CL.stage:format(1), 10), args.spellId, "info")
 	self:Bar("stages", timer, CL.stage:format(1), args.spellId) -- cast after 10s in phase (5s in Mythic)
 end
 
 function mod:FinalTorpor(args)
 	local timer = self:Mythic() and 55 or 90
-	self:DelayedMessage(args.spellId, timer-10, "cyan", CL.custom_sec:format(args.spellName, 10), args.spellId, "Info")
+	self:DelayedMessage(args.spellId, timer-10, "cyan", CL.custom_sec:format(args.spellName, 10), args.spellId, "info")
 	self:Bar(args.spellId, timer) -- cast after 10s in phase (5s in Mythic)
 end
 
@@ -472,7 +472,7 @@ do
 
 	local function warn(self, spellId)
 		if not isOnMe then
-			self:MessageOld(spellId, "yellow", "Alert")
+			self:MessageOld(spellId, "yellow", "alert")
 		end
 		scheduled = nil
 	end
@@ -480,7 +480,7 @@ do
 	function mod:CursedBlood(args)
 		if self:Me(args.destGUID) then
 			isOnMe = true
-			self:TargetMessageOld(args.spellId, args.destName, "blue", "Warning")
+			self:TargetMessageOld(args.spellId, args.destName, "blue", "warning")
 			self:Flash(args.spellId)
 			self:Say(args.spellId)
 			self:TargetBar(args.spellId, 8, args.destName)
@@ -521,13 +521,13 @@ end
 
 --[[ Mythic ]]--
 function mod:DeathBlossom(args)
-	self:MessageOld(args.spellId, "orange", "Alarm")
+	self:MessageOld(args.spellId, "orange", "alarm")
 	self:CastBar(args.spellId, 15)
 	deathBlossomCount = deathBlossomCount + 1
 end
 
 function mod:DeathBlossomSuccess(args)
-	self:MessageOld(args.spellId, "green", "Long", CL.over:format(args.spellName))
+	self:MessageOld(args.spellId, "green", "long", CL.over:format(args.spellName))
 	local time = deathBlossomCount == 2 and 90 or deathBlossomCount == 3 and 20 or 0
 	if phase == 3 then
 		time = deathBlossomCount == 2 and 60 or deathBlossomCount == 3 and 100 or 0

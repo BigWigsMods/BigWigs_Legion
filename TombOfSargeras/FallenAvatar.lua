@@ -220,7 +220,7 @@ do
 		if sum >= 5 then -- Check power gained
 			local t = GetTime()
 			if last and power > last and t-prev > 2 then -- Skip first message, only if power is bigger than before
-				self:MessageOld("energy_leak", "yellow", "Info", L.energy_leak_msg:format(sum), false)
+				self:MessageOld("energy_leak", "yellow", "info", L.energy_leak_msg:format(sum), false)
 				self:InitCheckUnitPower()
 				prev = t
 			end
@@ -263,12 +263,12 @@ do
 	function mod:UNIT_SPELLCAST_SUCCEEDED(_, _, _, spellId)
 		if spellId == 234057 then -- Unbound Chaos
 			if self:Tank() then
-				self:MessageOld(234059, "yellow", "Alert")
+				self:MessageOld(234059, "yellow", "alert")
 			end
 			unboundChaosCounter = unboundChaosCounter + 1
 			self:Bar(234059, timers[spellId][unboundChaosCounter] or 35)
 		elseif spellId == 236573 then -- Shadowy Blades
-			bladeTimer = self:ScheduleTimer("MessageOld", 0.3, 236604, "yellow", "Alert")
+			bladeTimer = self:ScheduleTimer("MessageOld", 0.3, 236604, "yellow", "alert")
 			shadowyBladesCounter = shadowyBladesCounter + 1
 			self:CDBar(236604, timers[spellId][shadowyBladesCounter] or 30)
 			self:CastBar(236604, 5)
@@ -281,7 +281,7 @@ do
 				self:CancelTimer(bladeTimer)
 				bladeTimer = nil
 			end
-			self:MessageOld(236604, "blue", "Alarm", CL.you:format(self:SpellName(236604)))
+			self:MessageOld(236604, "blue", "alarm", CL.you:format(self:SpellName(236604)))
 			self:Flash(236604)
 			self:Say(236604)
 		end
@@ -290,7 +290,7 @@ end
 
 function mod:CHAT_MSG_RAID_BOSS_EMOTE(_, msg)
 	if msg:find("234418") then -- Rain of the Destroyer
-		self:MessageOld(234418, "red", "Alarm")
+		self:MessageOld(234418, "red", "alarm")
 		self:Bar(234418, 35)
 		self:CDBar(234418, 6, self:SpellName(182580)) -- Meteor Impact (estimated)
 	end
@@ -299,7 +299,7 @@ end
 function mod:UNIT_POWER_FREQUENT(event, unit)
 	local power = UnitPower(unit)
 	if power >= 85 then
-		self:MessageOld(233856, "yellow", self:Damager() and "Info", CL.soon:format(self:SpellName(233856))) -- Cleansing Protocol
+		self:MessageOld(233856, "yellow", self:Damager() and "info", CL.soon:format(self:SpellName(233856))) -- Cleansing Protocol
 		self:UnregisterUnitEvent(event, unit)
 	end
 end
@@ -310,21 +310,21 @@ do
 		local t = GetTime()
 		if self:Me(args.destGUID) and t-prev > 1.5 then
 			prev = t
-			self:MessageOld(args.spellId, "blue", "Alert", CL.underyou:format(args.spellName))
+			self:MessageOld(args.spellId, "blue", "alert", CL.underyou:format(args.spellName))
 		end
 	end
 end
 
 function mod:TouchofSargeras(args)
 	self:StopBar(CL.count:format(args.spellName, touchofSargerasCounter))
-	self:MessageOld(args.spellId, "yellow", "Alert", CL.incoming:format(CL.count:format(args.spellName, touchofSargerasCounter)))
+	self:MessageOld(args.spellId, "yellow", "alert", CL.incoming:format(CL.count:format(args.spellName, touchofSargerasCounter)))
 	self:Bar(args.spellId, 10.5, L.touch_impact)
 	touchofSargerasCounter = touchofSargerasCounter + 1
 	self:Bar(args.spellId, timers[args.spellId][touchofSargerasCounter] or 42, CL.count:format(args.spellName, touchofSargerasCounter))
 end
 
 function mod:RuptureRealities(args)
-	self:MessageOld(args.spellId, "orange", "Warning", CL.casting:format(args.spellName))
+	self:MessageOld(args.spellId, "orange", "warning", CL.casting:format(args.spellName))
 	ruptureRealitiesCounter = ruptureRealitiesCounter + 1
 	self:Bar(args.spellId, timers[args.spellId][ruptureRealitiesCounter] or 60)
 	self:CastBar(args.spellId, 7.5)
@@ -332,28 +332,28 @@ end
 
 function mod:UnboundChaos(args)
 	if self:Me(args.destGUID) then
-		self:TargetMessageOld(args.spellId, args.destName, "orange", "Alarm")
+		self:TargetMessageOld(args.spellId, args.destName, "orange", "alarm")
 	end
 end
 
 function mod:Desolate(args)
-	self:MessageOld(args.spellId, "yellow", "Alert", CL.casting:format(args.spellName))
+	self:MessageOld(args.spellId, "yellow", "alert", CL.casting:format(args.spellName))
 	desolateCounter = desolateCounter + 1
 	self:CDBar(args.spellId, stage == 2 and (desolateCounter % 2 == 0 and 12 or 23) or (desolateCounter % 4 == 3 and 24.3 or 11.5))
 end
 
 function mod:DesolateApplied(args)
 	local amount = args.amount or 1
-	self:StackMessage(args.spellId, args.destName, amount, "orange", "Warning", nil, nil, amount > 1 and true)
+	self:StackMessage(args.spellId, args.destName, amount, "orange", "warning", nil, nil, amount > 1 and true)
 end
 
 function mod:Consume(args)
-	self:MessageOld("stages", "cyan", "Info", args.spellName, args.spellId)
+	self:MessageOld("stages", "cyan", "info", args.spellName, args.spellId)
 	self:StopBar(CL.cast:format(self:SpellName(233856))) -- Malfunction
 end
 
 function mod:RippleofDarkness(args)
-	self:MessageOld(args.spellId, "orange", "Warning")
+	self:MessageOld(args.spellId, "orange", "warning")
 end
 
 do
@@ -384,7 +384,7 @@ do
 	end
 
 	function mod:CleansingProtocol(args)
-		self:MessageOld(233856, "orange", "Alarm", CL.casting:format(args.spellName))
+		self:MessageOld(233856, "orange", "alarm", CL.casting:format(args.spellName))
 		if self:Mythic() then
 			self:CDBar(233856, 80) -- Maiden Shield (if no fail)
 		end
@@ -409,7 +409,7 @@ do
 end
 
 function mod:Malfunction()
-	self:MessageOld(233856, "green", "Info", CL.removed:format(self:SpellName(233856))) -- Cleansing Protocol
+	self:MessageOld(233856, "green", "info", CL.removed:format(self:SpellName(233856))) -- Cleansing Protocol
 	self:StopBar(CL.cast:format(self:SpellName(233856))) -- Cleansing Protocol
 	self:RegisterUnitEvent("UNIT_POWER_FREQUENT", nil, "boss2")
 end
@@ -423,7 +423,7 @@ function mod:MaidenDeath()
 end
 
 function mod:CorruptedMatrix(args)
-	self:MessageOld(args.spellId, "red", "Warning", CL.incoming:format(args.spellName))
+	self:MessageOld(args.spellId, "red", "warning", CL.incoming:format(args.spellName))
 	corruptedMatrixCounter = corruptedMatrixCounter + 1
 	self:CDBar(args.spellId, self:Mythic() and 20 or 50)
 	self:CastBar(args.spellId, self:Mythic() and 8 or 10)
@@ -431,7 +431,7 @@ end
 
 function mod:Annihilation() -- Stage 2
 	stage = 2
-	self:MessageOld("stages", "green", "Long", CL.stage:format(stage), false)
+	self:MessageOld("stages", "green", "long", CL.stage:format(stage), false)
 
 	self:StopBar(233556) -- Corrupted Matrix
 	self:StopBar(CL.cast:format(self:SpellName(233556))) -- Corrupted Matrix (cast)
@@ -491,7 +491,7 @@ do
 		end
 
 		if count == 1 then
-			self:ScheduleTimer("TargetMessageOld", 0.3, args.spellId, list, "yellow", "Alarm")
+			self:ScheduleTimer("TargetMessageOld", 0.3, args.spellId, list, "yellow", "alarm")
 			darkMarkCounter = darkMarkCounter + 1
 			self:Bar(args.spellId, self:Mythic() and (darkMarkCounter == 2 and 25.5 or 30.5) or 34, CL.count:format(args.spellName, darkMarkCounter))
 			self:OpenInfo(args.spellId, args.spellName)
@@ -537,7 +537,7 @@ do
 end
 
 function mod:RuptureRealitiesP2(args)
-	self:MessageOld(args.spellId, "orange", "Warning", CL.casting:format(CL.count:format(args.spellName, ruptureRealitiesCounter)))
+	self:MessageOld(args.spellId, "orange", "warning", CL.casting:format(CL.count:format(args.spellName, ruptureRealitiesCounter)))
 	self:CastBar(args.spellId, 7.5, CL.count:format(args.spellName, ruptureRealitiesCounter))
 	ruptureRealitiesCounter = ruptureRealitiesCounter + 1
 	self:Bar(args.spellId, 37.7, CL.count:format(args.spellName, ruptureRealitiesCounter))
@@ -546,7 +546,7 @@ end
 function mod:FelInfusion(args)
 	local amount = args.amount or 1
 	if amount % 2 == 0 then
-		self:MessageOld(args.spellId, "yellow", "Info", CL.count:format(args.spellName, amount), nil, false)
+		self:MessageOld(args.spellId, "yellow", "info", CL.count:format(args.spellName, amount), nil, false)
 	end
 end
 
@@ -557,7 +557,7 @@ do
 		if t-prev > 1.5 then
 			prev = t
 			taintedMatrixCounter = taintedMatrixCounter + 1
-			self:MessageOld(args.spellId, "red", "Warning", CL.incoming:format(args.spellName))
+			self:MessageOld(args.spellId, "red", "warning", CL.incoming:format(args.spellName))
 			self:CDBar(args.spellId, 60, CL.count:format(args.spellName, taintedMatrixCounter))
 			self:CastBar(args.spellId, 8)
 		end
@@ -567,6 +567,6 @@ end
 function mod:TaintedEssence(args)
 	local amount = args.amount or 1
 	if self:Me(args.destGUID) and amount > 4 then
-		self:StackMessage(args.spellId, args.destName, amount, "orange", "Warning")
+		self:StackMessage(args.spellId, args.destName, amount, "orange", "warning")
 	end
 end

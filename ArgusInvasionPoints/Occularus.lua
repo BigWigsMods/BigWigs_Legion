@@ -52,26 +52,26 @@ end
 
 function mod:GushingWound(args)
 	local amount = args.amount or 1
-	self:StackMessage(args.spellId, args.destName, amount, "red", "Alarm")
+	self:StackMessage(args.spellId, args.destName, amount, "red", "alarm")
 end
 
 function mod:Lash(args)
-	self:MessageOld(args.spellId, "yellow", "Info")
+	self:MessageOld(args.spellId, "yellow", "info")
 	self:CDBar(args.spellId, 18)
 end
 
 function mod:SearingGaze(args)
-	self:MessageOld(args.spellId, "orange", "Warning", CL.casting:format(args.spellName))
+	self:MessageOld(args.spellId, "orange", "warning", CL.casting:format(args.spellName))
 	self:CDBar(args.spellId, 8.5)
 end
 
 function mod:Phantasm(args)
-	self:MessageOld(args.spellId, "cyan", "Long", CL.incoming:format(args.spellName))
+	self:MessageOld(args.spellId, "cyan", "long", CL.incoming:format(args.spellName))
 	self:CDBar(args.spellId, 40)
 end
 
 function mod:EyeSore(args)
-	self:MessageOld(args.spellId, "yellow", "Alert", CL.incoming:format(args.spellName))
+	self:MessageOld(args.spellId, "yellow", "alert", CL.incoming:format(args.spellName))
 	self:CDBar(args.spellId, 23)
 end
 
@@ -82,7 +82,7 @@ do
 			local t = GetTime()
 			if t-prev > 1.5 then
 				prev = t
-				self:MessageOld(args.spellId == 247330 and 247332 or 247393, "blue", "Alarm", CL.underyou:format(args.spellName), args.spellId)
+				self:MessageOld(args.spellId == 247330 and 247332 or 247393, "blue", "alarm", CL.underyou:format(args.spellName), args.spellId)
 			end
 		end
 	end

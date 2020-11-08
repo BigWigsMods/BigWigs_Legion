@@ -153,7 +153,7 @@ end
 function mod:UNIT_SPELLCAST_SUCCEEDED(_, _, _, spellId)
 	if spellId == 226193 then -- Xavius Energize Phase 2
 		phase = 2
-		self:MessageOld("stages", "cyan", "Long", "65% - ".. CL.stage:format(2), false)
+		self:MessageOld("stages", "cyan", "long", "65% - ".. CL.stage:format(2), false)
 		self:StopBar(206651) -- Darkening Soul
 		self:StopBar(211802) -- Nightmare Blades
 		self:StopBar(CL.count:format(self:SpellName(210264), horrorCount)) -- Manifest Corruption
@@ -165,7 +165,7 @@ function mod:UNIT_SPELLCAST_SUCCEEDED(_, _, _, spellId)
 		end
 		self:Bar(209443, 29) -- Nightmare Infusion
 	elseif spellId == 226185 then -- Xavius Energize Phase 3
-		self:MessageOld("stages", "cyan", "Long", "30% - ".. CL.stage:format(3), false)
+		self:MessageOld("stages", "cyan", "long", "30% - ".. CL.stage:format(3), false)
 		phase = 3
 		self:StopBar(209034) -- Bonds of Terror
 		self:StopBar(205588) -- Call of Nightmares
@@ -178,14 +178,14 @@ function mod:UNIT_SPELLCAST_SUCCEEDED(_, _, _, spellId)
 			percentage = dreamingCount == 1 and "97% - " or dreamingCount == 2 and "80% - " or dreamingCount == 3 and "60% - " or "45% - "
 			self:CastBar(spellId, 6, CL.count:format(self:SpellName(spellId), dreamingCount))
 		end
-		self:MessageOld(spellId, "green", "Long", percentage .. CL.count:format(self:SpellName(spellId), dreamingCount))
+		self:MessageOld(spellId, "green", "long", percentage .. CL.count:format(self:SpellName(spellId), dreamingCount))
 		dreamingCount = dreamingCount + 1
 	end
 end
 
 function mod:DecentIntoMadness(args)
 	if self:Me(args.destGUID) then
-		self:TargetMessageOld(args.spellId, args.destName, "blue", "Alarm")
+		self:TargetMessageOld(args.spellId, args.destName, "blue", "alarm")
 		self:TargetBar(args.spellId, 20, args.destName)
 	end
 end
@@ -197,13 +197,13 @@ function mod:DecentIntoMadnessRemoved(args)
 end
 
 function mod:Madness(args)
-	self:TargetMessageOld(args.spellId, args.destName, "red", "Alarm", nil, nil, true)
+	self:TargetMessageOld(args.spellId, args.destName, "red", "alarm", nil, nil, true)
 end
 
 function mod:DreamSimulacrum(args)
 	if self:Me(args.destGUID) then
 		isInDream = true
-		self:TargetMessageOld(args.spellId, args.destName, "blue", "Info")
+		self:TargetMessageOld(args.spellId, args.destName, "blue", "info")
 		self:TargetBar(args.spellId, 180, args.destName)
 	end
 	if self:Healer(args.destName) then
@@ -241,7 +241,7 @@ do
 		local t = GetTime()
 		if self:Me(args.destGUID) and t-prev > 1.5 then
 			prev = t
-			self:MessageOld(args.spellId, "blue", "Alert", CL.you:format(args.spellName))
+			self:MessageOld(args.spellId, "blue", "alert", CL.you:format(args.spellName))
 		end
 	end
 end
@@ -264,7 +264,7 @@ end
 --[[ Stage One: The Decent Into Madness ]]--
 function mod:DarkeningSoul(args)
 	local amount = args.amount or 1
-	self:StackMessage(args.spellId, args.destName, amount, "orange", amount > 2 and "Warning")
+	self:StackMessage(args.spellId, args.destName, amount, "orange", amount > 2 and "warning")
 	self:CDBar(args.spellId, self:Mythic() and 8.5 or 10) -- ~10 early in the fight, ~13-17 later
 end
 
@@ -283,11 +283,11 @@ do
 
 		if #bladeList == 1 then
 			self:CDBar(args.spellId, phase == 1 and 15.5 or 31)
-			timer = self:ScheduleTimer("TargetMessageOld", 0.5, args.spellId, bladeList, "red", "Alert")
+			timer = self:ScheduleTimer("TargetMessageOld", 0.5, args.spellId, bladeList, "red", "alert")
 		else
 			self:CancelTimer(timer)
 			timer = nil
-			self:TargetMessageOld(args.spellId, bladeList, "red", "Alert")
+			self:TargetMessageOld(args.spellId, bladeList, "red", "alert")
 		end
 	end
 
@@ -299,7 +299,7 @@ do
 end
 
 function mod:ManifestCorruption(args)
-	self:MessageOld(args.spellId, "yellow", "Info", CL.count:format(self:SpellName(L.horror), horrorCount), false)
+	self:MessageOld(args.spellId, "yellow", "info", CL.count:format(self:SpellName(L.horror), horrorCount), false)
 	self:Bar(args.spellId, 82.5, CL.count:format(args.spellName, horrorCount+1))
 	horrorCount = horrorCount + 1
 	self:CDBar(207830, 17) -- Corrupting Nova
@@ -308,13 +308,13 @@ end
 
 function mod:LurkingEruptionUnderYou(args)
 	if self:Me(args.destGUID) then
-		self:MessageOld(args.spellId, "blue", "Alert", CL.underyou:format(args.spellName))
+		self:MessageOld(args.spellId, "blue", "alert", CL.underyou:format(args.spellName))
 	end
 end
 
 function mod:TormentingFixation(args)
 	if self:Me(args.destGUID) then
-		self:TargetMessageOld(args.spellId, args.destName, "blue", "Long")
+		self:TargetMessageOld(args.spellId, args.destName, "blue", "long")
 	end
 end
 
@@ -333,16 +333,16 @@ do
 		bondList[#bondList+1] = args.destName
 		if #bondList == 1 then
 			self:CDBar(209034, 14.5)
-			timer = self:ScheduleTimer("TargetMessageOld", 0.3, 209034, bondList, "red", "Alert")
+			timer = self:ScheduleTimer("TargetMessageOld", 0.3, 209034, bondList, "red", "alert")
 		else -- applied on both
 			if isOnMe and otherPlayer then
-				self:MessageOld(209034, "blue", "Warning", L.linked:format(self:ColorName(otherPlayer)))
+				self:MessageOld(209034, "blue", "warning", L.linked:format(self:ColorName(otherPlayer)))
 				self:OpenProximity(209034, 3, otherPlayer, true)
 				wipe(bondList)
 			else
 				self:CancelTimer(timer)
 				timer = nil
-				self:TargetMessageOld(209034, bondList, "red", "Alert")
+				self:TargetMessageOld(209034, bondList, "red", "alert")
 			end
 		end
 	end
@@ -359,28 +359,28 @@ end
 
 function mod:BlackeningSoul(args)
 	local amount = args.amount or 1
-	self:StackMessage(args.spellId, args.destName, amount, "orange", amount > 2 and "Warning")
+	self:StackMessage(args.spellId, args.destName, amount, "orange", amount > 2 and "warning")
 	self:Bar(args.spellId, self:Mythic() and 8.5 or 10)
 end
 
 function mod:NightmareInfusion(args)
-	self:TargetMessageOld(args.spellId, args.destName, "orange", "Alarm", nil, nil, true)
+	self:TargetMessageOld(args.spellId, args.destName, "orange", "alarm", nil, nil, true)
 	self:Bar(args.spellId, phase == 2 and 62 or 31.6)
 end
 
 function mod:CallOfNightmares(args)
-	self:MessageOld(args.spellId, "yellow", "Info", args.spellName)
+	self:MessageOld(args.spellId, "yellow", "info", args.spellName)
 	self:Bar(args.spellId, 40)
 end
 
 function mod:CorruptionMeteor(args)
-	self:TargetMessageOld(args.spellId, args.destName, "yellow", "Info", nil, nil, isInDream)
+	self:TargetMessageOld(args.spellId, args.destName, "yellow", "info", nil, nil, isInDream)
 	self:TargetBar(args.spellId, 5, args.destName)
 	self:Bar(args.spellId, phase == 2 and 28 or 35.3)
 end
 
 --[[ Stage Three: World of Darkness ]]--
 function mod:WrithingDeep(args)
-	self:MessageOld(args.spellId, "orange", "Alert")
+	self:MessageOld(args.spellId, "orange", "alert")
 	self:CDBar(args.spellId, 20.7)
 end

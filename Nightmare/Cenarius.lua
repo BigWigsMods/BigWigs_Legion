@@ -234,9 +234,9 @@ function mod:UNIT_SPELLCAST_SUCCEEDED(_, _, _, spellId)
 			if self:Me(targetGUID) then
 				self:Flash(spellId)
 				self:Say(spellId, L.bramblesSay:format(self:UnitName("player")), true)
-				self:MessageOld(spellId, "orange", "Alarm", CL.near:format(self:SpellName(spellId)))
+				self:MessageOld(spellId, "orange", "alarm", CL.near:format(self:SpellName(spellId)))
 			else
-				self:MessageOld(spellId, "orange", "Alarm")
+				self:MessageOld(spellId, "orange", "alarm")
 			end
 		end
 	elseif spellId == 217368 then -- Phase 2
@@ -247,9 +247,9 @@ function mod:UNIT_SPELLCAST_SUCCEEDED(_, _, _, spellId)
 		self:Bar(210290, 13) -- Nightmare Brambles
 		self:Bar(214529, 23) -- Spear Of Nightmares
 		self:Bar(214505, 35) -- Entangling Nightmares
-		self:MessageOld("stages", "cyan", "Long", CL.stage:format(2), false)
+		self:MessageOld("stages", "cyan", "long", CL.stage:format(2), false)
 	elseif spellId == 214876 then -- Beasts of Nightmare
-		self:MessageOld(spellId, "red", "Alert", CL.incoming:format(self:SpellName(spellId)))
+		self:MessageOld(spellId, "red", "alert", CL.incoming:format(self:SpellName(spellId)))
 		self:Bar(spellId, 30.3)
 	end
 end
@@ -261,7 +261,7 @@ do
 		if self:Me(args.destGUID) then
 			local amount = args.amount or 1
 			if amount > 15 and amount % 4 == 0 then
-				self:StackMessage(args.spellId, args.destName, amount, "orange", "Warning")
+				self:StackMessage(args.spellId, args.destName, amount, "orange", "warning")
 			end
 		end
 		local t = GetTime()
@@ -275,12 +275,12 @@ end
 function mod:CreepingNightmaresRemoved(args)
 	nightmareStacks[args.destName] = nil
 	if self:Me(args.destGUID) then
-		self:MessageOld(args.spellId, "green", "Info", CL.removed:format(args.spellName))
+		self:MessageOld(args.spellId, "green", "info", CL.removed:format(args.spellName))
 	end
 end
 
 function mod:NightmareBlast(args)
-	self:MessageOld(args.spellId, "orange", "Alert", CL.casting:format(args.spellName))
+	self:MessageOld(args.spellId, "orange", "alert", CL.casting:format(args.spellName))
 	self:CDBar(args.spellId, 32)
 end
 
@@ -313,7 +313,7 @@ do
 				local mobId = self:MobId(guid)
 				local id = adds[mobId]
 				if id then
-					self:MessageOld(212726, "cyan", "Info", CL.count:format(self:SpellName(id), getMobNumber(mobId, guid)), false)
+					self:MessageOld(212726, "cyan", "info", CL.count:format(self:SpellName(id), getMobNumber(mobId, guid)), false)
 				end
 				if mobId == 105468 then -- Nightmare Ancient
 					self:Bar(226821, 20, CL.count:format(self:SpellName(226821), getMobNumber(mobId, guid))) -- Desiccating Stomp
@@ -333,19 +333,19 @@ do
 end
 
 function mod:DreadThorns(args)
-	self:TargetMessageOld(args.spellId, args.destName, "orange", "Alarm")
+	self:TargetMessageOld(args.spellId, args.destName, "orange", "alarm")
 	self:Bar(args.spellId, 45, CL.on:format(args.spellName, args.destName))
 end
 
 function mod:DreadThornsRemoved(args)
-	self:MessageOld(args.spellId, "green", "Info", CL.removed:format(args.spellName))
+	self:MessageOld(args.spellId, "green", "info", CL.removed:format(args.spellName))
 	if phase == 1 then
 		self:CDBar(args.spellId, 32.7)
 	end
 end
 
 function mod:EntanglingNightmares(args)
-	self:TargetMessageOld(args.spellId, args.destName, "orange", "Alarm")
+	self:TargetMessageOld(args.spellId, args.destName, "orange", "alarm")
 	self:CDBar(args.spellId, 51)
 end
 
@@ -355,7 +355,7 @@ function mod:CorruptAlliesOfNature(args)
 	local t = GetTime()
 	if t-prev > 10 then
 		prev = t
-		self:MessageOld(args.spellId, "yellow", "Info", CL.other:format(args.spellName, args.destName))
+		self:MessageOld(args.spellId, "yellow", "info", CL.other:format(args.spellName, args.destName))
 	end
 end
 
@@ -365,7 +365,7 @@ end
 
 function mod:SpearOfNightmares(args)
 	local amount = args.amount or 1
-	self:StackMessage(args.spellId, args.destName, amount, "orange", self:Tank() and "Warning")
+	self:StackMessage(args.spellId, args.destName, amount, "orange", self:Tank() and "warning")
 	self:Bar(args.spellId, 15.7)
 end
 
@@ -375,7 +375,7 @@ do
 
 	local function checkForCleansedGround(self, spellId, spellName)
 		if self:UnitDebuff("player", spellName) then
-			self:MessageOld(spellId, "green", "Alert", CL.underyou:format(spellName))
+			self:MessageOld(spellId, "green", "alert", CL.underyou:format(spellName))
 			cleansedGroundCheck = self:ScheduleTimer(checkForCleansedGround, 1, self, spellId, spellName)
 		end
 	end
@@ -400,7 +400,7 @@ do
 	local prev = 0
 	function mod:DesiccatingStomp(args)
 		self:StopBar(CL.count:format(args.spellName, getMobNumber(105468, args.sourceGUID))) -- Desiccating Stomp
-		self:MessageOld(226821, "orange", "Long", CL.casting:format(args.spellName))
+		self:MessageOld(226821, "orange", "long", CL.casting:format(args.spellName))
 		local t = GetTime()
 		if t-prev > 4 then
 			prev = t
@@ -428,18 +428,18 @@ function mod:BreathTarget(event, unit) -- They love to drop their target after c
 	if self:Me(guid) then
 		self:Say(211192)
 	end
-	self:TargetMessageOld(211192, self:UnitName(target), "yellow", "Alert", nil, nil, true)
+	self:TargetMessageOld(211192, self:UnitName(target), "yellow", "alert", nil, nil, true)
 end
 
 --[[ Twisted Sister ]]--
 function mod:TwistedTouchOfLife(args)
 	local spellText = CL.count:format(args.spellName, getMobNumber(105495, args.sourceGUID))
-	self:MessageOld(args.spellId, "red", self:Interrupter() and "Alarm", CL.casting:format(spellText))
+	self:MessageOld(args.spellId, "red", self:Interrupter() and "alarm", CL.casting:format(spellText))
 	self:Bar(args.spellId, self:Mythic() and 11 or 15.5, spellText)
 end
 
 function mod:TwistedTouchOfLifeApplied(args)
-	self:TargetMessageOld(args.spellId, args.destName, "orange", "Alarm", nil, nil, self:Dispeller("magic", true, args.spellId))
+	self:TargetMessageOld(args.spellId, args.destName, "orange", "alarm", nil, nil, self:Dispeller("magic", true, args.spellId))
 end
 
 do
@@ -448,14 +448,14 @@ do
 
 	local function warn(self, spellId, spellName, guid)
 		if not isOnMe then
-			self:MessageOld(spellId, "red", "Alert", CL.count:format(spellName, getMobNumber(105495, guid)))
+			self:MessageOld(spellId, "red", "alert", CL.count:format(spellName, getMobNumber(105495, guid)))
 		end
 		scheduled = nil
 	end
 
 	function mod:ScornedTouch(args)
 		if self:Me(args.destGUID) then
-			self:TargetMessageOld(args.spellId, args.destName, "blue", "Alert")
+			self:TargetMessageOld(args.spellId, args.destName, "blue", "alert")
 			isOnMe = true
 			self:Flash(args.spellId)
 			self:Say(args.spellId)
@@ -499,7 +499,7 @@ end
 
 function mod:UnboundTouch(args)
 	if self:Me(args.destGUID) then
-		self:TargetMessageOld(args.spellId, args.destName, "blue", "Alert")
+		self:TargetMessageOld(args.spellId, args.destName, "blue", "alert")
 		self:Say(args.spellId)
 	end
 end

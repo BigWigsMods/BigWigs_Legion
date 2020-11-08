@@ -65,16 +65,16 @@ function mod:MarkBoss(event, unit, guid)
 end
 
 function mod:More(args)
-	self:MessageOld(args.spellId, "cyan", "Info", 74511, args.spellId) -- 74511 = Summon Clone
+	self:MessageOld(args.spellId, "cyan", "info", 74511, args.spellId) -- 74511 = Summon Clone
 	self:CDBar(args.spellId, 30, 74511, args.spellId) -- 30.6-31.0
 end
 
 function mod:NightshiftedBolts(args)
-	self:MessageOld(args.spellId, "yellow", "Alarm")
+	self:MessageOld(args.spellId, "yellow", "alarm")
 	self:CDBar(args.spellId, 31.5)
 end
 
 function mod:Resonance(args)
-	self:MessageOld(args.spellId, "orange", "Alert")
+	self:MessageOld(args.spellId, "orange", "alert")
 	self:CDBar(args.spellId, 31)
 end

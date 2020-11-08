@@ -106,7 +106,7 @@ function mod:OnEngage()
 
 	nextUltimate = GetTime() + 48.3
 
-	self:MessageOld("stages", "cyan", "Long", CL.stage:format(stage), false)
+	self:MessageOld("stages", "cyan", "long", CL.stage:format(stage), false)
 	self:Bar(236519, 9.4) -- Moon Burn
 	self:Bar(236547, 14.2) -- Moon Glaive
 	self:Bar(236442, 16.6) -- Twilight Volley
@@ -125,7 +125,7 @@ function mod:UNIT_SPELLCAST_SUCCEEDED(_, _, _, spellId)
 	if spellId == 235268 then -- Lunar Ghost (Transition)
 		stage = stage + 1
 		local nextUltimateTimer = nextUltimate - GetTime()
-		self:MessageOld("stages", "cyan", "Long", CL.stage:format(stage), false)
+		self:MessageOld("stages", "cyan", "long", CL.stage:format(stage), false)
 		if stage == 2 then
 			self:StopBar(236547) -- Moon Glaive
 			self:StopBar(236442) -- Twilight Volley
@@ -177,10 +177,10 @@ function mod:TwilightGlaiveApplied(args)
 	twilightGlaiveCounter = twilightGlaiveCounter + 1
 	self:TargetMessageOld(236541, args.destName, "yellow")
 	if self:Me(args.destGUID) then
-		self:PlaySound(236541, "Warning")
+		self:PlaySound(236541, "warning")
 		self:Say(236541)
 	else
-		self:PlaySound(236541, "Info")
+		self:PlaySound(236541, "info")
 	end
 	self:SecondaryIcon(236541, args.destName)
 	self:Bar(236541, stage > 1 and 20.5 or (twilightGlaiveCounter % 2 == 1 and 30 or 19))
@@ -191,7 +191,7 @@ function mod:TwilightGlaiveRemoved()
 end
 
 function mod:MoonGlaive(args)
-	self:MessageOld(args.spellId, "red", "Warning")
+	self:MessageOld(args.spellId, "red", "warning")
 	if nextUltimate > GetTime() + 15.5 then
 		self:Bar(args.spellId, 15.5)
 	else
@@ -202,17 +202,17 @@ function mod:MoonGlaive(args)
 end
 
 function mod:Discorporate(args)
-	self:TargetMessageOld(args.spellId, args.destName, "orange", "Alarm", nil, nil, self:Tank())
+	self:TargetMessageOld(args.spellId, args.destName, "orange", "alarm", nil, nil, self:Tank())
 end
 
 function mod:GlaiveStorm(args)
-	self:MessageOld(236480, "red", "Warning", CL.incoming:format(args.spellName))
+	self:MessageOld(236480, "red", "warning", CL.incoming:format(args.spellName))
 	self:Bar(236480, 54.7)
 	nextUltimate = GetTime() + 54.7
 end
 
 function mod:IncorporealShotApplied(args)
-	self:TargetMessageOld(args.spellId, args.destName, "orange", "Warning", nil, nil, true)
+	self:TargetMessageOld(args.spellId, args.destName, "orange", "warning", nil, nil, true)
 	self:TargetBar(args.spellId, 6, args.destName)
 	if self:Me(args.destGUID) then
 		self:Say(args.spellId)
@@ -233,7 +233,7 @@ end
 
 do
 	local function printTarget(self, name, guid)
-		self:TargetMessageOld(236442, name, "yellow", "Alert", nil, nil, true)
+		self:TargetMessageOld(236442, name, "yellow", "alert", nil, nil, true)
 		if self:Me(guid) then
 			self:Say(236442)
 		end
@@ -263,30 +263,30 @@ do
 		local t = GetTime()
 		if self:Me(args.destGUID) and t-prev > 1.5 then
 			prev = t
-			self:MessageOld(236442, "blue", "Alarm", CL.underyou:format(args.spellName))
+			self:MessageOld(236442, "blue", "alarm", CL.underyou:format(args.spellName))
 		end
 	end
 end
 
 function mod:CallMoontalon(args)
-	self:MessageOld(args.spellId, "orange", "Alert", CL.incoming:format(self:SpellName(-15064))) -- Moontalon
+	self:MessageOld(args.spellId, "orange", "alert", CL.incoming:format(self:SpellName(-15064))) -- Moontalon
 	screechCounter = 1
 	self:CDBar(args.spellId, 124.5) -- 122~127
 end
 
 function mod:DeadlyScreech(args)
-	self:MessageOld(args.spellId, "yellow", "Alert", CL.count:format(args.spellName, screechCounter))
+	self:MessageOld(args.spellId, "yellow", "alert", CL.count:format(args.spellName, screechCounter))
 	screechCounter = screechCounter + 1
 end
 
 function mod:RapidShotApplied(args)
-	self:TargetMessageOld(236603, args.destName, "yellow", "Warning")
+	self:TargetMessageOld(236603, args.destName, "yellow", "warning")
 	rapidShotCounter = rapidShotCounter + 1
 	self:Bar(236603, rapidShotCounter % 2 == 0 and 18.5 or 30.5)
 end
 
 function mod:EmbraceoftheEclipse(args)
-	self:MessageOld(args.spellId, "yellow", "Alarm", args.spellName)
+	self:MessageOld(args.spellId, "yellow", "alarm", args.spellName)
 	self:Bar(args.spellId, 54.7)
 	nextUltimate = GetTime() + 54.7
 end
@@ -312,7 +312,7 @@ do
 	function mod:MoonBurnApplied(args)
 		playerList[#playerList+1] = args.destName
 		if #playerList == 1 then
-			self:ScheduleTimer("TargetMessageOld", 0.3, args.spellId, playerList, "yellow", "Alert")
+			self:ScheduleTimer("TargetMessageOld", 0.3, args.spellId, playerList, "yellow", "alert")
 		end
 	end
 end
@@ -323,7 +323,7 @@ do
 	local function printTarget(self, name, guid)
 		if not self:Tank(name) then -- sometimes takes really long, so we might return early
 			targetFound = true
-			self:TargetMessageOld(236712, name, "yellow", "Alert")
+			self:TargetMessageOld(236712, name, "yellow", "alert")
 			if self:Me(guid) then
 				self:Say(236712)
 			end
@@ -360,7 +360,7 @@ do
 		local t = GetTime()
 		if self:Me(args.destGUID) and t-prev > 1.5 then
 			prev = t
-			self:MessageOld(args.spellId, "blue", "Alert", CL.underyou:format(args.spellName))
+			self:MessageOld(args.spellId, "blue", "alert", CL.underyou:format(args.spellName))
 		end
 	end
 end
@@ -377,5 +377,5 @@ end
 
 function mod:LunarFireApplied(args)
 	local amount = args.amount or 1
-	self:StackMessage(args.spellId, args.destName, amount, "red", amount > 1 and "Warning")
+	self:StackMessage(args.spellId, args.destName, amount, "red", amount > 1 and "warning")
 end

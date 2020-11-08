@@ -168,7 +168,7 @@ do
 			if t-prev > 1 then
 				prev = t
 				self:Flash("fixate", 41951)
-				self:MessageOld("fixate", "blue", "Long", CL.you:format(self:SpellName(41951)), 41951) -- 41951 = "Fixate"
+				self:MessageOld("fixate", "blue", "long", CL.you:format(self:SpellName(41951)), 41951) -- 41951 = "Fixate"
 			end
 			if self:GetOption("custom_on_fixate_plates") then
 				self:AddPlateIcon(41951, guid)
@@ -204,7 +204,7 @@ end
 
 function mod:UNIT_SPELLCAST_SUCCEEDED(_, _, _, spellId)
 	if spellId == 233895 then -- Suffocating Dark
-		self:MessageOld(spellId, "yellow", "Info")
+		self:MessageOld(spellId, "yellow", "info")
 		suffocatingDarkCounter = suffocatingDarkCounter + 1
 		self:CDBar(spellId, suffocatingDarkCounter == 2 and 42 or 25)
 	end
@@ -219,7 +219,7 @@ do
 				self:StackMessage(233104, self:UnitName(unit), power, "blue")
 				local t = GetTime()
 				if (power >= 80 or power < lastPower) and t-prev > 1.5 then
-					self:PlaySound(233104, "Info")
+					self:PlaySound(233104, "info")
 					prev = t
 				end
 				nextAltPowerWarning = tonumber(string.format("%d", power/20))*20+20 -- every 20 power
@@ -239,7 +239,7 @@ do
 
 	function mod:BelacsPrisoner(args)
 		if self:Me(args.destGUID)then
-			self:TargetMessageOld(args.spellId, args.destName, "blue", "Alert")
+			self:TargetMessageOld(args.spellId, args.destName, "blue", "alert")
 		end
 
 		-- Add person to InfoBox
@@ -266,14 +266,14 @@ function mod:BelacsPrisonerRemoved(args)
 end
 
 function mod:ScytheSweep(args)
-	self:MessageOld(args.spellId, "yellow", self:Tank() and "Alert")
+	self:MessageOld(args.spellId, "yellow", self:Tank() and "alert")
 	sweepCounter = sweepCounter + 1
 	self:CDBar(args.spellId, sweepCounter > 4 and sweepCounter % 2 == 0 and 35 or 24)
 end
 
 do
 	local function printTarget(self, name, guid)
-		self:TargetMessageOld(233431, name, "orange", "Alert", nil, nil, true)
+		self:TargetMessageOld(233431, name, "orange", "alert", nil, nil, true)
 		if self:Me(guid) then
 			self:Say(233431)
 		end
@@ -286,7 +286,7 @@ do
 end
 
 function mod:BoneSaw(args)
-	self:MessageOld(args.spellId, "red", "Warning")
+	self:MessageOld(args.spellId, "red", "warning")
 	self:CastBar(args.spellId, 16)
 	if self:Easy() then
 		self:Bar(args.spellId, 60.5)
@@ -296,12 +296,12 @@ function mod:BoneSaw(args)
 end
 
 function mod:PangsofGuilt(args) -- Interuptable
-	self:MessageOld(args.spellId, "red", self:Interrupter(args.sourceGUID) and "Alarm", CL.casting:format(CL.count:format(args.spellName, pangsofGuiltCounter)))
+	self:MessageOld(args.spellId, "red", self:Interrupter(args.sourceGUID) and "alarm", CL.casting:format(CL.count:format(args.spellName, pangsofGuiltCounter)))
 	pangsofGuiltCounter = (pangsofGuiltCounter % 3) + 1
 end
 
 function mod:EchoingAnguish(args)
-	self:MessageOld(args.spellId, "red", "Alert")
+	self:MessageOld(args.spellId, "red", "alert")
 	self:OpenProximity(args.spellId, 8) -- Open proximity a bit before
 	self:CDBar(args.spellId, 22)
 end
@@ -337,12 +337,12 @@ do
 end
 
 function mod:TormentingBurst(args)
-	self:MessageOld(args.spellId, "yellow", self:Healer() and "Long")
+	self:MessageOld(args.spellId, "yellow", self:Healer() and "long")
 	self:CDBar(args.spellId, 17.1)
 end
 
 function mod:FelSquall(args)
-	self:MessageOld(args.spellId, "red", "Warning")
+	self:MessageOld(args.spellId, "red", "warning")
 	self:CastBar(args.spellId, 16)
 	self:Bar(args.spellId, 60.5)
 end
@@ -353,7 +353,7 @@ do
 		local t = GetTime()
 		if self:Me(args.destGUID) and t-prev > 3 then
 			prev = t
-			self:MessageOld(233895, "blue", "Alert", CL.underyou:format(args.spellName))
+			self:MessageOld(233895, "blue", "alert", CL.underyou:format(args.spellName))
 		end
 	end
 end
@@ -362,7 +362,7 @@ function mod:SoulCorruption(args)
 	if self:Me(args.destGUID) then
 		local amount = args.amount or 1
 		if amount % 5 == 0 then
-			self:StackMessage(args.spellId, args.destName, amount, "red", "Warning") -- check sound amount
+			self:StackMessage(args.spellId, args.destName, amount, "red", "warning") -- check sound amount
 		end
 	end
 end

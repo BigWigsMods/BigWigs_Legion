@@ -179,7 +179,7 @@ do
 			local t = GetTime()
 			if t-prev > 1.5 then
 				prev = t
-				self:MessageOld(args.spellId, "blue", "Alert", CL.underyou:format(args.spellName))
+				self:MessageOld(args.spellId, "blue", "alert", CL.underyou:format(args.spellName))
 			end
 		end
 	end
@@ -187,7 +187,7 @@ end
 
 -- [[ Before Garothi Worldbreaker ]] --
 function mod:Annihilation()
-	self:MessageOld(252743, "red", "Long")
+	self:MessageOld(252743, "red", "long")
 end
 
 -- [[ After Garothi Worldbreaker ]] --
@@ -202,9 +202,9 @@ do
 		tbl[#tbl + 1] = { guid = args.destGUID, name = args.destName }
 		if #tbl == 2 then
 			if self:Me(tbl[1].guid) then
-				self:MessageOld(args.spellId, "blue", "Alarm", CL.link:format(self:ColorName(tbl[2].name)))
+				self:MessageOld(args.spellId, "blue", "alarm", CL.link:format(self:ColorName(tbl[2].name)))
 			elseif self:Me(tbl[2].guid) then
-				self:MessageOld(args.spellId, "blue", "Alarm", CL.link:format(self:ColorName(tbl[1].name)))
+				self:MessageOld(args.spellId, "blue", "alarm", CL.link:format(self:ColorName(tbl[1].name)))
 			elseif not self:CheckOption(args.spellId, "ME_ONLY") then
 				self:MessageOld(args.spellId, "yellow", nil, CL.link_both:format(self:ColorName(tbl[1].name), self:ColorName(tbl[2].name)))
 			end
@@ -233,14 +233,14 @@ do
 			local t = GetTime()
 			if (not self:Melee() and t-prev > 1.5) or t-prev > 6 then
 				prev = t
-				self:MessageOld(args.spellId, "blue", "Alert", CL.underyou:format(args.spellName))
+				self:MessageOld(args.spellId, "blue", "alert", CL.underyou:format(args.spellName))
 			end
 		end
 	end
 end
 
 function mod:FearsomeLeap(args)
-	self:MessageOld(args.spellId, "red", self:Melee() and "Warning" or "Long", CL.casting:format(args.spellName))
+	self:MessageOld(args.spellId, "red", self:Melee() and "warning" or "long", CL.casting:format(args.spellName))
 	self:CastBar(args.spellId, 3)
 end
 
@@ -261,16 +261,16 @@ do
 			self:Say(args.spellId)
 			self:SayCountdown(args.spellId, 6)
 			if not appliedByTheBoss then
-				self:PlaySound(args.spellId, "Alarm")
+				self:PlaySound(args.spellId, "alarm")
 				self:PersonalMessage(args.spellId) -- personal warning regardless of the source
 			elseif not self:Dispeller("magic") then
-				self:PlaySound(args.spellId, "Alarm")
+				self:PlaySound(args.spellId, "alarm")
 			end
 		end
 		if appliedByTheBoss then -- don't announce those that were spread by players
 			list[#list+1] = args.destName
 			if self:Dispeller("magic") then
-				self:PlaySound(args.spellId, "Alarm", nil, list)
+				self:PlaySound(args.spellId, "alarm", nil, list)
 			end
 			self:TargetsMessage(args.spellId, "orange", list, 2)
 		end
@@ -284,7 +284,7 @@ do
 
 	function mod:SoulburnDispelled(args)
 		if args.extraSpellId == 253600 and self:Me(args.destGUID) then
-			self:MessageOld(253600, "green", "Info", CL.removed_by:format(args.extraSpellName, self:ColorName(args.sourceName)))
+			self:MessageOld(253600, "green", "info", CL.removed_by:format(args.extraSpellName, self:ColorName(args.sourceName)))
 		end
 	end
 end
@@ -295,7 +295,7 @@ do
 		local t = GetTime()
 		if t-prev > 1 then
 			prev = t
-			self:MessageOld(args.spellId, "red", "Warning", CL.casting:format(args.spellName))
+			self:MessageOld(args.spellId, "red", "warning", CL.casting:format(args.spellName))
 		end
 	end
 end
@@ -305,7 +305,7 @@ function mod:Demolish(args)
 	if self:Me(args.destGUID) then
 		self:Say(args.spellId)
 		self:SayCountdown(args.spellId, 6)
-		self:PlaySound(args.spellId, "Warning")
+		self:PlaySound(args.spellId, "warning")
 	end
 	list[#list+1] = args.destName
 	self:TargetsMessage(args.spellId, "orange", list, self:LFR() and 1 or 2)
@@ -322,7 +322,7 @@ do
 	function mod:UNIT_SPELLCAST_SUCCEEDED(_, _, spellGUID, spellId)
 		if spellId == 252740 and spellGUID ~= prev then -- Annihilation
 			prev = spellGUID
-			self:MessageOld(252743, "red", "Long")
+			self:MessageOld(252743, "red", "long")
 		end
 	end
 end
@@ -338,7 +338,7 @@ do
 			if not players[guid] then
 				players[guid] = true
 				if unit == "player" then
-					self:PlaySound(252797, "Warning")
+					self:PlaySound(252797, "warning")
 					self:Say(252797)
 					if decimation2 then -- Pre Garothi Worldbreaker
 						self:SayCountdown(252797, 3, nil, 2)
@@ -364,7 +364,7 @@ do
 			if t-prev > 6 then -- reapplications *sometimes* fire _APPLIED instead of _REFRESH for some reason
 				prev = t
 				self:Say(args.spellId)
-				self:PlaySound(args.spellId, "Warning")
+				self:PlaySound(args.spellId, "warning")
 				self:PersonalMessage(args.spellId)
 			end
 			self:TargetBar(args.spellId, 6, args.destName)
@@ -390,7 +390,7 @@ function mod:CloudOfConfusion(args)
 	if self:Me(args.destGUID) then
 		self:Say(args.spellId)
 		self:SayCountdown(args.spellId, 10)
-		self:PlaySound(args.spellId, "Alarm")
+		self:PlaySound(args.spellId, "alarm")
 	end
 	self:TargetBar(args.spellId, 10, args.destName)
 	self:TargetMessage(args.spellId, "orange", args.destName)
@@ -405,7 +405,7 @@ end
 
 -- [[ Before Aggramar ]] --
 function mod:PunishingFlames(args)
-	self:MessageOld(args.spellId, "yellow", "Long", CL.casting:format(args.spellName))
+	self:MessageOld(args.spellId, "yellow", "long", CL.casting:format(args.spellName))
 	self:CastBar(args.spellId, 5)
 end
 

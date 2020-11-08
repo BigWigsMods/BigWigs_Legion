@@ -52,12 +52,12 @@ end
 --
 
 function mod:MassiveSpout(args)
-	self:MessageOld(args.spellId, "yellow", "Long", CL.incoming:format(args.spellName))
+	self:MessageOld(args.spellId, "yellow", "long", CL.incoming:format(args.spellName))
 	self:CDBar(args.spellId, 66.5)
 end
 
 function mod:Electrify(args)
-	self:MessageOld(args.spellId, "green", "Alert", CL.casting:format(args.spellName))
+	self:MessageOld(args.spellId, "green", "alert", CL.casting:format(args.spellName))
 	self:CDBar(args.spellId, 33)
 end
 
@@ -65,7 +65,7 @@ do
 	local timers = {47, 67, 66, 66, 58}
 	function mod:RendingWhirl(args)
 		whirlCount = whirlCount + 1
-		self:MessageOld(args.spellId, "orange", self:Melee() and "Warning", CL.incoming:format(args.spellName))
+		self:MessageOld(args.spellId, "orange", self:Melee() and "warning", CL.incoming:format(args.spellName))
 		-- This timer has the potential to go way wrong if you release or miss engage but still better than a static timer
 		self:CDBar(args.spellId, timers[whirlCount] or 66)
 	end
@@ -80,7 +80,7 @@ end
 
 function mod:GustOfWindRemoved(args)
 	if self:Me(args.destGUID) then
-		self:MessageOld(args.spellId, "blue", "Alarm", CL.removed:format(args.spellName))
+		self:MessageOld(args.spellId, "blue", "alarm", CL.removed:format(args.spellName))
 		self:StopBar(args.spellName, args.destName)
 	end
 end

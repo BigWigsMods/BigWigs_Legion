@@ -145,7 +145,7 @@ do
 			local t = GetTime()
 			if t-prev > 2.5 then
 				prev = t
-				self:MessageOld(spellId, "red", "Alert")
+				self:MessageOld(spellId, "red", "alert")
 			end
 		end
 	end
@@ -160,12 +160,12 @@ end
 
 function mod:SearingBrandRemoved(args)
 	if self:Me(args.destGUID) then
-		self:MessageOld(args.spellId, "orange", "Warning", L.removedFromYou:format(args.spellName))
+		self:MessageOld(args.spellId, "orange", "warning", L.removedFromYou:format(args.spellName))
 	end
 end
 
 function mod:FelBeamCast(args)
-	self:MessageOld(args.spellId, "yellow", "Info", args.spellName)
+	self:MessageOld(args.spellId, "yellow", "info", args.spellName)
 end
 
 do
@@ -188,7 +188,7 @@ do
 end
 
 function mod:OrbOfDescructionApplied(args)
-	self:TargetMessageOld(args.spellId, args.destName, "orange", "Warning", CL.count:format(args.spellName, orbCount), nil, self:Ranged())
+	self:TargetMessageOld(args.spellId, args.destName, "orange", "warning", CL.count:format(args.spellName, orbCount), nil, self:Ranged())
 	self:TargetBar(args.spellId, 5, args.destName, 230932, args.spellId) -- Orb
 	if self:Me(args.destGUID) then
 		self:Flash(args.spellId)
@@ -203,9 +203,9 @@ end
 
 function mod:SlamCast(args)
 	if slamCount % 3 == 0 then
-		self:MessageOld("smashingBridge", "red", "Alert", CL.casting:format(CL.count:format(args.spellName, slamCount)) .. " - "..L.smashingBridge, L.smashingBridge_icon)
+		self:MessageOld("smashingBridge", "red", "alert", CL.casting:format(CL.count:format(args.spellName, slamCount)) .. " - "..L.smashingBridge, L.smashingBridge_icon)
 	else
-		self:MessageOld(args.spellId, "red", "Alert", CL.casting:format(CL.count:format(args.spellName, slamCount)))
+		self:MessageOld(args.spellId, "red", "alert", CL.casting:format(CL.count:format(args.spellName, slamCount)))
 	end
 end
 
@@ -221,7 +221,7 @@ function mod:SlamSuccess(args)
 end
 
 function mod:BurningPitchCast(args)
-	self:MessageOld(args.spellId, "yellow", "Info")
+	self:MessageOld(args.spellId, "yellow", "info")
 	burningPitchCount = burningPitchCount + 1
 	local t = timers[args.spellId][burningPitchCount]
 	if t then

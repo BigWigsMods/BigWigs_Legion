@@ -115,7 +115,7 @@ end
 
 --[[ General ]]--
 function mod:Nightosis1()
-	self:MessageOld("stages", "cyan", "Info", "75% - ".. self:SpellName(-13681), false) -- Stage Two: Nightosis
+	self:MessageOld("stages", "cyan", "info", "75% - ".. self:SpellName(-13681), false) -- Stage Two: Nightosis
 	phase = 2
 	self:Bar(218774, self:Easy() and 16.3 or 12) -- Summon Plasma Spheres, to _start
 	self:Bar(218304, self:Easy() and 32.1 or 23.5) -- Parasitic Fetter, to _success
@@ -124,7 +124,7 @@ function mod:Nightosis1()
 end
 
 function mod:Nightosis2()
-	self:MessageOld("stages", "cyan", "Info", "50% - ".. self:SpellName(-13683), false) -- Stage Three: Pure Forms
+	self:MessageOld("stages", "cyan", "info", "50% - ".. self:SpellName(-13683), false) -- Stage Three: Pure Forms
 	phase = 3
 	self:Bar(218927, self:Easy() and 13.4 or 10.5) -- Grace of Nature, to _start
 	self:Bar(218809, self:Easy() and 26.8 or 20) -- Call of Night, to _success
@@ -135,7 +135,7 @@ function mod:Nightosis2()
 end
 
 function mod:NatureInfusion()
-	self:MessageOld("stages", "cyan", "Info", CL.stage:format(2), false)
+	self:MessageOld("stages", "cyan", "info", CL.stage:format(2), false)
 	phase = 2
 	self:StopBar(218927) -- Grace of Nature
 	self:StopBar(218304) -- Parasitic Fetter
@@ -147,7 +147,7 @@ function mod:NatureInfusion()
 end
 
 function mod:ArcaneInfusion()
-	self:MessageOld("stages", "cyan", "Info", CL.stage:format(3), false)
+	self:MessageOld("stages", "cyan", "info", CL.stage:format(3), false)
 	phase = 3
 	self:StopBar(218148) -- Solar Collapse
 	self:StopBar(218438) -- Controlled Chaos
@@ -159,7 +159,7 @@ end
 function mod:UNIT_HEALTH_FREQUENT(event, unit)
 	local hp = UnitHealth(unit) / UnitHealthMax(unit) * 100
 	if hp < nextPhaseSoon then
-		self:MessageOld("stages", "cyan", "Info", CL.soon:format(CL.stage:format(phase+1)), false)
+		self:MessageOld("stages", "cyan", "info", CL.soon:format(CL.stage:format(phase+1)), false)
 		nextPhaseSoon = nextPhaseSoon - 25
 		if nextPhaseSoon < 50 then
 			self:UnregisterUnitEvent(event, unit)
@@ -196,7 +196,7 @@ do
 
 		playerList[#playerList+1] = args.destName
 		if #playerList == 1 then
-			self:ScheduleTimer("TargetMessageOld", 0.1, args.spellId, playerList, "red", "Alert")
+			self:ScheduleTimer("TargetMessageOld", 0.1, args.spellId, playerList, "red", "alert")
 			self:Bar(args.spellId, (self:Mythic() and (phase == 2 and 55 or phase == 3 and 35 or 65)) or self:Easy() and 71.5 or 50)
 		end
 
@@ -243,12 +243,12 @@ end
 function mod:RecursiveStrikes(args)
 	local amount = args.amount or 1
 	if amount > 5 and amount % 2 == 0 then
-		self:StackMessage(args.spellId, args.destName, amount, "yellow", amount > 7 and "Warning")
+		self:StackMessage(args.spellId, args.destName, amount, "yellow", amount > 7 and "warning")
 	end
 end
 
 function mod:ControlledChaos(args)
-	self:MessageOld(args.spellId, "red", "Alert", CL.incoming:format(args.spellName))
+	self:MessageOld(args.spellId, "red", "alert", CL.incoming:format(args.spellName))
 	if self:Easy() then
 		self:Bar(args.spellId, phase == 2 and 57.1 or phase == 3 and 71.4 or 50)
 	else
@@ -258,7 +258,7 @@ end
 
 --[[ Solarist Tel'arn ]]--
 function mod:SolarCollapse(args)
-	self:MessageOld(args.spellId, "red", "Long", CL.incoming:format(args.spellName))
+	self:MessageOld(args.spellId, "red", "long", CL.incoming:format(args.spellName))
 	if self:Easy() then
 		self:Bar(args.spellId, phase == 2 and 56.8 or phase == 3 and 71.4 or 50)
 	else
@@ -267,7 +267,7 @@ function mod:SolarCollapse(args)
 end
 
 function mod:SummonPlasmaSpheres(args)
-	self:MessageOld(args.spellId, "orange", "Alert")
+	self:MessageOld(args.spellId, "orange", "alert")
 	if self:Easy() then
 		self:Bar(args.spellId, phase == 2 and 57.1 or 71.4)
 	else
@@ -281,7 +281,7 @@ do
 		local t = GetTime()
 		if self:Mythic() and phase == 2 and t-prev > 5 then
 			prev = t
-			self:MessageOld(218304, "yellow", self:Damager() and "Alarm", CL.spawned:format(self:SpellName(-13699))) -- Parasitic Lasher
+			self:MessageOld(218304, "yellow", self:Damager() and "alarm", CL.spawned:format(self:SpellName(-13699))) -- Parasitic Lasher
 		end
 	end
 end
@@ -289,7 +289,7 @@ end
 --[[ Naturalist Tel'arn ]]--
 function mod:ToxicSpores(args)
 	if self:Me(args.destGUID) then
-		self:TargetMessageOld(args.spellId, args.destName, "blue", "Info")
+		self:TargetMessageOld(args.spellId, args.destName, "blue", "info")
 		self:TargetBar(args.spellId, 12, args.destName)
 	end
 end
@@ -301,7 +301,7 @@ function mod:ToxicSporesRemoved(args)
 end
 
 function mod:GraceOfNature(args)
-	self:MessageOld(args.spellId, "red", "Long", CL.casting:format(args.spellName))
+	self:MessageOld(args.spellId, "red", "long", CL.casting:format(args.spellName))
 	self:Bar(args.spellId, (self:Mythic() and (phase == 2 and 55 or phase == 3 and 35 or 65)) or self:Easy() and 71.4 or 50)
 end
 
@@ -311,7 +311,7 @@ do
 		local t = GetTime()
 		if t-prev > 1.5 then
 			prev = t
-			self:TargetMessageOld(218927, args.destName, "orange", self:Tank() and "Alarm")
+			self:TargetMessageOld(218927, args.destName, "orange", self:Tank() and "alarm")
 		end
 	end
 end
@@ -330,7 +330,7 @@ do
 		local t = GetTime()
 		if t-prev > 5 then
 			prev = t
-			self:TargetMessageOld(args.spellId, args.destName, "orange", self:Dispeller("magic") and "Alarm")
+			self:TargetMessageOld(args.spellId, args.destName, "orange", self:Dispeller("magic") and "alarm")
 		end
 		if self:Me(args.destGUID) then
 			self:Say(args.spellId)
@@ -347,9 +347,9 @@ do
 		local t = GetTime()
 		if t-prev > 5 then
 			prev = t
-			self:MessageOld(args.spellId, "yellow", self:Damager() and "Alarm", CL.spawned:format(self:SpellName(-13699))) -- Parasitic Lasher
+			self:MessageOld(args.spellId, "yellow", self:Damager() and "alarm", CL.spawned:format(self:SpellName(-13699))) -- Parasitic Lasher
 			if self:Mythic() and phase == 3 then
-				self:MessageOld(218438, "red", "Alert", CL.incoming:format(args.spellName))
+				self:MessageOld(218438, "red", "alert", CL.incoming:format(args.spellName))
 			end
 		end
 		if self:GetOption(fetterMarker) and GetRaidTargetIndex(args.destName) == 8 then
@@ -360,7 +360,7 @@ end
 
 function mod:Fixate(args)
 	if self:Me(args.destGUID) then
-		self:TargetMessageOld(args.spellId, args.destName, "blue", "Info", self:SpellName(177643)) -- Fixate
+		self:TargetMessageOld(args.spellId, args.destName, "blue", "info", self:SpellName(177643)) -- Fixate
 		self:Flash(args.spellId)
 	end
 end

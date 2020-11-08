@@ -45,31 +45,31 @@ end
 function mod:InfectedClaws(args)
 	local amount = args.amount or 1
 	if amount % 2 == 0 then
-		self:StackMessage(args.spellId, args.destName, amount, "cyan", amount > 5 and "Alarm")
+		self:StackMessage(args.spellId, args.destName, amount, "cyan", amount > 5 and "alarm")
 	end
 end
 
 function mod:SlumberingGasp(args)
-	self:MessageOld(args.spellId, "orange", "Warning")
+	self:MessageOld(args.spellId, "orange", "warning")
 	self:CDBar(args.spellId, 55)
 	self:CastBar(args.spellId, 17)
 end
 
 function mod:SlumberingGaspApplied(args)
 	if self:Me(args.destGUID) then
-		self:TargetMessageOld(247379, args.destName, "blue", "Long")
+		self:TargetMessageOld(247379, args.destName, "blue", "long")
 		self:Say(247379)
 	end
 end
 
 function mod:FelBlast(args)
 	if self:Interrupter(args.sourceGUID) then
-		self:MessageOld(args.spellId, "yellow", "Alert")
+		self:MessageOld(args.spellId, "yellow", "alert")
 	end
 end
 
 function mod:GrotesqueSpawn(args)
-	self:MessageOld(args.spellId, "red", "Alarm")
+	self:MessageOld(args.spellId, "red", "alarm")
 	self:CDBar(args.spellId, 34)
 end
 

@@ -53,22 +53,22 @@ do
 end
 
 function mod:SnowCrash(args)
-	self:MessageOld(args.spellId, "red", self:Melee() and "Alert")
+	self:MessageOld(args.spellId, "red", self:Melee() and "alert")
 	self:CDBar(args.spellId, 19)
 end
 
 function mod:Avalanche(args)
-	self:MessageOld(args.spellId, "yellow", "Warning")
+	self:MessageOld(args.spellId, "yellow", "warning")
 	self:Flash(args.spellId)
 end
 
 function mod:SnowPlow(args)
-	self:MessageOld(219602, "orange", "Long", CL.incoming:format(args.spellName))
+	self:MessageOld(219602, "orange", "long", CL.incoming:format(args.spellName))
 end
 
 function mod:SnowPlowApplied(args)
 	if self:MobId(args.destGUID) ~= 110378 then -- Skip the boss
-		self:TargetMessageOld(args.spellId, args.destName, "green", "Alarm")
+		self:TargetMessageOld(args.spellId, args.destName, "green", "alarm")
 		self:PrimaryIcon(args.spellId, args.destName)
 		if self:Me(args.destGUID) then
 			self:Say(args.spellId)

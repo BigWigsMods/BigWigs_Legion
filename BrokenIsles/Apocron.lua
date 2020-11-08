@@ -48,21 +48,21 @@ function mod:BOSS_KILL(_, id)
 end
 
 function mod:Quake(args)
-	self:MessageOld(args.spellId, "orange", "Warning")
+	self:MessageOld(args.spellId, "orange", "warning")
 	self:CDBar(args.spellId, 23.3)
 end
 
 function mod:FelfireMissiles(args)
-	self:MessageOld(args.spellId, "yellow", "Long")
+	self:MessageOld(args.spellId, "yellow", "long")
 end
 
 function mod:Sear(args)
-	self:MessageOld(args.spellId, "red", self:Melee() and "Info")
+	self:MessageOld(args.spellId, "red", self:Melee() and "info")
 	self:CDBar(args.spellId, 22)
 end
 
 function mod:SearApplied(args)
 	if self:Tank() and (self:Me(args.destGUID) or self:Tank(args.destName)) then
-		self:TargetMessageOld(args.spellId, args.destName, "green", "Alarm", nil, nil, true)
+		self:TargetMessageOld(args.spellId, args.destName, "green", "alarm", nil, nil, true)
 	end
 end

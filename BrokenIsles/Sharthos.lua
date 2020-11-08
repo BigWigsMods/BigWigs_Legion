@@ -49,16 +49,16 @@ end
 --
 
 function mod:CryOfTheTormented(args)
-	self:MessageOld(args.spellId, "orange", "Warning", CL.casting:format(args.spellName))
+	self:MessageOld(args.spellId, "orange", "warning", CL.casting:format(args.spellName))
 end
 
 function mod:DreadFlame(args)
-	self:TargetMessageOld(args.spellId, args.destName, "yellow", "Alarm")
+	self:TargetMessageOld(args.spellId, args.destName, "yellow", "alarm")
 	self:CDBar(args.spellId, 16)
 end
 
 function mod:NightmareBreath(args)
-	self:MessageOld(args.spellId, "red", "Info")
+	self:MessageOld(args.spellId, "red", "info")
 	self:CDBar(args.spellId, 19)
 end
 
@@ -68,14 +68,14 @@ do
 		local t = GetTime()
 		if self:Me(args.destGUID) and t-prev > 3 then
 			prev = t
-			self:MessageOld(args.spellId, "blue", "Alert", CL.underyou:format(args.spellName))
+			self:MessageOld(args.spellId, "blue", "alert", CL.underyou:format(args.spellName))
 		end
 	end
 end
 
 function mod:TailLash(args)
 	if self:Me(args.destGUID) then
-		self:MessageOld(args.spellId, "blue", "Alert", CL.you:format(args.spellName))
+		self:MessageOld(args.spellId, "blue", "alert", CL.you:format(args.spellName))
 	end
 end
 

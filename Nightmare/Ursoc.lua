@@ -96,7 +96,7 @@ function mod:RoaringCacophonySuccess(args)
 	if self:Mythic() and cacophonyCount > 2 and cacophonyCount % 2 == 1 then
 		text = text.." - ".. CL.spawning:format(CL.add)
 	end
-	self:MessageOld(args.spellId, "orange", "Alarm", text)
+	self:MessageOld(args.spellId, "orange", "alarm", text)
 
 	cacophonyCount = cacophonyCount + 1
 
@@ -111,7 +111,7 @@ function mod:Overwhelm(args)
 	local amount = args.amount or 1
 	self:StackMessage(args.spellId, args.destName, amount, "red")
 	if amount > 1 then
-		self:PlaySound(args.spellId, self:Me(args.destGUID) and "Alarm" or "Warning") -- Warning = taunt
+		self:PlaySound(args.spellId, self:Me(args.destGUID) and "alarm" or "warning") -- Warning = taunt
 	end
 	self:Bar(args.spellId, self:LFR() and 20 or 10)
 end
@@ -121,13 +121,13 @@ function mod:RendFleshCast(args)
 	if self:Tank() and not UnitDetailedThreatSituation("player", "boss1") then
 		local _, _, _, expiration = self:UnitDebuff("player", self:SpellName(197943)) -- Overwhelm
 		if not expiration or expiration-GetTime() < 2.5 then
-			self:PlaySound(204859, "Warning") -- Warning = taunt
+			self:PlaySound(204859, "warning") -- Warning = taunt
 		end
 	end
 end
 
 function mod:RendFlesh(args)
-	self:TargetMessageOld(args.spellId, args.destName, "yellow", "Info")
+	self:TargetMessageOld(args.spellId, args.destName, "yellow", "info")
 	self:Bar(args.spellId, 20)
 end
 
@@ -149,7 +149,7 @@ function mod:FocusedGaze(args)
 	end
 
 	self:PrimaryIcon(args.spellId, args.destName)
-	self:TargetMessageOld(args.spellId, args.destName, "red", "Warning", countMessage, args.spellId, true)
+	self:TargetMessageOld(args.spellId, args.destName, "red", "warning", countMessage, args.spellId, true)
 	self:TargetBar(args.spellId, 6, args.destName, countMessage)
 	focusedGazeCount = focusedGazeCount + 1
 	if showingIcons then
@@ -176,7 +176,7 @@ do
 		local t = GetTime()
 		if self:Me(args.destGUID) and t-prev > 1.5 then
 			prev = t
-			self:MessageOld(205611, "blue", "Alert", CL.underyou:format(args.spellName))
+			self:MessageOld(205611, "blue", "alert", CL.underyou:format(args.spellName))
 		end
 	end
 end
@@ -185,10 +185,10 @@ function mod:UNIT_HEALTH_FREQUENT(event, unit)
 	local hp = UnitHealth(unit) / UnitHealthMax(unit)
 	if hp < 0.35 then -- Blood Frenzy at 30%
 		self:UnregisterUnitEvent(event, unit)
-		self:MessageOld(198388, "cyan", "Info", CL.soon:format(self:SpellName(198388))) -- Blood Frenzy
+		self:MessageOld(198388, "cyan", "info", CL.soon:format(self:SpellName(198388))) -- Blood Frenzy
 	end
 end
 
 function mod:BloodFrenzy(args)
-	self:MessageOld(args.spellId, "orange", "Long", "30% - ".. args.spellName)
+	self:MessageOld(args.spellId, "orange", "long", "30% - ".. args.spellName)
 end

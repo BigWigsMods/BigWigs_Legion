@@ -99,7 +99,7 @@ end
 --
 function mod:Arcanoslash(args)
 	if arcanoslashCount % 3 == 1 then -- flurry of 3x 1s casts
-		self:MessageOld(args.spellId, "red", "Alarm", CL.casting:format(args.spellName))
+		self:MessageOld(args.spellId, "red", "alarm", CL.casting:format(args.spellName))
 		self:CDBar(args.spellId, 10)
 	end
 	arcanoslashCount = arcanoslashCount + 1
@@ -110,7 +110,7 @@ do
 
 	local function checkForBrokenShard()
 		if not shardOnMe then
-			mod:MessageOld(204284, "blue", "Warning", CL.no:format(name))
+			mod:MessageOld(204284, "blue", "warning", CL.no:format(name))
 			brokenShardCheck = mod:ScheduleTimer(checkForBrokenShard, 1)
 		else
 			mod:MessageOld(204284, "green", nil, CL.you:format(name))
@@ -118,7 +118,7 @@ do
 	end
 
 	function mod:Shockwave(args)
-		self:MessageOld(args.spellId, "red", "Alarm", CL.casting:format(args.spellName))
+		self:MessageOld(args.spellId, "red", "alarm", CL.casting:format(args.spellName))
 		self:CastBar(args.spellId, 3)
 		self:CDBar(args.spellId, 58) -- can be delayed by up to 3s
 		self:CDBar(204372, 11) -- Call of the Scorpid (time to _start)
@@ -158,19 +158,19 @@ function mod:ChitinousExoskeletonStacks(args)
 end
 
 function mod:ExoskeletalVulnerabilityApplied(args)
-	self:MessageOld(args.spellId, "green", "Info")
+	self:MessageOld(args.spellId, "green", "info")
 	self:CastBar(args.spellId, 14, 160734, args.spellId) -- 160734 = Vulnerability
 	self:CDBar(204471, 21.5) -- Focused Blast (time to _success), 14+7.5
 	self:CDBar(204372, 22.5) -- Call of the Scorpid, 14+8.5
 end
 
 function mod:CallOfTheScorpid(args)
-	self:MessageOld(args.spellId, "yellow", "Long")
+	self:MessageOld(args.spellId, "yellow", "long")
 	self:CDBar(args.spellId, 20)
 end
 
 function mod:FocusedBlast(args)
-	self:MessageOld(args.spellId, "orange", "Alert")
+	self:MessageOld(args.spellId, "orange", "alert")
 	self:CastBar(args.spellId, 4)
 	self:CDBar(args.spellId, 30)
 end
@@ -181,7 +181,7 @@ do
 		local t = GetTime()
 		if self:Me(args.destGUID) and t-prev > 1.5 then
 			prev = t
-			self:MessageOld(args.spellId, "blue", "Alert", CL.underyou:format(args.spellName))
+			self:MessageOld(args.spellId, "blue", "alert", CL.underyou:format(args.spellName))
 		end
 	end
 end
@@ -192,19 +192,19 @@ do
 		local t = GetTime()
 		if spellId == 214800 and t-prev > 1 then -- Red
 			prev = t
-			self:MessageOld(-13767, "cyan", "Info", L.mode:format(L.red), 211801)
+			self:MessageOld(-13767, "cyan", "info", L.mode:format(L.red), 211801)
 			self:Bar(-13767, 45, L.mode:format(L.green), 214718)
 			self:StopBar(L.mode:format(L.red))
 			self:StopBar(L.mode:format(L.blue))
 		elseif spellId == 215042 and t-prev > 1 then -- Green
 			prev = t
-			self:MessageOld(-13767, "cyan", "Info", L.mode:format(L.green), 214718)
+			self:MessageOld(-13767, "cyan", "info", L.mode:format(L.green), 214718)
 			self:Bar(-13767, 45, L.mode:format(L.blue), 204292)
 			self:StopBar(L.mode:format(L.red))
 			self:StopBar(L.mode:format(L.green))
 		elseif spellId == 215055 and t-prev > 1 then -- Blue
 			prev = t
-			self:MessageOld(-13767, "cyan", "Info", L.mode:format(L.blue), 204292)
+			self:MessageOld(-13767, "cyan", "info", L.mode:format(L.blue), 204292)
 			self:Bar(-13767, 45, L.mode:format(L.red), 211801)
 			self:StopBar(L.mode:format(L.green))
 			self:StopBar(L.mode:format(L.blue))

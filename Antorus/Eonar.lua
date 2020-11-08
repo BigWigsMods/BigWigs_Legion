@@ -277,7 +277,7 @@ function mod:StartWaveTimer(lane, count)
 	local barText = addTypeText and L.lane_text:format(laneText, addTypeText) or laneText
 
 	self:Bar("warp_in", length, barText, icon)
-	self:DelayedMessage("warp_in", length, "yellow", barText, icon, "Alert")
+	self:DelayedMessage("warp_in", length, "yellow", barText, icon, "alert")
 	self:ScheduleTimer("StartWaveTimer", length, lane, count+1)
 end
 
@@ -293,14 +293,14 @@ function mod:UNIT_POWER_FREQUENT(_, unit)
 	local power = UnitPower(unit, 10) -- Enum.PowerType.Alternate = 10
 	if power >= 80 and shouldAnnounceEnergy then
 		shouldAnnounceEnergy = nil
-		self:MessageOld(250048, "cyan", "Info", CL.soon:format(L.lifeforce_casts:format(self:SpellName(250048), lifeForceCounter, lifeForceNeeded))) -- Life Force (n/4) soon!
+		self:MessageOld(250048, "cyan", "info", CL.soon:format(L.lifeforce_casts:format(self:SpellName(250048), lifeForceCounter, lifeForceNeeded))) -- Life Force (n/4) soon!
 	end
 	self:SetInfo("infobox", 4, ("%.0f"):format(power))
 	self:SetInfoBar("infobox", 3, power/100, .7, .7, 0, 0.3) -- yellow
 end
 
 function mod:LifeForce(args)
-	self:MessageOld(args.spellId, "green", "Long", CL.casting:format(L.lifeforce_casts:format(args.spellName, lifeForceCounter, lifeForceNeeded)))
+	self:MessageOld(args.spellId, "green", "long", CL.casting:format(L.lifeforce_casts:format(args.spellName, lifeForceCounter, lifeForceNeeded)))
 	lifeForceCounter = lifeForceCounter + 1
 end
 
@@ -310,7 +310,7 @@ end
 
 function mod:CHAT_MSG_RAID_BOSS_EMOTE(_, msg)
 	if msg:find("248861") then -- Spear of Doom
-		self:MessageOld(248861, "red", "Warning")
+		self:MessageOld(248861, "red", "warning")
 		spearCounter = spearCounter + 1
 		self:CDBar(248861, timers[248861][spearCounter])
 	end
@@ -324,7 +324,7 @@ do
 			self:Say(args.spellId)
 			self:Flash(args.spellId)
 			self:SayCountdown(args.spellId, 5)
-			self:PlaySound(args.spellId, "Alarm")
+			self:PlaySound(args.spellId, "alarm")
 		end
 		self:TargetsMessage(args.spellId, "red", playerList, 6)
 		if #playerList == 1 then
@@ -345,7 +345,7 @@ do
 end
 
 function mod:FinalDoom(args)
-	self:MessageOld(args.spellId, "red", "Warning", CL.count:format(args.spellName, finalDoomCounter))
+	self:MessageOld(args.spellId, "red", "warning", CL.count:format(args.spellName, finalDoomCounter))
 	self:CastBar(args.spellId, 50, CL.count:format(args.spellName, finalDoomCounter))
 	finalDoomCounter = finalDoomCounter + 1
 	self:Bar(args.spellId, timers[args.spellId][finalDoomCounter], CL.count:format(args.spellName, finalDoomCounter))
@@ -353,13 +353,13 @@ end
 
 function mod:Purge(args)
 	self:StopBar(CL.cast:format(CL.count:format(self:SpellName(249121), finalDoomCounter-1)))
-	self:MessageOld(249121, "green", "Info", CL.interrupted:format(self:SpellName(249121))) -- Final Doom
+	self:MessageOld(249121, "green", "info", CL.interrupted:format(self:SpellName(249121))) -- Final Doom
 	self:CastBar(args.spellId, 30)
 end
 
 function mod:ArcaneBuildup(args)
 	if self:Me(args.destGUID) then
-		self:PlaySound(args.spellId, "Alarm")
+		self:PlaySound(args.spellId, "alarm")
 		self:PersonalMessage(args.spellId)
 		self:Say(args.spellId)
 		self:Flash(args.spellId)
@@ -377,7 +377,7 @@ end
 
 function mod:BurningEmbers(args)
 	if self:Me(args.destGUID) then
-		self:PlaySound(args.spellId, "Alarm")
+		self:PlaySound(args.spellId, "alarm")
 		self:PersonalMessage(args.spellId)
 		self:Say(args.spellId)
 		self:Flash(args.spellId)
@@ -396,6 +396,6 @@ end
 function mod:FoulSteps(args)
 	local amount = args.amount or 1
 	if self:Me(args.destGUID) and amount % 3 == 0 then
-		self:StackMessage(args.spellId, args.destName, amount, "blue", amount > 5 and "Alarm")
+		self:StackMessage(args.spellId, args.destName, amount, "blue", amount > 5 and "alarm")
 	end
 end

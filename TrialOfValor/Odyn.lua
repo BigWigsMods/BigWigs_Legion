@@ -191,7 +191,7 @@ function mod:UNIT_SPELLCAST_SUCCEEDED(_, _, _, spellId)
 		isHymdallFighting = false
 		isHyrjaFighting = false
 		self:UnregisterUnitEvent("UNIT_AURA", "boss1", "boss2", "boss3") -- Valarjar's Bond
-		self:MessageOld("stages", "cyan", "Long", CL.stage:format(2), false)
+		self:MessageOld("stages", "cyan", "long", CL.stage:format(2), false)
 		for _,barText in pairs(revivifyBarTexts) do
 			self:StopBar(barText)
 		end
@@ -209,7 +209,7 @@ function mod:UNIT_SPELLCAST_SUCCEEDED(_, _, _, spellId)
 		self:Bar(227629, self:Mythic() and 70 or 73) -- Unerring Blast
 	elseif spellId == 228740 then
 		phase = 3
-		self:MessageOld("stages", "cyan", "Long", CL.stage:format(3), false)
+		self:MessageOld("stages", "cyan", "long", CL.stage:format(3), false)
 		self:StopBar(L.hyrja)
 		self:StopBar(L.hymdall)
 		self:StopBar(227503) -- Draw Power
@@ -221,7 +221,7 @@ function mod:UNIT_SPELLCAST_SUCCEEDED(_, _, _, spellId)
 		end
 	elseif spellId == 229576 or spellId == 227503 then -- Draw Power, 229576 = mythic, 227503 = others
 		runesUp = (self:Easy() and phase == 1 and 3) or 5 -- could be :Normal(), not sure about LFR
-		self:MessageOld(227503, "yellow", "Long")
+		self:MessageOld(227503, "yellow", "long")
 	elseif spellId == 231297 then -- Runic Brand P3, Mythic
 		self:Bar(231350, 7.5) -- Radiant Smite
 	end
@@ -240,7 +240,7 @@ function mod:INSTANCE_ENCOUNTER_ENGAGE_UNIT()
 				if not isHymdallFighting then
 					isHymdallFighting = true
 					hornCount = 1
-					self:MessageOld(-14404, "cyan", "Info", self:SpellName(L.hymdall), false)
+					self:MessageOld(-14404, "cyan", "info", self:SpellName(L.hymdall), false)
 					self:CDBar(228012, 10) -- Horn of Valor
 					self:CDBar(-14404, self:Mythic() and 66 or 69.5, L.hyrja, L.hyrja_icon)
 				end
@@ -249,7 +249,7 @@ function mod:INSTANCE_ENCOUNTER_ENGAGE_UNIT()
 				if not isHyrjaFighting then
 					isHyrjaFighting = true
 					shieldCount = 1
-					self:MessageOld(-14404, "cyan", "Info", self:SpellName(L.hyrja), false)
+					self:MessageOld(-14404, "cyan", "info", self:SpellName(L.hyrja), false)
 					self:CDBar(228029, 5) -- Expel Light
 					self:CDBar(228162, 9.5) -- Shield of Light
 					self:CDBar(-14404, self:Mythic() and 66 or 69.5, L.hymdall, L.hymdall_icon)
@@ -263,12 +263,12 @@ function mod:INSTANCE_ENCOUNTER_ENGAGE_UNIT()
 			castingHorn = false
 			self:CloseProximity(228012) -- Horn of Valor
 		end
-		self:MessageOld(-14404, "green", "Info", L.yields:format(self:SpellName(L.hymdall)), false)
+		self:MessageOld(-14404, "green", "info", L.yields:format(self:SpellName(L.hymdall)), false)
 		self:StopBar(CL.count:format(self:SpellName(228012), hornCount)) -- Horn of Valor
 	end
 	if not hyrjaFound and isHyrjaFighting then
 		isHyrjaFighting = false
-		self:MessageOld(-14404, "green", "Info", L.yields:format(self:SpellName(L.hyrja)), false)
+		self:MessageOld(-14404, "green", "info", L.yields:format(self:SpellName(L.hyrja)), false)
 		self:StopBar(CL.count:format(self:SpellName(228162), shieldCount)) -- Shield of Light
 		self:StopBar(228029) -- Expel Light
 	end
@@ -277,7 +277,7 @@ end
 do
 	local protected = mod:SpellName(229584)
 	function mod:UnerringBlast(args)
-		self:MessageOld(args.spellId, "orange", "Alert", CL.casting:format(args.spellName))
+		self:MessageOld(args.spellId, "orange", "alert", CL.casting:format(args.spellName))
 		self:CastBar(args.spellId, 3)
 		self:Bar(227503, self:Easy() and 45 or 35) -- Draw Power
 		self:Bar(args.spellId, self:Easy() and 78 or (self:Mythic() and (phase == 2 and 69 or 68)) or 73)
@@ -296,7 +296,7 @@ do
 			self:SayCountdown(228162, t)
 		end
 		self:PrimaryIcon(228162, player)
-		self:TargetMessageOld(228162, player, "red", "Alarm", nil, nil, true)
+		self:TargetMessageOld(228162, player, "red", "alarm", nil, nil, true)
 		self:TargetBar(228162, t, player)
 	end
 
@@ -320,7 +320,7 @@ end
 
 function mod:HornOfValor(args)
 	castingHorn = true
-	self:MessageOld(args.spellId, "orange", "Alert", CL.casting:format(args.spellName))
+	self:MessageOld(args.spellId, "orange", "alert", CL.casting:format(args.spellName))
 	self:CastBar(args.spellId, self:Easy() and 5 or 4.5, CL.count:format(args.spellName, hornCount))
 	hornCount = hornCount + 1
 
@@ -341,7 +341,7 @@ end
 
 function mod:StormOfJustice(args)
 	if self:Me(args.destGUID) then
-		self:TargetMessageOld(args.spellId, args.destName, "blue", "Alarm")
+		self:TargetMessageOld(args.spellId, args.destName, "blue", "alarm")
 		self:TargetBar(args.spellId, 5, args.destName)
 		self:Say(args.spellId)
 		self:Flash(args.spellId)
@@ -358,7 +358,7 @@ do
 	function mod:UNIT_AURA(_, unit)
 		if self:UnitBuff(unit, self:SpellName(228018), 228018) and GetTime() - prev > 4 then -- We want this repeated
 			prev = GetTime()
-			self:MessageOld(228018, "red", "Alarm") -- Valarjar's Bond
+			self:MessageOld(228018, "red", "alarm") -- Valarjar's Bond
 		end
 	end
 end
@@ -371,7 +371,7 @@ function mod:OdynsTest(args)
 end
 
 function mod:StormforgedSpear(args)
-	self:TargetMessageOld(args.spellId, args.destName, "red", "Alarm")
+	self:TargetMessageOld(args.spellId, args.destName, "red", "alarm")
 	self:TargetBar(args.spellId, 6, args.destName)
 	self:Bar(args.spellId, spearCount % 3 == 0 and 13.5 or 11)
 	self:PrimaryIcon(args.spellId, args.destName)
@@ -400,7 +400,7 @@ end
 
 do
 	function mod:ExpelLightApplied(args)
-		self:TargetMessageOld(args.spellId, args.destName, "red", "Alarm")
+		self:TargetMessageOld(args.spellId, args.destName, "red", "alarm")
 		self:PrimaryIcon(args.spellId, args.destName)
 		if self:Me(args.destGUID) then
 			self:Say(args.spellId)
@@ -421,7 +421,7 @@ function mod:Revivify(args)
 		castingHorn = false
 		self:CloseProximity(228012) -- Horn of Valor
 	end
-	self:TargetMessageOld(args.spellId, args.sourceName, "green", "Long")
+	self:TargetMessageOld(args.spellId, args.sourceName, "green", "long")
 	local text = CL.other:format(args.sourceName, args.spellName)
 	revivifyBarTexts[#revivifyBarTexts+1] = text
 	self:Bar(args.spellId, self:Easy() and 15 or 10, text)
@@ -448,7 +448,7 @@ end
 
 function mod:BrandedFixate(args)
 	if self:Me(args.destGUID) then
-		self:MessageOld(-14495, "blue", "Warning", L[args.spellId], args.spellId)
+		self:MessageOld(-14495, "blue", "warning", L[args.spellId], args.spellId)
 		self:Flash(-14495, args.spellId)
 		self:Say(-14495, L.say[args.spellId]:format(args.spellName))
 		myAddGUID = args.sourceGUID
@@ -468,7 +468,7 @@ end
 
 function mod:RunicShield(args)
 	if args.sourceGUID == myAddGUID then
-		self:MessageOld(-14495, "blue", "Warning", CL.on:format(args.spellName, args.sourceName), args.spellId)
+		self:MessageOld(-14495, "blue", "warning", CL.on:format(args.spellName, args.sourceName), args.spellId)
 	end
 end
 
@@ -506,7 +506,7 @@ do
 	}
 	function mod:Branded(args)
 		if self:Me(args.destGUID) then
-			self:MessageOld(-14495, "blue", "Warning", L[lookupTable[args.spellId]], lookupTable[args.spellId])
+			self:MessageOld(-14495, "blue", "warning", L[lookupTable[args.spellId]], lookupTable[args.spellId])
 			self:Flash(-14495, args.spellId)
 		end
 	end
@@ -514,7 +514,7 @@ end
 
 function mod:Protected(args)
 	if self:Me(args.destGUID) then
-		self:MessageOld(args.spellId, "green", "Info", CL.you:format(args.spellName))
+		self:MessageOld(args.spellId, "green", "info", CL.you:format(args.spellName))
 	end
 end
 
@@ -556,7 +556,7 @@ do
 		if self:Me(args.destGUID) then
 			local tanslatedSpellId = lookupTable[args.spellId]
 			isOnMe = args.spellId
-			self:MessageOld(197961, "blue", "Warning", CL.other:format(args.spellName, L[tanslatedSpellId]), args.spellId)
+			self:MessageOld(197961, "blue", "warning", CL.other:format(args.spellName, L[tanslatedSpellId]), args.spellId)
 			self:Flash(197961, args.spellId)
 			self:Say(197961, L.say[tanslatedSpellId]:format(args.spellName))
 			self:TargetBar(197961, 10, args.destName, nil, args.spellId)
@@ -575,7 +575,7 @@ do
 	end
 
 	function mod:RadiantSmite(args)
-		self:MessageOld(args.spellId, "red", "Long")
+		self:MessageOld(args.spellId, "red", "long")
 		wipeProxLists(self)
 		self:Bar(197961, 28)
 	end
@@ -587,7 +587,7 @@ do
 		local t = GetTime()
 		if self:Me(args.destGUID) and t-prev > 2 then
 			prev = t
-			self:MessageOld(227475, "blue", "Alarm", CL.underyou:format(args.spellName))
+			self:MessageOld(227475, "blue", "alarm", CL.underyou:format(args.spellName))
 		end
 	end
 end

@@ -225,20 +225,20 @@ do
 		local t = GetTime()
 		if self:Me(args.destGUID) and t-prev > 1.5 then
 			prev = t
-			self:MessageOld(args.spellId, "blue", "Alert", CL.underyou:format(args.spellName))
+			self:MessageOld(args.spellId, "blue", "alert", CL.underyou:format(args.spellName))
 		end
 	end
 end
 
 --[[ Skorpyron to Chronomatic Anomaly ]]--
 function mod:DevastatingStrike(args)
-	self:MessageOld(args.spellId, "red", "Alarm")
+	self:MessageOld(args.spellId, "red", "alarm")
 	self:CDBar(args.spellId, 7.5)
 end
 
 do
 	local function printTarget(self, player, guid)
-		self:TargetMessageOld(231086, player, "orange", "Long", nil, nil, true)
+		self:TargetMessageOld(231086, player, "orange", "long", nil, nil, true)
 		if self:Me(guid) then
 			self:Say(231086)
 			self:Flash(231086)
@@ -250,7 +250,7 @@ do
 end
 
 function mod:RumblingBlow(args)
-	self:MessageOld(args.spellId, "yellow", "Info")
+	self:MessageOld(args.spellId, "yellow", "info")
 end
 
 function mod:TormDeath()
@@ -263,7 +263,7 @@ do
 		local t = GetTime()
 		if t-prev > 2 then
 			prev = t
-			self:MessageOld(args.spellId, "red", "Alarm")
+			self:MessageOld(args.spellId, "red", "alarm")
 		end
 		local pad = strrep(" ", fulminateCount) -- hack so i can have two bars/messages for the same thing up
 		self:Bar(args.spellId, 5, CL.cast:format(args.spellName)..pad)
@@ -277,7 +277,7 @@ do
 		local t = GetTime()
 		if t-prev > 2 then
 			prev = t
-			self:MessageOld(args.spellId, "orange", t-prev > 2 and "Long")
+			self:MessageOld(args.spellId, "orange", t-prev > 2 and "long")
 			self:Bar(args.spellId, 15)
 		end
 	end
@@ -288,7 +288,7 @@ do
 	local prev = nil
 	local function printTarget(self, player, guid)
 		prev = player
-		self:TargetMessageOld(223655, player, "red", "Warning")
+		self:TargetMessageOld(223655, player, "red", "warning")
 		self:PrimaryIcon(223655, player)
 		if self:Me(guid) then
 			self:Say(223655)
@@ -337,7 +337,7 @@ do
 				self:RegisterTargetEvents("MarkShadowWrap")
 				self:ScheduleTimer("UnregisterTargetEvents", 10)
 			end
-			self:ScheduleTimer("TargetMessageOld", 0.3, args.spellId, list, "yellow", "Warning", nil, nil, true)
+			self:ScheduleTimer("TargetMessageOld", 0.3, args.spellId, list, "yellow", "warning", nil, nil, true)
 		end
 		if self:Me(args.destGUID) then
 			self:Say(args.spellId)
@@ -346,16 +346,16 @@ do
 end
 
 function mod:ArcaneEmanations(args)
-	self:MessageOld(args.spellId, "red", "Long", CL.casting:format(args.spellName))
+	self:MessageOld(args.spellId, "red", "long", CL.casting:format(args.spellName))
 end
 
 function mod:GravityWell(args)
-	self:MessageOld(args.spellId, "yellow", "Info")
+	self:MessageOld(args.spellId, "yellow", "info")
 	self:CDBar(args.spellId, 23)
 end
 
 function mod:CrushingStomp(args)
-	self:MessageOld(args.spellId, "orange", "Warning")
+	self:MessageOld(args.spellId, "orange", "warning")
 	self:CDBar(args.spellId, 23)
 	self:Flash(args.spellId)
 end
@@ -371,13 +371,13 @@ do
 		local t = GetTime()
 		if t-prev > 2 then
 			prev = t
-			self:MessageOld(args.spellId, "yellow", "Long")
+			self:MessageOld(args.spellId, "yellow", "long")
 		end
 	end
 end
 
 function mod:MassSiphon(args)
-	self:MessageOld(args.spellId, "orange", self:Interrupter(args.sourceGUID) and "Info", CL.casting:format(args.spellName))
+	self:MessageOld(args.spellId, "orange", self:Interrupter(args.sourceGUID) and "info", CL.casting:format(args.spellName))
 	self:Bar(args.spellId, 15)
 end
 
@@ -386,12 +386,12 @@ function mod:ChronowraithDeath()
 end
 
 function mod:MassSuppress(args)
-	self:MessageOld(args.spellId, "yellow", self:Interrupter(args.sourceGUID) and "Long")
+	self:MessageOld(args.spellId, "yellow", self:Interrupter(args.sourceGUID) and "long")
 end
 
 --[[ Aluriel to Etraeus ]]--
 function mod:HeavenlyCrash(args)
-	self:TargetMessageOld(args.spellId, args.destName, "orange", "Warning", nil, nil, true)
+	self:TargetMessageOld(args.spellId, args.destName, "orange", "warning", nil, nil, true)
 
 	local _, _, _, expires = self:UnitDebuff(args.destName, args.spellId)
 	local t = expires - GetTime()
@@ -414,7 +414,7 @@ end
 --[[ Aluriel to Telarn ]]--
 function mod:ChosenFate(args)
 	if self:Me(args.destGUID) then
-		self:TargetMessageOld(args.spellId, args.destName, "blue", "Warning")
+		self:TargetMessageOld(args.spellId, args.destName, "blue", "warning")
 		self:Flash(args.spellId)
 	end
 end
@@ -422,7 +422,7 @@ end
 function mod:ArcanicRelease(args)
 	list[#list+1] = args.destName
 	if #list == 1 then
-		self:ScheduleTimer("TargetMessageOld", 1, args.spellId, list, "yellow", "Alert", nil, nil, true)
+		self:ScheduleTimer("TargetMessageOld", 1, args.spellId, list, "yellow", "alert", nil, nil, true)
 	end
 	self:TargetBar(args.spellId, 6, args.destName)
 	if self:Me(args.destGUID) then
@@ -445,7 +445,7 @@ do
 		local t = GetTime()
 		if t-prev > 0.5 then
 			prev = t
-			self:MessageOld(args.spellId, "red", self:Dispeller("magic", true) and "Info")
+			self:MessageOld(args.spellId, "red", self:Dispeller("magic", true) and "info")
 		end
 	end
 end
@@ -453,7 +453,7 @@ end
 function mod:ArcaneWound(args)
 	if self:Tank(args.destName) then
 		local amount = args.amount or 1
-		self:StackMessage(args.spellId, args.destName, amount, "red", amount > 3 and "Warning")
+		self:StackMessage(args.spellId, args.destName, amount, "red", amount > 3 and "warning")
 		self:StopBar(CL.count:format(args.spellName, amount-1), args.destName)
 		self:TargetBar(args.spellId, 20, args.destName, CL.count:format(args.spellName, amount))
 	end
@@ -461,7 +461,7 @@ end
 
 --[[ Aluriel to Krosos ]]--
 function mod:AnnihilatingOrb(args)
-	self:TargetMessageOld(args.spellId, args.destName, "red", "Warning")
+	self:TargetMessageOld(args.spellId, args.destName, "red", "warning")
 	self:TargetBar(args.spellId, 5, args.destName, 230932, args.spellId) -- Orb
 	self:Bar(args.spellId, 35)
 	if self:Me(args.destGUID) then
@@ -481,7 +481,7 @@ end
 --[[ Aluriel to Tichondrius ]]--
 function mod:WillOfTheLegion(args)
 	local fear = self:SpellName(5782) -- "Fear"
-	self:TargetMessageOld("fear", args.destName, "red", "Long", fear, args.spellId, true)
+	self:TargetMessageOld("fear", args.destName, "red", "long", fear, args.spellId, true)
 	self:TargetBar("fear", 10, args.destName, fear, args.spellId)
 	if self:Me(args.destGUID) then
 		self:Say("fear", fear)
@@ -495,7 +495,7 @@ function mod:WillOfTheLegionRemoved(args)
 end
 
 function mod:FelGlare(args)
-	self:TargetMessageOld(args.spellId, args.destName, "red", "Warning", nil, nil, true)
+	self:TargetMessageOld(args.spellId, args.destName, "red", "warning", nil, nil, true)
 	self:TargetBar(args.spellId, 10, args.destName)
 	if self:Me(args.destGUID) then
 		self:Say(args.spellId)

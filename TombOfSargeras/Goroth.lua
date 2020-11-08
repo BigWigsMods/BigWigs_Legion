@@ -86,7 +86,7 @@ end
 --
 function mod:UNIT_SPELLCAST_SUCCEEDED(_, _, _, spellId)
 	if spellId == 233050 then --Infernal Spike
-		self:MessageOld(233514, "red", "Alert", CL.casting:format(self:SpellName(spellId)))
+		self:MessageOld(233514, "red", "alert", CL.casting:format(self:SpellName(spellId)))
 		spikeCounter = spikeCounter + 1
 		if self:LFR() then
 			self:Bar(233514, spikeCounter == 4 and 26 or 16.6)
@@ -95,7 +95,7 @@ function mod:UNIT_SPELLCAST_SUCCEEDED(_, _, _, spellId)
 		end
 	elseif spellId == 233285 then -- Rain of Brimstone
 		rainCounter = rainCounter + 1
-		self:MessageOld(238588, "orange", "Warning", CL.incoming:format(self:SpellName(spellId)))
+		self:MessageOld(238588, "orange", "warning", CL.incoming:format(self:SpellName(spellId)))
 		self:Bar(238588, rainCounter == 5 and 68 or 60, CL.count:format(self:SpellName(spellId), rainCounter))
 		self:Bar(238588, 8, self:SpellName(182580), 238588) -- Meteor Impact
 	end
@@ -113,7 +113,7 @@ function mod:BurningArmorSuccess(args)
 end
 
 function mod:BurningArmor(args)
-	self:TargetMessageOld(args.spellId, args.destName, "yellow", not self:UnitDebuff("player", self:SpellName(234264), 234264) and "Warning" or "Alarm", nil, nil, true)
+	self:TargetMessageOld(args.spellId, args.destName, "yellow", not self:UnitDebuff("player", self:SpellName(234264), 234264) and "warning" or "alarm", nil, nil, true)
 	if self:Me(args.destGUID) then
 		self:Say(args.spellId)
 	end
@@ -121,12 +121,12 @@ end
 
 function mod:MeltedArmorRemoved(args)
 	if self:Me(args.destGUID) then
-		self:MessageOld(231363, "orange", "Warning", CL.removed:format(args.spellName))
+		self:MessageOld(231363, "orange", "warning", CL.removed:format(args.spellName))
 	end
 end
 
 function mod:ShatteringStarDebuff(args)
-	self:TargetMessageOld(233279, args.destName, "yellow", "Alarm", CL.count:format(args.spellName, shatteringCounter))
+	self:TargetMessageOld(233279, args.destName, "yellow", "alarm", CL.count:format(args.spellName, shatteringCounter))
 	self:CastBar(233279, 6, CL.count:format(args.spellName, shatteringCounter)) -- <cast: Shattering Star>
 	shatteringCounter = shatteringCounter + 1
 	local t = (self:Mythic() and shatteringTimersMythic[shatteringCounter] or shatteringTimers[shatteringCounter]) or (self:Mythic() and 29 or (shatteringCounter % 2 == 0 and 19 or 41))
@@ -139,7 +139,7 @@ end
 
 function mod:InfernalBurning(args)
 	burningCounter = burningCounter + 1
-	self:MessageOld(args.spellId, "orange", "Warning", CL.casting:format(args.spellName))
+	self:MessageOld(args.spellId, "orange", "warning", CL.casting:format(args.spellName))
 	self:CastBar(args.spellId, self:LFR() and 10 or 6)
 	self:Bar(args.spellId, self:LFR() and 64.4 or 60.5)
 end
@@ -154,7 +154,7 @@ do
 	function mod:CrashingCometApplied(args)
 		list[#list+1] = args.destName
 		if #list == 1 then
-			self:ScheduleTimer("TargetMessageOld", 0.3, args.spellId, list, "red", "Warning")
+			self:ScheduleTimer("TargetMessageOld", 0.3, args.spellId, list, "red", "warning")
 		end
 
 		if self:Me(args.destGUID) then
@@ -177,7 +177,7 @@ do
 		local t = GetTime()
 		if self:Me(args.destGUID) and t-prev > 1.5 then
 			prev = t
-			self:MessageOld(234346, "blue", "Alarm", CL.underyou:format(args.spellName))
+			self:MessageOld(234346, "blue", "alarm", CL.underyou:format(args.spellName))
 		end
 	end
 end

@@ -1,102 +1,102 @@
 
 BigWigs:AddSounds("Apocron", {
-	[241458] = "Warning",
-	[241498] = "Long",
-	[241518] = {"Alarm","Info"},
+	[241458] = "warning",
+	[241498] = "long",
+	[241518] = {"alarm","info"},
 })
 
 BigWigs:AddSounds("Brutallus", {
-	[233484] = "Warning",
-	[233515] = "Alert",
-	[233566] = "Info",
+	[233484] = "warning",
+	[233515] = "alert",
+	[233566] = "info",
 })
 
 BigWigs:AddSounds("Calamir", {
-	[217877] = "Alert",
-	[217893] = "Alarm",
-	[217925] = {"Alarm","Long"},
-	[217966] = "Warning",
-	[217986] = "Alert",
-	[218012] = "Long",
-	["stages"] = "Info",
+	[217877] = "alert",
+	[217893] = "alarm",
+	[217925] = {"alarm","long"},
+	[217966] = "warning",
+	[217986] = "alert",
+	[218012] = "long",
+	["stages"] = "info",
 })
 
 BigWigs:AddSounds("Drugon the Frostblood", {
-	[219493] = "Alert",
-	[219542] = "Warning",
-	[219602] = {"Alarm","Long"},
+	[219493] = "alert",
+	[219542] = "warning",
+	[219602] = {"alarm","long"},
 })
 
 BigWigs:AddSounds("Flotsam", {
-	[220295] = "Alarm",
-	[220340] = "Warning",
-	[223317] = "Alert",
-	[223373] = "Long",
+	[220295] = "alarm",
+	[220340] = "warning",
+	[223317] = "alert",
+	[223373] = "long",
 })
 
 BigWigs:AddSounds("Humongris", {
-	[216428] = "Alarm",
-	[216430] = "Info",
-	[216432] = "Alert",
-	[216467] = "Long",
-	[216476] = "Alert",
-	[216817] = "Warning",
+	[216428] = "alarm",
+	[216430] = "info",
+	[216432] = "alert",
+	[216467] = "long",
+	[216476] = "alert",
+	[216817] = "warning",
 })
 
 BigWigs:AddSounds("Levantus", {
-	[217206] = "Alarm",
-	[217235] = "Warning",
-	[217249] = "Long",
-	[217344] = "Alert",
+	[217206] = "alarm",
+	[217235] = "warning",
+	[217249] = "long",
+	[217344] = "alert",
 })
 
 BigWigs:AddSounds("Malificus", {
-	[233570] = "Info",
-	[233614] = "Warning",
-	[233850] = "Alert",
-	[234452] = "Alarm",
+	[233570] = "info",
+	[233614] = "warning",
+	[233850] = "alert",
+	[234452] = "alarm",
 })
 
 BigWigs:AddSounds("Na'zak the Fiend", {
-	[219349] = "Info",
-	[219591] = "Alert",
-	[219813] = "Long",
-	[219861] = "Warning",
+	[219349] = "info",
+	[219591] = "alert",
+	[219813] = "long",
+	[219861] = "warning",
 })
 
 BigWigs:AddSounds("Nithogg", {
-	[-13327] = "Alarm",
-	[212836] = "Alert",
-	[212852] = "Warning",
-	[212867] = "Info",
-	[212887] = "Warning",
+	[-13327] = "alarm",
+	[212836] = "alert",
+	[212852] = "warning",
+	[212867] = "info",
+	[212887] = "warning",
 })
 
 BigWigs:AddSounds("Shar'thos", {
-	[215806] = "Alert",
-	[215821] = "Info",
-	[215876] = "Alert",
-	[216043] = "Alarm",
-	[216044] = "Warning",
+	[215806] = "alert",
+	[215821] = "info",
+	[215876] = "alert",
+	[216043] = "alarm",
+	[216044] = "warning",
 })
 
 BigWigs:AddSounds("Si'vash", {
-	[233968] = "Long",
-	[233996] = "Warning",
-	[241433] = "Alarm",
+	[233968] = "long",
+	[233996] = "warning",
+	[241433] = "alarm",
 })
 
 BigWigs:AddSounds("The Soultakers", {
-	[213420] = "Long",
-	[213532] = "Warning",
-	[213588] = "Alert",
-	[213606] = "Warning",
-	[213625] = "Alarm",
-	[213665] = "Info",
+	[213420] = "long",
+	[213532] = "warning",
+	[213588] = "alert",
+	[213606] = "warning",
+	[213625] = "alarm",
+	[213665] = "info",
 })
 
 BigWigs:AddSounds("Withered J'im", {
-	[223614] = "Alert",
-	[223623] = "Alarm",
-	[223715] = "Info",
+	[223614] = "alert",
+	[223623] = "alarm",
+	[223715] = "info",
 })

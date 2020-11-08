@@ -120,7 +120,7 @@ function mod:UNIT_SPELLCAST_SUCCEEDED(_, _, _, spellId)
 	if spellId == 228187 then -- Guardian's Breath (starts casting)
 		breathCounter = breathCounter + 1
 		self:Bar(spellId, (breathCounter % 2 == 0 and 51) or 20.7, CL.count:format(self:SpellName(spellId), breathCounter+1))
-		self:MessageOld(spellId, "yellow", "Warning")
+		self:MessageOld(spellId, "yellow", "warning")
 		self:CastBar(spellId, 5)
 		self:Flash(spellId)
 	end
@@ -135,7 +135,7 @@ do
 		end
 		list[#list+1] = args.destName
 		if #list == 1 then
-			self:ScheduleTimer("TargetMessageOld", 0.4, args.spellId, list, "orange", "Alarm", nil, nil, self:Dispeller("magic"))
+			self:ScheduleTimer("TargetMessageOld", 0.4, args.spellId, list, "orange", "alarm", nil, nil, self:Dispeller("magic"))
 		end
 	end
 end
@@ -149,7 +149,7 @@ do
 		end
 		list[#list+1] = args.destName
 		if #list == 1 then
-			self:ScheduleTimer("TargetMessageOld", 0.4, args.spellId, list, "orange", "Alarm")
+			self:ScheduleTimer("TargetMessageOld", 0.4, args.spellId, list, "orange", "alarm")
 		end
 	end
 end
@@ -163,7 +163,7 @@ do
 		end
 		list[#list+1] = args.destName
 		if #list == 1 then
-			self:ScheduleTimer("TargetMessageOld", 0.4, args.spellId, list, "orange", "Alarm")
+			self:ScheduleTimer("TargetMessageOld", 0.4, args.spellId, list, "orange", "alarm")
 		end
 	end
 end
@@ -175,7 +175,7 @@ function mod:FlashingFangs(args)
 end
 
 function mod:HeadlongCharge(args)
-	self:MessageOld(args.spellId, "red", "Long")
+	self:MessageOld(args.spellId, "red", "long")
 	self:Bar(args.spellId, 75.2)
 	self:CastBar(args.spellId, 7)
 	self:Bar(228187, 30, CL.count:format(self:SpellName(228187), breathCounter+1)) -- Correct Guardian's Breath timer
@@ -186,7 +186,7 @@ end
 
 function mod:RoaringLeap(args)
 	leapCounter = leapCounter + 1
-	self:MessageOld(args.spellId, "orange", "Info")
+	self:MessageOld(args.spellId, "orange", "info")
 	if leapCounter % 2 == 0 then
 		self:CDBar(227514, 11.2) -- Adjust Flashing Fangs timer
 		self:Bar(args.spellId, 53.2)
@@ -216,7 +216,7 @@ do
 	function mod:BrineyFoam(args)
 		markFoam(self, args.destName)
 		if self:Me(args.destGUID) then
-			self:MessageOld(args.spellId, "cyan", "Alarm", CL.you:format(args.spellName))
+			self:MessageOld(args.spellId, "cyan", "alarm", CL.you:format(args.spellName))
 			self:Say(args.spellId, ("{rt6} %s {rt6}"):format(args.spellName))
 			self:Flash(args.spellId)
 		end
@@ -225,7 +225,7 @@ do
 	function mod:FlamingFoam(args)
 		markFoam(self, args.destName)
 		if self:Me(args.destGUID) then
-			self:MessageOld(args.spellId, "red", "Alert", CL.you:format(args.spellName))
+			self:MessageOld(args.spellId, "red", "alert", CL.you:format(args.spellName))
 			self:Say(args.spellId, ("{rt7} %s {rt7}"):format(args.spellName))
 			self:Flash(args.spellId)
 		end
@@ -234,7 +234,7 @@ do
 	function mod:ShadowyFoam(args)
 		markFoam(self, args.destName)
 		if self:Me(args.destGUID) then
-			self:MessageOld(args.spellId, "yellow", "Warning", CL.you:format(args.spellName)) -- purple message would be appropriate
+			self:MessageOld(args.spellId, "yellow", "warning", CL.you:format(args.spellName)) -- purple message would be appropriate
 			self:Say(args.spellId, ("{rt3} %s {rt3}"):format(args.spellName))
 			self:Flash(args.spellId)
 		end

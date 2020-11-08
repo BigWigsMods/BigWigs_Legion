@@ -65,17 +65,17 @@ function mod:MarkWebWrap(event, unit, guid)
 end
 
 function mod:CorrodingSpray(args)
-	self:MessageOld(args.spellId, "orange", "Info", CL.casting:format(args.spellName))
+	self:MessageOld(args.spellId, "orange", "info", CL.casting:format(args.spellName))
 	self:CDBar(args.spellId, 23)
 end
 
 function mod:FoundationalCollapse(args)
-	self:MessageOld(args.spellId, "yellow", "Alert")
+	self:MessageOld(args.spellId, "yellow", "alert")
 	self:CDBar(args.spellId, 57)
 end
 
 function mod:AbsorbLeystones(args)
-	self:MessageOld(args.spellId, "red", "Long", CL.incoming:format(args.spellName))
+	self:MessageOld(args.spellId, "red", "long", CL.incoming:format(args.spellName))
 	self:Bar(args.spellId, 8)
 end
 
@@ -86,7 +86,7 @@ function mod:WebWrap(args)
 	end
 	self:RegisterUnitEvent("UNIT_AURA", nil, "player")
 	self:ScheduleTimer("UnregisterUnitEvent", 5, "UNIT_AURA", "player")
-	self:MessageOld(args.spellId, "green", "Warning")
+	self:MessageOld(args.spellId, "green", "warning")
 end
 
 function mod:WebWrapSummon(args)

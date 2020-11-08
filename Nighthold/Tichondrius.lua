@@ -163,7 +163,7 @@ do
 	function mod:CarrionPlague(args)
 		list[#list+1] = args.destName
 		if #list == 1 then
-			self:ScheduleTimer("TargetMessageOld", 0.1, args.spellId, list, "yellow", "Warning")
+			self:ScheduleTimer("TargetMessageOld", 0.1, args.spellId, list, "yellow", "warning")
 		end
 
 		if self:Me(args.destGUID) then
@@ -181,7 +181,7 @@ function mod:CarrionPlagueSuccess(args)
 end
 
 function mod:SeekerSwarm(args)
-	self:MessageOld(args.spellId, "orange", "Info", CL.count:format(args.spellName, seekerSwarmCount))
+	self:MessageOld(args.spellId, "orange", "info", CL.count:format(args.spellName, seekerSwarmCount))
 	seekerSwarmCount = seekerSwarmCount + 1
 	local timer = timers[args.spellId][seekerSwarmCount]
 	if timer then
@@ -194,7 +194,7 @@ do
 	function mod:BrandOfArgus(args)
 		list[#list+1] = args.destName
 		if #list == 1 then
-			self:ScheduleTimer("TargetMessageOld", 0.1, args.spellId, list, "green", "Alarm", CL.count:format(args.spellName, brandOfArgusCount-1))
+			self:ScheduleTimer("TargetMessageOld", 0.1, args.spellId, list, "green", "alarm", CL.count:format(args.spellName, brandOfArgusCount-1))
 		end
 
 		if self:Me(args.destGUID) then
@@ -234,7 +234,7 @@ function mod:BrandOfArgusSuccess(args)
 end
 
 function mod:FeastOfBlood(args)
-	self:TargetMessageOld(args.spellId, args.destName, "orange", "Long", CL.count:format(args.spellName, feastOfBloodCount), nil, true)
+	self:TargetMessageOld(args.spellId, args.destName, "orange", "long", CL.count:format(args.spellName, feastOfBloodCount), nil, true)
 	feastOfBloodCount = feastOfBloodCount + 1
 	local timer = timers[args.spellId][feastOfBloodCount]
 	if timer then
@@ -243,7 +243,7 @@ function mod:FeastOfBlood(args)
 end
 
 function mod:EchoesOfTheVoid(args)
-	self:MessageOld(args.spellId, "red", "Long", CL.count:format(args.spellName, echoesOfTheVoidCount))
+	self:MessageOld(args.spellId, "red", "long", CL.count:format(args.spellName, echoesOfTheVoidCount))
 	self:StopBar(CL.count:format(args.spellName, echoesOfTheVoidCount))
 	self:Bar(args.spellId, 10, CL.count:format(args.spellName, echoesOfTheVoidCount))
 	echoesOfTheVoidCount = echoesOfTheVoidCount + 1
@@ -255,7 +255,7 @@ end
 
 function mod:CHAT_MSG_MONSTER_YELL(event, msg)
 	if event == "timer" or msg == L.adds_yell1 or msg == L.adds_yell2 then
-		self:MessageOld("adds", "cyan", "Alert", CL.count:format(L.adds, addWaveCount), 212552) -- 212552 = Wraith Walk, inv_helm_plate_raiddeathknight_p_01, id 1100041
+		self:MessageOld("adds", "cyan", "alert", CL.count:format(L.adds, addWaveCount), 212552) -- 212552 = Wraith Walk, inv_helm_plate_raiddeathknight_p_01, id 1100041
 		addWaveCount = addWaveCount + 1
 		local timer = timers["adds"][addWaveCount]
 		if timer then
@@ -274,7 +274,7 @@ end
 function mod:IllusionaryNight(args)
 	addsKilled = 0
 	wipe(essenceTargets)
-	self:MessageOld(args.spellId, "cyan", "Long", CL.count:format(args.spellName, illusionaryNightCount))
+	self:MessageOld(args.spellId, "cyan", "long", CL.count:format(args.spellName, illusionaryNightCount))
 	self:CastBar(args.spellId, 32, CL.count:format(args.spellName, illusionaryNightCount))
 	illusionaryNightCount = illusionaryNightCount + 1
 	if illusionaryNightCount < 3 then
@@ -300,7 +300,7 @@ function mod:EssenceOfNight(args)
 	self:SetInfo(206466, 4, #essenceTargets)
 
 	if self:Me(args.destGUID) then
-		self:MessageOld(args.spellId, "blue", "Info", CL.you:format(args.spellName))
+		self:MessageOld(args.spellId, "blue", "info", CL.you:format(args.spellName))
 	end
 end
 
@@ -319,9 +319,9 @@ do
 		if UnitIsPlayer(args.destName) then
 			if self:Me(args.destGUID) then
 				if not args.amount then
-					self:TargetMessageOld(args.spellId, args.destName, "blue", "Alarm")
+					self:TargetMessageOld(args.spellId, args.destName, "blue", "alarm")
 				elseif args.amount % 2 == 0 then
-					self:StackMessage(args.spellId, args.destName, args.amount, "blue", "Alarm")
+					self:StackMessage(args.spellId, args.destName, args.amount, "blue", "alarm")
 				end
 				self:TargetBar(args.spellId, 8, args.destName)
 				self:CancelSayCountdown(args.spellId)
@@ -329,7 +329,7 @@ do
 			elseif not args.amount then -- 1 stack
 				list[#list+1] = args.destName
 				if #list == 1 then
-					self:ScheduleTimer("TargetMessageOld", 0.5, args.spellId, list, "orange", "Alarm")
+					self:ScheduleTimer("TargetMessageOld", 0.5, args.spellId, list, "orange", "alarm")
 				end
 			end
 		end
@@ -349,14 +349,14 @@ do
 		local t = GetTime()
 		if self:Me(args.destGUID) and t-prev > 1.5 then
 			prev = t
-			self:MessageOld(args.spellId, "blue", "Alert", CL.underyou:format(args.spellName))
+			self:MessageOld(args.spellId, "blue", "alert", CL.underyou:format(args.spellName))
 		end
 	end
 end
 
 --[[ Sightless Watcher ]]--
 function mod:BurningSoul(args)
-	self:TargetMessageOld(args.spellId, args.destName, "yellow", "Warning")
+	self:TargetMessageOld(args.spellId, args.destName, "yellow", "warning")
 	if self:Me(args.destGUID) then
 		self:Say(args.spellId)
 		self:OpenProximity(args.spellId, 8)

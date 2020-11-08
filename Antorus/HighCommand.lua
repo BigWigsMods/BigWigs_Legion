@@ -121,13 +121,13 @@ end
 --
 function mod:UNIT_SPELLCAST_SUCCEEDED(_, _, _, spellId)
 	if spellId == 245304 then -- Entropic Mines
-		self:MessageOld(245161, "yellow", "Info")
+		self:MessageOld(245161, "yellow", "info")
 		local cooldown = 10
 		if nextAssumeCommand > GetTime() + cooldown then
 			self:Bar(245161, cooldown)
 		end
 	elseif spellId == 245546 then -- Summon Reinforcements
-		self:MessageOld(245546, "red", "Alarm")
+		self:MessageOld(245546, "red", "alarm")
 		local cooldown = 35
 		if nextAssumeCommand > GetTime() + cooldown then
 			self:Bar(245546, cooldown)
@@ -136,7 +136,7 @@ function mod:UNIT_SPELLCAST_SUCCEEDED(_, _, _, spellId)
 end
 
 function mod:AssumeCommand(args)
-	self:MessageOld(args.spellId, "cyan", "Long", CL.incoming:format(incomingBoss[assumeCommandCount % 3]))
+	self:MessageOld(args.spellId, "cyan", "long", CL.incoming:format(incomingBoss[assumeCommandCount % 3]))
 
 	if assumeCommandCount % 3 == 1 then -- Chief Engineer Ishkar
 		self:StopBar(245161) -- Entropic Mines
@@ -172,15 +172,15 @@ end
 
 function mod:ExploitWeaknessApplied(args)
 	local amount = args.amount or 1
-	self:StackMessage(args.spellId, args.destName, amount, "purple", amount > 1 and "Warning") -- Swap on 2
+	self:StackMessage(args.spellId, args.destName, amount, "purple", amount > 1 and "warning") -- Swap on 2
 end
 
 function mod:Pyroblast(args)
-	self:MessageOld(args.spellId, "orange", "Alert")
+	self:MessageOld(args.spellId, "orange", "alert")
 end
 
 function mod:Fusillade(args)
-	self:MessageOld(args.spellId, "orange", "Warning", CL.count:format(self:SpellName(244625), fusilladeCount))
+	self:MessageOld(args.spellId, "orange", "warning", CL.count:format(self:SpellName(244625), fusilladeCount))
 	self:CastBar(args.spellId, 5, CL.count:format(self:SpellName(244625), fusilladeCount))
 	fusilladeCount = fusilladeCount + 1
 	local cooldown = 30
@@ -204,7 +204,7 @@ function mod:ShockGrenade(args)
 		self:Flash(args.spellId)
 		self:OpenProximity(args.spellId, 10)
 		self:SayCountdown(args.spellId, 5)
-		self:PlaySound(args.spellId, "Warning")
+		self:PlaySound(args.spellId, "warning")
 		self:PersonalMessage(args.spellId)
 	end
 end
@@ -229,7 +229,7 @@ end
 
 function mod:Felshield(args)
 	if self:Me(args.destGUID) then
-		self:MessageOld(args.spellId, "green", "Info", CL.you:format(args.spellName))
+		self:MessageOld(args.spellId, "green", "info", CL.you:format(args.spellName))
 	end
 end
 
@@ -243,7 +243,7 @@ function mod:PsychicAssault(args)
 	if self:Me(args.destGUID) then
 		local amount = args.amount or 1
 		if (amount > 10 and amount % 5 == 0) or (amount > 20 and amount % 2 == 0) then
-			self:StackMessage(args.spellId, args.destName, amount, "blue", amount > 15 and "Warning")
+			self:StackMessage(args.spellId, args.destName, amount, "blue", amount > 15 and "warning")
 		end
 	end
 end
@@ -254,7 +254,7 @@ do
 		local t = GetTime()
 		if self:Me(args.destGUID) and t-prev > 1.5 then
 			prev = t
-			self:PlaySound(args.spellId, "Alert")
+			self:PlaySound(args.spellId, "alert")
 			self:PersonalMessage(args.spellId, "underyou")
 		end
 	end
