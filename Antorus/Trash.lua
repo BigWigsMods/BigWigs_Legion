@@ -202,9 +202,9 @@ do
 		tbl[#tbl + 1] = { guid = args.destGUID, name = args.destName }
 		if #tbl == 2 then
 			if self:Me(tbl[1].guid) then
-				self:MessageOld(args.spellId, "blue", "alarm", CL.link:format(self:ColorName(tbl[2].name)))
+				self:MessageOld(args.spellId, "blue", "alarm", CL.link_with:format(self:ColorName(tbl[2].name)))
 			elseif self:Me(tbl[2].guid) then
-				self:MessageOld(args.spellId, "blue", "alarm", CL.link:format(self:ColorName(tbl[1].name)))
+				self:MessageOld(args.spellId, "blue", "alarm", CL.link_with:format(self:ColorName(tbl[1].name)))
 			elseif not self:CheckOption(args.spellId, "ME_ONLY") then
 				self:MessageOld(args.spellId, "yellow", nil, CL.link_both:format(self:ColorName(tbl[1].name), self:ColorName(tbl[2].name)))
 			end

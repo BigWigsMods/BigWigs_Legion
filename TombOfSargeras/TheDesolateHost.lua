@@ -422,9 +422,9 @@ do
 				SetRaidTarget(args.destName, 4)
 			end
 			if self:Me(args.destGUID) then
-				self:MessageOld(args.spellId, "blue", "warning", CL.link:format(soulList[1]))
+				self:MessageOld(args.spellId, "blue", "warning", CL.link_with:format(soulList[1]))
 			elseif linkOnMe then
-				self:MessageOld(args.spellId, "blue", "warning", CL.link:format(soulList[2]))
+				self:MessageOld(args.spellId, "blue", "warning", CL.link_with:format(soulList[2]))
 			elseif not self:CheckOption(args.spellId, "ME_ONLY") then
 				self:MessageOld(args.spellId, "green", "info", CL.link_both:format(soulList[1], soulList[2]))
 			end
