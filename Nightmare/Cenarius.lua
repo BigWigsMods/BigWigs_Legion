@@ -423,7 +423,7 @@ end
 function mod:BreathTarget(event, unit) -- They love to drop their target after casting
 	local target = unit.."target"
 	local guid = self:UnitGUID(target)
-	if not guid or UnitDetailedThreatSituation(target, unit) ~= false or self:MobId(guid) ~= 1 then return end
+	if not guid or self:Tanking(unit, target) or self:MobId(guid) ~= 1 then return end
 
 	if self:Me(guid) then
 		self:Say(211192)

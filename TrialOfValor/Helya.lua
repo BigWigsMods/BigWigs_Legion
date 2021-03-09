@@ -572,7 +572,7 @@ end
 
 function mod:GhostlyRage(args)
 	local unit = self:GetUnitIdByGUID(args.sourceGUID)
-	if unit and UnitDetailedThreatSituation("player", unit) then
+	if unit and self:Tanking(unit) then
 		self:MessageOld(args.spellId, "orange", "long", CL.on:format(args.spellName, args.sourceName))
 	end
 	self:Bar(args.spellId, 9.7)

@@ -118,7 +118,7 @@ end
 
 function mod:RendFleshCast(args)
 	self:MessageOld(204859, "yellow", nil, CL.casting:format(args.spellName))
-	if self:Tank() and not UnitDetailedThreatSituation("player", "boss1") then
+	if self:Tank() and not self:Tanking("boss1") then
 		local _, _, _, expiration = self:UnitDebuff("player", self:SpellName(197943)) -- Overwhelm
 		if not expiration or expiration-GetTime() < 2.5 then
 			self:PlaySound(204859, "warning") -- Warning = taunt

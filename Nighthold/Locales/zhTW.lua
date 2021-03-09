@@ -57,9 +57,6 @@ L = BigWigs:NewBossLocale("Grand Magistrix Elisande", "zhTW")
 if L then
 	L.elisande = "艾莉珊德"
 
-	L.ring_msg = "時間的浪潮會粉碎你！"
-	L.orb_msg = "你會發現時光有時很不穩定。"
-
 	L.slowTimeZone = "減速區域"
 	L.fastTimeZone = "加速區域"
 
