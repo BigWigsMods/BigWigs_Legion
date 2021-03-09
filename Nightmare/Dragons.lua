@@ -146,7 +146,7 @@ end
 
 function mod:INSTANCE_ENCOUNTER_ENGAGE_UNIT()
 	for i = 1, 5 do
-		local guid = UnitGUID(("boss%d"):format(i))
+		local guid = self:UnitGUID(("boss%d"):format(i))
 		if guid then
 			local id = self:MobId(guid)
 			if (id == 102681 or id == 102682 or id == 102683) and not dragonsOnGround[id] then
@@ -168,7 +168,7 @@ end
 
 function mod:UNIT_SPELLCAST_SUCCEEDED(_, unit, _, spellId)
 	if spellId == 204720 then -- Aerial
-		local id = self:MobId(UnitGUID(unit))
+		local id = self:MobId(self:UnitGUID(unit))
 		local name = self:UnitName(unit)
 
 		dragonsOnGround[id] = nil
@@ -274,7 +274,7 @@ do
 		end
 
 		if self:GetOption(infectionMarker) then
-			SetRaidTarget(args.destName, infectionMarkerCount)
+			self:CustomIcon(false, args.destName, infectionMarkerCount)
 			infectionMarkerCount = infectionMarkerCount + 1
 			if infectionMarkerCount > 4 then infectionMarkerCount = 1 end
 		end
@@ -293,7 +293,7 @@ function mod:VolatileInfectionRemoved(args)
 		self:StopBar(args.spellId, args.destName)
 	end
 	if self:GetOption(infectionMarker) then
-		SetRaidTarget(args.destName, 0)
+		self:CustomIcon(false, args.destName)
 	end
 end
 

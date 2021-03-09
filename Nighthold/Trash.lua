@@ -318,7 +318,7 @@ do
 	local wrapCount = 8
 	function mod:MarkShadowWrap(event, unit, guid)
 		if wraps[guid] then
-			SetRaidTarget(unit, wraps[guid])
+			self:CustomIcon(false, unit, wraps[guid])
 			wraps[guid] = nil
 		end
 	end
@@ -332,7 +332,7 @@ do
 		list[#list+1] = args.destName
 		if #list == 1 then
 			if self:GetOption(wrapMarker) then
-				wipe(wraps)
+				wraps = {}
 				wrapCount = 8
 				self:RegisterTargetEvents("MarkShadowWrap")
 				self:ScheduleTimer("UnregisterTargetEvents", 10)

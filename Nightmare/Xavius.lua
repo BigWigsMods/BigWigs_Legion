@@ -132,9 +132,9 @@ function mod:OnEngage()
 	lurkingEruptionCount = 1
 	horrorCount = 1
 	dreamingCount = 1
-	wipe(bladeList)
-	wipe(bondList)
-	wipe(dreamHealers)
+	bladeList = self:NewTargetList()
+	bondList = self:NewTargetList()
+	dreamHealers = {}
 	isInDream = false
 	self:Bar(206651, 7.5) -- Darkening Soul
 	self:Bar(205741, 18) -- Lurking Eruption (Lurking Terror)
@@ -278,7 +278,7 @@ do
 
 		bladeList[#bladeList+1] = args.destName
 		if self:GetOption(bladeMarker) then
-			SetRaidTarget(args.destName, #bladeList) -- 1,2
+			self:CustomIcon(false, args.destName, #bladeList) -- 1,2
 		end
 
 		if #bladeList == 1 then
@@ -293,7 +293,7 @@ do
 
 	function mod:NightmareBladesRemoved(args)
 		if self:GetOption(bladeMarker) then
-			SetRaidTarget(args.destName, 0)
+			self:CustomIcon(false, args.destName, 0)
 		end
 	end
 end
@@ -338,7 +338,7 @@ do
 			if isOnMe and otherPlayer then
 				self:MessageOld(209034, "blue", "warning", L.linked:format(self:ColorName(otherPlayer)))
 				self:OpenProximity(209034, 3, otherPlayer, true)
-				wipe(bondList)
+				bondList = self:NewTargetList()
 			else
 				self:CancelTimer(timer)
 				timer = nil

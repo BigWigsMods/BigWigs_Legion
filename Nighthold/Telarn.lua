@@ -92,13 +92,13 @@ function mod:OnEngage()
 	for _,timer in pairs(collapseSayTimers) do
 		self:CancelTimer(timer)
 	end
-	wipe(collapseSayTimers)
+	collapseSayTimers = {}
 
 	if not self:Mythic() then
 		self:Bar(218148, self:Easy() and 14.3 or 10) -- Solar Collapse, to _start
 		self:Bar(218304, self:Easy() and 30 or 21.5) -- Parasitic Fetter, to _success
 		self:Bar(218438, self:Easy() and 50 or 35) -- Controlled Chaos, to_start
-		self:RegisterUnitEvent("UNIT_HEALTH_FREQUENT", nil, "boss1")
+		self:RegisterUnitEvent("UNIT_HEALTH", nil, "boss1")
 	else
 		self:Bar(218148, 5) -- Solar Collapse, to _start
 		self:Bar(218304, 16.5) -- Parasitic Fetter, to _success
@@ -156,7 +156,7 @@ function mod:ArcaneInfusion()
 	iconsUnused = {1, 2, 3, 4, 5, 6}
 end
 
-function mod:UNIT_HEALTH_FREQUENT(event, unit)
+function mod:UNIT_HEALTH(event, unit)
 	local hp = UnitHealth(unit) / UnitHealthMax(unit) * 100
 	if hp < nextPhaseSoon then
 		self:MessageOld("stages", "cyan", "info", CL.soon:format(CL.stage:format(phase+1)), false)
@@ -203,7 +203,7 @@ do
 		if self:GetOption(callOfTheNightMarker) then
 			local icon = iconsUnused[1]
 			if icon then -- At least one icon unused
-				SetRaidTarget(args.destName, icon)
+				self:CustomIcon(false, args.destName, icon)
 				tDeleteItem(iconsUnused, icon)
 			end
 		end
@@ -218,7 +218,7 @@ do
 			for _,timer in pairs(collapseSayTimers) do
 				self:CancelTimer(timer)
 			end
-			wipe(collapseSayTimers)
+			collapseSayTimers = {}
 		end
 
 		tDeleteItem(proxList, args.destName)
@@ -234,7 +234,7 @@ do
 			local icon = GetRaidTargetIndex(args.destName)
 			if icon and icon > 0 and icon < 7 and not tContains(iconsUnused, icon) then
 				table.insert(iconsUnused, icon)
-				SetRaidTarget(args.destName, 0)
+				self:CustomIcon(false, args.destName)
 			end
 		end
 	end
@@ -336,7 +336,7 @@ do
 			self:Say(args.spellId)
 		end
 		if self:GetOption(fetterMarker) then
-			SetRaidTarget(args.destName, 8)
+			self:CustomIcon(false, args.destName, 8)
 		end
 	end
 end
@@ -353,7 +353,7 @@ do
 			end
 		end
 		if self:GetOption(fetterMarker) and GetRaidTargetIndex(args.destName) == 8 then
-			SetRaidTarget(args.destName, 0)
+			self:CustomIcon(false, args.destName)
 		end
 	end
 end

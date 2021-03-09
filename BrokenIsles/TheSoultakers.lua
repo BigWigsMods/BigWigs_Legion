@@ -58,7 +58,7 @@ end
 function mod:MaraudingMists(args)
 	if self:Melee() then
 		self:CDBar(args.spellId, 11)
-		if self:MobId(UnitGUID("target")) == 106982 then -- Reaver Jdorn
+		if self:MobId(self:UnitGUID("target")) == 106982 then -- Reaver Jdorn
 			self:MessageOld(args.spellId, "orange", "info", CL.casting:format(args.spellName))
 		end
 	end

@@ -146,7 +146,7 @@ function mod:OnEngage()
 	spearCount = 1
 	armorAppliedTimer, armorRemovedTimer = nil, nil
 	nextWailingSouls, nextTormentedCries = GetTime() + 60, GetTime() + 120
-	wipe(soulList)
+	soulList = {}
 
 	if self:Easy() then
 		self:OpenInfo("infobox", L.infobox_players)
@@ -209,11 +209,11 @@ end
 
 function updateRealms(self)
 	-- Dissonance Handling
-	wipe(phasedList)
-	wipe(unphasedList)
+	phasedList = {}
+	unphasedList = {}
 	for unit in self:IterateGroup() do
 		local buffCheck = self:UnitDebuff(unit, 235621) -- Spirit Realm
-		local guid = UnitGUID(unit)
+		local guid = self:UnitGUID(unit)
 		if buffCheck then
 			phasedList[#phasedList+1] = self:UnitName(unit)
 			if self:Me(guid) then
@@ -414,21 +414,21 @@ do
 			end
 			self:Bar(args.spellId, t)
 			if self:GetOption(soulBindMarker) then
-				SetRaidTarget(args.destName, 3)
+				self:CustomIcon(false, args.destName, 3)
 			end
 			linkOnMe = self:Me(args.destGUID)
 		elseif #soulList == 2 then -- Announce at 2
 			if self:GetOption(soulBindMarker) then
-				SetRaidTarget(args.destName, 4)
+				self:CustomIcon(false, args.destName, 4)
 			end
 			if self:Me(args.destGUID) then
-				self:MessageOld(args.spellId, "blue", "warning", CL.link_with:format(soulList[1]))
+				self:MessageOld(args.spellId, "blue", "warning", CL.link_with:format(self:ColorName(soulList[1])))
 			elseif linkOnMe then
-				self:MessageOld(args.spellId, "blue", "warning", CL.link_with:format(soulList[2]))
+				self:MessageOld(args.spellId, "blue", "warning", CL.link_with:format(self:ColorName(soulList[2])))
 			elseif not self:CheckOption(args.spellId, "ME_ONLY") then
-				self:MessageOld(args.spellId, "green", "info", CL.link_both:format(soulList[1], soulList[2]))
+				self:MessageOld(args.spellId, "green", "info", CL.link_both:format(self:ColorName(soulList[1]), self:ColorName(soulList[2])))
 			end
-			wipe(soulList)
+			soulList = {}
 		end
 	end
 end
@@ -438,7 +438,7 @@ function mod:SoulbindRemoved(args)
 		self:MessageOld(args.spellId, "blue", "long", CL.link_removed)
 	end
 	if self:GetOption(soulBindMarker) then
-		SetRaidTarget(args.destName, 0)
+		self:CustomIcon(false, args.destName)
 	end
 end
 

@@ -215,13 +215,13 @@ do
 			self:CDBar(args.spellId, self:Mythic() and 30.5 or stage == 2 and 30 or (self:Normal() and stage == 3 and 41.3) or 40, CL.count:format(args.spellName, hydraShotCounter))
 		end
 		if self:GetOption(hydraShotMarker) then -- Targets: LFR: 0, 1 Normal, 3 Heroic, 4 Mythic
-			SetRaidTarget(args.destName, count)
+			self:CustomIcon(false, args.destName, count)
 		end
 	end
 
 	function mod:HydraShotRemoved(args)
 		if self:GetOption(hydraShotMarker) then
-			SetRaidTarget(args.destName, 0)
+			self:CustomIcon(false, args.destName)
 		end
 		if self:Me(args.destGUID) and not self:Easy() then
 			self:CancelSayCountdown(args.spellId)
@@ -325,8 +325,8 @@ do
 	local applied = 0
 
 	function mod:PrepareForMaw()
-		wipe(debuffs)
-		wipe(fedTable)
+		debuffs = {}
+		fedTable = {}
 		fedCount = 0
 		applied = 0
 		devouringMawActive = true

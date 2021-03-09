@@ -39,7 +39,7 @@ end
 
 function mod:OnEngage()
 	self:CheckForWipe()
-	wipe(castCollector)
+	castCollector = {}
 end
 
 --------------------------------------------------------------------------------

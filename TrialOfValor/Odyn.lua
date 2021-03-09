@@ -162,15 +162,19 @@ function mod:OnEngage()
 	stormCount = 1
 	runesUp = 0
 	myAddGUID = ""
-	wipe(addGUIDs)
+	addGUIDs = {}
 	isHymdallFighting = true
 	isHyrjaFighting = true
 	castingHorn = false
-	wipe(revivifyBarTexts)
-	wipe(addFixates)
-	for _,t in pairs(proxLists) do
-		wipe(t)
-	end
+	revivifyBarTexts = {}
+	addFixates = {}
+	proxLists = {
+		[231311] = {}, -- Boss_OdunRunes_Purple
+		[231342] = {}, -- Boss_OdunRunes_Orange
+		[231344] = {}, -- Boss_OdunRunes_Yellow
+		[231345] = {}, -- Boss_OdunRunes_Blue
+		[231346] = {}, -- Boss_OdunRunes_Green
+	}
 
 	self:RegisterUnitEvent("UNIT_AURA", nil, "boss1", "boss2", "boss3") -- Valarjar's Bond
 
@@ -232,7 +236,7 @@ function mod:INSTANCE_ENCOUNTER_ENGAGE_UNIT()
 	local hymdallFound, hyrjaFound = nil, nil
 	for i = 1, 5 do
 		local unit = ("boss%d"):format(i)
-		local guid = UnitGUID(unit)
+		local guid = self:UnitGUID(unit)
 		if guid then
 			local mobId = self:MobId(guid)
 			if mobId == 114361 then -- Hymdall
@@ -546,9 +550,13 @@ do
 	end
 
 	local function wipeProxLists(self)
-		for _,t in pairs(proxLists) do
-			wipe(t)
-		end
+		proxLists = {
+			[231311] = {}, -- Boss_OdunRunes_Purple
+			[231342] = {}, -- Boss_OdunRunes_Orange
+			[231344] = {}, -- Boss_OdunRunes_Yellow
+			[231345] = {}, -- Boss_OdunRunes_Blue
+			[231346] = {}, -- Boss_OdunRunes_Green
+		}
 		updateProximity(self)
 	end
 

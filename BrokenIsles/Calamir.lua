@@ -70,7 +70,7 @@ function mod:OnEngage()
 	howlingGaleCount = 1
 	arcaneDesolationCount = 1
 	arcanopulseCount = 1
-	wipe(castCollector)
+	castCollector = {}
 end
 
 --------------------------------------------------------------------------------
@@ -118,7 +118,7 @@ end
 
 function mod:BOSS_KILL(_, id)
 	if id == 1952 then
-		wipe(castCollector)
+		castCollector = {}
 		self:Win()
 	end
 end

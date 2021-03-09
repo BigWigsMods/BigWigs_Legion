@@ -165,7 +165,7 @@ function mod:OnEngage()
 	worldDevouringForceCounter = 1
 	voidCount = 1
 	grandCast = nil
-	wipe(mobCollector)
+	mobCollector = {}
 	self:Bar(206464, 12.5) -- Coronal Ejection
 	if self:Mythic() then
 		self:CDBar(205408, 15) -- Grand Conjunction
@@ -181,7 +181,7 @@ function mod:OnEngage()
 end
 
 function mod:OnBossDisable()
-	wipe(mobCollector)
+	mobCollector = {}
 end
 
 --------------------------------------------------------------------------------
@@ -401,7 +401,7 @@ end
 --[[ Thing That Should Not Be ]]--
 function mod:INSTANCE_ENCOUNTER_ENGAGE_UNIT()
 	for i = 1, 5 do
-		local guid = UnitGUID(("boss%d"):format(i))
+		local guid = self:UnitGUID(("boss%d"):format(i))
 		if guid and not mobCollector[guid] then
 			mobCollector[guid] = true
 			local mobId = self:MobId(guid)

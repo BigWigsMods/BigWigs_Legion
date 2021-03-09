@@ -80,7 +80,7 @@ function mod:OnEngage()
 	self:Bar(197969, self:Mythic() and 20 or 40, CL.count:format(self:SpellName(197969), cacophonyCount)) -- Roaring Cacophony
 	self:Berserk(300)
 
-	self:RegisterUnitEvent("UNIT_HEALTH_FREQUENT", nil, "boss1")
+	self:RegisterUnitEvent("UNIT_HEALTH", nil, "boss1")
 end
 
 --------------------------------------------------------------------------------
@@ -181,7 +181,7 @@ do
 	end
 end
 
-function mod:UNIT_HEALTH_FREQUENT(event, unit)
+function mod:UNIT_HEALTH(event, unit)
 	local hp = UnitHealth(unit) / UnitHealthMax(unit)
 	if hp < 0.35 then -- Blood Frenzy at 30%
 		self:UnregisterUnitEvent(event, unit)

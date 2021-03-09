@@ -289,7 +289,7 @@ function mod:OnEngage()
 	obeliskCounter = 1
 	essenceCount = 1
 	timeStopCheck = nil
-	wipe(mobCollector)
+	mobCollector = {}
 	effluxCount = 1
 	liquidHellfireEmpowered = false
 	bondsEmpowered = false
@@ -350,7 +350,7 @@ end
 
 function mod:INSTANCE_ENCOUNTER_ENGAGE_UNIT()
 	for i=1, 5 do
-		local guid = UnitGUID(("boss%d"):format(i))
+		local guid = self:UnitGUID(("boss%d"):format(i))
 		if guid and not mobCollector[guid] then
 			mobCollector[guid] = true
 			if self:MobId(guid) == 104537 then
@@ -864,7 +864,7 @@ function mod:ParasiticWoundRemoved(args) -- Stop Parasite Say Messages
 		for _,timer in pairs(parasiteSayTimers) do
 			self:CancelTimer(timer)
 		end
-		wipe(parasiteSayTimers)
+		parasiteSayTimers = {}
 	end
 end
 
@@ -873,7 +873,7 @@ function mod:TimeStop(args) -- Stop Parasite Say Messages
 		for _,timer in pairs(parasiteSayTimers) do
 			self:CancelTimer(timer)
 		end
-		wipe(parasiteSayTimers)
+		parasiteSayTimers = {}
 	end
 end
 

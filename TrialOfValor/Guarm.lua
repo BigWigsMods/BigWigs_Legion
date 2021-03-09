@@ -91,7 +91,7 @@ function mod:OnEngage()
 	leapCounter = 0
 	foamCount = 1
 	phaseStartTime = GetTime()
-	wipe(foamTargets)
+	foamTargets = {}
 	self:Berserk(self:Mythic() and 244 or self:Normal() and 360 or self:LFR() and 420 or 300)
 	self:Bar(227514, 6) -- Flashing Fangs
 	self:Bar(228187, 14.5) -- Guardian's Breath
@@ -106,7 +106,7 @@ end
 function mod:OnBossDisable()
 	if self:GetOption(foamMarker) then
 		for i = 1, #foamTargets do
-			SetRaidTarget(foamTargets[i], 0)
+			self:CustomIcon(false, foamTargets[i])
 			foamTargets[i] = nil
 		end
 	end
@@ -206,7 +206,7 @@ do
 		if self:GetOption(foamMarker) then
 			local c = #foamTargets+1
 			foamTargets[c] = destName
-			SetRaidTarget(destName, c)
+			self:CustomIcon(false, destName, c)
 			if c == 1 then
 				self:ScheduleTimer("OnBossDisable", 10)
 			end

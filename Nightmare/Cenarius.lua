@@ -152,8 +152,8 @@ function mod:OnEngage()
 	if self:Mythic() then
 		self:CDBar(213162, 30) -- Nightmare Blast
 	end
-	wipe(mobCollector)
-	wipe(nightmareStacks)
+	mobCollector = {}
+	nightmareStacks = {}
 	mobTable = {
 		[105468] = {}, -- Nightmare Ancient
 		[105494] = {}, -- Rotten Drake
@@ -167,14 +167,14 @@ function mod:OnEngage()
 	drakeDeaths = 0
 
 	self:RegisterEvent("INSTANCE_ENCOUNTER_ENGAGE_UNIT")
-	wipe(wispMarked)
+	wispMarked = {}
 	wispMarks = { [8] = true, [7] = true, [6] = true, [5] = true, [4] = true }
 	self:OpenInfo(210279, self:SpellName(210279)) -- Creeping Nightmares
 end
 
 function mod:OnBossDisable()
-	wipe(wispMarked)
-	wipe(mobCollector)
+	wispMarked = {}
+	mobCollector = {}
 end
 
 --------------------------------------------------------------------------------
@@ -212,7 +212,7 @@ function mod:WispMark(event, unit, guid)
 	if self:MobId(guid) == 106659 and UnitIsEnemy("player", unit) and not wispMarked[guid] then
 		local icon = next(wispMarks)
 		if icon then -- At least one icon unused
-			SetRaidTarget(unit, icon)
+			self:CustomIcon(false, unit, icon)
 			wispMarks[icon] = nil -- Mark is no longer available
 			wispMarked[guid] = icon -- Save the wisp we marked and the icon we marked it with
 		end
@@ -229,7 +229,7 @@ end
 function mod:UNIT_SPELLCAST_SUCCEEDED(_, _, _, spellId)
 	if spellId == 210290 then -- Nightmare Brambles
 		self:Bar(spellId, phase == 2 and 20 or 30) -- at some point starts casting with 15sec-20sec cd
-		local targetGUID = UnitGUID("boss1target") -- selects target 2sec prior to the cast
+		local targetGUID = self:UnitGUID("boss1target") -- selects target 2sec prior to the cast
 		if targetGUID then
 			if self:Me(targetGUID) then
 				self:Flash(spellId)
@@ -307,7 +307,7 @@ do
 	function mod:INSTANCE_ENCOUNTER_ENGAGE_UNIT()
 		for i = 1, 5 do
 			local unit = ("boss%d"):format(i)
-			local guid = UnitGUID(unit)
+			local guid = self:UnitGUID(unit)
 			if guid and not mobCollector[guid] and UnitIsEnemy("player", unit) then
 				mobCollector[guid] = true
 				local mobId = self:MobId(guid)
@@ -422,7 +422,7 @@ end
 
 function mod:BreathTarget(event, unit) -- They love to drop their target after casting
 	local target = unit.."target"
-	local guid = UnitGUID(target)
+	local guid = self:UnitGUID(target)
 	if not guid or UnitDetailedThreatSituation(target, unit) ~= false or self:MobId(guid) ~= 1 then return end
 
 	if self:Me(guid) then

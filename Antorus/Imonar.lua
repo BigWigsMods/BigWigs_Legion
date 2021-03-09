@@ -101,7 +101,7 @@ end
 function mod:OnEngage()
 	timers = self:Mythic() and timersMythic or timersOther
 	stage = 1
-	wipe(canisterProxList)
+	canisterProxList = {}
 
 	self:CDBar(247367, self:Mythic() and 4.8 or 4.5) -- Shock Lance
 	self:CDBar(254244, self:Mythic() and 7.2 or 7.3) -- Sleep Canister
@@ -112,14 +112,14 @@ function mod:OnEngage()
 		self:CDBar(247376, 12.2) -- Pulse Grenade
 	end
 	nextIntermissionWarning = self:Mythic() and 83 or 69
-	self:RegisterUnitEvent("UNIT_HEALTH_FREQUENT", nil, "boss1")
+	self:RegisterUnitEvent("UNIT_HEALTH", nil, "boss1")
 end
 
 --------------------------------------------------------------------------------
 -- Event Handlers
 --
 
-function mod:UNIT_HEALTH_FREQUENT(event, unit)
+function mod:UNIT_HEALTH(event, unit)
 	local hp = UnitHealth(unit) / UnitHealthMax(unit) * 100
 	if hp < nextIntermissionWarning then
 		self:MessageOld("stages", "green", nil, CL.soon:format(CL.intermission), false)
@@ -143,7 +143,7 @@ do
 				for i = 1, 2 do
 					if not canisterMarks[i] then
 						canisterMarks[i] = self:UnitName(name)
-						SetRaidTarget(name, i)
+						self:CustomIcon(false, name, i)
 						break
 					end
 				end
@@ -177,7 +177,7 @@ do
 
 	function mod:SleepCanister(args)
 		isOnMe = false
-		wipe(playerList)
+		playerList = self:NewTargetList()
 		canisterMarks = {false, false}
 		self:Bar(args.spellId, self:Mythic() and 12.1 or 10.9)
 	end
@@ -201,7 +201,7 @@ do
 			for i = 1, 2 do
 				if canisterMarks[i] == self:UnitName(args.destName) then
 					canisterMarks[i] = false
-					SetRaidTarget(args.destName, 0)
+					self:CustomIcon(false, args.destName)
 					break
 				end
 			end

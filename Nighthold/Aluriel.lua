@@ -149,11 +149,11 @@ function mod:OnEngage()
 	phase = 0 -- will immediately get incremented by mod:Stages()
 	annihilateCount = 1
 	isInfoOpen = false
-	wipe(searingBrandTargets)
-	wipe(markOfFrostTargets)
-	wipe(frostbittenStacks)
-	wipe(mobCollector)
-	wipe(proxList)
+	searingBrandTargets = {}
+	markOfFrostTargets = {}
+	frostbittenStacks = {}
+	mobCollector = {}
+	proxList = {}
 	markOfFrostOnMe = nil
 	searingBrandOnMe = nil
 
@@ -238,7 +238,7 @@ do
 			self:Bar(213853, self:Mythic() and 52 or 62, nil, 31687) -- Animate: Mark of Frost, Water Elemental icon
 			self:Bar("stages", self:Mythic() and 75 or 85, self:SpellName(213867), 213867) -- Next: Fiery
 		elseif args.spellId == 213867 then -- Fiery
-			wipe(searingBrandTargets)
+			searingBrandTargets = {}
 			if self:Mythic() then -- Fel Soul
 				self:Bar(230901, 18)
 			end
@@ -394,7 +394,7 @@ do
 		if not tContains(searingBrandTargets, args.destName) then
 			searingBrandTargets[#searingBrandTargets+1] = args.destName
 			if self:GetOption(searingBrandMarker) then
-				SetRaidTarget(args.destName, #searingBrandTargets)
+				self:CustomIcon(false, args.destName, #searingBrandTargets)
 			end
 		end
 
@@ -424,7 +424,7 @@ function mod:SearingBrandApplied(args)
 	if not tContains(searingBrandTargets, args.destName) then
 		searingBrandTargets[#searingBrandTargets+1] = args.destName
 		if self:GetOption(searingBrandMarker) then
-			SetRaidTarget(args.destName, #searingBrandTargets)
+			self:CustomIcon(false, args.destName, #searingBrandTargets)
 		end
 	end
 
@@ -444,7 +444,7 @@ function mod:SearingBrandRemoved(args)
 	tDeleteItem(proxList, args.destName)
 
 	if self:GetOption(searingBrandMarker) then
-		SetRaidTarget(args.destName, 0)
+		self:CustomIcon(false, args.destName)
 	end
 
 	if #searingBrandTargets == 0 then
@@ -464,9 +464,9 @@ end
 function mod:DetonateSearingBrandSuccess()
 	-- At this point there will be no more Mark of Frost targets and you no
 	-- longer need to stay away from Searing Brand targets, so wipe everything!
-	wipe(markOfFrostTargets) -- empty anyway
-	wipe(searingBrandTargets)
-	wipe(proxList)
+	markOfFrostTargets = {}
+	searingBrandTargets = {}
+	proxList = {}
 	self:CloseProximity(213166) -- Searing Brand
 end
 
@@ -476,7 +476,7 @@ do
 		if self:MobId(guid) == 107285 and not mobCollector[guid] then
 			for i = 1, 6 do
 				if not fieryAddMarks[i] then
-					SetRaidTarget(unit, i)
+					self:CustomIcon(false, unit, i)
 					fieryAddMarks[i] = guid
 					mobCollector[guid] = true
 					if i == 6 then
@@ -492,7 +492,7 @@ do
 		self:MessageOld(args.spellId, "red", "info")
 
 		if self:GetOption(fieryAddMarker) then
-			wipe(fieryAddMarks)
+			fieryAddMarks = {}
 			self:RegisterTargetEvents("FieryAddMark")
 			self:ScheduleTimer("UnregisterTargetEvents", 10)
 		end

@@ -158,7 +158,7 @@ function mod:OnEngage()
 	self:Berserk(720)
 
 	nextPortalSoonWarning = 92 -- happens at 90%
-	self:RegisterUnitEvent("UNIT_HEALTH_FREQUENT", nil, "boss1")
+	self:RegisterUnitEvent("UNIT_HEALTH", nil, "boss1")
 end
 
 --------------------------------------------------------------------------------
@@ -202,7 +202,7 @@ do
 	end
 end
 
-function mod:UNIT_HEALTH_FREQUENT(event, unit)
+function mod:UNIT_HEALTH(event, unit)
 	local hp = UnitHealth(unit) / UnitHealthMax(unit) * 100
 	if hp < nextPortalSoonWarning then
 		local platformName = (hp < 40 and self:SpellName(257942)) or (hp < 70 and self:SpellName(257941)) or self:SpellName(257939)
@@ -441,7 +441,7 @@ function mod:CloyingShadowsRemoved(args)
 end
 
 function mod:HungeringGloom(args)
-	if UnitGUID("boss2") == args.destGUID or UnitGUID("boss3") == args.destGUID or UnitGUID("boss4") == args.destGUID then -- Should always be boss2, rest is safety
+	if self:UnitGUID("boss2") == args.destGUID or self:UnitGUID("boss3") == args.destGUID or self:UnitGUID("boss4") == args.destGUID then -- Should always be boss2, rest is safety
 		self:PlaySound(args.spellId, "info")
 		self:MessageOld(args.spellId, "orange", nil, CL.other:format(args.spellName, args.destName))
 		self:Bar(args.spellId, 20, CL.onboss:format(args.spellName))
@@ -449,7 +449,7 @@ function mod:HungeringGloom(args)
 end
 
 function mod:HungeringGloomRemoved(args)
-	if UnitGUID("boss2") == args.destGUID or UnitGUID("boss3") == args.destGUID or UnitGUID("boss4") == args.destGUID then -- Should always be boss2, rest is safety
+	if self:UnitGUID("boss2") == args.destGUID or self:UnitGUID("boss3") == args.destGUID or self:UnitGUID("boss4") == args.destGUID then -- Should always be boss2, rest is safety
 		self:StopBar(CL.onboss:format(args.spellName))
 	end
 end

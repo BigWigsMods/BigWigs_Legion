@@ -89,14 +89,14 @@ function mod:OnEngage()
 	self:Bar(246220, 9.4) -- Fel Bombardment
 
 	nextApocalypseDriveWarning = self:Easy() and 62 or 67 -- happens at 60% (65% hc/my)
-	self:RegisterUnitEvent("UNIT_HEALTH_FREQUENT", nil, "boss1")
+	self:RegisterUnitEvent("UNIT_HEALTH", nil, "boss1")
 end
 
 --------------------------------------------------------------------------------
 -- Event Handlers
 --
 
-function mod:UNIT_HEALTH_FREQUENT(event, unit)
+function mod:UNIT_HEALTH(event, unit)
 	local hp = UnitHealth(unit) / UnitHealthMax(unit) * 100
 	if hp < nextApocalypseDriveWarning then
 		self:MessageOld(240277, "cyan", "info", CL.soon:format(self:SpellName(240277))) -- Apocalypse Drive

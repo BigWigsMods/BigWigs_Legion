@@ -227,9 +227,9 @@ function mod:UNIT_SPELLCAST_SUCCEEDED(_, _, _, spellId)
 		end
 		self:Bar(167910, 14, CL.adds) -- Kvaldir Longboat
 		self:Bar(228300, self:Mythic() and 11 or 50) -- Fury of the Maw
-		self:RegisterUnitEvent("UNIT_HEALTH_FREQUENT", nil, "boss1")
+		self:RegisterUnitEvent("UNIT_HEALTH", nil, "boss1")
 	elseif spellId == 228546 then -- Helya
-		self:UnregisterUnitEvent("UNIT_HEALTH_FREQUENT", "boss1")
+		self:UnregisterUnitEvent("UNIT_HEALTH", "boss1")
 		phase = 3
 		orbCount = 1
 		breathCount = 1
@@ -276,7 +276,7 @@ function mod:RAID_BOSS_WHISPER(event, msg)
 	end
 end
 
-function mod:UNIT_HEALTH_FREQUENT(event, unit)
+function mod:UNIT_HEALTH(event, unit)
 	local hp = UnitHealth(unit) / UnitHealthMax(unit)*100
 	if phase == 2 then
 		local tentaclesLeft = self:Mythic() and floor((hp-45)/2.5) or floor((hp-40)/2.77)
@@ -300,7 +300,7 @@ do
 		if not isOnMe then
 			self:TargetMessageOld(spellId, list, "orange", "warning", CL.count:format(spellName, orbCount - 1)) -- gets incremented on the cast
 		else
-			wipe(list)
+			list = self:NewTargetList()
 		end
 	end
 
@@ -317,12 +317,12 @@ do
 
 		if self:GetOption(orbMarker) then
 			if self:Healer(args.destName) then
-				SetRaidTarget(args.destName, 1)
+				self:CustomIcon(false, args.destName, 1)
 			elseif self:Tank(args.destName) or (phase == 3 and orbMarked) then
-				SetRaidTarget(args.destName, 2)
+				self:CustomIcon(false, args.destName, 2)
 			else -- Damager
 				orbMarked = true
-				SetRaidTarget(args.destName, 3)
+				self:CustomIcon(false, args.destName, 3)
 			end
 		end
 
@@ -333,7 +333,7 @@ do
 
 	function mod:OrbRemoved(args)
 		if self:GetOption(orbMarker) then
-			SetRaidTarget(args.destName, 0)
+			self:CustomIcon(false, args.destName)
 		end
 	end
 end
@@ -390,7 +390,7 @@ do
 		end
 
 		if self:GetOption(taintMarker) then
-			SetRaidTarget(args.destName, taintMarkerCount)
+			self:CustomIcon(false, args.destName, taintMarkerCount)
 			taintMarkerCount = taintMarkerCount + 1
 			if taintMarkerCount > 8 then taintMarkerCount = 4 end
 		end
@@ -420,7 +420,7 @@ do
 			end
 		end
 		if self:GetOption(taintMarker) then
-			SetRaidTarget(args.destName, 0)
+			self:CustomIcon(false, args.destName)
 		end
 	end
 end

@@ -137,18 +137,18 @@ function mod:OnEngage()
 	comboTime = GetTime() + 35
 	foeBreakerCount = 1
 	flameRendCount = 1
-	wipe(comboSpells)
+	comboSpells = {}
 	comboSpellLookup[245458].castTime = self:Easy() and 3.5 or 2.75 -- Foe Breaker
 	comboSpellLookup[245463].castTime = self:Easy() and 3.5 or 2.75 -- Flame Rend
 
 	blazeTick = 1
 	blazeOnMe = false
 	intermission = false
-	wipe(blazeProxList)
+	blazeProxList = {}
 
-	wipe(mobCollector)
-	wipe(waveCollector)
-	wipe(waveTimeCollector)
+	mobCollector = {}
+	waveCollector = {}
+	waveTimeCollector = {}
 	wave = 0
 	currentEmberWave = 1
 
@@ -162,7 +162,7 @@ function mod:OnEngage()
 	self:Bar(244688, self:Mythic() and 14.5 or 35) -- Taeshalach Technique
 
 	nextIntermissionSoonWarning = self:LFR() and 62 or 82 -- happens at 60% on LFR, 80% on other difficulties
-	self:RegisterUnitEvent("UNIT_HEALTH_FREQUENT", nil, "boss1")
+	self:RegisterUnitEvent("UNIT_HEALTH", nil, "boss1")
 end
 
 --------------------------------------------------------------------------------
@@ -238,7 +238,7 @@ local function updateProximity(self)
 	end
 end
 
-function mod:UNIT_HEALTH_FREQUENT(event, unit)
+function mod:UNIT_HEALTH(event, unit)
 	local hp = UnitHealth(unit) / UnitHealthMax(unit) * 100
 	if hp < nextIntermissionSoonWarning then
 		self:MessageOld("stages", "green", nil, CL.soon:format(CL.intermission), false)
@@ -281,7 +281,7 @@ function mod:BlazingEruption(args) -- Add Death/Raid Explosion
 		else
 			local emberTimer = floor(waveTimeCollector[currentEmberWave+1] - GetTime())
 			self:CDBar(245911, emberTimer, CL.count:format(self:SpellName(245911), currentEmberWave+1)) -- Wrought in Flame (x)
-			wipe(emberAddMarks)
+			emberAddMarks = {}
 		end
 		currentEmberWave = currentEmberWave + 1
 	end
@@ -302,13 +302,13 @@ function mod:EmberDeath(args)
 		self:MessageOld("track_ember", "cyan", "info", L.wave_cleared:format(currentEmberWave), false)
 		self:StopBar(CL.count:format(self:SpellName(245911), currentEmberWave)) -- Wrought in Flame (x)
 		self:UnregisterTargetEvents()
-		wipe(emberAddMarks)
+		emberAddMarks = {}
 	end
 end
 
 do
 	function mod:EmberAddScanner(_, unit)
-		local guid = UnitGUID(unit)
+		local guid = self:UnitGUID(unit)
 		local mobID = self:MobId(guid)
 		if mobID == 122532 and not mobCollector[guid] then
 			mobCollector[guid] = wave -- store which wave the add is from incase it dies early
@@ -319,7 +319,7 @@ do
 				if waveCollector[currentEmberWave][guid] then
 					for i = 1, 5 do -- Use only 5 marks, leaving 6, 7, 8 for raid use purposes
 						if not emberAddMarks[i] and not GetRaidTargetIndex(unit) then -- Don't re-mark the same add and re-use marks
-							SetRaidTarget(unit, i)
+							self:CustomIcon(false, unit, i)
 							emberAddMarks[i] = guid
 							break
 						end
@@ -335,7 +335,7 @@ function mod:UNIT_SPELLCAST_SUCCEEDED(_, _, _, spellId)
 		techniqueStarted = true
 		foeBreakerCount = 1
 		flameRendCount = 1
-		wipe(comboSpells)
+		comboSpells = {}
 		currentCombo = nil
 		comboTime = GetTime() + 60.8
 		self:Bar(spellId, 60.8)
@@ -510,10 +510,10 @@ function mod:CorruptAegis()
 
 
 	-- Reset all saved variables
-	wipe(mobCollector)
-	wipe(waveCollector)
-	wipe(waveTimeCollector)
-	wipe(emberAddMarks)
+	mobCollector = {}
+	waveCollector = {}
+	waveTimeCollector = {}
+	emberAddMarks = {}
 	currentEmberWave = 1
 	waveEmberCounter = self:Mythic() and 10 or 6
 	wave = 1

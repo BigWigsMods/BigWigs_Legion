@@ -115,7 +115,7 @@ do
 		if icon and icon > 0 then
 			local mobId = self:MobId(guid)
 			if mobId == 112474 then -- Corrupted Totem
-				SetRaidTarget(unit, icon)
+				self:CustomIcon(false, unit, icon)
 				guids[guid] = 0
 			end
 		end

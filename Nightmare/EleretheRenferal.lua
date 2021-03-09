@@ -102,14 +102,14 @@ function mod:OnEngage()
 	self:Bar(212364, 16) -- Feeding Time
 	self:Bar("stages", 91, -13263, "inv_ravenlordmount") -- Roc Form
 
-	wipe(webOfPainTargets)
+	webOfPainTargets = {}
 end
 
 function mod:OnBossDisable()
 	for player,_ in pairs(webOfPainTargets) do
-		SetRaidTarget(player, 0)
+		self:CustomIcon(false, player)
 	end
-	wipe(webOfPainTargets)
+	webOfPainTargets = {}
 end
 
 --------------------------------------------------------------------------------
@@ -130,7 +130,7 @@ do
 
 	function mod:UNIT_AURA(_, unit) -- XXX get Blizz to fix this
 		if self:UnitDebuff(unit, spellName, 215449) then -- 215449 is Necrotic Venom on Mythic
-			local guid = UnitGUID(unit)
+			local guid = self:UnitGUID(unit)
 			if not players[guid] then
 				local spellId = key -- SetOption:215443,210864:
 				players[guid] = true
@@ -161,7 +161,7 @@ do
 
 	function mod:StartDebuffScan(args)
 		key, spellName = args.spellId, args.spellName
-		wipe(players)
+		players = {}
 		self:RegisterEvent("UNIT_AURA")
 		self:ScheduleTimer("UnregisterEvent", 5, "UNIT_AURA")
 	end
@@ -227,20 +227,20 @@ function mod:WebOfPainApplied(args)
 		webOfPainTargets[args.sourceName] = true
 		webOfPainTargets[args.destName] = true
 		if self:Tank(args.sourceName) or self:Tank(args.destName) then -- Tank link
-			SetRaidTarget(args.sourceName, 1)
-			SetRaidTarget(args.destName, 2)
+			self:CustomIcon(false, args.sourceName, 1)
+			self:CustomIcon(false, args.destName, 2)
 		else -- Other link
-			SetRaidTarget(args.sourceName, 3)
-			SetRaidTarget(args.destName, 4)
+			self:CustomIcon(false, args.sourceName, 3)
+			self:CustomIcon(false, args.destName, 4)
 		end
 	end
 end
 
 function mod:WebOfPainRemoved(args)
 	if self:GetOption("custom_off_webofpain_marker") then -- TODO
-		SetRaidTarget(args.sourceName, 0)
+		self:CustomIcon(false, args.sourceName)
 		webOfPainTargets[args.sourceName] = nil
-		SetRaidTarget(args.destName, 0)
+		self:CustomIcon(false, args.destName)
 		webOfPainTargets[args.destName] = nil
 	end
 end

@@ -208,13 +208,13 @@ do
 			elseif not self:CheckOption(args.spellId, "ME_ONLY") then
 				self:MessageOld(args.spellId, "yellow", nil, CL.link_both:format(self:ColorName(tbl[1].name), self:ColorName(tbl[2].name)))
 			end
-			wipe(tbl)
+			targets[args.sourceGUID] = {}
 		else
 			-- XXX I have no logs where this happens so the possibility of this situation is an assumption:
 			-- clean up if, for some reason, the 2nd target had an immunity on.
 			self:SimpleTimer(function()
 				if tbl and #tbl == 1 then
-					wipe(tbl)
+					targets[args.sourceGUID] = {}
 				end
 			end, 1)
 		end
@@ -329,12 +329,11 @@ end
 
 do
 	local players = {}
-	local UnitGUID = UnitGUID
 	function mod:UNIT_AURA(_, unit)
 		local decimation1 = self:UnitDebuff(unit, 252797)
 		local decimation2 = self:UnitDebuff(unit, 245770)
 		if decimation1 or decimation2 then
-			local guid = UnitGUID(unit)
+			local guid = self:UnitGUID(unit)
 			if not players[guid] then
 				players[guid] = true
 				if unit == "player" then
@@ -349,8 +348,8 @@ do
 				list[#list+1] = self:UnitName(unit)
 				self:TargetsMessage(252797, "orange", list, 2)
 			end
-		elseif players[UnitGUID(unit)] then
-			players[UnitGUID(unit)] = nil
+		elseif players[self:UnitGUID(unit)] then
+			players[self:UnitGUID(unit)] = nil
 		end
 	end
 end

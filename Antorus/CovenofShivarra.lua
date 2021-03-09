@@ -135,9 +135,9 @@ end
 function mod:OnEngage()
 	chilledBloodTime = 0
 	bloodBarPlacement = 0
-	wipe(chilledBloodList)
+	chilledBloodList = {}
 	chilledBloodMaxAbsorb = 1
-	wipe(upcomingTorments)
+	upcomingTorments = {}
 
 	self:Bar(245627, 8.5) -- Whirling Saber
 	self:Bar(244899, 12.1) -- Fiery Strike
@@ -229,7 +229,7 @@ end
 
 --[[ General ]]--
 function mod:UNIT_TARGETABLE_CHANGED(_, unit)
-	if self:MobId(UnitGUID(unit)) == 122468 then -- Noura
+	if self:MobId(self:UnitGUID(unit)) == 122468 then -- Noura
 		if UnitCanAttack("player", unit) then
 			self:MessageOld("stages", "green", "long", -15967, false) -- Noura, Mother of Flame
 			self:Bar(245627, 8.9) -- Whirling Saber
@@ -246,7 +246,7 @@ function mod:UNIT_TARGETABLE_CHANGED(_, unit)
 			self:StopBar(245627) -- Whirling Saber
 			self:StopBar(253520) -- Fulminating Pulse
 		end
-	elseif self:MobId(UnitGUID(unit)) == 122467 then -- Asara
+	elseif self:MobId(self:UnitGUID(unit)) == 122467 then -- Asara
 		if UnitCanAttack("player", unit) then
 			self:MessageOld("stages", "green", "long", -15968, false) -- Asara, Mother of Night
 			self:Bar(246329, 12.6) -- Shadow Blades
@@ -258,7 +258,7 @@ function mod:UNIT_TARGETABLE_CHANGED(_, unit)
 			self:StopBar(246329) -- Shadow Blades
 			self:StopBar(252861) -- Storm of Darkness
 		end
-	elseif self:MobId(UnitGUID(unit)) == 122469 then -- Diima
+	elseif self:MobId(self:UnitGUID(unit)) == 122469 then -- Diima
 		if UnitCanAttack("player", unit) then
 			self:MessageOld("stages", "green", "long", -15969, false) -- Diima, Mother of Gloom
 			self:Bar(245586, 8) -- Chilled Blood
@@ -277,7 +277,7 @@ function mod:UNIT_TARGETABLE_CHANGED(_, unit)
 			self:StopBar(245586) -- Chilled Blood
 			self:StopBar(253650) -- Orb of Frost
 		end
-	elseif self:MobId(UnitGUID(unit)) == 125436 then -- Thu'raya
+	elseif self:MobId(self:UnitGUID(unit)) == 125436 then -- Thu'raya
 		if UnitCanAttack("player", unit) then
 			self:MessageOld("stages", "green", "long", -16398, false) -- Thu'raya, Mother of the Cosmos
 			self:Bar(250757, 5.2) -- Cosmic Glare
@@ -506,7 +506,7 @@ do
 		end
 
 		if self:GetOption(chilledBloodMarker) then
-			SetRaidTarget(args.destName, #playerList > 2 and 5 or #playerList) -- Icons: 1, 2, 5
+			self:CustomIcon(false, args.destName, #playerList > 2 and 5 or #playerList) -- Icons: 1, 2, 5
 		end
 
 
@@ -523,7 +523,7 @@ do
 			self:UnregisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
 		end
 		if self:GetOption(chilledBloodMarker) then
-			SetRaidTarget(args.destName, 0)
+			self:CustomIcon(false, args.destName)
 		end
 		updateInfoBox()
 	end
@@ -557,10 +557,10 @@ do
 		if #playerList == 1 then
 			self:CDBar(args.spellId, 15)
 			if self:GetOption(cosmicGlareMarker) then
-				SetRaidTarget(args.destName, 3)
+				self:CustomIcon(false, args.destName, 3)
 			end
 		elseif self:GetOption(cosmicGlareMarker) then
-			SetRaidTarget(args.destName, 4)
+			self:CustomIcon(false, args.destName, 4)
 		end
 	end
 end
@@ -570,7 +570,7 @@ function mod:CosmicGlareRemoved(args)
 		self:CancelSayCountdown(args.spellId)
 	end
 	if self:GetOption(cosmicGlareMarker) then
-		SetRaidTarget(args.destName, 0)
+		self:CustomIcon(false, args.destName)
 	end
 end
 

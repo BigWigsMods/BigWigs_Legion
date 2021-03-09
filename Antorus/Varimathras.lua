@@ -73,7 +73,7 @@ end
 
 function mod:OnEngage()
 	tormentActive = 0
-	wipe(mobCollector)
+	mobCollector = {}
 
 	self:CDBar("stages", 5, self:SpellName(243968), 243968) -- Torment of Flames
 	self:CDBar(243960, 9.7) -- Shadow Strike
@@ -170,7 +170,7 @@ do
 	local playerList, isOnMe, proxList = mod:NewTargetList(), false, {}
 
 	function mod:NecroticEmbraceSuccess()
-		wipe(proxList)
+		proxList = {}
 		self:CDBar(244094, 30.5)
 	end
 
@@ -179,7 +179,7 @@ do
 			mod:TargetsMessage(244094, "orange", playerList, #playerList) -- Necrotic Embrace
 			mod:OpenProximity(244094, 10, proxList)
 		else
-			wipe(playerList)
+			playerList = mod:NewTargetList()
 		end
 	end
 
@@ -207,7 +207,7 @@ do
 		end
 
 		if self:GetOption(necroticEmbraceMarker) then
-			SetRaidTarget(args.destName, icon) -- Icons 3 and 4
+			self:CustomIcon(false, args.destName, icon) -- Icons 3 and 4
 		end
 	end
 
@@ -220,7 +220,7 @@ do
 		end
 
 		if self:GetOption(necroticEmbraceMarker) then
-			SetRaidTarget(args.destName, 0)
+			self:CustomIcon(false, args.destName)
 		end
 
 		tDeleteItem(proxList, args.destName)

@@ -266,7 +266,7 @@ function mod:OnEngage()
 	infoBoxList = {}
 	timeReleaseTime = 0
 	timeReleaseMaxAbsorb = 0
-	wipe(bombSayTimers)
+	bombSayTimers = {}
 	timers = getTimers(self)
 	currentTimers = nil
 	if self:Mythic() then
@@ -286,7 +286,7 @@ local function timeBombCountdown(self)
 	for _,timer in pairs(bombSayTimers) do
 		self:CancelTimer(timer)
 	end
-	wipe(bombSayTimers)
+	bombSayTimers = {}
 	self:StopBar(206617, me)
 
 	if not name then return end

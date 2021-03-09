@@ -235,7 +235,7 @@ function mod:OnEngage()
 	end
 
 	self:RegisterUnitEvent("UNIT_POWER_FREQUENT", nil, "boss2")
-	self:RegisterUnitEvent("UNIT_HEALTH_FREQUENT", nil, "boss2")
+	self:RegisterUnitEvent("UNIT_HEALTH", nil, "boss2")
 	self:OpenInfo("infobox", self.displayName)
 	self:SetInfo("infobox", 1, self:SpellName(7850)) -- Health
 	self:SetInfo("infobox", 2, "100%")
@@ -281,7 +281,7 @@ function mod:StartWaveTimer(lane, count)
 	self:ScheduleTimer("StartWaveTimer", length, lane, count+1)
 end
 
-function mod:UNIT_HEALTH_FREQUENT(_, unit)
+function mod:UNIT_HEALTH(_, unit)
 	local hp = UnitHealth(unit)
 	local max = UnitHealthMax(unit)
 	local percent = hp/max

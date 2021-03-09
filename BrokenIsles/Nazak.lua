@@ -59,7 +59,7 @@ end
 
 function mod:MarkWebWrap(event, unit, guid)
 	if wraps[guid] then
-		SetRaidTarget(unit, wraps[guid])
+		self:CustomIcon(false, unit, wraps[guid])
 		wraps[guid] = nil
 	end
 end
@@ -81,7 +81,7 @@ end
 
 function mod:WebWrap(args)
 	if self:GetOption(wrapMarker) then
-		wipe(wraps)
+		wraps = {}
 		wrapCount = 8
 	end
 	self:RegisterUnitEvent("UNIT_AURA", nil, "player")

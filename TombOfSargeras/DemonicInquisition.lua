@@ -123,8 +123,8 @@ function mod:OnEngage()
 	nextAltPowerWarning = 20
 	jailCount = 0
 	jailTimer = nil
-	wipe(jailList)
-	wipe(fixateList)
+	jailList = {}
+	fixateList = {}
 
 	-- Jail Infobox
 	self:OpenInfo(236283, L.infobox_title_prisoners:format(jailCount))
@@ -162,7 +162,7 @@ do
 	local prev = 0
 	function mod:CheckForFixate(_, unit, guid)
 		local mobId = self:MobId(guid)
-		if mobId == 121138 and not fixateList[guid] and self:Me(UnitGUID(unit.."target")) then -- Tormented Fragment
+		if mobId == 121138 and not fixateList[guid] and self:Me(self:UnitGUID(unit.."target")) then -- Tormented Fragment
 			fixateList[guid] = true
 			local t = GetTime()
 			if t-prev > 1 then
@@ -318,14 +318,14 @@ do
 		self:OpenProximity(args.spellId, 8, proxList) -- Don't stand near others if they have the debuff
 
 		if self:GetOption(anguishMarker) then
-			SetRaidTarget(args.destName, #proxList)
+			self:CustomIcon(false, args.destName, #proxList)
 		end
 	end
 
 	function mod:EchoingAnguishRemoved(args)
 		tDeleteItem(proxList, args.destName)
 		if self:GetOption(anguishMarker) then
-			SetRaidTarget(args.destName, 0)
+			self:CustomIcon(false, args.destName)
 		end
 		if #proxList == 0 then -- If there are no debuffs left, close proximity
 			self:CloseProximity(args.spellId)

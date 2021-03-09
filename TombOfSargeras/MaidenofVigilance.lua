@@ -105,8 +105,8 @@ end
 
 function mod:OnEngage()
 	mySide = 0
-	wipe(lightList)
-	wipe(felList)
+	lightList = {}
+	felList = {}
 
 	massInstabilityCounter = 0
 	hammerofCreationCounter = 0

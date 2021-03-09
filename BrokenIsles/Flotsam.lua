@@ -54,7 +54,7 @@ do
 	function mod:Jetsam(_, unit, castGUID, spellId)
 		if spellId == 220295 and castGUID ~= prev then -- Jetsam
 			prev = castGUID
-			self:GetUnitTarget(printTarget, 0.3, UnitGUID(unit))
+			self:GetUnitTarget(printTarget, 0.3, self:UnitGUID(unit))
 		end
 	end
 end

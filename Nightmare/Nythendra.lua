@@ -71,7 +71,7 @@ end
 function mod:OnEngage()
 	rotCount = 1
 	myInfestedStacks = 0
-	wipe(infestedStacks)
+	infestedStacks = {}
 	self:Berserk(self:Normal() and 600 or 480) -- Can be delayed by 2nd phase
 	self:CDBar(203096, 5.8) -- Rot
 	self:CDBar(204463, 22.8) -- Volatile Rot
@@ -115,7 +115,7 @@ do
 			self:OpenProximity(args.spellId, 10, proxList)
 		end
 		if self:GetOption(rotMarker) then
-			SetRaidTarget(args.destName, #proxList)
+			self:CustomIcon(false, args.destName, #proxList)
 		end
 
 		playerList[#playerList+1] = args.destName
@@ -138,7 +138,7 @@ do
 		end
 
 		if self:GetOption(rotMarker) then
-			SetRaidTarget(args.destName, 0)
+			self:CustomIcon(false, args.destName)
 		end
 		tDeleteItem(proxList, args.destName)
 

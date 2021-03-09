@@ -145,12 +145,12 @@ end
 
 function mod:UNIT_SPELLCAST_SUCCEEDED(event, unit, _, spellId)
 	if spellId == 246686 then -- Decimation
-		local guid = UnitGUID(unit)
+		local guid = self:UnitGUID(unit)
 		local mobId = self:MobId(guid)
 		local mobText = getMobNumber(mobId, guid)
 		self:Bar(spellId, 15.8, CL.count:format(self:SpellName(spellId), mobText))
 	elseif spellId == 246657 then -- Annihilation
-		local guid = UnitGUID(unit)
+		local guid = self:UnitGUID(unit)
 		local mobId = self:MobId(guid)
 		local mobText = getMobNumber(mobId, guid)
 		self:MessageOld(246664, "red", "alarm")

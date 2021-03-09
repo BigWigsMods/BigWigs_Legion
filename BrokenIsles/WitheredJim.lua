@@ -59,7 +59,7 @@ end
 function mod:MarkBoss(event, unit, guid)
 	local mobId = self:MobId(guid)
 	if mobId == 102075 then
-		SetRaidTarget(unit, 8)
+		self:CustomIcon(false, unit, 8)
 		self:UnregisterTargetEvents()
 	end
 end

@@ -258,7 +258,7 @@ function mod:OnEngage()
 	focusedTarget = nil
 	timerMinimap = nil
 	timers = self:Mythic() and timersMythic or self:Heroic() and timersHeroic or self:Normal() and timersNormal or self:LFR() and timersLFR
-	wipe(mobCollector)
+	mobCollector = {}
 
 	self:Bar(240910, timers[240910][stage][armageddonCount], CL.count:format(self:SpellName(240910), armageddonCount)) -- Armageddon
 	if not self:Easy() then
@@ -292,7 +292,7 @@ function mod:CHAT_MSG_RAID_BOSS_EMOTE(_, msg, _, _, _, target)
 		self:TargetMessageOld(238505, target, "yellow", "alarm", nil, nil, true)
 		self:TargetBar(238505, 5, target)
 		self:PrimaryIcon(238505, target)
-		local guid = UnitGUID(target)
+		local guid = self:UnitGUID(target)
 		focusedTarget = guid
 		if self:Me(guid) then
 			self:Say(238505)
@@ -402,7 +402,7 @@ do
 		end
 
 		if self:GetOption(eruptingMarker) then
-			SetRaidTarget(args.destName, #playerList+2)  -- Skip marks 1 + 2 for visibility
+			self:CustomIcon(false, args.destName, #playerList+2)  -- Skip marks 1 + 2 for visibility
 		end
 	end
 
@@ -411,13 +411,13 @@ do
 			self:CancelSayCountdown(args.spellId)
 		end
 		if self:GetOption(eruptingMarker) and not self:Mythic() then -- Don't remove icons in Mythic
-			SetRaidTarget(args.destName, 0)
+			self:CustomIcon(false, args.destName)
 		end
 	end
 
 	function mod:LingeringEruptionRemoved(args) -- Mythic only, Remove icons after this debuff instead
 		if self:GetOption(eruptingMarker) then
-			SetRaidTarget(args.destName, 0)
+			self:CustomIcon(false, args.destName)
 		end
 	end
 end
@@ -550,12 +550,12 @@ do
 	local addMarks = {} -- Current marks on each add
 
 	function mod:ShadowsoulScanner(event, unit)
-		local guid = UnitGUID(unit)
+		local guid = self:UnitGUID(unit)
 		if self:MobId(guid) == 121193 and not mobCollector[guid] then
 			for i = 1, 5 do
 				if not decieversAddMarks[i] then
 					if self:GetOption(shadowsoulMarker) then
-						SetRaidTarget(unit, i)
+						self:CustomIcon(false, unit, i)
 					end
 					decieversAddMarks[i] = guid
 					mobCollector[guid] = true
@@ -666,11 +666,11 @@ do
 
 		local shadowsoulOption = self:CheckOption("shadowsoul", "INFOBOX")
 		if self:GetOption(shadowsoulMarker) or shadowsoulOption then
-			wipe(decieversAddMarks)
+			decieversAddMarks = {}
 
 			if shadowsoulOption then
-				wipe(addDmg)
-				wipe(addMarks)
+				addDmg = {}
+				addMarks = {}
 				addMaxHP = -1
 				self:Log("SPELL_DAMAGE", "IntermissionAddDamage", "*")
 				self:Log("SPELL_PERIODIC_DAMAGE", "IntermissionAddDamage", "*")

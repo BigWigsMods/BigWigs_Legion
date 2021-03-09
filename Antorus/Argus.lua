@@ -344,7 +344,7 @@ function mod:CHAT_MSG_MONSTER_YELL(_, msg)
 		self:Bar("stages", 10.5, self:SpellName(255648), 255648) -- Golganneths Wrath
 	elseif msg:find(L.stage3_early) then -- We start bars for stage 3 later
 		stage = 3
-		wipe(vulnerabilityCollector)
+		vulnerabilityCollector = {}
 		scanningTargets = nil
 		self:MessageOld("stages", "green", "long", CL.stage:format(stage), false)
 		self:StopBar(248499) -- Sweeping Scythe
@@ -447,7 +447,7 @@ do
 		end
 		announce(self)
 		if self:GetOption(seaMarker) then
-			SetRaidTarget(args.destName, 6)
+			self:CustomIcon(false, args.destName, 6)
 		end
 	end
 
@@ -462,14 +462,14 @@ do
 		end
 		announce(self)
 		if self:GetOption(seaMarker) then
-			SetRaidTarget(args.destName, 5)
+			self:CustomIcon(false, args.destName, 5)
 		end
 	end
 end
 
 function mod:GiftRemoved(args)
 	if self:GetOption(seaMarker) then
-		SetRaidTarget(args.destName, 0)
+		self:CustomIcon(false, args.destName)
 	end
 end
 
@@ -541,7 +541,7 @@ do
 				mod:TargetsMessage(250669, "red", mod:ColorName(burstList), #burstList)
 			end
 		end
-		wipe(burstList)
+		burstList = {}
 		scheduled = false
 		bombName = nil
 		isOnMe = 0
@@ -564,10 +564,10 @@ do
 			end
 			self:Bar("bomb_explosions", self:Mythic() and 12 or 15, L.bomb_explosions, L.bomb_explosions_icon) -- Bomb Explosions
 			if self:GetOption(burstMarker) then
-				SetRaidTarget(args.destName, 3)
+				self:CustomIcon(false, args.destName, 3)
 			end
 		elseif self:GetOption(burstMarker) then
-			SetRaidTarget(args.destName, 7)
+			self:CustomIcon(false, args.destName, 7)
 		end
 	end
 
@@ -577,7 +577,7 @@ do
 			self:CancelSayCountdown(args.spellId)
 		end
 		if self:GetOption(burstMarker) then
-			SetRaidTarget(args.destName, 0)
+			self:CustomIcon(false, args.destName)
 		end
 	end
 
@@ -605,7 +605,7 @@ do
 		self:Bar(250669, stage == 4 and (self:Easy() and 40.2 or 24.5) or 20, CL.count:format(self:SpellName(250669), 2)) -- Soulburst (2)
 
 		if self:GetOption(burstMarker) then
-			SetRaidTarget(args.destName, 2)
+			self:CustomIcon(false, args.destName, 2)
 		end
 	end
 end
@@ -617,7 +617,7 @@ function mod:SoulbombRemoved(args)
 	end
 	self:StopBar(args.spellId, args.destName)
 	if self:GetOption(burstMarker) then
-		SetRaidTarget(args.destName, 0)
+		self:CustomIcon(false, args.destName)
 	end
 end
 
@@ -658,7 +658,7 @@ function mod:TemporalBlast()
 	else
 		if stage ~= 3 then
 			stage = 3
-			wipe(vulnerabilityCollector)
+			vulnerabilityCollector = {}
 			scanningTargets = nil
 			self:MessageOld("stages", "green", "long", CL.stage:format(stage), false)
 			self:StopBar(248499) -- Sweeping Scythe
@@ -689,7 +689,7 @@ end
 
 function mod:ConstellarMark(_, unit, guid)
 	if vulnerabilityCollector[guid] then
-		SetRaidTarget(unit, vulnerabilityCollector[guid])
+		self:CustomIcon(false, unit, vulnerabilityCollector[guid])
 		vulnerabilityCollector[guid] = nil
 		if not next(vulnerabilityCollector) then
 			scanningTargets = nil
@@ -954,7 +954,7 @@ do
 			mod:MessageOld(257966, "orange", isOnMe > 0 and "warning", CL.other:format(mod:SpellName(257966), msg))
 		end
 
-		wipe(playerList)
+		playerList = {}
 		isOnMe = 0
 	end
 
@@ -971,10 +971,10 @@ do
 			sentenceofSargerasCount = sentenceofSargerasCount + 1
 			self:Bar(args.spellId, timers[stage][args.spellId][sentenceofSargerasCount], CL.count:format(args.spellName, sentenceofSargerasCount))
 			if self:GetOption(sentenceMarker) then
-				SetRaidTarget(args.destName, 1)
+				self:CustomIcon(false, args.destName, 1)
 			end
 		elseif self:GetOption(sentenceMarker) then
-			SetRaidTarget(args.destName, 4)
+			self:CustomIcon(false, args.destName, 4)
 		end
 	end
 
@@ -983,7 +983,7 @@ do
 			sentenceOnMe = false
 		end
 		if self:GetOption(sentenceMarker) then
-			SetRaidTarget(args.destName, 0)
+			self:CustomIcon(false, args.destName)
 		end
 	end
 end

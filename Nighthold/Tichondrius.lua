@@ -135,7 +135,7 @@ function mod:OnEngage()
 	addWaveCount = 1
 	addsKilled = 0
 	argusMarks = {false, false, false, false, false, false}
-	wipe(essenceTargets)
+	essenceTargets = {}
 	self:Bar("adds", timers["adds"][addWaveCount], CL.count:format(L.adds, addWaveCount), 212552) -- 212552 = Wraith Walk, inv_helm_plate_raiddeathknight_p_01, id 1100041
 	if GetLocale() ~= "enUS" and L.adds_yell1 == "Underlings! Get in here!" then -- Not translated
 		self:ScheduleTimer("CHAT_MSG_MONSTER_YELL", timers["adds"][addWaveCount], "timer")
@@ -205,7 +205,7 @@ do
 			for i = 1, 6 do
 				if not argusMarks[i] then
 					argusMarks[i] = args.destName
-					SetRaidTarget(args.destName, i)
+					self:CustomIcon(false, args.destName, i)
 					break
 				end
 			end
@@ -217,7 +217,7 @@ do
 			for i = 1, 6 do
 				if argusMarks[i] == args.destName then
 					argusMarks[i] = false
-					SetRaidTarget(args.destName, 0)
+					self:CustomIcon(false, args.destName)
 					break
 				end
 			end
@@ -273,7 +273,7 @@ end
 --[[ Stage Two ]]--
 function mod:IllusionaryNight(args)
 	addsKilled = 0
-	wipe(essenceTargets)
+	essenceTargets = {}
 	self:MessageOld(args.spellId, "cyan", "long", CL.count:format(args.spellName, illusionaryNightCount))
 	self:CastBar(args.spellId, 32, CL.count:format(args.spellName, illusionaryNightCount))
 	illusionaryNightCount = illusionaryNightCount + 1

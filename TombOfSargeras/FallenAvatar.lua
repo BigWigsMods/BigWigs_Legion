@@ -203,7 +203,7 @@ do
 	local tbl, checks, prev, last = {}, 0, 0, nil
 
 	function mod:InitCheckUnitPower()
-		wipe(tbl)
+		tbl = {}
 		checks = 0
 		last = nil
 	end
@@ -502,7 +502,7 @@ do
 			if not self:Easy() then
 				self:SetInfo(args.spellId, 5, "|T137003:0|t 10")
 			end
-			wipe(infoBoxList)
+			infoBoxList = {}
 			timer = self:ScheduleRepeatingTimer(updateInfoBox, 0.1, self)
 		end
 
@@ -510,7 +510,7 @@ do
 		self:SetInfo(args.spellId, count*2, self:ColorName(args.destName))
 
 		if self:GetOption(darkMarkIcons) then
-			SetRaidTarget(args.destName, icon)
+			self:CustomIcon(false, args.destName, icon)
 		end
 	end
 
@@ -519,7 +519,7 @@ do
 			self:CancelSayCountdown(args.spellId)
 		end
 		if self:GetOption(darkMarkIcons) then
-			SetRaidTarget(args.destName, 0)
+			self:CustomIcon(false, args.destName)
 		end
 		if infoBoxList[args.destGUID] then
 			self:SetInfo(args.spellId, infoBoxList[args.destGUID].pos, "")

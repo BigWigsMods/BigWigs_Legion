@@ -96,8 +96,8 @@ end
 function mod:OnEngage()
 	phase = 1
 	imprintCount = 1
-	wipe(bondTable)
-	wipe(mobCollector)
+	bondTable = {}
+	mobCollector = {}
 	self:Berserk(540) -- Heroic
 	self:Bar(206641, 7.5) -- Arcane Slash
 	self:Bar(206788, 11) -- Toxic Slice
@@ -106,8 +106,8 @@ function mod:OnEngage()
 end
 
 function mod:OnBossDisable()
-	wipe(bondTable)
-	wipe(mobCollector)
+	bondTable = {}
+	mobCollector = {}
 end
 
 --------------------------------------------------------------------------------
@@ -123,12 +123,12 @@ end
 function mod:INSTANCE_ENCOUNTER_ENGAGE_UNIT()
 	for i = 1, 5 do
 		local unit = ("boss%d"):format(i)
-		local guid = UnitGUID(unit)
+		local guid = self:UnitGUID(unit)
 		if guid and not mobCollector[guid] then
 			mobCollector[guid] = true
 			local id = self:MobId(guid)
 			if id == 108303 then -- Imprint
-				self:MessageOld(215066, "cyan", "long", UnitName(unit), false)
+				self:MessageOld(215066, "cyan", "long", self:UnitName(unit), false)
 				self:Bar(214670, 2.5, CL.other:format(L.imprint, self:SpellName(214670))) -- Energized
 				if imprintCount == 1 then
 					self:Bar(215062, 15.8, CL.other:format(L.imprint, self:SpellName(215062))) -- Toxic Slice
@@ -220,7 +220,7 @@ function mod:CleansingRage(args)
 end
 
 function mod:ArcingBondsCast()
-	wipe(bondTable)
+	bondTable = {}
 end
 
 do

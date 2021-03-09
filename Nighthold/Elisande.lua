@@ -419,7 +419,7 @@ function mod:INSTANCE_ENCOUNTER_ENGAGE_UNIT()
 	local addsFound = {}
 
 	for i = 1, 5 do
-		local guid = UnitGUID(("boss%d"):format(i))
+		local guid = self:UnitGUID(("boss%d"):format(i))
 		if guid then
 			local mobId = self:MobId(guid)
 			if mobId == 105301 or mobId == 105299 then -- Fast Elemental, Slow Elemental
@@ -529,7 +529,7 @@ function mod:TimeStop(args)
 	self:StopBar(CL.count:format(self:SpellName(209170), singularityCount)) -- Singularity
 	self:StopBar(CL.count:format(self:SpellName(209973), ablatingCount)) -- Ablating
 	self:StopBar(229889) -- Terminate (Berserk)
-	wipe(elementalCollector) -- This prevents starting wrong time zone bars at the start of the next phase
+	elementalCollector = {} -- This prevents starting wrong time zone bars at the start of the next phase
 	-- New bars will be started in LeavetheNightwell
 end
 

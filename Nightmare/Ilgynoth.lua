@@ -210,7 +210,7 @@ function mod:OnBossEnable()
 end
 
 function mod:OnEngage()
-	wipe(mobCollector)
+	mobCollector = {}
 	phase = 1
 	deathBlossomCount = 1
 	blobsRemaining = self:LFR() and 15 or self:Mythic() and 22 or 20
@@ -231,7 +231,7 @@ function mod:OnEngage()
 	self:StartSpawnTimer(-13190, 1) -- Deathglare Tentacle
 	self:StartSpawnTimer(-13191, 1) -- Corruptor Tentacle
 
-	wipe(deathglareMarked)
+	deathglareMarked = {}
 	if self:GetOption(tentacleMarker) then
 		deathglareMarks = { [6] = true, [5] = true, [4] = true, [3] = true }
 
@@ -270,7 +270,7 @@ function mod:DeathglareMark(event, unit, guid)
 	if self:MobId(guid) == 105322 and not deathglareMarked[guid] then
 		local icon = next(deathglareMarks)
 		if icon then -- At least one icon unused
-			SetRaidTarget(unit, icon)
+			self:CustomIcon(false, unit, icon)
 			deathglareMarks[icon] = nil -- Mark is no longer available
 			deathglareMarked[guid] = icon -- Save the tentacle we marked and the icon we marked it with
 		end
