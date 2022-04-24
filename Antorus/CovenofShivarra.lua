@@ -18,10 +18,10 @@ local chilledBloodList = {}
 local chilledBloodMaxAbsorb = 1
 local bloodBarPlacement = 0
 local tormentIcons = {
-	AmanThul = 139, -- Renew
-	Norgannon = 245910, -- Army
-	Khazgoroth = 245671, -- Flames
-	Golganneth = 421, -- Chain Lightning
+	AmanThul = "spell_holy_renew", -- Renew (spell id 139 icon 135953)
+	Norgannon = "ability_mage_potentspirit", -- Army (spell id 245910 icon 236223)
+	Khazgoroth = "ability_monk_breathoffire", -- Flames (spell id 245671 icon 615339)
+	Golganneth = "spell_nature_chainlightning", -- Chain Lightning (spell id 188443 icon 136015)
 }
 local upcomingTorments = {}
 
@@ -163,10 +163,10 @@ end
 local updateInfoBox
 do
 	local tormentMarkup = {
-		AmanThul = {color = "|cff81c784", text = "tormentHeal", icon = GetSpellTexture(tormentIcons.AmanThul)},
-		Norgannon = {color = "|cff9575cd", text = "tormentArmy", icon = GetSpellTexture(tormentIcons.Norgannon)},
-		Khazgoroth = {color = "|cffe57373", text = "tormentFlames", icon = GetSpellTexture(tormentIcons.Khazgoroth)},
-		Golganneth = {color = "|cff4fc3f7", text = "tormentLightning", icon = GetSpellTexture(tormentIcons.Golganneth)},
+		AmanThul = {color = "|cff81c784", text = "tormentHeal", icon = 135953}, -- Icons are file IDs
+		Norgannon = {color = "|cff9575cd", text = "tormentArmy", icon = 236223},
+		Khazgoroth = {color = "|cffe57373", text = "tormentFlames", icon = 615339},
+		Golganneth = {color = "|cff4fc3f7", text = "tormentLightning", icon = 136015},
 	}
 
 	local sort, min, sortFunc = table.sort, math.min, function(a, b)
@@ -182,7 +182,7 @@ do
 			mod:OpenInfo("infobox", L.nextTorment:format(""))
 
 			local nextTorment = tormentMarkup[upcomingTorments[1]]
-			local data = ("|T%s:15:15:0:0:64:64:4:60:4:60|t%s%s|r"):format(nextTorment.icon, nextTorment.color, L[nextTorment.text])
+			local data = ("|T%d:15:15:0:0:64:64:4:60:4:60|t%s%s|r"):format(nextTorment.icon, nextTorment.color, L[nextTorment.text])
 			mod:SetInfo("infobox", 1, data)
 			bloodOffset = 2
 		end
