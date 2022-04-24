@@ -212,12 +212,12 @@ end
 function mod:WebOfPainApplied(args)
 	if self:Me(args.destGUID) then
 		self:MessageOld(args.spellId, "blue", "warning", L.yourLink:format(self:ColorName(args.sourceName)))
-		local _, _, _, expires = self:UnitDebuff("player", args.spellName)
+		local _, _, _, expires = self:UnitDebuff("player", args.spellName, 215300)
 		local remaining = expires-GetTime()
 		self:Bar(args.spellId, remaining, L.yourLinkShort:format(self:ColorName(args.sourceName)))
 	elseif self:Me(args.sourceGUID) then
 		self:MessageOld(args.spellId, "blue", "warning", L.yourLink:format(self:ColorName(args.destName)))
-		local _, _, _, expires = self:UnitDebuff("player", args.spellName)
+		local _, _, _, expires = self:UnitDebuff("player", args.spellName, 215300)
 		local remaining = expires-GetTime()
 		self:Bar(args.spellId, remaining, L.yourLinkShort:format(self:ColorName(args.destName)))
 	elseif not self:CheckOption(args.spellId, "ME_ONLY") then
