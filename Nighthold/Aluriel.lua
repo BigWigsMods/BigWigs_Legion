@@ -210,7 +210,7 @@ end
 function mod:AnnihilateApplied(args)
 	if self:Tank() then
 		local amount = args.amount or 1
-		self:StackMessage(212492, args.destName, amount, "red", amount > 1 and "warning") -- check sound amount
+		self:StackMessageOld(212492, args.destName, amount, "red", amount > 1 and "warning") -- check sound amount
 	end
 end
 
@@ -339,7 +339,7 @@ end
 function mod:Frostbitten(args)
 	local amount = args.amount or 1
 	if self:Me(args.destGUID) and amount % 2 == 0 and amount > 5 then
-		self:StackMessage(args.spellId, args.destName, amount, "red", amount > 7 and "warning")
+		self:StackMessageOld(args.spellId, args.destName, amount, "red", amount > 7 and "warning")
 	end
 
 	frostbittenStacks[args.destName] = amount

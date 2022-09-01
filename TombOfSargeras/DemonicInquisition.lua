@@ -216,7 +216,7 @@ do
 		if pType == "ALTERNATE" then
 			local power = UnitPower(unit, 10) -- Enum.PowerType.Alternate = 10
 			if power < lastPower or power >= nextAltPowerWarning then
-				self:StackMessage(233104, self:UnitName(unit), power, "blue")
+				self:StackMessageOld(233104, self:UnitName(unit), power, "blue")
 				local t = GetTime()
 				if (power >= 80 or power < lastPower) and t-prev > 1.5 then
 					self:PlaySound(233104, "info")
@@ -362,7 +362,7 @@ function mod:SoulCorruption(args)
 	if self:Me(args.destGUID) then
 		local amount = args.amount or 1
 		if amount % 5 == 0 then
-			self:StackMessage(args.spellId, args.destName, amount, "red", "warning") -- check sound amount
+			self:StackMessageOld(args.spellId, args.destName, amount, "red", "warning") -- check sound amount
 		end
 	end
 end

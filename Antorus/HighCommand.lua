@@ -172,7 +172,7 @@ end
 
 function mod:ExploitWeaknessApplied(args)
 	local amount = args.amount or 1
-	self:StackMessage(args.spellId, args.destName, amount, "purple", amount > 1 and "warning") -- Swap on 2
+	self:StackMessageOld(args.spellId, args.destName, amount, "purple", amount > 1 and "warning") -- Swap on 2
 end
 
 function mod:Pyroblast(args)
@@ -243,7 +243,7 @@ function mod:PsychicAssault(args)
 	if self:Me(args.destGUID) then
 		local amount = args.amount or 1
 		if (amount > 10 and amount % 5 == 0) or (amount > 20 and amount % 2 == 0) then
-			self:StackMessage(args.spellId, args.destName, amount, "blue", amount > 15 and "warning")
+			self:StackMessageOld(args.spellId, args.destName, amount, "blue", amount > 15 and "warning")
 		end
 	end
 end

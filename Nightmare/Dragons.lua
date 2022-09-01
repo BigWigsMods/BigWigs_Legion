@@ -202,7 +202,7 @@ function mod:MarkApplied(args)
 		local amount = args.amount or 1
 		markStacks[args.spellId] = args.amount
 		if amount == 1 or amount > 6 then -- could need fine tuning
-			self:StackMessage(-12809, args.destName, amount, "red", "warning", args.spellName, args.spellId)
+			self:StackMessageOld(-12809, args.destName, amount, "red", "warning", args.spellName, args.spellId)
 		end
 
 		if amount > 1 then

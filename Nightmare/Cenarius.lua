@@ -261,7 +261,7 @@ do
 		if self:Me(args.destGUID) then
 			local amount = args.amount or 1
 			if amount > 15 and amount % 4 == 0 then
-				self:StackMessage(args.spellId, args.destName, amount, "orange", "warning")
+				self:StackMessageOld(args.spellId, args.destName, amount, "orange", "warning")
 			end
 		end
 		local t = GetTime()
@@ -365,7 +365,7 @@ end
 
 function mod:SpearOfNightmares(args)
 	local amount = args.amount or 1
-	self:StackMessage(args.spellId, args.destName, amount, "orange", self:Tank() and "warning")
+	self:StackMessageOld(args.spellId, args.destName, amount, "orange", self:Tank() and "warning")
 	self:Bar(args.spellId, 15.7)
 end
 

@@ -178,7 +178,7 @@ do
 
 	function mod:ArcaneSlash(args)
 		local amount = args.amount or 1
-		self:StackMessage(args.spellId, args.destName, amount, "red", amount > 2 and "warning")
+		self:StackMessageOld(args.spellId, args.destName, amount, "red", amount > 2 and "warning")
 		local t = phase == 2 and 7.3 or 11
 		if timeToNextPhase(self) > t then
 			self:Bar(args.spellId, t)

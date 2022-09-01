@@ -61,7 +61,7 @@ end
 function mod:DrainStacks(args)
 	if self:Me(args.destGUID) or (self:Tank() and self:Tank(args.destName)) then
 		local amount = args.amount or 1
-		self:StackMessage(247739, args.destName, amount, "cyan", amount % 2 == 0 and "alarm", args.spellId)
+		self:StackMessageOld(247739, args.destName, amount, "cyan", amount % 2 == 0 and "alarm", args.spellId)
 	end
 end
 

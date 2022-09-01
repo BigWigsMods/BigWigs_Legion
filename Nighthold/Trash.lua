@@ -453,7 +453,7 @@ end
 function mod:ArcaneWound(args)
 	if self:Tank(args.destName) then
 		local amount = args.amount or 1
-		self:StackMessage(args.spellId, args.destName, amount, "red", amount > 3 and "warning")
+		self:StackMessageOld(args.spellId, args.destName, amount, "red", amount > 3 and "warning")
 		self:StopBar(CL.count:format(args.spellName, amount-1), args.destName)
 		self:TargetBar(args.spellId, 20, args.destName, CL.count:format(args.spellName, amount))
 	end

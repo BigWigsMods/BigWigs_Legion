@@ -344,7 +344,7 @@ end
 
 function mod:DesolateApplied(args)
 	local amount = args.amount or 1
-	self:StackMessage(args.spellId, args.destName, amount, "orange", "warning", nil, nil, amount > 1 and true)
+	self:StackMessageOld(args.spellId, args.destName, amount, "orange", "warning", nil, nil, amount > 1 and true)
 end
 
 function mod:Consume(args)
@@ -567,6 +567,6 @@ end
 function mod:TaintedEssence(args)
 	local amount = args.amount or 1
 	if self:Me(args.destGUID) and amount > 4 then
-		self:StackMessage(args.spellId, args.destName, amount, "orange", "warning")
+		self:StackMessageOld(args.spellId, args.destName, amount, "orange", "warning")
 	end
 end

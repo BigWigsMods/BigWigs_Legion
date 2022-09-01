@@ -370,7 +370,7 @@ end
 function mod:OdynsTest(args)
 	if args.amount % 3 == 0 then
 		-- This is the buff the boss gains if he is hitting the same tank. It's not really a stack message on the tank, but this is a clearer way of presenting it.
-		self:StackMessage(args.spellId, self:UnitName("boss1target"), args.amount, "yellow")
+		self:StackMessageOld(args.spellId, self:UnitName("boss1target"), args.amount, "yellow")
 	end
 end
 

@@ -201,7 +201,7 @@ do
 			infestedStacks[args.destName] = args.amount
 			if self:Me(args.destGUID) then
 				if args.amount > 6 and args.amount < 11 then -- be careful at 7-9, at 10 you're getting mc'd
-					self:StackMessage(args.spellId, args.destName, args.amount, "blue", "warning")
+					self:StackMessageOld(args.spellId, args.destName, args.amount, "blue", "warning")
 				end
 				myInfestedStacks = args.amount
 			end

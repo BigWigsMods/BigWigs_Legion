@@ -45,7 +45,7 @@ end
 function mod:InfectedClaws(args)
 	local amount = args.amount or 1
 	if amount % 2 == 0 then
-		self:StackMessage(args.spellId, args.destName, amount, "cyan", amount > 5 and "alarm")
+		self:StackMessageOld(args.spellId, args.destName, amount, "cyan", amount > 5 and "alarm")
 	end
 end
 

@@ -263,7 +263,7 @@ end
 
 function mod:RealityTear(args)
 	local amount = args.amount or 1
-	self:StackMessage(args.spellId, args.destName, amount, "orange", amount > 1 and "alarm", nil, nil, true)
+	self:StackMessageOld(args.spellId, args.destName, amount, "orange", amount > 1 and "alarm", nil, nil, true)
 end
 
 function mod:RealityTearSuccess(args)
@@ -417,7 +417,7 @@ end
 function mod:Corrupt(args)
 	if self:Me(args.destGUID) then
 		local amount = args.amount or 1
-		self:StackMessage(args.spellId, args.destName, amount, "yellow", amount > 2 and "warning") -- Sound when stacks are 3 or higher
+		self:StackMessageOld(args.spellId, args.destName, amount, "yellow", amount > 2 and "warning") -- Sound when stacks are 3 or higher
 	end
 end
 

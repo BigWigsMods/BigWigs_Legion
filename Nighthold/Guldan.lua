@@ -590,7 +590,7 @@ end
 function mod:TornSoul(args)
 	if self:Tank(args.destName) then
 		local amount = args.amount or 1
-		self:StackMessage(args.spellId, args.destName, amount, "orange", amount > 1 and "warning") -- check sound amount
+		self:StackMessageOld(args.spellId, args.destName, amount, "orange", amount > 1 and "warning") -- check sound amount
 		self:TargetBar(args.spellId, 30, args.destName)
 	end
 end
@@ -756,7 +756,7 @@ end
 function mod:SoulCorrosion(args)
 	if self:Me(args.destGUID) then
 		local amount = args.amount or 1
-		self:StackMessage(args.spellId, args.destName, amount, "blue", amount > 2 and "info") -- check sound amount
+		self:StackMessageOld(args.spellId, args.destName, amount, "blue", amount > 2 and "info") -- check sound amount
 	end
 end
 

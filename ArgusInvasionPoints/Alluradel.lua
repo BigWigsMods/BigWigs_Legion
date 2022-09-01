@@ -65,7 +65,7 @@ end
 function mod:Sadist(args)
 	local amount = args.amount or 1
 	if amount % 2 == 0 then
-		self:StackMessage(args.spellId, args.destName, amount, "orange", amount > 5 and "alert")
+		self:StackMessageOld(args.spellId, args.destName, amount, "orange", amount > 5 and "alert")
 	end
 end
 

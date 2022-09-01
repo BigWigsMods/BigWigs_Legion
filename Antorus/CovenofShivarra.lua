@@ -398,7 +398,7 @@ end
 function mod:FieryStrike(args)
 	local amount = args.amount or 1
 	if self:Me(args.destGUID) or amount > 2 then -- Swap above 2, always display stacks on self
-		self:StackMessage(args.spellId, args.destName, amount, "cyan", "info")
+		self:StackMessageOld(args.spellId, args.destName, amount, "cyan", "info")
 	end
 end
 
@@ -420,7 +420,7 @@ do
 			self:PlaySound(args.spellId, "alarm")
 		end
 		playerList[#playerList+1] = args.destName
-		self:TargetsMessage(args.spellId, "red", playerList, 3)
+		self:TargetsMessageOld(args.spellId, "red", playerList, 3)
 		if #playerList == 1 then
 			self:Bar(args.spellId, 40.1)
 		end
@@ -448,7 +448,7 @@ end
 function mod:Flashfreeze(args)
 	local amount = args.amount or 1
 	if self:Me(args.destGUID) then
-		self:StackMessage(args.spellId, args.destName, amount, "blue", "info")
+		self:StackMessageOld(args.spellId, args.destName, amount, "blue", "info")
 	end
 end
 
@@ -494,7 +494,7 @@ do
 			self:PlaySound(args.spellId, "alarm")
 		end
 
-		self:TargetsMessage(args.spellId, "green", playerList, 3)
+		self:TargetsMessageOld(args.spellId, "green", playerList, 3)
 		if #playerList == 1 then
 			chilledBloodTime = GetTime() + 10
 			chilledBloodMaxAbsorb = args.amount
@@ -553,7 +553,7 @@ do
 
 		playerList[#playerList+1] = args.destName
 
-		self:TargetsMessage(args.spellId, "yellow", playerList, 2)
+		self:TargetsMessageOld(args.spellId, "yellow", playerList, 2)
 		if #playerList == 1 then
 			self:CDBar(args.spellId, 15)
 			if self:GetOption(cosmicGlareMarker) then

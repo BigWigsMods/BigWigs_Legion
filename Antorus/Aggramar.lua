@@ -393,7 +393,7 @@ end
 function mod:TaeshalachsReach(args)
 	local amount = args.amount or 1
 	if amount % 3 == 0 or amount > 7 then
-		self:StackMessage(args.spellId, args.destName, amount, "purple", amount > 7 and "alarm") -- Swap on 8+
+		self:StackMessageOld(args.spellId, args.destName, amount, "purple", amount > 7 and "alarm") -- Swap on 8+
 	end
 end
 
@@ -567,7 +567,7 @@ do
 		end
 		playerList[#playerList+1] = args.destName
 		blazeProxList[#blazeProxList+1] = args.destName
-		self:TargetsMessage(args.spellId, "red", playerList, 5)
+		self:TargetsMessageOld(args.spellId, "red", playerList, 5)
 		if #playerList == 1 then
 			local cooldown = stage == 1 and 23.1 or 60.1 -- this cooldown should only trigger in stage 1+
 			if comboTime > GetTime() + cooldown then

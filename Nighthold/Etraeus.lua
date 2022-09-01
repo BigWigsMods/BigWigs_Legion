@@ -349,7 +349,7 @@ end
 function mod:Felburst(args)
 	local amount = args.amount or 1
 	if amount % 2 == 1 or amount > 5 then
-		self:StackMessage(args.spellId, args.destName, amount, "red", amount > 5 and "warning")
+		self:StackMessageOld(args.spellId, args.destName, amount, "red", amount > 5 and "warning")
 	end
 end
 

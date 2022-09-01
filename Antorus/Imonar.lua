@@ -150,9 +150,9 @@ do
 			end
 
 			if self:Easy() or (isOnMe and name == self:UnitName("player")) then -- Not warning for others when on you
-				self:TargetsMessage(254244, "red", playerList, 1)
+				self:TargetsMessageOld(254244, "red", playerList, 1)
 			elseif not isOnMe then
-				self:TargetsMessage(254244, "red", playerList, 2)
+				self:TargetsMessageOld(254244, "red", playerList, 2)
 			end
 		end
 		self:OpenProximity(254244, 10, canisterProxList)
@@ -262,7 +262,7 @@ end
 --[[ Stage One: Attack Force ]]--
 function mod:ShockLance(args)
 	local amount = args.amount or 1
-	self:StackMessage(args.spellId, args.destName, amount, "purple", amount > 6 and "warning" or amount > 4 and "alarm") -- Swap on 5, increase warning at 7
+	self:StackMessageOld(args.spellId, args.destName, amount, "purple", amount > 6 and "warning" or amount > 4 and "alarm") -- Swap on 5, increase warning at 7
 end
 
 function mod:ShockLanceSuccess(args)
@@ -277,7 +277,7 @@ end
 --[[ Stage Two: Contract to Kill ]]--
 function mod:Sever(args)
 	local amount = args.amount or 1
-	self:StackMessage(args.spellId, args.destName, amount, "purple", amount > 3 and "warning" or amount > 1 and "alarm") -- Swap on 2
+	self:StackMessageOld(args.spellId, args.destName, amount, "purple", amount > 3 and "warning" or amount > 1 and "alarm") -- Swap on 2
 end
 
 function mod:SeverSuccess(args)
@@ -298,7 +298,7 @@ end
 --[[ Stage Three: The Perfect Weapon ]]--
 function mod:EmpoweredShockLance(args)
 	local amount = args.amount or 1
-	self:StackMessage(args.spellId, args.destName, amount, "purple", amount % 2 == 0 and "alarm")
+	self:StackMessageOld(args.spellId, args.destName, amount, "purple", amount % 2 == 0 and "alarm")
 end
 
 function mod:EmpoweredShockLanceSuccess(args)

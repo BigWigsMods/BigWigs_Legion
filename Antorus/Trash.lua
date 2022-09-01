@@ -272,7 +272,7 @@ do
 			if self:Dispeller("magic") then
 				self:PlaySound(args.spellId, "alarm", nil, list)
 			end
-			self:TargetsMessage(args.spellId, "orange", list, 2)
+			self:TargetsMessageOld(args.spellId, "orange", list, 2)
 		end
 	end
 
@@ -308,7 +308,7 @@ function mod:Demolish(args)
 		self:PlaySound(args.spellId, "warning")
 	end
 	list[#list+1] = args.destName
-	self:TargetsMessage(args.spellId, "orange", list, self:LFR() and 1 or 2)
+	self:TargetsMessageOld(args.spellId, "orange", list, self:LFR() and 1 or 2)
 end
 
 function mod:DemolishRemoved(args)
@@ -346,7 +346,7 @@ do
 					end
 				end
 				list[#list+1] = self:UnitName(unit)
-				self:TargetsMessage(252797, "orange", list, 2)
+				self:TargetsMessageOld(252797, "orange", list, 2)
 			end
 		elseif players[self:UnitGUID(unit)] then
 			players[self:UnitGUID(unit)] = nil

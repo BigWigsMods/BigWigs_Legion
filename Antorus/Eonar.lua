@@ -326,7 +326,7 @@ do
 			self:SayCountdown(args.spellId, 5)
 			self:PlaySound(args.spellId, "alarm")
 		end
-		self:TargetsMessage(args.spellId, "red", playerList, 6)
+		self:TargetsMessageOld(args.spellId, "red", playerList, 6)
 		if #playerList == 1 then
 			local t = GetTime()
 			if t-prev > 5 then -- prevent a wrong bar if Rain of Fel gets delayed late
@@ -396,6 +396,6 @@ end
 function mod:FoulSteps(args)
 	local amount = args.amount or 1
 	if self:Me(args.destGUID) and amount % 3 == 0 then
-		self:StackMessage(args.spellId, args.destName, amount, "blue", amount > 5 and "alarm")
+		self:StackMessageOld(args.spellId, args.destName, amount, "blue", amount > 5 and "alarm")
 	end
 end

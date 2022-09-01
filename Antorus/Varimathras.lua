@@ -176,7 +176,7 @@ do
 
 	local function warn()
 		if not isOnMe then
-			mod:TargetsMessage(244094, "orange", playerList, #playerList) -- Necrotic Embrace
+			mod:TargetsMessageOld(244094, "orange", playerList, #playerList) -- Necrotic Embrace
 			mod:OpenProximity(244094, 10, proxList)
 		else
 			playerList = mod:NewTargetList()

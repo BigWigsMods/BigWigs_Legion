@@ -486,7 +486,7 @@ do
 		local t = GetTime()
 		if t-prev > 1 then
 			prev = t
-			self:StackMessage(args.spellId, args.destName, args.amount, "yellow", "info")
+			self:StackMessageOld(args.spellId, args.destName, args.amount, "yellow", "info")
 		end
 	end
 end

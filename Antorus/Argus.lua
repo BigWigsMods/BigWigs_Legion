@@ -415,7 +415,7 @@ end
 function mod:SweepingScytheStack(args)
 	if self:Me(args.destGUID) or (self:Tank() and self:Tank(args.destName)) then
 		local amount = args.amount or 1
-		self:StackMessage(args.spellId, args.destName, amount, "yellow", self:Tank() and (amount > 2 and "alarm") or not self:Tank() and "warning") -- Warning sound for non-tanks, 3+ stacks warning for tanks
+		self:StackMessageOld(args.spellId, args.destName, amount, "yellow", self:Tank() and (amount > 2 and "alarm") or not self:Tank() and "warning") -- Warning sound for non-tanks, 3+ stacks warning for tanks
 	end
 end
 
@@ -538,7 +538,7 @@ do
 				mod:TargetMessage(251570, "orange", bombName, CL.count:format(mod:SpellName(251570), soulBombCounter))
 			end
 			if isOnMe < 3 then -- No burst on you (0 or -1)
-				mod:TargetsMessage(250669, "red", mod:ColorName(burstList), #burstList)
+				mod:TargetsMessageOld(250669, "red", mod:ColorName(burstList), #burstList)
 			end
 		end
 		burstList = {}
@@ -721,7 +721,7 @@ do
 			self:Flash(args.spellId)
 		end
 		self:PlaySound(args.spellId, "warning", nil, playerList)
-		self:TargetsMessage(args.spellId, "orange", playerList, cosmicRaysBeingCast)
+		self:TargetsMessageOld(args.spellId, "orange", playerList, cosmicRaysBeingCast)
 	end
 end
 
@@ -749,7 +749,7 @@ do
 			self:Flash(args.spellId)
 		end
 		self:PlaySound(args.spellId, "alarm", nil, playerList)
-		self:TargetsMessage(args.spellId, "orange", playerList, beaconsBeingCast)
+		self:TargetsMessageOld(args.spellId, "orange", playerList, beaconsBeingCast)
 	end
 end
 
@@ -889,7 +889,7 @@ end
 function mod:DeadlyScytheStack(args)
 	if self:Me(args.destGUID) or self:Tank() then -- Always Show for Tanks and when on Self
 		local amount = args.amount or 1
-		self:StackMessage(args.spellId, args.destName, amount, "yellow", self:Tank() and (self:Me(args.destGUID) and "alarm") or not self:Tank() and "warning") -- Warning sound for non-tanks, only on self when a tank
+		self:StackMessageOld(args.spellId, args.destName, amount, "yellow", self:Tank() and (self:Me(args.destGUID) and "alarm") or not self:Tank() and "warning") -- Warning sound for non-tanks, only on self when a tank
 	end
 end
 
@@ -998,7 +998,7 @@ end
 function mod:SoulrendingScytheStack(args)
 	if self:Me(args.destGUID) or (self:Tank() and self:Tank(args.destName)) then
 		local amount = args.amount or 1
-		self:StackMessage(args.spellId, args.destName, amount, "yellow", self:Tank() and (amount > 2 and "alarm") or "warning") -- Warning sound for non-tanks, 3+ stacks warning for tanks
+		self:StackMessageOld(args.spellId, args.destName, amount, "yellow", self:Tank() and (amount > 2 and "alarm") or "warning") -- Warning sound for non-tanks, 3+ stacks warning for tanks
 	end
 end
 

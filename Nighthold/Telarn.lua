@@ -243,7 +243,7 @@ end
 function mod:RecursiveStrikes(args)
 	local amount = args.amount or 1
 	if amount > 5 and amount % 2 == 0 then
-		self:StackMessage(args.spellId, args.destName, amount, "yellow", amount > 7 and "warning")
+		self:StackMessageOld(args.spellId, args.destName, amount, "yellow", amount > 7 and "warning")
 	end
 end
 

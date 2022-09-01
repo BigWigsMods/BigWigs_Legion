@@ -361,7 +361,7 @@ end
 function mod:ChronometricParticles(args)
 	local amount = args.amount or 1
 	if amount % 2 == 0 or amount > 6 then -- might be different for each speed
-		self:StackMessage(args.spellId, args.destName, amount, "red", amount > 6 and "warning")
+		self:StackMessageOld(args.spellId, args.destName, amount, "red", amount > 6 and "warning")
 	end
 end
 

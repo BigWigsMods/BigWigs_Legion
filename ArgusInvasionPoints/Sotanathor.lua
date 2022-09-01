@@ -55,7 +55,7 @@ end
 
 function mod:ClovenSoul(args)
 	local amount = args.amount or 1
-	self:StackMessage(247410, args.destName, amount, "cyan", amount > 1 and "warning" or "info", args.spellId)
+	self:StackMessageOld(247410, args.destName, amount, "cyan", amount > 1 and "warning" or "info", args.spellId)
 end
 
 function mod:Cavitation(args)

@@ -321,7 +321,7 @@ do
 				if not args.amount then
 					self:TargetMessageOld(args.spellId, args.destName, "blue", "alarm")
 				elseif args.amount % 2 == 0 then
-					self:StackMessage(args.spellId, args.destName, args.amount, "blue", "alarm")
+					self:StackMessageOld(args.spellId, args.destName, args.amount, "blue", "alarm")
 				end
 				self:TargetBar(args.spellId, 8, args.destName)
 				self:CancelSayCountdown(args.spellId)

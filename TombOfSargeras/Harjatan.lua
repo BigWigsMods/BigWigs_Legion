@@ -160,7 +160,7 @@ end
 
 function mod:JaggedAbrasion(args)
 	local amount = args.amount or 1
-	self:StackMessage(args.spellId, args.destName, amount, "orange", amount > 4 and "warning") -- Swap on 4~5
+	self:StackMessageOld(args.spellId, args.destName, amount, "orange", amount > 4 and "warning") -- Swap on 4~5
 end
 
 function mod:UncheckedRage(args)
@@ -179,7 +179,7 @@ end
 function mod:FrigidBlows(args)
 	local amount = args.amount or 1
 	if amount < 5 or amount % 5 == 0 then -- Every 5 stacks or when below 5.
-		self:StackMessage(args.spellId, args.destName, amount, "orange", amount < 4 and "alarm") -- Add sound on last 3 stacks as pre-warning that the phase is ending
+		self:StackMessageOld(args.spellId, args.destName, amount, "orange", amount < 4 and "alarm") -- Add sound on last 3 stacks as pre-warning that the phase is ending
 	end
 end
 

@@ -148,7 +148,7 @@ do
 		if self:Me(args.destGUID) then
 			self:PlaySound(args.spellId, "warning")
 		end
-		self:TargetsMessage(args.spellId, "yellow", playerList, 3)
+		self:TargetsMessageOld(args.spellId, "yellow", playerList, 3)
 	end
 end
 
@@ -161,7 +161,7 @@ do
 			self:SayCountdown(args.spellId, 8)
 		end
 		self:PlaySound(args.spellId, "warning", nil, playerList)
-		self:TargetsMessage(args.spellId, "orange", playerList, 5)
+		self:TargetsMessageOld(args.spellId, "orange", playerList, 5)
 	end
 end
 

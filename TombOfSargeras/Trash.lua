@@ -319,7 +319,7 @@ end
 function mod:IcyTalons(args)
 	if self:Tank(args.destName) then
 		local amount = args.amount or 1
-		self:StackMessage(args.spellId, args.destName, amount, "orange", amount > 3 and "alarm")
+		self:StackMessageOld(args.spellId, args.destName, amount, "orange", amount > 3 and "alarm")
 		self:StopBar(CL.count:format(args.spellName, amount-1), args.destName)
 		self:TargetBar(args.spellId, 20, args.destName, CL.count:format(args.spellName, amount))
 	end
@@ -350,7 +350,7 @@ end
 function mod:CoralCut(args)
 	if self:Tank(args.destName) then
 		local amount = args.amount or 1
-		self:StackMessage(args.spellId, args.destName, amount, "yellow")
+		self:StackMessageOld(args.spellId, args.destName, amount, "yellow")
 		if not self:Me(args.destGUID) and amount > 1 and self:Tank() and not self:UnitDebuff("player", args.spellName) then
 			self:PlaySound(args.spellId, "warning")
 		end

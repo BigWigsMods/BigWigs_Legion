@@ -52,7 +52,7 @@ end
 
 function mod:GushingWound(args)
 	local amount = args.amount or 1
-	self:StackMessage(args.spellId, args.destName, amount, "red", "alarm")
+	self:StackMessageOld(args.spellId, args.destName, amount, "red", "alarm")
 end
 
 function mod:Lash(args)

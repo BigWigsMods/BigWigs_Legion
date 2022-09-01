@@ -662,7 +662,7 @@ end
 function mod:Ablation(args)
 	local amount = args.amount or 1
 	if amount % 2 == 1 or amount > 3 then
-		self:StackMessage(args.spellId, args.destName, amount, "orange", amount > 3 and "warning")
+		self:StackMessageOld(args.spellId, args.destName, amount, "orange", amount > 3 and "warning")
 	end
 end
 
@@ -766,5 +766,5 @@ end
 
 function mod:Ablated(args)
 	local amount = args.amount or 1
-	self:StackMessage(args.spellId, args.destName, amount, "orange", amount > 4 and "warning")
+	self:StackMessageOld(args.spellId, args.destName, amount, "orange", amount > 4 and "warning")
 end

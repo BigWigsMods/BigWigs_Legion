@@ -154,7 +154,7 @@ end
 function mod:SearingBrand(args)
 	local amount = args.amount or 1
 	if amount % 2 == 1 or amount > 3 then -- 1, 3, 4, 5, 6, 7, 8, ... < this is hc, might need to change for others
-		self:StackMessage(args.spellId, args.destName, amount, "orange")
+		self:StackMessageOld(args.spellId, args.destName, amount, "orange")
 	end
 end
 

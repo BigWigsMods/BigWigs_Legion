@@ -264,7 +264,7 @@ end
 --[[ Stage One: The Decent Into Madness ]]--
 function mod:DarkeningSoul(args)
 	local amount = args.amount or 1
-	self:StackMessage(args.spellId, args.destName, amount, "orange", amount > 2 and "warning")
+	self:StackMessageOld(args.spellId, args.destName, amount, "orange", amount > 2 and "warning")
 	self:CDBar(args.spellId, self:Mythic() and 8.5 or 10) -- ~10 early in the fight, ~13-17 later
 end
 
@@ -359,7 +359,7 @@ end
 
 function mod:BlackeningSoul(args)
 	local amount = args.amount or 1
-	self:StackMessage(args.spellId, args.destName, amount, "orange", amount > 2 and "warning")
+	self:StackMessageOld(args.spellId, args.destName, amount, "orange", amount > 2 and "warning")
 	self:Bar(args.spellId, self:Mythic() and 8.5 or 10)
 end
 

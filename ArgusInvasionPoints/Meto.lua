@@ -93,7 +93,7 @@ end
 function mod:SowApplied(args)
 	if self:Me(args.destGUID) then
 		local amount = args.amount or 1
-		self:StackMessage(args.spellId, args.destName, amount, "blue", "warning")
+		self:StackMessageOld(args.spellId, args.destName, amount, "blue", "warning")
 	end
 end
 

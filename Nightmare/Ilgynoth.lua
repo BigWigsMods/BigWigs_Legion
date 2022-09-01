@@ -344,7 +344,7 @@ end
 function mod:TouchOfCorruption(args)
 	local amount = args.amount or 1
 	if amount % 2 == 0 and (self:Me(args.destGUID) or (amount > 5 and self:Healer())) then
-		self:StackMessage(args.spellId, args.destName, amount, "red")
+		self:StackMessageOld(args.spellId, args.destName, amount, "red")
 	end
 end
 
@@ -357,7 +357,7 @@ end
 
 function mod:EyeOfFate(args)
 	local amount = args.amount or 1
-	self:StackMessage(args.spellId, args.destName, amount, "red", self:Tank() and amount > 1 and "warning")
+	self:StackMessageOld(args.spellId, args.destName, amount, "red", self:Tank() and amount > 1 and "warning")
 end
 
 function mod:EyeOfFateCast(args)

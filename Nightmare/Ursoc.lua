@@ -109,7 +109,7 @@ end
 
 function mod:Overwhelm(args)
 	local amount = args.amount or 1
-	self:StackMessage(args.spellId, args.destName, amount, "red")
+	self:StackMessageOld(args.spellId, args.destName, amount, "red")
 	if amount > 1 then
 		self:PlaySound(args.spellId, self:Me(args.destGUID) and "alarm" or "warning") -- Warning = taunt
 	end

@@ -168,7 +168,7 @@ end
 
 function mod:ForgingStrikeApplied(args)
 	local amount = args.amount or 1
-	self:StackMessage(254919, args.destName, amount, "purple", "warning")
+	self:StackMessageOld(254919, args.destName, amount, "purple", "warning")
 end
 
 do
@@ -264,7 +264,7 @@ do
 			self:PlaySound(args.spellId, "warning")
 		end
 		playerList[#playerList+1] = args.destName
-		self:TargetsMessage(args.spellId, "orange", playerList, numDemolish, nil, nil, 0.5)
+		self:TargetsMessageOld(args.spellId, "orange", playerList, numDemolish, nil, nil, 0.5)
 	end
 
 	function mod:DemolishSuccess(args)
@@ -283,7 +283,7 @@ do
 			self:SayCountdown(246686, 6)
 			self:PlaySound(246686, "warning")
 		end
-		self:TargetsMessage(246686, "orange", playerList, numDecimation)
+		self:TargetsMessageOld(246686, "orange", playerList, numDecimation)
 	end
 end
 
@@ -329,6 +329,6 @@ do
 			self:SayCountdown(args.spellId, 4)
 			self:PlaySound(args.spellId, "warning")
 		end
-		self:TargetsMessage(args.spellId, "orange", playerList, numDecimation)
+		self:TargetsMessageOld(args.spellId, "orange", playerList, numDecimation)
 	end
 end
