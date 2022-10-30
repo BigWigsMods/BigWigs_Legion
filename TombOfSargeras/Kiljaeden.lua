@@ -638,9 +638,9 @@ do
 	end
 
 	local function loopTracking(self, n)
-		local _, _, active = GetTrackingInfo(n)
+		local _, _, active = C_Minimap.GetTrackingInfo(n)
 		if not active then
-			SetTracking(n, true)
+			C_Minimap.SetTracking(n, true)
 		else
 			self:CancelTimer(timerMinimap)
 			timerMinimap = nil
@@ -689,8 +689,8 @@ do
 
 		if self:GetOption("custom_on_track_illidan") then
 			local trackHumanoids = self:SpellName(19883)
-			for i = 1, GetNumTrackingTypes() do
-				local name = GetTrackingInfo(i)
+			for i = 1, C_Minimap.GetNumTrackingTypes() do
+				local name = C_Minimap.GetTrackingInfo(i)
 				if name == trackHumanoids then
 					timerMinimap = self:ScheduleRepeatingTimer(loopTracking, 0.1, self, i)
 					break
@@ -711,10 +711,10 @@ do
 		end
 		if self:GetOption("custom_on_track_illidan") then
 			local trackHumanoids = self:SpellName(19883)
-			for i = 1, GetNumTrackingTypes() do
-				local name = GetTrackingInfo(i)
+			for i = 1, C_Minimap.GetNumTrackingTypes() do
+				local name = C_Minimap.GetTrackingInfo(i)
 				if name == trackHumanoids then
-					SetTracking(i, false)
+					C_Minimap.SetTracking(i, false)
 					break
 				end
 			end
