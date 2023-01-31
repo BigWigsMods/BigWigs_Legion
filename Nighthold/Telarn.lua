@@ -157,7 +157,7 @@ function mod:ArcaneInfusion()
 end
 
 function mod:UNIT_HEALTH(event, unit)
-	local hp = UnitHealth(unit) / UnitHealthMax(unit) * 100
+	local hp = self:GetHealth(unit)
 	if hp < nextPhaseSoon then
 		self:MessageOld("stages", "cyan", "info", CL.soon:format(CL.stage:format(phase+1)), false)
 		nextPhaseSoon = nextPhaseSoon - 25

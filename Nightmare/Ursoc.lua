@@ -182,8 +182,8 @@ do
 end
 
 function mod:UNIT_HEALTH(event, unit)
-	local hp = UnitHealth(unit) / UnitHealthMax(unit)
-	if hp < 0.35 then -- Blood Frenzy at 30%
+	local hp = self:GetHealth(unit)
+	if hp < 30 then -- Blood Frenzy at 30%
 		self:UnregisterUnitEvent(event, unit)
 		self:MessageOld(198388, "cyan", "info", CL.soon:format(self:SpellName(198388))) -- Blood Frenzy
 	end

@@ -277,7 +277,7 @@ function mod:RAID_BOSS_WHISPER(event, msg)
 end
 
 function mod:UNIT_HEALTH(event, unit)
-	local hp = UnitHealth(unit) / UnitHealthMax(unit)*100
+	local hp = self:GetHealth(unit)
 	if phase == 2 then
 		local tentaclesLeft = self:Mythic() and floor((hp-45)/2.5) or floor((hp-40)/2.77)
 		if tentaclesLeft < tentaclesUp then

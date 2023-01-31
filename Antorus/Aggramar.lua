@@ -239,7 +239,7 @@ local function updateProximity(self)
 end
 
 function mod:UNIT_HEALTH(event, unit)
-	local hp = UnitHealth(unit) / UnitHealthMax(unit) * 100
+	local hp = self:GetHealth(unit)
 	if hp < nextIntermissionSoonWarning then
 		self:MessageOld("stages", "green", nil, CL.soon:format(CL.intermission), false)
 		nextIntermissionSoonWarning = self:Mythic() and nextIntermissionSoonWarning - 45 or nextIntermissionSoonWarning - 40

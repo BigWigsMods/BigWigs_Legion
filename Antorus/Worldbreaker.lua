@@ -97,7 +97,7 @@ end
 --
 
 function mod:UNIT_HEALTH(event, unit)
-	local hp = UnitHealth(unit) / UnitHealthMax(unit) * 100
+	local hp = self:GetHealth(unit)
 	if hp < nextApocalypseDriveWarning then
 		self:MessageOld(240277, "cyan", "info", CL.soon:format(self:SpellName(240277))) -- Apocalypse Drive
 		if stage == 1 then
