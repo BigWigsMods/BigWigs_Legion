@@ -49,11 +49,11 @@ function mod:GetOptions()
 		{254919, "TANK"}, -- Forging Strike
 		{254926, "SAY", "FLASH"}, -- Reverberating Strike
 		248214, -- Diabolic Bomb
-		246833, -- Ruiner
+		{246833, "CASTBAR"}, -- Ruiner
 		248375, -- Shattering Strike
 
 		--[[ Stage: Construction ]]--
-		246516, -- Apocalypse Protocol
+		{246516, "CASTBAR"}, -- Apocalypse Protocol
 
 		--[[ Adds ]]--
 		246664, -- Annihilation

@@ -84,7 +84,7 @@ function mod:GetOptions()
 
 		-- [[ Before Antoran High Command ]] --
 		251612, -- Bladestorm (Felsworn Ravager)
-		254500, -- Fearsome Leap
+		{254500, "CASTBAR"}, -- Fearsome Leap
 		254512, -- Bladestorm (Imperator Deconix)
 		{253600, "SAY", "SAY_COUNTDOWN"}, -- Soulburn
 
@@ -101,7 +101,7 @@ function mod:GetOptions()
 		{254122, "SAY", "SAY_COUNTDOWN"}, -- Cloud of Confusion
 
 		-- [[ Before Aggramar ]] --
-		246209, -- Punishing Flame
+		{246209, "CASTBAR"}, -- Punishing Flame
 		246199, -- Burning Winds
 	}, {
 		[245861] = L.felguard,

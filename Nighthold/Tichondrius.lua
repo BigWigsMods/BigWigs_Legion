@@ -76,8 +76,8 @@ function mod:GetOptions()
 		"berserk",
 
 		--[[ Stage Two ]]--
-		206365, -- Illusionary Night
-		215988, -- Carrion Nightmare
+		{206365, "CASTBAR"}, -- Illusionary Night
+		{215988, "CASTBAR"}, -- Carrion Nightmare
 		{206466, "INFOBOX"}, -- Essence of Night
 
 		--[[ Felsworm Spellguard ]]--

@@ -175,9 +175,9 @@ function mod:GetOptions()
 		shadowsoulMarker,
 		"custom_on_track_illidan",
 		"custom_on_zoom_in",
-		238999, -- Darkness of a Thousand Souls
+		{238999, "CASTBAR"}, -- Darkness of a Thousand Souls
 		-15543, -- Demonic Obelisk
-		"obeliskExplosion",
+		{"obeliskExplosion", "CASTBAR"},
 		243982, -- Tear Rift
 		244856, -- Flaming Orb
 		240262, -- Burning
@@ -307,7 +307,7 @@ function mod:CHAT_MSG_RAID_BOSS_EMOTE(_, msg, _, _, _, target)
 		self:MessageOld(235059, "orange", "warning", CL.count:format(self:SpellName(235059), singularityCount))
 		self:Bar("rupturingKnock", 9.85, CL.count:format(L.singularityImpact, singularityCount), 235059)
 		singularityCount = singularityCount + 1
-		local timer = 0
+		local timer
 		if inIntermission then -- Intermission timer
 			if self:Mythic() and stage == 2 then
 				timer = singularityCount % 2 == 1 and 20 or 10
@@ -365,7 +365,7 @@ end
 function mod:Armageddon(args)
 	self:MessageOld(args.spellId, "red", "warning", CL.count:format(args.spellName, armageddonCount))
 	armageddonCount = armageddonCount + 1
-	local timer = 0
+	local timer
 	if inIntermission then -- Intermission timer
 		if armageddonCount == 2 then
 			timer = self:Mythic() and 58.9 or 29.4

@@ -13,7 +13,7 @@ mod:RegisterEnableMob(124625)
 
 function mod:GetOptions()
 	return {
-		{247549, "EMPHASIZE"}, -- Beguiling Charm
+		{247549, "CASTBAR", "EMPHASIZE"}, -- Beguiling Charm
 		247604, -- Fel Lash
 		247517, -- Heart Breaker
 		{247544, "TANK"}, -- Sadist

@@ -14,7 +14,7 @@ mod:RegisterEnableMob(124719)
 function mod:GetOptions()
 	return {
 		{247739, "FLASH"}, -- Drain
-		247733, -- Stomp
+		{247733, "CASTBAR"}, -- Stomp
 		247731, -- Fel Breath
 	}
 end

@@ -70,7 +70,7 @@ function mod:GetOptions()
 		204100, -- Shades of Taerar
 		{204767, "TANK"}, -- Corrupted Breath (Shades)
 		205341, -- Seeping Fog
-		204078, -- Bellowing Roar
+		{204078, "CASTBAR"}, -- Bellowing Roar
 
 		--[[ Mythic ]]--
 		-13460, -- Lumbering Mindgorger

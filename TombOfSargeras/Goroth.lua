@@ -33,8 +33,8 @@ function mod:GetOptions()
 		{231363, "TANK", "SAY"}, -- Burning Armor
 		233514, -- Infernal Spike
 		{232249, "FLASH", "SAY", "SAY_COUNTDOWN"}, -- Crashing Comet
-		{233279, "FLASH", "SAY"}, -- Shattering Star
-		233062, -- Infernal Burning
+		{233279, "CASTBAR", "FLASH", "SAY"}, -- Shattering Star
+		{233062, "CASTBAR"}, -- Infernal Burning
 		234346, -- Fel Eruption
 		238588, -- Rain of Brimstone
 	},{

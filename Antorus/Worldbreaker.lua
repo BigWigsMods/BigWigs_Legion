@@ -44,8 +44,8 @@ end
 function mod:GetOptions()
 	return {
 		{246220, "TANK", "SAY", "SAY_COUNTDOWN"}, -- Fel Bombardment
-		240277, -- Apocalypse Drive
-		244969, -- Eradication
+		{240277, "CASTBAR"}, -- Apocalypse Drive
+		{244969, "CASTBAR"}, -- Eradication
 		244106, -- Carnage
 		"cannon_ability", -- Cannon Assault
 		{244410, "SAY", "SAY_COUNTDOWN"}, -- Decimation

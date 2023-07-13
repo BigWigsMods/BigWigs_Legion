@@ -43,7 +43,7 @@ function mod:GetOptions()
 	return {
 		"stages",
 		"berserk",
-		{230139, "SAY", "SAY_COUNTDOWN"}, -- Hydra Shot
+		{230139, "CASTBAR", "SAY", "SAY_COUNTDOWN"}, -- Hydra Shot
 		hydraShotMarker,
 		{230201, "TANK", "FLASH"}, -- Burden of Pain
 		230227, -- From the Abyss // Showing this as an alternative to Burden of Pain for non-tanks, they are the same spell
@@ -53,7 +53,7 @@ function mod:GetOptions()
 		{230384, "ME_ONLY"}, -- Consuming Hunger
 		{234621, "INFOBOX"}, -- Devouring Maw
 		232913, -- Befouling Ink
-		232827, -- Crashing Wave
+		{232827, "CASTBAR"}, -- Crashing Wave
 		239436, -- Dread Shark
 		239362, -- Delicious Bufferfish
 	},{

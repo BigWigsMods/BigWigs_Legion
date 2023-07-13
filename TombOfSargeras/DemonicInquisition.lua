@@ -65,14 +65,14 @@ function mod:GetOptions()
 		233104, -- Torment
 		248671, -- Unbridled Torment (Berserk)
 		{233426, "TANK"}, -- Scythe Sweep
-		{233431, "SAY"}, -- Calcified Quills
-		233441, -- Bone Saw
+		{233431, "CASTBAR", "SAY"}, -- Calcified Quills
+		{233441, "CASTBAR"}, -- Bone Saw
 		239401, -- Pangs of Guilt
 		{233983, "FLASH", "SAY", "PROXIMITY"}, -- Echoing Anguish
 		anguishMarker,
 		233895, -- Suffocating Dark
 		234015, -- Tormenting Burst
-		235230, -- Fel Squall
+		{235230, "CASTBAR"}, -- Fel Squall
 		248713, -- Soul Corruption
 		{"fixate", "FLASH"},
 		"custom_on_fixate_plates",

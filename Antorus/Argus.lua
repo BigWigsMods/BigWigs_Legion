@@ -181,7 +181,7 @@ function mod:GetOptions()
 
 		--[[ Stage 4 ]]--
 		{256399, "HEALER"}, -- Withering Roots
-		256544, -- End of All Things
+		{256544, "CASTBAR"}, -- End of All Things
 		258039, -- Deadly Scythe
 		256388, -- Initialization Sequence
 		257214, -- Titanforging
@@ -193,7 +193,7 @@ function mod:GetOptions()
 		{257966, "FLASH"}, -- Sentence of Sargeras
 		sentenceMarker,
 		258838, -- Soulrending Scythe
-		258834, -- Edge of Annihilation
+		{258834, "CASTBAR"}, -- Edge of Annihilation
 	},{
 		["stages"] = "general",
 		[248165] = CL.stage:format(1),

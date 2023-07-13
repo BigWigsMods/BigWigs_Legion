@@ -79,10 +79,10 @@ function mod:GetOptions()
 		wispMarker,
 
 		--[[ Nightmare Treant ]]--
-		226821, -- Desiccating Stomp
+		{226821, "CASTBAR"}, -- Desiccating Stomp
 
 		--[[ Rotten Drake ]]--
-		{211192, "SAY"}, -- Rotten Breath
+		{211192, "CASTBAR", "SAY"}, -- Rotten Breath
 		"custom_off_multiple_breath_bar",
 
 		--[[ Twisted Sister ]]--

@@ -29,14 +29,14 @@ function mod:GetOptions()
 		251445, -- Burning Maw
 		244072, -- Molten Touch
 		{244768, "SAY", "SAY_COUNTDOWN"}, -- Desolate Gaze
-		244057, -- Enflame Corruption
+		{244057, "CASTBAR"}, -- Enflame Corruption
 		{248815, "SAY", "SAY_COUNTDOWN"}, -- Enflamed
 
 		--[[ Shatug ]]--
 		245098, -- Corrupting Maw
 		244131, -- Consuming Sphere
 		{254429, "SAY", "SAY_COUNTDOWN", "FLASH"}, -- Weight of Darkness
-		244056, -- Siphon Corruption
+		{244056, "CASTBAR"}, -- Siphon Corruption
 		{248819, "SAY", "SAY_COUNTDOWN"}, -- Siphoned
 
 		--[[ General ]]--

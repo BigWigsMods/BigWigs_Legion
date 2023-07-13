@@ -109,7 +109,7 @@ function mod:GetOptions()
 
 		--[[ Harjatan -> Mistress Sassz'ine ]]--
 		{240599, "SAY", "PROXIMITY"}, -- Embrace of the Tides (Tidescale Seacaller)
-		240169, -- Electric Shock (Undersea Custodian)
+		{240169, "CASTBAR"}, -- Electric Shock (Undersea Custodian)
 		240176, -- Lightning Stork (Undersea Custodian)
 		241254, -- Frost-Fingered Fear (Dresanoth)
 		{241289, "FLASH"}, -- Mist Filled Pools (Dresanoth)
@@ -117,7 +117,7 @@ function mod:GetOptions()
 		241703, -- Blood Siphon (The Dread Stalker)
 		{241716, "FLASH"}, -- Blood Drain (The Dread Stalker)
 		{241465, "TANK"}, -- Coral Cut (Warlord Darjah)
-		241446, -- Sonic Scream (Warlord Darjah)
+		{241446, "CASTBAR"}, -- Sonic Scream (Warlord Darjah)
 		{241480, "FLASH"}, -- Summon Steam Elemental (Warlord Darjah)
 
 		--[[ Sisters of the Moon -> The Desolate Host ]]--

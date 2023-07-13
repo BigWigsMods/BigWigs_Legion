@@ -46,9 +46,9 @@ function mod:GetOptions()
 		{228248, "SAY", "FLASH"}, -- Frost Lick
 		{228253, "SAY", "FLASH"}, -- Shadow Lick
 		{228228, "SAY", "FLASH"}, -- Flame Lick
-		{228187, "FLASH"}, -- Guardian's Breath
+		{228187, "CASTBAR", "FLASH"}, -- Guardian's Breath
 		227514, -- Flashing Fangs
-		227816, -- Headlong Charge
+		{227816, "CASTBAR"}, -- Headlong Charge
 		227883, -- Roaring Leap
 
 		--[[ Mythic ]]--

@@ -88,7 +88,7 @@ function mod:GetOptions()
 		228171, -- Revivify
 
 		--[[ Hymdall ]]--
-		{228012, "PROXIMITY"}, -- Horn of Valor
+		{228012, "CASTBAR", "PROXIMITY"}, -- Horn of Valor
 
 		--[[ Hyrja ]]--
 		{228029, "SAY", "ICON", "PROXIMITY"}, -- Expel Light
@@ -96,7 +96,7 @@ function mod:GetOptions()
 
 		--[[ Odyn ]]--
 		227503, -- Draw Power
-		227629, -- Unerring Blast
+		{227629, "CASTBAR"}, -- Unerring Blast
 		{227626, "TANK"}, -- Odyn's Test
 		{-14495, "INFOBOX", "SAY", "FLASH", "PULSE"}, -- Runic Brand
 		{229584, "EMPHASIZE"}, -- Protected
@@ -308,7 +308,7 @@ do
 		self:GetBossTarget(printTarget, 0.4, args.sourceGUID)
 		shieldCount = shieldCount + 1
 
-		local t = 0
+		local t
 		if self:Easy() then
 			t = 75
 		else
@@ -328,7 +328,7 @@ function mod:HornOfValor(args)
 	self:CastBar(args.spellId, self:Easy() and 5 or 4.5, CL.count:format(args.spellName, hornCount))
 	hornCount = hornCount + 1
 
-	local t = 0
+	local t
 	if self:Easy() then
 		t = 75
 	else
@@ -393,7 +393,7 @@ end
 function mod:ExpelLightSuccess()
 	expelCount = expelCount + 1
 
-	local t = 0
+	local t
 	if self:Easy() then
 		t = expelCount % 2 == 0 and 20 or 55
 	else

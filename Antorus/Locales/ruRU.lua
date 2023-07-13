@@ -17,7 +17,7 @@ if L then
 	L[257966] = "Приговор" -- short for Sentence of Sargeras
 
 	L.stage2_early = "Ярость морей смоет эту скверну!"  -- Aman'thul's accurate quote
-	L.stage3_early = "Надежды нет. Есть только боль!" -- Argus' accurate quote 
+	L.stage3_early = "Надежды нет. Есть только боль!" -- Argus' accurate quote
 
 	L.gifts = "Дары: %s (Небо), %s (Море)"
 	L.burst = "|T1778229:15:15:0:0:64:64:4:60:4:60|tВзрыв:%s" -- short for Soulburst

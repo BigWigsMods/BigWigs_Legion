@@ -38,7 +38,7 @@ end
 function mod:GetOptions()
 	return {
 		--[[ In Pod: Admiral Svirax ]] --
-		244625, -- Fusillade
+		{244625, "CASTBAR"}, -- Fusillade
 
 		--[[ In Pod: Chief Engineer Ishkar ]] --
 		245161, -- Entropic Mine

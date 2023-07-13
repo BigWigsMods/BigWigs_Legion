@@ -52,7 +52,7 @@ local fieryAddMarker = mod:AddMarkerOption(false, "npc", 1, 213867, 1, 2, 3, 4, 
 function mod:GetOptions()
 	return {
 		--[[ General ]]--
-		{212492, "TANK_HEALER"}, -- Annihilate
+		{212492, "TANK_HEALER", "CASTBAR"}, -- Annihilate
 		"stages",
 		"berserk",
 
@@ -63,7 +63,7 @@ function mod:GetOptions()
 		212530, -- Replicate: Mark of Frost
 		{212735, "SAY"}, -- Detonate: Mark of Frost
 		213853, -- Animate: Mark of Frost"
-		213083, -- Frozen Tempest
+		{213083, "CASTBAR"}, -- Frozen Tempest
 		212736, -- Pool of Frost
 
 		--[[ Master of Fire ]]--
@@ -80,7 +80,7 @@ function mod:GetOptions()
 		213852, -- Replicate: Arcane Orb
 		213390, -- Detonate: Arcane Orb
 		213564, -- Animate: Arcane Orb
-		213569, -- Armageddon
+		{213569, "CASTBAR"}, -- Armageddon
 		213504, -- Arcane Fog
 
 		--[[ Mythic ]]--

@@ -366,7 +366,7 @@ do
 		if spellId == 211614 then -- Slow
 			self:MessageOld("recursive_elemental", "cyan", "info", L.recursive_elemental, L.recursive_elemental_icon)
 			slowElementalCount = slowElementalCount + 1
-			local timer = nil
+			local timer
 			if self:Mythic() then
 				timer = timers[spellId][phase][slowElementalCount]
 			else
@@ -378,7 +378,7 @@ do
 		elseif spellId == 211616 then -- Fast
 			self:MessageOld("expedient_elemental", "cyan", "info", L.expedient_elemental, L.expedient_elemental_icon)
 			fastElementalCount = fastElementalCount + 1
-			local timer = nil
+			local timer
 			if self:Mythic() then
 				timer = timers[spellId][phase][fastElementalCount]
 			else

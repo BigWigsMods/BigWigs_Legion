@@ -149,7 +149,7 @@ function mod:GetOptions()
 		{215128, "SAY", "SAY_COUNTDOWN", "FLASH", "PROXIMITY"}, -- Cursed Blood
 
 		--[[ Mythic ]]--
-		218415, -- Death Blossom
+		{218415, "CASTBAR"}, -- Death Blossom
 		"shriveled_eyestalk",
 	},{
 		["infobox"] = "general",

@@ -59,7 +59,7 @@ function mod:GetOptions()
 		243983, -- Collapsing World
 		"worldExplosion",
 		244000, -- Felstorm Barrage
-		244689, -- Transport Portal
+		{244689, "CASTBAR"}, -- Transport Portal
 		245504, -- Howling Shadows
 		246075, -- Catastrophic Implosion
 

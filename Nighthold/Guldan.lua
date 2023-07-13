@@ -133,12 +133,12 @@ function mod:GetOptions()
 		206840, -- Gaze of Vethriz
 
 		--[[ Fel Lord Kuraz'mal ]]--
-		{206675, "TANK"}, -- Shatter Essence
+		{206675, "CASTBAR", "TANK"}, -- Shatter Essence
 		229945, -- Fel Obelisk
 
 		--[[ D'zorykx the Trapper ]]--
 		208545, -- Anguished Spirits
-		206883, -- Soul Vortex
+		{206883, "CASTBAR"}, -- Soul Vortex
 		{206896, "TANK"}, -- Torn Soul
 
 		--[[ Stage Two ]]--
@@ -159,7 +159,7 @@ function mod:GetOptions()
 
 		--[[ Mythic ]] --
 		"winds", -- Violent Winds
-		211439, -- Will of the Demon Within
+		{211439, "CASTBAR"}, -- Will of the Demon Within
 		220957, -- Soulsever
 		227071, -- Flame Crash
 		{206847, "FLASH", "SAY"}, -- Parasitic Wound
@@ -167,9 +167,9 @@ function mod:GetOptions()
 		"manifest", -- Manifest Azzinoth
 		221336, -- Chaos Seed
 		221408, -- Bulwark of Azzinoth
-		221486, -- Purify Essence
+		{221486, "CASTBAR"}, -- Purify Essence
 		"nightorb", -- Summon Nightorb
-		227008, -- Visions of the Dark Titan
+		{227008, "CASTBAR"}, -- Visions of the Dark Titan
 		227009, -- Wounded
 		{206310, "EMPHASIZE"}, -- Time Stop
 	}, {
@@ -496,7 +496,7 @@ function mod:LiquidHellfire(args)
 	if liquidHellfireEmpowered then
 		spellName = L.empowered:format(spellName)
 	end
-	local t = 0
+	local t
 	if phase == 1 then
 		t = liquidHellfireCount == 2 and 15 or (self:Easy() and liquidHellfireCount > 3 and 32.5) or 25
 	elseif self:Mythic() then
@@ -641,7 +641,7 @@ function mod:EyeOfGuldan(args)
 	if eyeEmpowered then
 		spellName = L.empowered:format(spellName)
 	end
-	local timer = nil
+	local timer
 	if phase == 2 then
 		timer = self:LFR() and 64 or self:Normal() and 60 or (self:Mythic() and (eyeCount == 7 and 80 or 48)) or 53.3
 	else
@@ -923,7 +923,7 @@ do
 
 	local function checkForTimeStop(self)
 		if UnitIsDead("player") then
-			-- Nothing
+			return
 		elseif not self:UnitDebuff("player", timeStop) then
 			self:MessageOld(206310, "blue", "warning", CL.no:format(timeStop))
 			timeStopCheck = self:ScheduleTimer(checkForTimeStop, 1.5, self)

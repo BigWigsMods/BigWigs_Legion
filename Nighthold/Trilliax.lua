@@ -52,7 +52,7 @@ function mod:GetOptions()
 
 		-- Maniac
 		208910, -- Arcing Bonds
-		207630, -- Annihilation
+		{207630, "CASTBAR"}, -- Annihilation
 
 		-- Caretaker
 		207502, -- Succulent Feast
@@ -244,7 +244,6 @@ do
 			local _, _, _, expires = self:UnitDebuff("player", args.spellName, 208915) -- 208915 on Mythic
 			local remaining = expires-GetTime()
 			self:Bar(208910, remaining, L.yourLinkShort:format(self:ColorName(myPartner)))
-			myPartner = nil
 			myPartnerIsNext = nil
 		end
 	end

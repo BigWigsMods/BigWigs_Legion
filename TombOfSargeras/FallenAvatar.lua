@@ -83,20 +83,20 @@ function mod:GetOptions()
 		"energy_leak",
 		"custom_on_stop_timers",
 		239207, -- Touch of Sargeras
-		239132, -- Rupture Realities
+		{239132, "CASTBAR"}, -- Rupture Realities
 		234059, -- Unbound Chaos
-		{236604, "SAY", "FLASH"}, -- Shadowy Blades
+		{236604, "CASTBAR", "SAY", "FLASH"}, -- Shadowy Blades
 		239212, -- Lingering Darkness
 		{236494, "TANK"}, -- Desolate
 		236528, -- Ripple of Darkness
-		{233856, "INFOBOX"}, -- Cleansing Protocol
-		233556, -- Corrupted Matrix
+		{233856, "CASTBAR", "INFOBOX"}, -- Cleansing Protocol
+		{233556, "CASTBAR"}, -- Corrupted Matrix
 		{239739, "FLASH", "SAY", "SAY_COUNTDOWN", "INFOBOX"}, -- Dark Mark
 		darkMarkIcons,
-		235572, -- Rupture Realities
+		{235572, "CASTBAR"}, -- Rupture Realities
 		242017, -- Black Winds
 		236684, -- Fel Infusion
-		240623, -- Tainted Matrix
+		{240623, "CASTBAR"}, -- Tainted Matrix
 		240728, -- Tainted Essence
 		234418, -- Rain of the Destroyer
 	},{

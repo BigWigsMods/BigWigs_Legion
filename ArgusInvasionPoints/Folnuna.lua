@@ -14,7 +14,7 @@ mod:RegisterEnableMob(124514)
 function mod:GetOptions()
 	return {
 		{247361, "TANK"}, -- Infected Claws
-		{247379, "SAY"}, -- Slumbering Gasp
+		{247379, "CASTBAR", "SAY"}, -- Slumbering Gasp
 		254147, -- Fel Blast
 		247443, -- Grotesque Spawn
 	}

@@ -75,7 +75,7 @@ function mod:GetOptions()
 	return {
 		--[[ General ]]--
 		"stages",
-		221875, -- Nether Traversal
+		{221875, "CASTBAR"}, -- Nether Traversal
 
 		--[[ Stage One ]]--
 		206464, -- Coronal Ejection
@@ -84,26 +84,26 @@ function mod:GetOptions()
 		{205984, "SAY", "SAY_COUNTDOWN"}, -- Gravitational Pull
 		206589, -- Chilled
 		{206936, "SAY", "SAY_COUNTDOWN", "FLASH", "PROXIMITY"}, -- Icy Ejection
-		206949, -- Frigid Nova
+		{206949, "CASTBAR"}, -- Frigid Nova
 
 		--[[ Stage Three ]]--
 		{214167, "SAY", "SAY_COUNTDOWN"}, -- Gravitational Pull
 		{206388, "TANK"}, -- Felburst
-		206517, -- Fel Nova
+		{206517, "CASTBAR"}, -- Fel Nova
 		{205649, "SAY"}, -- Fel Ejection
 		206398, -- Felflame
 
 		--[[ Stage Four ]]--
 		{214335, "SAY", "SAY_COUNTDOWN"}, -- Gravitational Pull
-		207439, -- Void Nova
+		{207439, "CASTBAR"}, -- Void Nova
 		222761, -- Big Bang
 		216909, -- World-Devouring Force
 
 		--[[ Thing That Should Not Be ]]--
-		207720, -- Witness the Void
+		{207720, "CASTBAR"}, -- Witness the Void
 
 		--[[ Mythic ]]--
-		{205408, "INFOBOX", "PROXIMITY"}, -- Grand Conjunction
+		{205408, "CASTBAR", "INFOBOX", "PROXIMITY"}, -- Grand Conjunction
 	}, {
 		["stages"] = "general",
 		[206464] = -13033, -- Stage One

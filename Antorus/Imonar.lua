@@ -45,7 +45,7 @@ function mod:GetOptions()
 
 		--[[ Stage Two: Contract to Kill ]]--
 		{247687, "TANK"}, -- Sever
-		248254, -- Charged Blasts
+		{248254, "CASTBAR"}, -- Charged Blasts
 		247923, -- Shrapnel Blast
 
 		--[[ Stage Three: The Perfect Weapon ]]--

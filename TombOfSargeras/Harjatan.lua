@@ -39,14 +39,14 @@ function mod:GetOptions()
 		{231998, "TANK"}, -- Jagged Abrasion
 		231854, -- Unchecked Rage
 		232192, -- Commanding Roar
-		232061, -- Draw In
+		{232061, "CASTBAR"}, -- Draw In
 		233429, -- Frigid Blows
 		232174, -- Frosty Discharge
 		{231729, "SAY", "FLASH"}, -- Aqueous Burst
 		231768, -- Drenching Waters
 		{234128, "SAY", "FLASH"}, -- Driven Assault
 		"custom_on_fixate_plates",
-		240319, -- Hatching
+		{240319, "CASTBAR"}, -- Hatching
 		{241600, "SAY", "FLASH"}, -- Sickly Fixate
 		"berserk",
 	},{

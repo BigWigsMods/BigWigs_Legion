@@ -42,11 +42,11 @@ function mod:GetOptions()
 	return {
 		--[[ General ]]--
 		{204275, "TANK"}, -- Arcanoslash
-		204316, -- Shockwave
+		{204316, "CASTBAR"}, -- Shockwave
 		204448, -- Chitinous Exoskeleton
-		204459, -- Exoskeletal Vulnerability
+		{204459, "CASTBAR"}, -- Exoskeletal Vulnerability
 		204372, -- Call of the Scorpid
-		204471, -- Focused Blast
+		{204471, "CASTBAR"}, -- Focused Blast
 		{204284, "EMPHASIZE"}, -- Broken Shard
 		--204292, -- Crystalline Fragments
 		204744, -- Toxic Chitin

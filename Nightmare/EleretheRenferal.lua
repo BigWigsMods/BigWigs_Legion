@@ -52,12 +52,12 @@ function mod:GetOptions()
 		{215443, "SAY", "SAY_COUNTDOWN", "FLASH"}, -- Necrotic Venom
 
 		--[[ Roc Form ]]--
-		212707, -- Gathering Clouds
+		{212707, "CASTBAR"}, -- Gathering Clouds
 		210948, -- Dark Storm
 		{210864, "SAY", "SAY_COUNTDOWN", "FLASH"}, -- Twisting Shadows
-		210547, -- Razor Wing
+		{210547, "CASTBAR"}, -- Razor Wing
 		{215582, "TANK"}, -- Raking Talons
-		218124, -- Violent Winds (mythic)
+		{218124, "CASTBAR"}, -- Violent Winds (mythic)
 
 		--[[ General ]]--
 		"stages",

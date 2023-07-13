@@ -83,10 +83,10 @@ function mod:GetOptions()
 		"orb_melee",
 		"orb_ranged",
 		orbMarker,
-		227967, -- Bilewater Breath
-		227992, -- Bilewater Liquefaction
+		{227967, "CASTBAR"}, -- Bilewater Breath
+		{227992, "CASTBAR"}, -- Bilewater Liquefaction
 		{227982, "TANK"}, -- Bilewater Redox
-		228730, -- Tentacle Strike
+		{228730, "CASTBAR"}, -- Tentacle Strike
 		"tentacle_near",
 		"tentacle_far",
 		{228054, "SAY"}, -- Taint of the Sea
@@ -95,16 +95,16 @@ function mod:GetOptions()
 		230197, -- Dark Waters
 
 		--[[ Stage Two: From the Mists ]]--
-		228300, -- Fury of the Maw
+		{228300, "CASTBAR"}, -- Fury of the Maw
 		167910, -- Kvaldir Longboat
 
 		--[[ Grimelord ]]--
-		228390, -- Sludge Nova
+		{228390, "CASTBAR"}, -- Sludge Nova
 		{193367, "SAY", "SAY_COUNTDOWN", "FLASH", "PROXIMITY"}, -- Fetid Rot
 		228519, -- Anchor Slam
 
 		--[[ Night Watch Mariner ]]--
-		228619, -- Lantern of Darkness
+		{228619, "CASTBAR"}, -- Lantern of Darkness
 		228633, -- Give No Quarter
 		{228611, "TANK"}, -- Ghostly Rage
 
@@ -116,7 +116,7 @@ function mod:GetOptions()
 
 		--[[ Stage Three: Helheim's Last Stand ]]--
 		{230267, "SAY", "FLASH"}, -- Orb of Corrosion
-		228565, -- Corrupted Breath
+		{228565, "CASTBAR"}, -- Corrupted Breath
 		{232488, "TANK"}, -- Dark Hatred
 		{232450, "HEALER"}, -- Corrupted Axiom
 	},{
@@ -426,7 +426,7 @@ end
 
 function mod:TentacleStrike(args)
 	-- Message is in RAID_BOSS_EMOTE
-	self:CastBar(args.spellId, 6,CL.count:format(args.spellName, tentacleCount))
+	self:CastBar(args.spellId, 6, CL.count:format(args.spellName, tentacleCount))
 	tentacleCount = tentacleCount + 1
 	self:Bar(args.spellId, self:Mythic() and timers["Tentacle Strike"][tentacleCount] or 40, CL.count:format(self:SpellName(228730), tentacleCount))
 end

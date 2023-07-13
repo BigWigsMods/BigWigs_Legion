@@ -75,7 +75,7 @@ function mod:GetOptions()
 		226194, -- Writhing Deep
 
 		--[[ Mythic ]]--
-		205843, -- The Dreaming
+		{205843, "CASTBAR"}, -- The Dreaming
 	},{
 		["berserk"] = "general",
 		[206651] = -12971, -- Stage One: The Decent Into Madness

@@ -62,7 +62,7 @@ function mod:GetOptions()
 		236678, -- Quietus
 		{235924, "SAY", "SAY_COUNTDOWN"}, -- Spear of Anguish
 		235907, -- Collapsing Fissure
-		{238570, "SAY", "SAY_COUNTDOWN", "ICON"}, -- Tormented Cries
+		{238570, "CASTBAR", "SAY", "SAY_COUNTDOWN", "ICON"}, -- Tormented Cries
 		235927, -- Rupturing Slam
 		236513, -- Bonecage Armor
 		"custom_on_armor_plates",
@@ -70,12 +70,12 @@ function mod:GetOptions()
 		236131, -- Wither
 		{236459, "ME_ONLY"}, -- Soulbind
 		soulBindMarker,
-		236072, -- Wailing Souls
+		{236072, "CASTBAR"}, -- Wailing Souls
 		{236515, "ME_ONLY"}, -- Shattering Scream
 		236361, -- Spirit Chains
 		236241, -- Soul Rot
-		236542, -- Sundering Doom
-		236544, -- Doomed Sundering
+		{236542, "CASTBAR"}, -- Sundering Doom
+		{236544, "CASTBAR"}, -- Doomed Sundering
 		236548, -- Torment
 	},{
 		["infobox"] = "general",

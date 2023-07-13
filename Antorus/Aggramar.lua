@@ -79,7 +79,7 @@ function mod:GetOptions()
 		{244688, "INFOBOX"}, -- Taeshalach Technique
 		245458, -- Foe Breaker
 		245463, -- Flame Rend
-		245301, -- Searing Tempest
+		{245301, "CASTBAR"}, -- Searing Tempest
 
 		--[[ Stage Two: Champion of Sargeras ]]--
 		245983, -- Flare
@@ -90,7 +90,7 @@ function mod:GetOptions()
 		--[[ Mythic ]]--
 		{254452, "SAY", "FLASH", "PROXIMITY"}, -- Ravenous Blaze
 		255058, -- Empowered Flame Rend
-		255061 -- Empowered Searing Tempest
+		{255061, "CASTBAR"} -- Empowered Searing Tempest
 	},{
 		["stages"] = "general",
 		[245990] = -15794, -- Stage One: Wrath of Aggramar

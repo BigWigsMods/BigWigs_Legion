@@ -32,17 +32,17 @@ local rotMarker = mod:AddMarkerOption(false, "player", 1, 203096, 1, 2, 3, 4, 5)
 function mod:GetOptions()
 	return {
 		--[[ General ]]--
-		202977, -- Infested Breath
+		{202977, "CASTBAR"}, -- Infested Breath
 		{203096, "SAY", "SAY_COUNTDOWN", "FLASH", "PROXIMITY"}, -- Rot
 		rotMarker,
 		{204463, "SAY", "FLASH", "ICON"}, -- Volatile Rot
-		203552, -- Heart of the Swarm
+		{203552, "CASTBAR"}, -- Heart of the Swarm
 		203045, -- Infested Ground
 		"berserk",
 
 		--[[ Mythic ]]--
 		{204504, "INFOBOX"}, -- Infested
-		{225943, "SAY", "FLASH"}, -- Infested Mind
+		{225943, "CASTBAR", "SAY", "FLASH"}, -- Infested Mind
 		205070, -- Spread Infestation
 	},{
 		[202977] = "general",
