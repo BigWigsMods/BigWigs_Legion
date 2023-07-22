@@ -57,10 +57,6 @@ L = BigWigs:NewBossLocale("Eonar the Life-Binder", "zhTW")
 if L then
 	L.warp_in_desc = "顯示每一波怪的計時器與訊息，並提示其中的重要怪物。"
 
-	L.top_lane = "上"
-	L.mid_lane = "中"
-	L.bot_lane = "下"
-
 	L.purifier = "淨化者" -- Fel-Powered Purifier
 	L.destructor = "毀滅者" -- Fel-Infused Destructor
 	L.obfuscator = "匿蹤者" -- Fel-Charged Obfuscator

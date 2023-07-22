@@ -57,10 +57,6 @@ L = BigWigs:NewBossLocale("Eonar the Life-Binder", "ptBR")
 if L then
 	L.warp_in_desc = "Mostra cronômetros e mensagens para cada onda, junto com quaisquer acréscimos especiais na onda."
 
-	L.top_lane = "Superior"
-	L.mid_lane = "Meio"
-	L.bot_lane = "Inferior"
-
 	L.purifier = "Purificador" -- Fel-Powered Purifier
 	L.destructor = "Destruidor" -- Fel-Infused Destructor
 	L.obfuscator = "Ofuscador" -- Fel-Charged Obfuscator

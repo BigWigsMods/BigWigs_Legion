@@ -57,10 +57,6 @@ L = BigWigs:NewBossLocale("Eonar the Life-Binder", "zhCN")
 if L then
 	L.warp_in_desc = "显示每一波计时条信息，连同每波中的任一特殊增援。"
 
-	L.top_lane = "上"
-	L.mid_lane = "中"
-	L.bot_lane = "下"
-
 	L.purifier = "净化者" -- Fel-Powered Purifier
 	L.destructor = "毁灭者" -- Fel-Infused Destructor
 	L.obfuscator = "干扰器" -- Fel-Charged Obfuscator

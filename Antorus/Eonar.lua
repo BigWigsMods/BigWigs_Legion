@@ -152,9 +152,6 @@ if L then
 	L.lifeforce_casts = "%s (%d/%d)"
 
 	L.lane_text = "%s: %s" -- example: Top: Purifier
-	L.top_lane = "Top"
-	L.mid_lane = "Mid"
-	L.bot_lane = "Bot"
 
 	L.purifier = "Purifier" -- Fel-Powered Purifier
 	L.destructor = "Destructor" -- Fel-Infused Destructor
@@ -260,13 +257,13 @@ function mod:StartWaveTimer(lane, count)
 
 	local laneText, icon = nil, nil
 	if lane == "top" then
-		laneText = L.top_lane
+		laneText = CL.top
 		icon = "misc_arrowlup"
 	elseif lane == "mid" then
-		laneText = L.mid_lane
+		laneText = CL.middle
 		icon = "misc_arrowright"
 	elseif lane == "bot" then
-		laneText = L.bot_lane
+		laneText = CL.bottom
 		icon = "misc_arrowdown"
 	elseif lane == "air" then
 		laneText = L.bats

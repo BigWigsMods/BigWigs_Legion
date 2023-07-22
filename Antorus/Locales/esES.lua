@@ -57,10 +57,6 @@ L = BigWigs:NewBossLocale("Eonar the Life-Binder", "esES") or BigWigs:NewBossLoc
 if L then
 	--L.warp_in_desc = "Shows timers and messages for each wave, along with any special adds in the wave."
 
-	--L.top_lane = "Top"
-	--L.mid_lane = "Mid"
-	--L.bot_lane = "Bot"
-
 	--L.purifier = "Purifier" -- Fel-Powered Purifier
 	--L.destructor = "Destructor" -- Fel-Infused Destructor
 	--L.obfuscator = "Obfuscator" -- Fel-Charged Obfuscator

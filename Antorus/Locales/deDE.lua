@@ -57,10 +57,6 @@ L = BigWigs:NewBossLocale("Eonar the Life-Binder", "deDE")
 if L then
 	L.warp_in_desc = "Zeigt Timer und Nachrichten für jede Welle sowie spezielle Adds in der Welle an."
 
-	L.top_lane = "Oben"
-	L.mid_lane = "Mitte"
-	L.bot_lane = "Unten"
-
 	L.purifier = "Läuterer" -- Fel-Powered Purifier
 	L.destructor = "Zerstörer" -- Fel-Infused Destructor
 	L.obfuscator = "Verdunkler" -- Fel-Charged Obfuscator

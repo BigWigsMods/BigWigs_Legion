@@ -57,10 +57,6 @@ L = BigWigs:NewBossLocale("Eonar the Life-Binder", "koKR")
 if L then
 	L.warp_in_desc = "각 무리(특수 쫄 포함)가 소환되는 타이머와 전투 메세지 표시."
 
-	L.top_lane = "상층"
-	L.mid_lane = "중층"
-	L.bot_lane = "하층"
-
 	L.purifier = "정화자" -- Fel-Powered Purifier
 	L.destructor = "파괴자" -- Fel-Infused Destructor
 	L.obfuscator = "혼란자" -- Fel-Charged Obfuscator

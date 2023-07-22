@@ -57,10 +57,6 @@ L = BigWigs:NewBossLocale("Eonar the Life-Binder", "frFR")
 if L then
 	L.warp_in_desc = "Affiche messages et délais pour chaque vague, ainsi que les adds spéciaux de chaque vague."
 
-	L.top_lane = "Hau"
-	L.mid_lane = "Mil"
-	L.bot_lane = "Bas"
-
 	L.purifier = "Purificateur" -- Fel-Powered Purifier
 	L.destructor = "Destructeur" -- Fel-Infused Destructor
 	L.obfuscator = "Négateur" -- Fel-Charged Obfuscator

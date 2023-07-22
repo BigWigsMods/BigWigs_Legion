@@ -57,10 +57,6 @@ L = BigWigs:NewBossLocale("Eonar the Life-Binder", "ruRU")
 if L then
 	L.warp_in_desc = "Отображает таймеры и сообщения для каждой волны, вместе с каждым специальным аддом в волне."
 
-	L.top_lane = "Верх"
-	L.mid_lane = "Центр"
-	L.bot_lane = "Низ"
-
 	L.purifier = "Очиститель" -- Fel-Powered Purifier
 	L.destructor = "Разрушитель" -- Fel-Infused Destructor
 	L.obfuscator = "Маскировщик" -- Fel-Charged Obfuscator
