@@ -79,7 +79,7 @@ function mod:GetOptions()
 		236548, -- Torment
 	},{
 		["infobox"] = "general",
-		[235933] = -14856,-- Corporeal Realm
+		[235924] = -14856,-- Corporeal Realm
 		[235927] = CL.adds,-- Adds
 		[236131] = -14857,-- Spirit Realm
 		[236515] = CL.adds,-- Adds

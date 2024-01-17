@@ -88,7 +88,6 @@ function mod:GetOptions()
 		"smashingBridge",
 		205420, -- Burning Pitch
 		208203, -- Isolated Rage
-		"berserk",
 	}
 end
 

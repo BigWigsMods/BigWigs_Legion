@@ -94,14 +94,14 @@ function mod:GetOptions()
 		{239739, "FLASH", "SAY", "SAY_COUNTDOWN", "INFOBOX"}, -- Dark Mark
 		darkMarkIcons,
 		{235572, "CASTBAR"}, -- Rupture Realities
-		242017, -- Black Winds
+		--242017, -- Black Winds
 		236684, -- Fel Infusion
 		{240623, "CASTBAR"}, -- Tainted Matrix
 		240728, -- Tainted Essence
 		234418, -- Rain of the Destroyer
 	},{
 		["warmup"] = "general",
-		[239058] = -14709, -- Stage One: A Slumber Disturbed
+		[239207] = -14709, -- Stage One: A Slumber Disturbed
 		[233856] = -14713, -- Maiden of Valor
 		[233556] = -15565, -- Containment Pylon
 		[239739] = -14719, -- Stage Two: An Avatar Awakened

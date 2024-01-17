@@ -63,7 +63,7 @@ function mod:GetOptions()
 		--[[ Mythic ]]--
 		{249680, "SAY", "SAY_COUNTDOWN"}, -- Reverberating Decimation
 	},{
-		[244312] = -16151, -- Stage: Deployment
+		[254919] = -16151, -- Stage: Deployment
 		[246516] = -16152, -- Stage: Construction
 		[246664] = -16143, -- Garothi Annihilator
 		[246686] = -16144, -- Garothi Decimator

@@ -62,7 +62,6 @@ function mod:GetOptions()
 		--[[ General ]]--
 		"stages",
 		213124, -- Venomous Pool
-		"berserk",
 	},{
 		[215300] = -13259, -- Spider Form
 		[212707] = -13263, -- Roc Form

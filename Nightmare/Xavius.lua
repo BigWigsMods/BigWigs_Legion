@@ -44,7 +44,6 @@ local bladeMarker = mod:AddMarkerOption(false, "player", 1, 211802, 1, 2) -- Nig
 function mod:GetOptions()
 	return {
 		--[[ General ]]--
-		"berserk",
 		"stages",
 		"altpower",
 		208431, -- Decent Into Madness
@@ -77,7 +76,7 @@ function mod:GetOptions()
 		--[[ Mythic ]]--
 		{205843, "CASTBAR"}, -- The Dreaming
 	},{
-		["berserk"] = "general",
+		["stages"] = "general",
 		[206651] = -12971, -- Stage One: The Decent Into Madness
 		[209034] = -13152, -- Stage Two: From the Shadows
 		[226194] = -13160, -- Stage Three: World of Darkness

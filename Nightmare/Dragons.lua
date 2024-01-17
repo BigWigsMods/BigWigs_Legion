@@ -47,7 +47,6 @@ function mod:GetOptions()
 		--[[ General ]]--
 		{203028, "TANK"}, -- Corrupted Breath
 		-12809, -- Marks
-		"berserk",
 
 		--[[ Ysondre ]]--
 		207573, -- Call Defiled Spirit

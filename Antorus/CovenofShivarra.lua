@@ -490,7 +490,7 @@ do
 
 		if self:Healer() then -- Always play a sound for healers
 			self:PlaySound(args.spellId, "alarm", nil, playerList)
-		elseif self:Me() then
+		elseif self:Me(args.destGUID) then
 			self:PlaySound(args.spellId, "alarm")
 		end
 

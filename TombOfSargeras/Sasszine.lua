@@ -59,7 +59,7 @@ function mod:GetOptions()
 	},{
 		["stages"] = "general",
 		[232722] = -14591,
-		[232746] = -14605,
+		[234621] = -14605,
 		[239436] = "mythic",
 	}
 end
