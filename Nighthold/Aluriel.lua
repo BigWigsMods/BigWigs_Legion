@@ -41,7 +41,7 @@ local searingBrandOnMe = nil
 -- Upvalues
 --
 
-local tDeleteItem, tContains = tDeleteItem, tContains
+local tContains = tContains
 
 --------------------------------------------------------------------------------
 -- Initialization
@@ -317,8 +317,8 @@ function mod:MarkOfFrostRemoved(args)
 		markOfFrostOnMe = nil
 	end
 
-	tDeleteItem(markOfFrostTargets, args.destName)
-	tDeleteItem(proxList, args.destName)
+	self:DeleteFromTable(markOfFrostTargets, args.destName)
+	self:DeleteFromTable(proxList, args.destName)
 
 	if #markOfFrostTargets == 0 then
 		self:CloseProximity(args.spellId)
@@ -440,8 +440,8 @@ function mod:SearingBrandRemoved(args)
 		searingBrandOnMe = nil
 	end
 
-	tDeleteItem(searingBrandTargets, args.destName)
-	tDeleteItem(proxList, args.destName)
+	self:DeleteFromTable(searingBrandTargets, args.destName)
+	self:DeleteFromTable(proxList, args.destName)
 
 	if self:GetOption(searingBrandMarker) then
 		self:CustomIcon(false, args.destName)

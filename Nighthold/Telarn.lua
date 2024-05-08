@@ -204,7 +204,7 @@ do
 			local icon = iconsUnused[1]
 			if icon then -- At least one icon unused
 				self:CustomIcon(false, args.destName, icon)
-				tDeleteItem(iconsUnused, icon)
+				self:DeleteFromTable(iconsUnused, icon)
 			end
 		end
 	end
@@ -221,7 +221,7 @@ do
 			collapseSayTimers = {}
 		end
 
-		tDeleteItem(proxList, args.destName)
+		self:DeleteFromTable(proxList, args.destName)
 		if not isOnMe then -- stand near others
 			if #proxList == 0 then
 				self:CloseProximity(args.spellId)
@@ -231,7 +231,7 @@ do
 		end
 
 		if self:GetOption(callOfTheNightMarker) then
-			local icon = GetRaidTargetIndex(args.destName)
+			local icon = self:GetIcon(args.destName)
 			if icon and icon > 0 and icon < 7 and not tContains(iconsUnused, icon) then
 				table.insert(iconsUnused, icon)
 				self:CustomIcon(false, args.destName)
@@ -352,7 +352,7 @@ do
 				self:MessageOld(218438, "red", "alert", CL.incoming:format(args.spellName))
 			end
 		end
-		if self:GetOption(fetterMarker) and GetRaidTargetIndex(args.destName) == 8 then
+		if self:GetOption(fetterMarker) and self:GetIcon(args.destName) == 8 then
 			self:CustomIcon(false, args.destName)
 		end
 	end

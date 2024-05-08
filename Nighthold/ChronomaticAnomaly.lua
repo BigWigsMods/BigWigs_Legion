@@ -385,7 +385,7 @@ do
 			if i < 5 then -- Only room for 4 players
 				if infoBoxList[i] then
 					local player = infoBoxList[i][1]
-					local icon = GetRaidTargetIndex(player)
+					local icon = mod:GetIcon(player)
 					mod:SetInfo(206609, 1+i*2, (icon and ("|T13700%d:0|t"):format(icon) or "") .. mod:ColorName(player))
 					mod:SetInfo(206609, 2+i*2, mod:AbbreviateNumber(infoBoxList[i][2]))
 					mod:SetInfoBar(206609, 1+i*2, infoBoxList[i][2] / timeReleaseMaxAbsorb)

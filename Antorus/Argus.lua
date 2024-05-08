@@ -315,7 +315,7 @@ local function checkForFearHelp(self, icon)
 	if fearOnMe then
 		local id = soulblightOnMe and 248396 or soulbombOnMe and 251570 or soulburstOnMe and 250669 or sentenceOnMe and 257966
 		if id then
-			icon = icon or GetRaidTargetIndex("player") or 8
+			icon = icon or self:GetIcon("player") or 8
 			local msg = ("{rt%d} %s + %s {rt%d}"):format(icon, L[257931], L[id], icon)
 			self:Say("fear_help", msg)
 			return true

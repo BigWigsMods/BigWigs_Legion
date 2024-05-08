@@ -318,7 +318,7 @@ do
 			if mobID == 122532 and waveCollector[currentEmberWave] then
 				if waveCollector[currentEmberWave][guid] then
 					for i = 1, 5 do -- Use only 5 marks, leaving 6, 7, 8 for raid use purposes
-						if not emberAddMarks[i] and not GetRaidTargetIndex(unit) then -- Don't re-mark the same add and re-use marks
+						if not emberAddMarks[i] and not self:GetIcon(unit) then -- Don't re-mark the same add and re-use marks
 							self:CustomIcon(false, unit, i)
 							emberAddMarks[i] = guid
 							break
@@ -425,7 +425,7 @@ do
 		if self:Me(args.destGUID) then
 			blazeOnMe = false
 		end
-		tDeleteItem(blazeProxList, args.destName)
+		self:DeleteFromTable(blazeProxList, args.destName)
 		updateProximity(self)
 	end
 end
@@ -583,7 +583,7 @@ do
 		if self:Me(args.destGUID) then
 			blazeOnMe = false
 		end
-		tDeleteItem(blazeProxList, args.destName)
+		self:DeleteFromTable(blazeProxList, args.destName)
 		updateProximity(self)
 	end
 end

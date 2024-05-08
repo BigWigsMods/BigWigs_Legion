@@ -226,7 +226,7 @@ do
 		if not tContains(felList, args.destName) then
 			felList[#felList+1] = args.destName
 		end
-		tDeleteItem(lightList, args.destName)
+		self:DeleteFromTable(lightList, args.destName)
 		if self:Me(args.destGUID) then
 			self:OpenProximity(235271, 5, lightList) -- Avoid people with Light debuff
 			checkSide(self, args.spellId, args.spellName)
@@ -237,7 +237,7 @@ do
 		if not tContains(lightList, args.destName) then
 			lightList[#lightList+1] = args.destName
 		end
-		tDeleteItem(felList, args.destName)
+		self:DeleteFromTable(felList, args.destName)
 		if self:Me(args.destGUID) then
 			self:OpenProximity(235271, 5, felList) -- Avoid people with Fel debuff
 			checkSide(self, args.spellId, args.spellName)

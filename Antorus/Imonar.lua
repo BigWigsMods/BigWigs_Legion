@@ -190,7 +190,7 @@ do
 	end
 
 	function mod:SleepCanisterRemoved(args)
-		tDeleteItem(canisterProxList, args.destName)
+		self:DeleteFromTable(canisterProxList, args.destName)
 		if #canisterProxList == 0 then
 			self:CloseProximity(254244)
 		else

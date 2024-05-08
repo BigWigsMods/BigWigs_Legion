@@ -206,7 +206,7 @@ do
 				for i = 1, min((8-bloodOffset)/2, 3) do
 					if chilledBloodList[i] then
 						local player = chilledBloodList[i][1]
-						local icon = GetRaidTargetIndex(player)
+						local icon = mod:GetIcon(player)
 						mod:SetInfo("infobox", bloodOffset+1+i*2, (icon and ("|T13700%d:0|t"):format(icon) or "") .. mod:ColorName(player))
 						mod:SetInfo("infobox", bloodOffset+2+i*2, mod:AbbreviateNumber(chilledBloodList[i][2]))
 						mod:SetInfoBar("infobox", bloodOffset+1+i*2, chilledBloodList[i][2] / chilledBloodMaxAbsorb)
@@ -324,25 +324,25 @@ do
 		local announceNextTorment = nil
 		if spellId == 253949 then -- Machinations of Aman'thul
 			self:StopBar(L.torment:format(L.tormentHeal))
-			tDeleteItem(upcomingTorments, "AmanThul")
+			self:DeleteFromTable(upcomingTorments, "AmanThul")
 			self:MessageOld("torment_of_the_titans", "red", "warning", L.torment:format(L.tormentHeal), tormentIcons["AmanThul"])
 			updateInfoBox()
 			announceNextTorment = true
 		elseif spellId == 253881 then -- Flames of Khaz'goroth
 			self:StopBar(L.torment:format(L.tormentFlames))
-			tDeleteItem(upcomingTorments, "Khazgoroth")
+			self:DeleteFromTable(upcomingTorments, "Khazgoroth")
 			self:MessageOld("torment_of_the_titans", "red", "warning", L.torment:format(L.tormentFlames), tormentIcons["Khazgoroth"])
 			updateInfoBox()
 			announceNextTorment = true
 		elseif spellId == 253951 then  -- Fury of Golganneth
 			self:StopBar(L.torment:format(L.tormentLightning))
-			tDeleteItem(upcomingTorments, "Golganneth")
+			self:DeleteFromTable(upcomingTorments, "Golganneth")
 			self:MessageOld("torment_of_the_titans", "red", "warning", L.torment:format(L.tormentLightning), tormentIcons["Golganneth"])
 			updateInfoBox()
 			announceNextTorment = true
 		elseif spellId == 253950 then -- Spectral Army of Norgannon
 			self:StopBar(L.torment:format(L.tormentArmy))
-			tDeleteItem(upcomingTorments, "Norgannon")
+			self:DeleteFromTable(upcomingTorments, "Norgannon")
 			self:MessageOld("torment_of_the_titans", "red", "warning", L.torment:format(L.tormentArmy), tormentIcons["Norgannon"])
 			updateInfoBox()
 			announceNextTorment = true

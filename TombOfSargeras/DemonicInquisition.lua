@@ -323,7 +323,7 @@ do
 	end
 
 	function mod:EchoingAnguishRemoved(args)
-		tDeleteItem(proxList, args.destName)
+		self:DeleteFromTable(proxList, args.destName)
 		if self:GetOption(anguishMarker) then
 			self:CustomIcon(false, args.destName)
 		end

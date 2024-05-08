@@ -570,7 +570,7 @@ do
 				addMaxHP = maxHp
 			end
 			addDmg[guid] = maxHp - UnitHealth(unit)
-			local icon = GetRaidTargetIndex(unit)
+			local icon = self:GetIcon(unit)
 			if icon and icon > 0 and icon < 9 then
 				addMarks[guid] = icon
 			end

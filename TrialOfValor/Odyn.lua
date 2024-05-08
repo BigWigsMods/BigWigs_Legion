@@ -578,7 +578,7 @@ do
 		if self:Me(args.destGUID) then
 			isOnMe = 0
 		end
-		tDeleteItem(proxLists[args.spellId], args.destName)
+		self:DeleteFromTable(proxLists[args.spellId], args.destName)
 		updateProximity(self)
 	end
 

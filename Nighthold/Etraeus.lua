@@ -48,12 +48,6 @@ local starSignTables = {
 }
 
 --------------------------------------------------------------------------------
--- Upvalues
---
-
-local tDeleteItem = tDeleteItem
-
---------------------------------------------------------------------------------
 -- Localization
 --
 
@@ -534,7 +528,7 @@ do
 	end
 
 	function mod:StarSignsRemoved(args)
-		tDeleteItem(starSignTables[args.spellId], args.destName)
+		self:DeleteFromTable(starSignTables[args.spellId], args.destName)
 
 		if self:Me(args.destGUID) then
 			self:MessageOld(205408, "blue", "info", CL.removed:format(args.spellName), args.spellId)

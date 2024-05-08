@@ -412,11 +412,6 @@ do
 			if not scheduled then
 				scheduled = self:ScheduleTimer(warn, 0.1, self, args.spellId, args.spellName)
 			end
-		elseif IsItemInRange(33278, args.destName) and t-prev > 2 then -- warn if dispelled in ~8yd range
-			prev = t
-			if not scheduled then
-				scheduled = self:ScheduleTimer(warn, 0.1, self, args.spellId, args.spellName)
-			end
 		end
 		if self:GetOption(taintMarker) then
 			self:CustomIcon(false, args.destName)
@@ -532,7 +527,7 @@ do
 			self:CancelSayCountdown(args.spellId)
 		end
 
-		tDeleteItem(proxList, args.destName)
+		self:DeleteFromTable(proxList, args.destName)
 
 		if not isOnMe then -- Don't change proximity if it's on you and expired on someone else
 			if #proxList == 0 then
