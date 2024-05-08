@@ -100,8 +100,8 @@ function mod:GetOptions()
 	}
 end
 
-function mod:VerifyEnable()
-	return BigWigsLoader.GetBestMapForUnit("player") == 917 -- Floor 9, The World Soul
+function mod:VerifyEnable(_, _, mapArtID)
+	return mapArtID == 917 -- Floor 9, The World Soul
 end
 
 function mod:OnBossEnable()
