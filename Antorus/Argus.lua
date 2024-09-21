@@ -556,7 +556,7 @@ do
 			isOnMe = #burstList == 1 and 3 or 7 -- Soulburst on you (3 or 7)
 			self:SayCountdown(args.spellId, self:Mythic() and 12 or 15, isOnMe)
 			if not checkForFearHelp(self, #burstList == 1 and 3 or 7) then
-				self:Say(args.spellId, CL.count_rticon:format(args.spellName, #burstList, isOnMe), nil, CL.count_rticon:format("Soulburst", #burstList, isOnMe))
+				self:Say(args.spellId, CL.count_rticon:format(args.spellName, #burstList, isOnMe), nil, ("Soulburst (%d{rt%d})"):format(#burstList, isOnMe))
 			end
 		end
 		if #burstList == 1 then

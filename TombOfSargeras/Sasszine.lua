@@ -201,7 +201,7 @@ do
 			if self:Easy() then
 				self:Say(args.spellId, nil, nil, "Hydra Shot")
 			else
-				self:Say(args.spellId, CL.count_rticon:format(args.spellName, count, count), nil, CL.count_rticon:format("Hydra Shot", count, count))
+				self:Say(args.spellId, CL.count_rticon:format(args.spellName, count, count), nil, ("Hydra Shot (%d{rt%d})"):format(count, count))
 				self:SayCountdown(args.spellId, 6, count, 4)
 			end
 		end

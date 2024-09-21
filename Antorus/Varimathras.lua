@@ -194,7 +194,7 @@ do
 			isOnMe = true
 			self:PlaySound(args.spellId, "warning")
 			self:TargetMessage(args.spellId, "orange", args.destName, CL.count_icon:format(args.spellName, count, icon))
-			self:Say(args.spellId, CL.count_rticon:format(args.spellName, count, icon), nil, CL.count_rticon:format("Necrotic Embrace", count, icon))
+			self:Say(args.spellId, CL.count_rticon:format(args.spellName, count, icon), nil, ("Necrotic Embrace (%d{rt%d})"):format(count, icon))
 			self:Flash(args.spellId, icon)
 			self:SayCountdown(args.spellId, 6, icon)
 			self:OpenProximity(args.spellId, 10)

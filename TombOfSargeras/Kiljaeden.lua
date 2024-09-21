@@ -391,7 +391,7 @@ do
 			if self:Easy() then
 				self:Say(args.spellId, L.reflectionErupting, nil, "Reflection: Erupting")
 			else
-				self:Say(args.spellId, CL.count_rticon:format(L.reflectionErupting, #playerList, #playerList+2), nil, CL.count_rticon:format("Reflection: Erupting", #playerList, #playerList+2))
+				self:Say(args.spellId, CL.count_rticon:format(L.reflectionErupting, #playerList, #playerList+2), nil, ("Reflection: Erupting (%d{rt%d})"):format(#playerList, #playerList+2))
 			end
 			self:SayCountdown(args.spellId, 8)
 		end

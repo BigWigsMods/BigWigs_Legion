@@ -485,7 +485,7 @@ do
 				self:Say(args.spellId, nil, nil, "Dark Mark")
 				self:SayCountdown(args.spellId, remaining)
 			else
-				self:Say(args.spellId, CL.count_rticon:format(args.spellName, count, icon), nil, CL.count_rticon:format("Dark Mark", count, icon)) -- Announce which mark you have
+				self:Say(args.spellId, CL.count_rticon:format(args.spellName, count, icon), nil, ("Dark Mark (%d{rt%d})"):format(count, icon)) -- Announce which mark you have
 				self:SayCountdown(args.spellId, remaining, icon)
 			end
 		end

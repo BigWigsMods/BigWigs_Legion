@@ -566,7 +566,7 @@ do
 			isOnMe = args.spellId
 			self:MessageOld(197961, "blue", "warning", CL.other:format(args.spellName, L[translatedSpellId]), args.spellId)
 			self:Flash(197961, args.spellId)
-			self:Say(197961, L.say[translatedSpellId]:format(args.spellName), nil, L.say[translatedSpellId]:format("Runic Brand"))
+			self:Say(197961, L.say[translatedSpellId]:format(args.spellName), nil, L.say[translatedSpellId]:format("Runic Brand")) -- note, L.say is not a localized string
 			self:TargetBar(197961, 10, args.destName, nil, args.spellId)
 		end
 		proxLists[args.spellId][#proxLists[args.spellId]+1] = args.destName

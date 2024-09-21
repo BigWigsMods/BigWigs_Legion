@@ -621,7 +621,7 @@ do
 			scheduled = self:ScheduleTimer("TargetMessageOld", 1, 209011, list, "red", "warning", CL.count:format(self:SpellName(209011), bondsCount-1), nil, true) -- Have the bonds number in the list warning also
 		end
 		if self:Me(args.destGUID) then
-			self:Say(209011, CL.count:format(args.spellName, #list), nil, CL.count:format("Bonds of Fel", #list))
+			self:Say(209011, CL.count:format(args.spellName, #list), nil, ("Bonds of Fel (%d)"):format(#list))
 			self:Flash(209011)
 		end
 		if #list == expectedBonds then
