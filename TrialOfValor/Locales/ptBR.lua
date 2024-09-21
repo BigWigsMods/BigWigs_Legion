@@ -1,4 +1,15 @@
-local L = BigWigs:NewBossLocale("Guarm-TrialOfValor", "ptBR")
+local L = BigWigs:NewBossLocale("Odyn-TrialOfValor", "ptBR")
+if not L then return end
+if L then
+	L.yields = "%s cedeu" -- used when Hymdall and Helya leave the fight in P2: "Hymdall yields"
+	L[227490] = "|cFF800080Cima Direita|r (|T1323037:15:15:0:0:64:64:4:60:4:60|t)" -- Boss_OdunRunes_Purple
+	L[227491] = "|cFFFFA500Baixo Direita|r (|T1323039:15:15:0:0:64:64:4:60:4:60|t)" -- Boss_OdunRunes_Orange
+	L[227498] = "|cFFFFFF00Baixo Esquerda|r (|T1323038:15:15:0:0:64:64:4:60:4:60|t)" -- Boss_OdunRunes_Yellow
+	L[227499] = "|cFF0000FFCima Esquerda|r (|T1323035:15:15:0:0:64:64:4:60:4:60|t)" -- Boss_OdunRunes_Blue
+	L[227500] = "|cFF008000Cima|r (|T1323036:15:15:0:0:64:64:4:60:4:60|t)" -- Boss_OdunRunes_Green
+end
+
+L = BigWigs:NewBossLocale("Guarm-TrialOfValor", "ptBR")
 if L then
 	L.lick = "Lambida"
 	L.lick_desc = "Mostra barras para as lambidas."
@@ -23,15 +34,4 @@ if L then
 
 	L.orb_say = "Orbe"
 	L.taint_say = "Mácula"
-end
-
-L = BigWigs:NewBossLocale("Odyn-TrialOfValor", "ptBR")
-if not L then return end
-if L then
-	L.yields = "%s cedeu" -- used when Hymdall and Helya leave the fight in P2: "Hymdall yields"
-	L[227490] = "|cFF800080Cima Direita|r (|T1323037:15:15:0:0:64:64:4:60:4:60|t)" -- Boss_OdunRunes_Purple
-	L[227491] = "|cFFFFA500Baixo Direita|r (|T1323039:15:15:0:0:64:64:4:60:4:60|t)" -- Boss_OdunRunes_Orange
-	L[227498] = "|cFFFFFF00Baixo Esquerda|r (|T1323038:15:15:0:0:64:64:4:60:4:60|t)" -- Boss_OdunRunes_Yellow
-	L[227499] = "|cFF0000FFCima Esquerda|r (|T1323035:15:15:0:0:64:64:4:60:4:60|t)" -- Boss_OdunRunes_Blue
-	L[227500] = "|cFF008000Cima|r (|T1323036:15:15:0:0:64:64:4:60:4:60|t)" -- Boss_OdunRunes_Green
 end

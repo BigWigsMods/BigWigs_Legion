@@ -74,6 +74,7 @@ if L then
 
 	L.empowered = "(E) %s" -- (E) Eye of Gul'dan
 	L.gains = "Гул'дан получает %s"
+	--L.p2_start = "You failed, heroes! The ritual is upon us! But first, I'll indulge myself a bit... and finish you!"
 	L.p4_mythic_start_yell = "Вернем душу Иллидана в тело... Владыка Легиона не должен его заполучить."
 
 	L.nightorb_desc = "Призывает Ночную Сферу, её убийство образует Зону Остановки Времени."

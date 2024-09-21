@@ -149,10 +149,6 @@ if L then
 	L.warp_in_desc = "Shows timers and messages for each wave, along with any special adds in the wave."
 	L.warp_in_icon = "inv_artifact_dimensionalrift"
 
-	L.lifeforce_casts = "%s (%d/%d)"
-
-	L.lane_text = "%s: %s" -- example: Top: Purifier
-
 	L.purifier = "Purifier" -- Fel-Powered Purifier
 	L.destructor = "Destructor" -- Fel-Infused Destructor
 	L.obfuscator = "Obfuscator" -- Fel-Charged Obfuscator
@@ -271,7 +267,7 @@ function mod:StartWaveTimer(lane, count)
 	end
 
 	local addTypeText = L[addType]
-	local barText = addTypeText and L.lane_text:format(laneText, addTypeText) or laneText
+	local barText = addTypeText and CL.other:format(laneText, addTypeText) or laneText
 
 	self:Bar("warp_in", length, barText, icon)
 	self:DelayedMessage("warp_in", length, "yellow", barText, icon, "alert")
@@ -290,14 +286,14 @@ function mod:UNIT_POWER_FREQUENT(_, unit)
 	local power = UnitPower(unit, 10) -- Enum.PowerType.Alternate = 10
 	if power >= 80 and shouldAnnounceEnergy then
 		shouldAnnounceEnergy = nil
-		self:MessageOld(250048, "cyan", "info", CL.soon:format(L.lifeforce_casts:format(self:SpellName(250048), lifeForceCounter, lifeForceNeeded))) -- Life Force (n/4) soon!
+		self:MessageOld(250048, "cyan", "info", CL.soon:format(CL.count_amount:format(self:SpellName(250048), lifeForceCounter, lifeForceNeeded))) -- Life Force (n/4) soon!
 	end
 	self:SetInfo("infobox", 4, ("%.0f"):format(power))
 	self:SetInfoBar("infobox", 3, power/100, .7, .7, 0, 0.3) -- yellow
 end
 
 function mod:LifeForce(args)
-	self:MessageOld(args.spellId, "green", "long", CL.casting:format(L.lifeforce_casts:format(args.spellName, lifeForceCounter, lifeForceNeeded)))
+	self:MessageOld(args.spellId, "green", "long", CL.casting:format(CL.count_amount:format(args.spellName, lifeForceCounter, lifeForceNeeded)))
 	lifeForceCounter = lifeForceCounter + 1
 end
 

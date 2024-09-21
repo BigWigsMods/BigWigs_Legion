@@ -57,6 +57,9 @@ L = BigWigs:NewBossLocale("Grand Magistrix Elisande", "zhTW")
 if L then
 	L.elisande = "艾莉珊德"
 
+	--L.ring_yell = "Let the waves of time crash over you!"
+	--L.orb_yell = "You'll find time can be quite volatile."
+
 	L.slowTimeZone = "減速區域"
 	L.fastTimeZone = "加速區域"
 
@@ -71,6 +74,7 @@ if L then
 
 	L.empowered = "(強化) %s" -- (E) Eye of Gul'dan
 	L.gains = "古爾丹獲得%s"
+	--L.p2_start = "You failed, heroes! The ritual is upon us! But first, I'll indulge myself a bit... and finish you!"
 	L.p4_mythic_start_yell = "把靈魂送回惡魔獵人的體內…別讓燃燒軍團的主宰佔用！"
 
 	L.nightorb_desc = "召喚一個夜之球，擊殺它會生成一個時間停止力場。"

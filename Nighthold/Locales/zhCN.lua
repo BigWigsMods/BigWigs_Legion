@@ -74,6 +74,7 @@ if L then
 
 	L.empowered = "（强化）%s"
 	L.gains = "古尔丹获得 >%s<"
+	--L.p2_start = "You failed, heroes! The ritual is upon us! But first, I'll indulge myself a bit... and finish you!"
 	L.p4_mythic_start_yell = "该让这个恶魔猎手的灵魂回到躯体中……防止军团之王占据它了！"
 
 	L.nightorb_desc = "召唤暗夜宝珠，击杀后将出现时间停止力场。"

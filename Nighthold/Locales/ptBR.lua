@@ -74,6 +74,7 @@ if L then
 
 	L.empowered = "(O) %s" -- (E) Eye of Gul'dan
 	L.gains = "Gul'dan ganha %s"
+	--L.p2_start = "You failed, heroes! The ritual is upon us! But first, I'll indulge myself a bit... and finish you!"
 	L.p4_mythic_start_yell = "Hora de devolver a alma do caçador de demônios ao seu corpo... e negar ao dono da Legião um hospedeiro!"
 
 	L.nightorb_desc = "Evoca um Nightorb, matá-lo vai gerar uma Time Zone."

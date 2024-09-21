@@ -74,6 +74,7 @@ if L then
 
 	L.empowered = "(E) %s" -- (E) Eye of Gul'dan
 	L.gains = "Gul'dan obtient %s"
+	--L.p2_start = "You failed, heroes! The ritual is upon us! But first, I'll indulge myself a bit... and finish you!"
 	L.p4_mythic_start_yell = "Il est temps de réunir son âme et son corps.... et de priver ainsi le maître de la Légion de son hôte !" -- à vérifier
 
 	L.nightorb_desc = "Invoque un orbe de nuit, faisant apparaître une zone temporelle une fois détruit."

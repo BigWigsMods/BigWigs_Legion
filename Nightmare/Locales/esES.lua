@@ -12,6 +12,9 @@ if L then
 	L.isLinkedWith = "%s está enlazado con %s"
 	L.yourLink = "Estás enlazado con %s"
 	L.yourLinkShort = "Enlazado con %s"
+
+	--L.custom_off_webofpain_marker = "Web of Pain marker"
+	--L.custom_off_webofpain_marker_desc = "Mark Web of Pain targets with {rt1}{rt2}{rt3}{rt4}, requires promoted or leader. The tanks will be marked with {rt1} and {rt2}. The other targets with {rt3} and {rt4}."
 end
 
 L = BigWigs:NewBossLocale("Il'gynoth", "esES") or BigWigs:NewBossLocale("Il'gynoth", "esMX")

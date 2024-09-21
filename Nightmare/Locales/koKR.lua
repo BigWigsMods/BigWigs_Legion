@@ -12,6 +12,9 @@ if L then
 	L.isLinkedWith = "%s|1이;가; %s|1과;와; 연결됨"
 	L.yourLink = "당신은 %s|1과;와; 연결됨"
 	L.yourLinkShort = "%s|1과;와; 연결됨"
+
+	--L.custom_off_webofpain_marker = "Web of Pain marker"
+	--L.custom_off_webofpain_marker_desc = "Mark Web of Pain targets with {rt1}{rt2}{rt3}{rt4}, requires promoted or leader. The tanks will be marked with {rt1} and {rt2}. The other targets with {rt3} and {rt4}."
 end
 
 L = BigWigs:NewBossLocale("Il'gynoth", "koKR")
