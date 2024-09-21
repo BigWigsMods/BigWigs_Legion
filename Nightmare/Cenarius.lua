@@ -426,7 +426,7 @@ function mod:BreathTarget(event, unit) -- They love to drop their target after c
 	if not guid or self:Tanking(unit, target) or self:MobId(guid) ~= 1 then return end
 
 	if self:Me(guid) then
-		self:Say(211192)
+		self:Say(211192, nil, nil, "Rotten Breath")
 	end
 	self:TargetMessageOld(211192, self:UnitName(target), "yellow", "alert", nil, nil, true)
 end
@@ -458,7 +458,7 @@ do
 			self:TargetMessageOld(args.spellId, args.destName, "blue", "alert")
 			isOnMe = true
 			self:Flash(args.spellId)
-			self:Say(args.spellId)
+			self:Say(args.spellId, nil, nil, "Scorned Touch")
 			local _, _, _, expires = self:UnitDebuff("player", args.spellName)
 			local t = expires - GetTime()
 			self:TargetBar(args.spellId, t, args.destName)
@@ -500,6 +500,6 @@ end
 function mod:UnboundTouch(args)
 	if self:Me(args.destGUID) then
 		self:TargetMessageOld(args.spellId, args.destName, "blue", "alert")
-		self:Say(args.spellId)
+		self:Say(args.spellId, nil, nil, "Unbound Touch")
 	end
 end

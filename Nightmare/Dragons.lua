@@ -256,7 +256,7 @@ do
 
 		if not isOnMe and self:Me(args.destGUID) then
 			self:TargetMessageOld(args.spellId, args.destName, "blue", "alarm")
-			self:Say(args.spellId)
+			self:Say(args.spellId, nil, nil, "Defiled Vines")
 			isOnMe = true
 		end
 	end
@@ -279,7 +279,7 @@ do
 		end
 
 		if self:Me(args.destGUID) then
-			self:Say(args.spellId)
+			self:Say(args.spellId, nil, nil, "Volatile Infection")
 			self:OpenProximity(args.spellId, 10)
 			self:TargetBar(args.spellId, 90, args.destName)
 		end

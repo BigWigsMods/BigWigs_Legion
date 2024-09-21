@@ -152,7 +152,7 @@ function mod:GetOptions()
 		--[[ Stage 1 ]]--
 		248165, -- Cone of Death
 		248317, -- Soulblight Orb
-		{248396, "ME_ONLY", "SAY", "SAY_COUNTDOWN", "FLASH"}, -- Soul Blight
+		{248396, "ME_ONLY", "SAY_COUNTDOWN", "FLASH"}, -- Soul Blight
 		248167, -- Death Fog
 		257296, -- Tortured Rage
 		248499, -- Sweeping Scythe
@@ -317,7 +317,9 @@ local function checkForFearHelp(self, icon)
 		if id then
 			icon = icon or self:GetIcon("player") or 8
 			local msg = ("{rt%d} %s + %s {rt%d}"):format(icon, L[257931], L[id], icon)
-			self:Say("fear_help", msg)
+			local abilityEnglish = soulblightOnMe and "Blight" or soulbombOnMe and "Bomb" or soulburstOnMe and "Burst" or sentenceOnMe and "Sentence"
+			local msgEnglish = ("{rt%d} %s + %s {rt%d}"):format(icon, "Fear", abilityEnglish, icon)
+			self:Say("fear_help", msg, nil, msgEnglish)
 			return true
 		end
 	end
@@ -439,7 +441,7 @@ do
 	function mod:GiftoftheSea(args)
 		seaName = args.destName
 		if self:Me(args.destGUID) then
-			self:Say(255594, L.sea_say)
+			self:Say(255594, L.sea_say, nil, "{rt6} Haste/Versa")
 			if self:CheckOption(255594, "ME_ONLY") then
 				seaName = nil
 				self:MessageOld(255594, "green", "long", CL.you:format(args.spellName), args.spellId)
@@ -454,7 +456,7 @@ do
 	function mod:GiftoftheSky(args)
 		skyName = args.destName
 		if self:Me(args.destGUID) then
-			self:Say(255594, L.sky_say)
+			self:Say(255594, L.sky_say, nil, "{rt5} Crit/Mast")
 			if self:CheckOption(255594, "ME_ONLY") then
 				skyName = nil
 				self:MessageOld(255594, "green", "long", CL.you:format(args.spellName), args.spellId)
@@ -554,7 +556,7 @@ do
 			isOnMe = #burstList == 1 and 3 or 7 -- Soulburst on you (3 or 7)
 			self:SayCountdown(args.spellId, self:Mythic() and 12 or 15, isOnMe)
 			if not checkForFearHelp(self, #burstList == 1 and 3 or 7) then
-				self:Say(args.spellId, CL.count_rticon:format(args.spellName, #burstList, isOnMe))
+				self:Say(args.spellId, CL.count_rticon:format(args.spellName, #burstList, isOnMe), nil, CL.count_rticon:format("Soulburst", #burstList, isOnMe))
 			end
 		end
 		if #burstList == 1 then
@@ -587,7 +589,7 @@ do
 			self:SayCountdown(args.spellId, self:Mythic() and 12 or 15, 2)
 			isOnMe = -1 -- Soulbomb on you (-1)
 			if not checkForFearHelp(self, 2) then
-				self:Say(args.spellId, args.spellName .. " {rt2}")
+				self:Say(args.spellId, args.spellName.." {rt2}", nil, "Soulbomb {rt2}")
 			end
 		end
 
@@ -717,7 +719,7 @@ do
 	function mod:CosmicRayApplied(args)
 		playerList[#playerList+1] = args.destName
 		if self:Me(args.destGUID) then
-			self:Say(args.spellId)
+			self:Say(args.spellId, nil, nil, "Cosmic Ray")
 			self:Flash(args.spellId)
 		end
 		self:PlaySound(args.spellId, "warning", nil, playerList)
@@ -745,7 +747,7 @@ do
 	function mod:CosmicBeaconApplied(args)
 		playerList[#playerList+1] = args.destName
 		if self:Me(args.destGUID) then
-			self:Say(args.spellId)
+			self:Say(args.spellId, nil, nil, "Cosmic Beacon")
 			self:Flash(args.spellId)
 		end
 		self:PlaySound(args.spellId, "alarm", nil, playerList)
@@ -917,7 +919,7 @@ function mod:SargerasRage(args)
 		self:PlaySound(258068, "warning")
 		self:TargetMessage(258068, "blue", args.destName, args.spellName, args.spellId)
 		self:Flash(258068)
-		self:Say(258068, self:SpellName(6612)) -- Rage
+		self:Say(258068, self:SpellName(6612), nil, "Rage") -- Rage
 	end
 end
 

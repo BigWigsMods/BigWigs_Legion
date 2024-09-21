@@ -200,7 +200,7 @@ end
 
 function mod:ShockGrenade(args)
 	if self:Me(args.destGUID) then
-		self:Say(args.spellId)
+		self:Say(args.spellId, nil, nil, "Shock Grenade")
 		self:Flash(args.spellId)
 		self:OpenProximity(args.spellId, 10)
 		self:SayCountdown(args.spellId, 5)

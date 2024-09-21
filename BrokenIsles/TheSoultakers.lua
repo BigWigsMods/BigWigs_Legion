@@ -46,7 +46,7 @@ end
 
 function mod:ExpelSoul(args)
 	if self:Me(args.destGUID) then
-		self:Say(args.spellId)
+		self:Say(args.spellId, nil, nil, "Expel Soul")
 		self:TargetMessageOld(args.spellId, args.destName, "blue", "alarm")
 	end
 end
@@ -67,7 +67,7 @@ end
 do
 	local function printTarget(self, player, guid)
 		if self:Me(guid) then
-			self:Say(213588)
+			self:Say(213588, nil, nil, "Seadog's Scuttle")
 		end
 		self:TargetMessageOld(213588, player, "red", "alert", nil, nil, true)
 	end

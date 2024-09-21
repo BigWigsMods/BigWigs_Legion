@@ -32,6 +32,5 @@ if L then
 	L.orb_ranged_desc = "Zeigt den Timer für die Kugeln, die auf Fernkämpfern erscheinen."
 	L.orb_ranged_bar = "Fernkämpfer-Kugel"
 
-	L.orb_say = "Kugel"
 	L.taint_say = "Verseuchung"
 end

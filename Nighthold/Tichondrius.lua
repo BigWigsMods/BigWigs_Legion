@@ -81,7 +81,7 @@ function mod:GetOptions()
 		{206466, "INFOBOX"}, -- Essence of Night
 
 		--[[ Felsworm Spellguard ]]--
-		{216024, "SAY", "SAY_COUNTDOWN", "ME_ONLY"}, -- Volatile Wound
+		{216024, "SAY_COUNTDOWN", "ME_ONLY"}, -- Volatile Wound
 		216027, -- Nether Zone
 
 		--[[ Sightless Watcher ]]--
@@ -167,7 +167,7 @@ do
 		end
 
 		if self:Me(args.destGUID) then
-			self:Say(args.spellId)
+			self:Say(args.spellId, nil, nil, "Carrion Plague")
 		end
 	end
 end
@@ -198,7 +198,7 @@ do
 		end
 
 		if self:Me(args.destGUID) then
-			self:Say(args.spellId)
+			self:Say(args.spellId, nil, nil, "Brand of Argus")
 		end
 
 		if self:GetOption(argusMarker) then
@@ -358,7 +358,7 @@ end
 function mod:BurningSoul(args)
 	self:TargetMessageOld(args.spellId, args.destName, "yellow", "warning")
 	if self:Me(args.destGUID) then
-		self:Say(args.spellId)
+		self:Say(args.spellId, nil, nil, "Burning Soul")
 		self:OpenProximity(args.spellId, 8)
 	end
 end

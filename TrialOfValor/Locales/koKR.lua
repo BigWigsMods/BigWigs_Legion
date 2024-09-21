@@ -32,6 +32,5 @@ if L then
 	L.orb_ranged_desc = "원거리에 생성되는 보주의 타이머를 표시합니다."
 	L.orb_ranged_bar = "원거리 보주"
 
-	L.orb_say = "보주"
 	L.taint_say = "오염물"
 end

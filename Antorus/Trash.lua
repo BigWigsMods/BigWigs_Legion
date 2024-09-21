@@ -258,7 +258,7 @@ do
 	function mod:Soulburn(args)
 		local appliedByTheBoss = GetTime() - lastCast < 0.3 -- unfortunately sourceGUID can't be used here
 		if self:Me(args.destGUID) then
-			self:Say(args.spellId)
+			self:Say(args.spellId, nil, nil, "Soulburn")
 			self:SayCountdown(args.spellId, 6)
 			if not appliedByTheBoss then
 				self:PlaySound(args.spellId, "alarm")
@@ -303,7 +303,7 @@ end
 -- [[ Imonar to Kin'garoth ]] --
 function mod:Demolish(args)
 	if self:Me(args.destGUID) then
-		self:Say(args.spellId)
+		self:Say(args.spellId, nil, nil, "Demolish")
 		self:SayCountdown(args.spellId, 6)
 		self:PlaySound(args.spellId, "warning")
 	end
@@ -338,7 +338,7 @@ do
 				players[guid] = true
 				if unit == "player" then
 					self:PlaySound(252797, "warning")
-					self:Say(252797)
+					self:Say(252797, nil, nil, "Decimation")
 					if decimation2 then -- Pre Garothi Worldbreaker
 						self:SayCountdown(252797, 3, nil, 2)
 					else -- Pre Kin'garoth
@@ -362,7 +362,7 @@ do
 			local t = GetTime()
 			if t-prev > 6 then -- reapplications *sometimes* fire _APPLIED instead of _REFRESH for some reason
 				prev = t
-				self:Say(args.spellId)
+				self:Say(args.spellId, nil, nil, "Flames of Reorigination")
 				self:PlaySound(args.spellId, "warning")
 				self:PersonalMessage(args.spellId)
 			end
@@ -387,7 +387,7 @@ end
 
 function mod:CloudOfConfusion(args)
 	if self:Me(args.destGUID) then
-		self:Say(args.spellId)
+		self:Say(args.spellId, nil, nil, "Cloud of Confusion")
 		self:SayCountdown(args.spellId, 10)
 		self:PlaySound(args.spellId, "alarm")
 	end

@@ -78,7 +78,7 @@ end
 function mod:StaticChargeApplied(args)
 	self:TargetMessageOld(args.spellId, args.destName, "green", "warning")
 	if self:Me(args.destGUID) then
-		self:Say(args.spellId)
+		self:Say(args.spellId, nil, nil, "Static Charge")
 	end
 end
 

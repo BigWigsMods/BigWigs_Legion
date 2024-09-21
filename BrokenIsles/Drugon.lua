@@ -71,7 +71,7 @@ function mod:SnowPlowApplied(args)
 		self:TargetMessageOld(args.spellId, args.destName, "green", "alarm")
 		self:PrimaryIcon(args.spellId, args.destName)
 		if self:Me(args.destGUID) then
-			self:Say(args.spellId)
+			self:Say(args.spellId, nil, nil, "Snow Plow")
 		end
 	end
 end

@@ -267,7 +267,7 @@ do
 		if self:Me(args.destGUID) then
 			preDebuffApplied = GetTime()
 			self:TargetMessageOld(args.spellId, args.destName, "yellow", "alert")
-			self:Say(args.spellId)
+			self:Say(args.spellId, nil, nil, "Mark of Frost")
 			self:Flash(args.spellId)
 			markOfFrostOnMe = true
 		end
@@ -295,7 +295,7 @@ do
 			local t = GetTime()
 			if t-preDebuffApplied > 5.5 then
 				self:TargetMessageOld(args.spellId, args.destName, "yellow", "alert")
-				self:Say(args.spellId)
+				self:Say(args.spellId, nil, nil, "Mark of Frost")
 				self:Flash(args.spellId)
 			end
 		end
@@ -355,7 +355,7 @@ end
 function mod:DetonateMarkOfFrost(args)
 	self:MessageOld(args.spellId, "red", "alarm")
 	if markOfFrostOnMe then
-		self:Say(args.spellId, 151913) -- "Detonate"
+		self:Say(args.spellId, 151913, nil, "Detonate") -- "Detonate"
 	end
 end
 
@@ -403,7 +403,7 @@ do
 		end
 
 		if self:Me(args.destGUID) then
-			self:Say(args.spellId)
+			self:Say(args.spellId, nil, nil, "Searing Brand")
 			searingBrandOnMe = true
 		end
 
@@ -457,7 +457,7 @@ end
 function mod:DetonateSearingBrand(args)
 	self:MessageOld(args.spellId, "red", "alarm")
 	if searingBrandOnMe then
-		self:Say(args.spellId, 151913) -- "Detonate"
+		self:Say(args.spellId, 151913, nil, "Detonate") -- "Detonate"
 	end
 end
 

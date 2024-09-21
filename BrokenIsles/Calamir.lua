@@ -133,7 +133,7 @@ do
 		end
 		if self:Me(args.destGUID) then
 			self:OpenProximity(args.spellId, 10)
-			self:Say(args.spellId)
+			self:Say(args.spellId, nil, nil, "Burning Bomb")
 			self:TargetBar(args.spellId, 8, args.destName)
 		end
 	end

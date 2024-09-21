@@ -415,7 +415,7 @@ do
 	local playerList = mod:NewTargetList()
 	function mod:FulminatingPulse(args)
 		if self:Me(args.destGUID) then
-			self:Say(args.spellId)
+			self:Say(args.spellId, nil, nil, "Fulminating Pulse")
 			self:SayCountdown(args.spellId, 10)
 			self:PlaySound(args.spellId, "alarm")
 		end
@@ -546,7 +546,7 @@ do
 	function mod:CosmicGlare(args)
 		if self:Me(args.destGUID) then
 			self:Flash(args.spellId)
-			self:Say(args.spellId)
+			self:Say(args.spellId, nil, nil, "Cosmic Glare")
 			self:SayCountdown(args.spellId, 4)
 			self:PlaySound(args.spellId, "alarm")
 		end

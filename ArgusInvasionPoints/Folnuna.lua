@@ -58,7 +58,7 @@ end
 function mod:SlumberingGaspApplied(args)
 	if self:Me(args.destGUID) then
 		self:TargetMessageOld(247379, args.destName, "blue", "long")
-		self:Say(247379)
+		self:Say(247379, nil, nil, "Slumbering Gasp")
 	end
 end
 

@@ -101,8 +101,8 @@ function mod:OnBossEnable()
 
 
 	-- Corporeal Realm
-	self:Log("SPELL_AURA_APPLIED", "SpearofAnguish", 235924)
-	self:Log("SPELL_AURA_REMOVED", "SpearofAnguishRemoved", 235924)
+	self:Log("SPELL_AURA_APPLIED", "SpearOfAnguish", 235924)
+	self:Log("SPELL_AURA_REMOVED", "SpearOfAnguishRemoved", 235924)
 	self:Log("SPELL_CAST_START", "TormentedCries", 238570)
 	self:Log("SPELL_AURA_APPLIED", "TormentedCriesApplied", 238018)
 	self:Log("SPELL_AURA_REMOVED", "TormentedCriesRemoved", 238018)
@@ -289,10 +289,10 @@ function mod:Quietus(args)
 	self:MessageOld(args.spellId, "red", "warning")
 end
 
-function mod:SpearofAnguish(args)
+function mod:SpearOfAnguish(args)
 	self:TargetMessageOld(args.spellId, args.destName, "orange", "alarm", CL.count:format(args.spellName, spearCount), nil, true)
 	if self:Me(args.destGUID) then
-		self:Say(args.spellId)
+		self:Say(args.spellId, nil, nil, "Spear of Anguish")
 		self:SayCountdown(args.spellId, 6)
 	end
 	spearCount = spearCount + 1
@@ -304,7 +304,7 @@ function mod:SpearofAnguish(args)
 	self:Bar(args.spellId, t, CL.count:format(args.spellName, spearCount))
 end
 
-function mod:SpearofAnguishRemoved(args)
+function mod:SpearOfAnguishRemoved(args)
 	if self:Me(args.destGUID) then
 		self:CancelSayCountdown(args.spellId)
 	end
@@ -323,7 +323,7 @@ end
 function mod:TormentedCriesApplied(args)
 	self:TargetMessageOld(238570, args.destName, "orange", "alarm")
 	if self:Me(args.destGUID) then
-		self:Say(238570, L.tormentingCriesSay)
+		self:Say(238570, L.tormentingCriesSay, nil, "Cries")
 		self:SayCountdown(238570, 4)
 	end
 	self:PrimaryIcon(238570, args.destName)

@@ -66,18 +66,18 @@ function mod:GetOptions()
 		--[[ Platform: Xoroth ]]--
 		244607, -- Flames of Xoroth
 		244598, -- Supernova
-		{244613, "SAY", "SAY_COUNTDOWN"}, -- Everburning Flames
+		{244613, "SAY_COUNTDOWN"}, -- Everburning Flames
 		255805, -- Unstable Portal, every platform add casts it and i don't know where else to put it
 
 		--[[ Platform: Rancora ]]--
 		{244926, "SAY"}, -- Felsilk Wrap
 		246316, -- Poison Essence
-		{244849, "SAY", "SAY_COUNTDOWN"}, -- Caustic Slime
+		{244849, "SAY_COUNTDOWN"}, -- Caustic Slime
 
 		--[[ Platform: Nathreza ]]--
 		{245050, "HEALER"}, -- Delusions
 		245040, -- Corrupt
-		{245118, "SAY", "SAY_COUNTDOWN"}, -- Cloying Shadows
+		{245118, "SAY_COUNTDOWN"}, -- Cloying Shadows
 		245075, -- Hungering Gloom
 
 		--[[ 'Portal Combat' achievement debuffs ]]--
@@ -377,7 +377,7 @@ function mod:FelsilkWrap(args)
 	self:TargetMessage(args.spellId, "orange", args.destName)
 	self:CDBar(args.spellId, 17)
 	if self:Me(args.destGUID) then
-		self:Say(args.spellId)
+		self:Say(args.spellId, nil, nil, "Felsilk Wrap")
 	end
 end
 

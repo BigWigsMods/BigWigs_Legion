@@ -163,7 +163,7 @@ do
 			isOnMe = true
 			self:PlaySound(254244, "alarm")
 			self:Flash(254244)
-			self:Say(254244)
+			self:Say(254244, nil, nil, "Sleep Canister")
 			addPlayerToList(self, self:UnitName("player"))
 			self:Sync("SleepCanister")
 		end

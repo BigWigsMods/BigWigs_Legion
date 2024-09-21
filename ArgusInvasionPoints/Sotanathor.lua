@@ -28,9 +28,9 @@ function mod:OnBossEnable()
 	self:Log("SPELL_AURA_APPLIED", "ClovenSoul", 247444)
 	self:Log("SPELL_AURA_APPLIED_DOSE", "ClovenSoul", 247444)
 	self:Log("SPELL_CAST_SUCCESS", "Cavitation", 247416)
-	self:Log("SPELL_CAST_SUCCESS", "SeedofDestruction", 247437)
-	self:Log("SPELL_AURA_APPLIED", "SeedofDestructionApplied", 247437)
-	self:Log("SPELL_AURA_REMOVED", "SeedofDestructionRemoved", 247437)
+	self:Log("SPELL_CAST_SUCCESS", "SeedOfDestruction", 247437)
+	self:Log("SPELL_AURA_APPLIED", "SeedOfDestructionApplied", 247437)
+	self:Log("SPELL_AURA_REMOVED", "SeedOfDestructionRemoved", 247437)
 
 	self:Death("Win", 124555)
 end
@@ -63,17 +63,17 @@ function mod:Cavitation(args)
 	self:CDBar(args.spellId, 25)
 end
 
-function mod:SeedofDestruction(args)
+function mod:SeedOfDestruction(args)
 	self:CDBar(args.spellId, 18)
 end
 
 do
 	local playerList = mod:NewTargetList()
-	function mod:SeedofDestructionApplied(args)
+	function mod:SeedOfDestructionApplied(args)
 		playerList[#playerList+1] = args.destName
 		if self:Me(args.destGUID) then
 			self:Flash(args.spellId)
-			self:Say(args.spellId)
+			self:Say(args.spellId, nil, nil, "Seed of Destruction")
 			self:SayCountdown(args.spellId, 4)
 		end
 		if #playerList == 1 then
@@ -81,7 +81,7 @@ do
 		end
 	end
 
-	function mod:SeedofDestructionRemoved(args)
+	function mod:SeedOfDestructionRemoved(args)
 		if self:Me(args.destGUID) then
 			self:CancelSayCountdown(args.spellId)
 		end

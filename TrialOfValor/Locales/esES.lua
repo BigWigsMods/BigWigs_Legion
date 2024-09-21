@@ -32,6 +32,5 @@ if L then
 	--L.orb_ranged_desc = "Show the timer for the Orbs that spawn on Ranged."
 	--L.orb_ranged_bar = "Ranged Orb"
 
-	L.orb_say = "Orbe"
 	L.taint_say = "Mancha"
 end

@@ -270,7 +270,7 @@ function mod:LunarBomb(args)
 	self:TargetBar(args.spellId, 10, args.destName)
 
 	if self:Me(args.destGUID) then
-		self:Say(args.spellId)
+		self:Say(args.spellId, nil, nil, "Lunar Bomb")
 		self:OpenProximity(args.spellId, 10)
 	end
 end
@@ -288,7 +288,7 @@ function mod:EmbraceOfTheTides(args)
 	self:TargetBar(args.spellId, 20, args.destName)
 	if self:Me(args.destGUID) then
 		self:OpenProximity(args.spellId, 8)
-		self:Say(args.spellId)
+		self:Say(args.spellId, nil, nil, "Embrace of the Tides")
 	end
 end
 
@@ -387,7 +387,7 @@ function mod:PolymorphBomb(args)
 	self:TargetBar(args.spellId, 10, args.destName)
 
 	if self:Me(args.destGUID) then
-		self:Say(args.spellId)
+		self:Say(args.spellId, nil, nil, "Polymorph Bomb")
 		self:SayCountdown(args.spellId, 10)
 	end
 end
@@ -404,7 +404,7 @@ function mod:Anguish(args)
 	self:TargetBar(args.spellId, 6, args.destName)
 
 	if self:Me(args.destGUID) then
-		self:Say(args.spellId)
+		self:Say(args.spellId, nil, nil, "Anguish")
 		self:SayCountdown(args.spellId, 6)
 	end
 end
@@ -432,7 +432,7 @@ function mod:VoidRift(args)
 	self:TargetMessageOld(args.spellId, args.destName, "orange", "alert")
 	if self:Me(args.destGUID) then
 		self:OpenProximity(args.spellId, 10)
-		self:Say(args.spellId)
+		self:Say(args.spellId, nil, nil, "Void Rift")
 	end
 end
 

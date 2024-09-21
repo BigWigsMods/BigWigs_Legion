@@ -131,7 +131,7 @@ do
 	function mod:FrostLick(args)
 		if self:Me(args.destGUID) then
 			self:Flash(args.spellId)
-			self:Say(args.spellId)
+			self:Say(args.spellId, nil, nil, "Frost Lick")
 		end
 		list[#list+1] = args.destName
 		if #list == 1 then
@@ -145,7 +145,7 @@ do
 	function mod:ShadowLick(args)
 		if self:Me(args.destGUID) then
 			self:Flash(args.spellId)
-			self:Say(args.spellId)
+			self:Say(args.spellId, nil, nil, "Shadow Lick")
 		end
 		list[#list+1] = args.destName
 		if #list == 1 then
@@ -159,7 +159,7 @@ do
 	function mod:FlameLick(args)
 		if self:Me(args.destGUID) then
 			self:Flash(args.spellId)
-			self:Say(args.spellId)
+			self:Say(args.spellId, nil, nil, "Flame Lick")
 		end
 		list[#list+1] = args.destName
 		if #list == 1 then
@@ -217,7 +217,7 @@ do
 		markFoam(self, args.destName)
 		if self:Me(args.destGUID) then
 			self:MessageOld(args.spellId, "cyan", "alarm", CL.you:format(args.spellName))
-			self:Say(args.spellId, ("{rt6} %s {rt6}"):format(args.spellName))
+			self:Say(args.spellId, ("{rt6} %s {rt6}"):format(args.spellName), nil, ("{rt6} %s {rt6}"):format("Briney Volatile Foam"))
 			self:Flash(args.spellId)
 		end
 	end
@@ -226,7 +226,7 @@ do
 		markFoam(self, args.destName)
 		if self:Me(args.destGUID) then
 			self:MessageOld(args.spellId, "red", "alert", CL.you:format(args.spellName))
-			self:Say(args.spellId, ("{rt7} %s {rt7}"):format(args.spellName))
+			self:Say(args.spellId, ("{rt7} %s {rt7}"):format(args.spellName), nil, ("{rt7} %s {rt7}"):format("Flaming Volatile Foam"))
 			self:Flash(args.spellId)
 		end
 	end
@@ -235,7 +235,7 @@ do
 		markFoam(self, args.destName)
 		if self:Me(args.destGUID) then
 			self:MessageOld(args.spellId, "yellow", "warning", CL.you:format(args.spellName)) -- purple message would be appropriate
-			self:Say(args.spellId, ("{rt3} %s {rt3}"):format(args.spellName))
+			self:Say(args.spellId, ("{rt3} %s {rt3}"):format(args.spellName), nil, ("{rt3} %s {rt3}"):format("Shadowy Volatile Foam"))
 			self:Flash(args.spellId)
 		end
 	end

@@ -32,6 +32,5 @@ if L then
 	L.orb_ranged_desc = "Mostra um contador para Orbes que surgem em jogadores a distância."-- TODO: needs reviewing
 	L.orb_ranged_bar = "Orbe a distância"-- TODO: needs reviewing
 
-	L.orb_say = "Orbe"
 	L.taint_say = "Mácula"
 end

@@ -483,7 +483,7 @@ do
 		end
 
 		if self:Me(args.destGUID) then
-			self:Say(args.spellId)
+			self:Say(args.spellId, nil, nil, "Time Bomb")
 			timeBombCountdown(self)
 		end
 	end

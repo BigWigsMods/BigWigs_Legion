@@ -64,7 +64,6 @@ if L then
 	L.grimelord = -14263
 	L.mariner = -14278
 
-	L.orb_say = "Orb"
 	L.taint_say = "Taint"
 end
 
@@ -266,11 +265,11 @@ end
 function mod:RAID_BOSS_WHISPER(event, msg)
 	if msg:find("227920") then -- P1 Orb of Corruption
 		self:MessageOld(229119, "blue", "warning", CL.you:format(self:SpellName(229119))) -- Orb of Corruption
-		self:Say(229119, L.orb_say)
+		self:Say(229119, CL.orb, nil, "Orb")
 		self:Flash(229119)
 	elseif msg:find("228058") then -- P2 Orb of Corrosion
 		self:MessageOld(230267, "blue", "warning", CL.you:format(self:SpellName(230267))) -- Orb of Corrosion
-		self:Say(230267, L.orb_say)
+		self:Say(230267, CL.orb, nil, "Orb")
 		self:Flash(230267)
 	end
 end
@@ -408,7 +407,7 @@ do
 		if self:Me(args.destGUID) then -- warn always if it got dispelled from us
 			prev = t
 			wasOnMe = true
-			self:Say(args.spellId, L.taint_say)
+			self:Say(args.spellId, L.taint_say, nil, "Taint")
 			if not scheduled then
 				scheduled = self:ScheduleTimer(warn, 0.1, self, args.spellId, args.spellName)
 			end
@@ -505,7 +504,7 @@ do
 			isOnMe = true
 			self:TargetMessageOld(args.spellId, args.destName, "blue", "warning")
 			self:Flash(args.spellId)
-			self:Say(args.spellId)
+			self:Say(args.spellId, nil, nil, "Fetid Rot")
 			local _, _, _, expires = self:UnitDebuff("player", args.spellName, 193367) -- 193367 on LFR
 			local t = expires - GetTime()
 			self:TargetBar(args.spellId, t, args.destName)

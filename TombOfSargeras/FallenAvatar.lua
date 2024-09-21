@@ -283,7 +283,7 @@ do
 			end
 			self:MessageOld(236604, "blue", "alarm", CL.you:format(self:SpellName(236604)))
 			self:Flash(236604)
-			self:Say(236604)
+			self:Say(236604, nil, nil, "Shadowy Blades")
 		end
 	end
 end
@@ -482,10 +482,10 @@ do
 			local remaining = expires-GetTime()
 			self:Flash(args.spellId)
 			if self:LFR() then
-				self:Say(args.spellId)
+				self:Say(args.spellId, nil, nil, "Dark Mark")
 				self:SayCountdown(args.spellId, remaining)
 			else
-				self:Say(args.spellId, CL.count_rticon:format(args.spellName, count, icon)) -- Announce which mark you have
+				self:Say(args.spellId, CL.count_rticon:format(args.spellName, count, icon), nil, CL.count_rticon:format("Dark Mark", count, icon)) -- Announce which mark you have
 				self:SayCountdown(args.spellId, remaining, icon)
 			end
 		end

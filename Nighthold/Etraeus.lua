@@ -77,7 +77,7 @@ function mod:GetOptions()
 		--[[ Stage Two ]]--
 		{205984, "SAY", "SAY_COUNTDOWN"}, -- Gravitational Pull
 		206589, -- Chilled
-		{206936, "SAY", "SAY_COUNTDOWN", "FLASH", "PROXIMITY"}, -- Icy Ejection
+		{206936, "SAY", "SAY_COUNTDOWN", "PROXIMITY"}, -- Icy Ejection
 		{206949, "CASTBAR"}, -- Frigid Nova
 
 		--[[ Stage Three ]]--
@@ -275,7 +275,7 @@ do
 		self:TargetMessageOld(args.spellId, args.destName, "orange", "warning", nil, nil, self:Tank())
 		self:CDBar(args.spellId, timers[args.spellId])
 		if self:Me(args.destGUID) then
-			self:Say(args.spellId)
+			self:Say(args.spellId, nil, nil, "Gravitational Pull")
 		end
 	end
 end
@@ -308,7 +308,7 @@ end
 function mod:IcyEjectionApplied(args)
 	if self:Me(args.destGUID) then
 		self:TargetMessageOld(args.spellId, args.destName, "yellow", "warning")
-		self:Say(args.spellId)
+		self:Say(args.spellId, nil, nil, "Icy Ejection")
 		self:OpenProximity(args.spellId, 8)
 		self:TargetBar(args.spellId, 10, args.destName)
 		if not self:LFR() then
@@ -365,7 +365,7 @@ end
 function mod:FelEjectionApplied(args)
 	if self:Me(args.destGUID) then
 		self:TargetMessageOld(args.spellId, args.destName, "blue", "warning")
-		self:Say(args.spellId)
+		self:Say(args.spellId, nil, nil, "Fel Ejection")
 		self:TargetBar(args.spellId, 8, args.destName)
 	end
 end

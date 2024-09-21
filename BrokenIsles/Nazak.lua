@@ -101,7 +101,7 @@ do
 	function mod:UNIT_AURA(event, unit)
 		if self:UnitDebuff(unit, spellName) then
 			self:UnregisterUnitEvent(event, unit)
-			self:Say(219861)
+			self:Say(219861, nil, nil, "Web Wrap")
 		end
 	end
 end

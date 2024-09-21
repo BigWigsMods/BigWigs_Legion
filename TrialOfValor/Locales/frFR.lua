@@ -32,6 +32,5 @@ if L then
 	L.orb_ranged_desc = "Affiche le delai des Orbes apparaissant sur les joueurs à distance."
 	L.orb_ranged_bar = "Orbe à distance"
 
-	L.orb_say = "Orbe"
 	L.taint_say = "Souillure"
 end

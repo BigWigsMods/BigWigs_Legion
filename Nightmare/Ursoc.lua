@@ -133,19 +133,23 @@ end
 
 function mod:FocusedGaze(args)
 	local icon = focusedGazeCount % 2 == 0 and 6 or 4 -- blue (even), green (odd)
-	local countSay = CL.count:format(args.spellName, focusedGazeCount)
-	local countMessage = countSay
-	local showingIcons = false
 
+	local showingIcons, countSay, countMessage, countMessageEnglish
 	if not self:LFR() and self:GetOption("custom_on_gaze_assist") then
 		showingIcons = true
 		countSay = CL.count_rticon:format(args.spellName, focusedGazeCount, icon)
 		countMessage = CL.count_icon:format(args.spellName, focusedGazeCount, icon)
+		countMessageEnglish = CL.count_icon:format("Focused Gaze", focusedGazeCount, icon)
+	else
+		showingIcons = false
+		countSay = CL.count:format(args.spellName, focusedGazeCount)
+		countMessage = countSay
+		countMessageEnglish = CL.count:format("Focused Gaze", focusedGazeCount)
 	end
 
 	if self:Me(args.destGUID) then
 		self:Flash(args.spellId, showingIcons and icon)
-		self:Say(args.spellId, countSay)
+		self:Say(args.spellId, countSay, nil, countMessageEnglish)
 	end
 
 	self:PrimaryIcon(args.spellId, args.destName)

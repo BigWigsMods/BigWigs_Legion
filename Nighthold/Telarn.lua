@@ -177,7 +177,7 @@ do
 		if self:Me(args.destGUID) then
 			isOnMe = true
 			self:Flash(args.spellId)
-			self:Say(args.spellId)
+			self:Say(args.spellId, nil, nil, "Call of Night")
 			self:OpenProximity(args.spellId, 8, proxList) -- don't stand near others with the debuff
 			self:TargetBar(args.spellId, 45, args.destName)
 
@@ -333,7 +333,7 @@ do
 			self:TargetMessageOld(args.spellId, args.destName, "orange", self:Dispeller("magic") and "alarm")
 		end
 		if self:Me(args.destGUID) then
-			self:Say(args.spellId)
+			self:Say(args.spellId, nil, nil, "Parasitic Fetter")
 		end
 		if self:GetOption(fetterMarker) then
 			self:CustomIcon(false, args.destName, 8)

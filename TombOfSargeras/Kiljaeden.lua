@@ -295,7 +295,7 @@ function mod:CHAT_MSG_RAID_BOSS_EMOTE(_, msg, _, _, _, target)
 		local guid = self:UnitGUID(target)
 		focusedTarget = guid
 		if self:Me(guid) then
-			self:Say(238505)
+			self:Say(238505, nil, nil, "Focused Dreadflame")
 			self:SayCountdown(238505, 5)
 		end
 		if not self:Easy() then
@@ -388,7 +388,11 @@ do
 		playerList[#playerList+1] = args.destName
 		if self:Me(args.destGUID) then
 			self:Flash(args.spellId)
-			self:Say(args.spellId, self:Easy() and L.reflectionErupting or CL.count_rticon:format(L.reflectionErupting, #playerList, #playerList+2))
+			if self:Easy() then
+				self:Say(args.spellId, L.reflectionErupting, nil, "Reflection: Erupting")
+			else
+				self:Say(args.spellId, CL.count_rticon:format(L.reflectionErupting, #playerList, #playerList+2), nil, CL.count_rticon:format("Reflection: Erupting", #playerList, #playerList+2))
+			end
 			self:SayCountdown(args.spellId, 8)
 		end
 		if #playerList == 1 then
@@ -469,7 +473,7 @@ do
 	function mod:BurstingDreadflame(args)
 		if self:Me(args.destGUID) then
 			self:Flash(args.spellId)
-			self:Say(args.spellId)
+			self:Say(args.spellId, nil, nil, "Bursting Dreadflame")
 			self:SayCountdown(args.spellId, 5)
 		end
 		playerList[#playerList+1] = args.destName
@@ -520,7 +524,7 @@ do
 		self:Bar(args.spellId, timer, INLINE_TANK_ICON.." "..CL.count:format(L.reflectionWailing, wailingCounter)) -- Not seen 2nd add in P1
 		if self:Me(args.destGUID) then
 			self:Flash(args.spellId)
-			self:Say(args.spellId, L.reflectionWailing)
+			self:Say(args.spellId, L.reflectionWailing, nil, "Reflection: Wailing")
 			self:SayCountdown(args.spellId, 7)
 		end
 	end
@@ -827,7 +831,7 @@ do
 	function mod:ShadowReflectionHopeless(args)
 		if self:Me(args.destGUID) then
 			self:Flash(args.spellId)
-			self:Say(args.spellId, L.reflectionHopeless)
+			self:Say(args.spellId, L.reflectionHopeless, nil, "Reflection: Hopeless")
 			self:SayCountdown(args.spellId, 8)
 		end
 		playerList[#playerList+1] = args.destName

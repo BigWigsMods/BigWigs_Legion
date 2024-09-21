@@ -201,7 +201,7 @@ do
 	function mod:AqueousBurst(args)
 		if self:Me(args.destGUID) then
 			self:Flash(args.spellId)
-			self:Say(args.spellId)
+			self:Say(args.spellId, nil, nil, "Aqueous Burst")
 		end
 
 		playerList[#playerList+1] = args.destName
@@ -219,7 +219,7 @@ end
 function mod:DrivenAssault(args)
 	if self:Me(args.destGUID) then
 		self:Flash(234128)
-		self:Say(234128)
+		self:Say(234128, nil, nil, "Driven Assault")
 		if self:GetOption("custom_on_fixate_plates") then
 			self:AddPlateIcon(234128, args.sourceGUID, 10) -- Show the target that is fixating on you more clear
 		end
@@ -235,7 +235,7 @@ end
 function mod:SicklyFixate(args)
 	if self:Me(args.destGUID) then
 		self:Flash(args.spellId)
-		self:Say(args.spellId)
+		self:Say(args.spellId, nil, nil, "Sickly Fixate")
 		if self:GetOption("custom_on_fixate_plates") then
 			self:AddPlateIcon(args.spellId, args.sourceGUID, 10) -- Show the target that is fixating on you more clear
 		end

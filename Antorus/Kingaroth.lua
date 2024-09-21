@@ -176,7 +176,7 @@ do
 		self:PlaySound(254926, "alert", nil, name)
 		self:TargetMessage(254926, "yellow", name)
 		if self:Me(guid) and not self:LFR() then
-			self:Say(254926)
+			self:Say(254926, nil, nil, "Reverberating Strike")
 			self:Flash(254926)
 		end
 	end
@@ -259,7 +259,7 @@ do
 	local playerList = mod:NewTargetList()
 	function mod:Demolish(args)
 		if self:Me(args.destGUID) then
-			self:Say(args.spellId)
+			self:Say(args.spellId, nil, nil, "Demolish")
 			self:SayCountdown(args.spellId, 6)
 			self:PlaySound(args.spellId, "warning")
 		end
@@ -279,7 +279,7 @@ do
 	function mod:Decimation(args)
 		playerList[#playerList+1] = args.destName
 		if self:Me(args.destGUID) then
-			self:Say(246686)
+			self:Say(246686, nil, nil, "Decimation")
 			self:SayCountdown(246686, 6)
 			self:PlaySound(246686, "warning")
 		end
@@ -325,7 +325,7 @@ do
 	function mod:ReverberatingDecimation(args)
 		playerList[#playerList+1] = args.destName
 		if self:Me(args.destGUID) then
-			self:Say(args.spellId)
+			self:Say(args.spellId, nil, nil, "Reverberating Decimation")
 			self:SayCountdown(args.spellId, 4)
 			self:PlaySound(args.spellId, "warning")
 		end

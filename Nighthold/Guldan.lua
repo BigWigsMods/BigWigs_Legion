@@ -123,7 +123,7 @@ function mod:GetOptions()
 		{210296, "TANK"}, -- Resonant Barrier
 
 		--[[ Stage One ]]--
-		{206219, "SAY", "FLASH"}, -- Liquid Hellfire
+		206219, -- Liquid Hellfire
 		206514, -- Fel Efflux
 		212258, -- Hand of Gul'dan
 
@@ -163,7 +163,7 @@ function mod:GetOptions()
 		220957, -- Soulsever
 		227071, -- Flame Crash
 		{206847, "FLASH", "SAY"}, -- Parasitic Wound
-		{206983, "FLASH", "SAY"}, -- Shadowy Gaze
+		206983, -- Shadowy Gaze
 		"manifest", -- Manifest Azzinoth
 		221336, -- Chaos Seed
 		221408, -- Bulwark of Azzinoth
@@ -430,7 +430,7 @@ do
 			self:ScheduleTimer("TargetMessageOld", 0.5, args.spellId, list, "green", "info", nil, nil, true)
 		end
 		if self:Me(args.sourceGUID) then
-			self:Say(args.spellId)
+			self:Say(args.spellId, nil, nil, "Scattering Field")
 		end
 	end
 end
@@ -621,7 +621,7 @@ do
 			scheduled = self:ScheduleTimer("TargetMessageOld", 1, 209011, list, "red", "warning", CL.count:format(self:SpellName(209011), bondsCount-1), nil, true) -- Have the bonds number in the list warning also
 		end
 		if self:Me(args.destGUID) then
-			self:Say(209011, CL.count:format(args.spellName, #list))
+			self:Say(209011, CL.count:format(args.spellName, #list), nil, CL.count:format("Bonds of Fel", #list))
 			self:Flash(209011)
 		end
 		if #list == expectedBonds then
@@ -792,7 +792,7 @@ do
 	function mod:FlamesOfSargerasSoon(args)
 		if self:Me(args.destGUID) then
 			self:TargetMessageOld(args.spellId, args.destName, "blue", "warning")
-			self:Say(args.spellId)
+			self:Say(args.spellId, nil, nil, "Flames of Sargeras")
 			self:Flash(args.spellId)
 			self:TargetBar(args.spellId, 6, args.destName)
 		elseif self:Tank(args.destName) and self:Tank() then -- Tank taunt mechanic in P3
@@ -843,7 +843,7 @@ do
 		local remaining = expires-GetTime()
 		if self:Me(args.destGUID) then
 			self:Flash(args.spellId)
-			self:Say(args.spellId)
+			self:Say(args.spellId, nil, nil, "Parasitic Wound")
 			for i = 1, 3 do
 				if remaining-i > 0 then
 					parasiteSayTimers[#parasiteSayTimers+1] = self:ScheduleTimer("Say", remaining-i, 206847, i, true)

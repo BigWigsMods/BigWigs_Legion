@@ -56,7 +56,7 @@ do
 	local function printTarget(self, player, guid)
 		self:TargetMessageOld(216428, player, "yellow", "alarm")
 		if self:Me(guid) then
-			self:Say(216428)
+			self:Say(216428, nil, nil, "Fire Boom")
 		end
 	end
 	function mod:FireBoom(args)
@@ -73,7 +73,7 @@ do
 	local function printTarget(self, player, guid)
 		self:TargetMessageOld(216432, player, "red", "alert")
 		if self:Me(guid) then
-			self:Say(216432)
+			self:Say(216432, nil, nil, "Ice Fist")
 		end
 	end
 	function mod:IceFist(args)
@@ -95,7 +95,7 @@ function mod:YouGoBangApplied(args)
 	self:TargetMessageOld(args.spellId, args.destName, "red", "warning", nil, nil, true)
 	self:TargetBar(args.spellId, 12, args.destName, self:SpellName(47496)) -- 47496 = "Explode"
 	if self:Me(args.destGUID) then
-		self:Say(args.spellId)
+		self:Say(args.spellId, nil, nil, "You Go Bang!")
 	end
 end
 

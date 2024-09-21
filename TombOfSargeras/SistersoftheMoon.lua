@@ -178,7 +178,7 @@ function mod:TwilightGlaiveApplied(args)
 	self:TargetMessageOld(236541, args.destName, "yellow")
 	if self:Me(args.destGUID) then
 		self:PlaySound(236541, "warning")
-		self:Say(236541)
+		self:Say(236541, nil, nil, "Twilight Glaive")
 	else
 		self:PlaySound(236541, "info")
 	end
@@ -215,7 +215,7 @@ function mod:IncorporealShotApplied(args)
 	self:TargetMessageOld(args.spellId, args.destName, "orange", "warning", nil, nil, true)
 	self:TargetBar(args.spellId, 6, args.destName)
 	if self:Me(args.destGUID) then
-		self:Say(args.spellId)
+		self:Say(args.spellId, nil, nil, "Incorporeal Shot")
 	end
 	self:PrimaryIcon(args.spellId, args.destName)
 	self:Bar(args.spellId, 54.7)
@@ -235,7 +235,7 @@ do
 	local function printTarget(self, name, guid)
 		self:TargetMessageOld(236442, name, "yellow", "alert", nil, nil, true)
 		if self:Me(guid) then
-			self:Say(236442)
+			self:Say(236442, nil, nil, "Twilight Volley")
 		end
 	end
 	function mod:TwilightVolley(args)
@@ -325,7 +325,7 @@ do
 			targetFound = true
 			self:TargetMessageOld(236712, name, "yellow", "alert")
 			if self:Me(guid) then
-				self:Say(236712)
+				self:Say(236712, nil, nil, "Lunar Beacon")
 			end
 		end
 	end

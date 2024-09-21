@@ -1,4 +1,3 @@
-
 --------------------------------------------------------------------------------
 -- Module Declaration
 --
@@ -240,7 +239,7 @@ do
 	local function printTarget(self, player, guid)
 		self:TargetMessageOld(231086, player, "orange", "long", nil, nil, true)
 		if self:Me(guid) then
-			self:Say(231086)
+			self:Say(231086, nil, nil, "Boulder Strike")
 			self:Flash(231086)
 		end
 	end
@@ -291,7 +290,7 @@ do
 		self:TargetMessageOld(223655, player, "red", "warning")
 		self:PrimaryIcon(223655, player)
 		if self:Me(guid) then
-			self:Say(223655)
+			self:Say(223655, nil, nil, "Oozing Rush")
 			self:Flash(223655)
 		end
 	end
@@ -340,7 +339,7 @@ do
 			self:ScheduleTimer("TargetMessageOld", 0.3, args.spellId, list, "yellow", "warning", nil, nil, true)
 		end
 		if self:Me(args.destGUID) then
-			self:Say(args.spellId)
+			self:Say(args.spellId, nil, nil, "Shadow Wrap")
 		end
 	end
 end
@@ -399,7 +398,7 @@ function mod:HeavenlyCrash(args)
 
 	if self:Me(args.destGUID) then
 		self:Flash(args.spellId)
-		self:Say(args.spellId)
+		self:Say(args.spellId, nil, nil, "Heavenly Crash")
 		self:SayCountdown(args.spellId, t)
 	end
 end
@@ -427,7 +426,7 @@ function mod:ArcanicRelease(args)
 	self:TargetBar(args.spellId, 6, args.destName)
 	if self:Me(args.destGUID) then
 		self:OpenProximity(args.spellId, 8)
-		self:Say(args.spellId)
+		self:Say(args.spellId, nil, nil, "Arcanic Release")
 		self:Flash(args.spellId)
 	end
 end
@@ -462,16 +461,16 @@ end
 --[[ Aluriel to Krosos ]]--
 function mod:AnnihilatingOrb(args)
 	self:TargetMessageOld(args.spellId, args.destName, "red", "warning")
-	self:TargetBar(args.spellId, 5, args.destName, 230932, args.spellId) -- Orb
+	self:TargetBar(args.spellId, 5, args.destName, CL.orb, args.spellId)
 	self:Bar(args.spellId, 35)
 	if self:Me(args.destGUID) then
-		self:Say(args.spellId)
+		self:Say(args.spellId, nil, nil, "Annihilating Orb")
 		self:Flash(args.spellId)
 	end
 end
 
 function mod:AnnihilatingOrbRemoved(args)
-	self:StopBar(230932, args.destName) -- Orb
+	self:StopBar(CL.orb, args.destName)
 end
 
 function mod:InfernalDeath()
@@ -480,25 +479,24 @@ end
 
 --[[ Aluriel to Tichondrius ]]--
 function mod:WillOfTheLegion(args)
-	local fear = self:SpellName(5782) -- "Fear"
-	self:TargetMessageOld("fear", args.destName, "red", "long", fear, args.spellId, true)
-	self:TargetBar("fear", 10, args.destName, fear, args.spellId)
+	self:TargetMessageOld("fear", args.destName, "red", "long", CL.fear, args.spellId, true)
+	self:TargetBar("fear", 10, args.destName, CL.fear, args.spellId)
 	if self:Me(args.destGUID) then
-		self:Say("fear", fear)
+		self:Say("fear", CL.fear, nil, "Fear")
 	elseif self:Dispeller("magic") then
 		self:Flash("fear", args.spellId)
 	end
 end
 
 function mod:WillOfTheLegionRemoved(args)
-	self:StopBar(5782, args.destName) -- "Fear"
+	self:StopBar(CL.fear, args.destName)
 end
 
 function mod:FelGlare(args)
 	self:TargetMessageOld(args.spellId, args.destName, "red", "warning", nil, nil, true)
 	self:TargetBar(args.spellId, 10, args.destName)
 	if self:Me(args.destGUID) then
-		self:Say(args.spellId)
+		self:Say(args.spellId, nil, nil, "Fel Glare")
 		self:Flash(args.spellId)
 	end
 end

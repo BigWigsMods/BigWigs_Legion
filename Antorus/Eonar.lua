@@ -314,7 +314,7 @@ do
 	function mod:RainofFel(args)
 		playerList[#playerList+1] = args.destName
 		if self:Me(args.destGUID) then
-			self:Say(args.spellId)
+			self:Say(args.spellId, nil, nil, "Rain of Fel")
 			self:Flash(args.spellId)
 			self:SayCountdown(args.spellId, 5)
 			self:PlaySound(args.spellId, "alarm")
@@ -354,7 +354,7 @@ function mod:ArcaneBuildup(args)
 	if self:Me(args.destGUID) then
 		self:PlaySound(args.spellId, "alarm")
 		self:PersonalMessage(args.spellId)
-		self:Say(args.spellId)
+		self:Say(args.spellId, nil, nil, "Arcane Buildup")
 		self:Flash(args.spellId)
 		self:SayCountdown(args.spellId, 5)
 		self:TargetBar(args.spellId, 5, args.destName)
@@ -372,7 +372,7 @@ function mod:BurningEmbers(args)
 	if self:Me(args.destGUID) then
 		self:PlaySound(args.spellId, "alarm")
 		self:PersonalMessage(args.spellId)
-		self:Say(args.spellId)
+		self:Say(args.spellId, nil, nil, "Burning Embers")
 		self:Flash(args.spellId)
 		self:SayCountdown(args.spellId, 5)
 		self:TargetBar(args.spellId, 5, args.destName)

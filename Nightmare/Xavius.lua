@@ -272,7 +272,7 @@ do
 	function mod:NightmareBlades(args)
 		if self:Me(args.destGUID) then
 			self:Flash(args.spellId)
-			self:Say(args.spellId)
+			self:Say(args.spellId, nil, nil, "Nightmare Blades")
 		end
 
 		bladeList[#bladeList+1] = args.destName
@@ -323,7 +323,7 @@ do
 	function mod:BondsOfTerror(args)
 		if self:Me(args.destGUID) then
 			isOnMe = true
-			self:Say(209034)
+			self:Say(209034, nil, nil, "Bonds of Terror")
 			self:Flash(209034)
 		else
 			otherPlayer = args.destName

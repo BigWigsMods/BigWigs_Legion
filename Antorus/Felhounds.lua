@@ -157,7 +157,7 @@ do
 	function mod:DesolateGazeApplied(args)
 		playerList[#playerList+1] = args.destName
 		if self:Me(args.destGUID) then
-			self:Say(args.spellId)
+			self:Say(args.spellId, nil, nil, "Desolate Gaze")
 			self:SayCountdown(args.spellId, 8)
 		end
 		self:PlaySound(args.spellId, "warning", nil, playerList)
@@ -185,7 +185,7 @@ end
 
 function mod:WeightofDarknessApplied(args)
 	if self:Me(args.destGUID) then
-		self:Say(args.spellId)
+		self:Say(args.spellId, nil, nil, "Weight of Darkness")
 		self:SayCountdown(args.spellId, 5)
 	end
 end
@@ -207,7 +207,11 @@ function mod:EnflamedOrSiphoned(args)
 	if self:Me(args.destGUID) then
 		self:PlaySound(args.spellId, "warning")
 		self:PersonalMessage(args.spellId)
-		self:Say(args.spellId)
+		if args.spellId == 248815 then
+			self:Say(248815, nil, nil, "Enflamed")
+		else -- 248819
+			self:Say(248819, nil, nil, "Siphoned")
+		end
 		if self:Mythic() then
 			self:SayCountdown(args.spellId, 3, nil, 2)
 		else

@@ -32,6 +32,5 @@ if L then
 	L.orb_ranged_desc = "Показывать таймер для сфер, которые появляются в бойцах дальнего боя."
 	L.orb_ranged_bar = "Сфера в рдд"
 
-	L.orb_say = "Сфера"
 	L.taint_say = "Порча"
 end

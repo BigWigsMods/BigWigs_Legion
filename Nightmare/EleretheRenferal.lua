@@ -136,7 +136,7 @@ do
 				if unit == "player" then
 					self:MessageOld(spellId, "blue", "long", CL.you:format(spellName))
 					self:Flash(spellId)
-					self:Say(spellId)
+					self:Say(spellId, nil, nil, spellId == 215443 and "Necrotic Venom" or "Twisting Shadows")
 
 					local _, _, _, expires = self:UnitDebuff(unit, spellName)
 					local remaining = expires-GetTime()

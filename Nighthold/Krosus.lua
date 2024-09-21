@@ -191,7 +191,7 @@ function mod:OrbOfDescructionApplied(args)
 	self:TargetBar(args.spellId, 5, args.destName, 230932, args.spellId) -- Orb
 	if self:Me(args.destGUID) then
 		self:Flash(args.spellId)
-		self:Say(args.spellId)
+		self:Say(args.spellId, nil, nil, "Orb of Destruction")
 	end
 	orbCount = orbCount + 1
 	local t = timers[args.spellId][orbCount]

@@ -296,7 +296,7 @@ do
 	local function printTarget(self, player, guid)
 		local t = self:Easy() and 5 or 4
 		if self:Me(guid) then
-			self:Say(228162)
+			self:Say(228162, nil, nil, "Shield of Light")
 			self:SayCountdown(228162, t)
 		end
 		self:PrimaryIcon(228162, player)
@@ -347,7 +347,7 @@ function mod:StormOfJustice(args)
 	if self:Me(args.destGUID) then
 		self:TargetMessageOld(args.spellId, args.destName, "blue", "alarm")
 		self:TargetBar(args.spellId, 5, args.destName)
-		self:Say(args.spellId)
+		self:Say(args.spellId, nil, nil, "Storm of Justice")
 		self:Flash(args.spellId)
 	end
 end
@@ -381,7 +381,7 @@ function mod:StormforgedSpear(args)
 	self:PrimaryIcon(args.spellId, args.destName)
 
 	if self:Me(args.destGUID) then
-		self:Say(args.spellId)
+		self:Say(args.spellId, nil, nil, "Stormforged Spear")
 	end
 	spearCount = spearCount + 1
 end
@@ -407,7 +407,7 @@ do
 		self:TargetMessageOld(args.spellId, args.destName, "red", "alarm")
 		self:PrimaryIcon(args.spellId, args.destName)
 		if self:Me(args.destGUID) then
-			self:Say(args.spellId)
+			self:Say(args.spellId, nil, nil, "Expel Light")
 			self:OpenProximity(args.spellId, 8)
 		else
 			self:OpenProximity(args.spellId, 8, args.destName)
@@ -454,7 +454,7 @@ function mod:BrandedFixate(args)
 	if self:Me(args.destGUID) then
 		self:MessageOld(-14495, "blue", "warning", L[args.spellId], args.spellId)
 		self:Flash(-14495, args.spellId)
-		self:Say(-14495, L.say[args.spellId]:format(args.spellName))
+		self:Say(-14495, L.say[args.spellId]:format(args.spellName), nil, L.say[args.spellId]:format("Branded"))
 		myAddGUID = args.sourceGUID
 	end
 	addFixates[args.spellId] = self:ColorName(args.destName)
@@ -562,11 +562,11 @@ do
 
 	function mod:RunicBrand(args)
 		if self:Me(args.destGUID) then
-			local tanslatedSpellId = lookupTable[args.spellId]
+			local translatedSpellId = lookupTable[args.spellId]
 			isOnMe = args.spellId
-			self:MessageOld(197961, "blue", "warning", CL.other:format(args.spellName, L[tanslatedSpellId]), args.spellId)
+			self:MessageOld(197961, "blue", "warning", CL.other:format(args.spellName, L[translatedSpellId]), args.spellId)
 			self:Flash(197961, args.spellId)
-			self:Say(197961, L.say[tanslatedSpellId]:format(args.spellName))
+			self:Say(197961, L.say[translatedSpellId]:format(args.spellName), nil, L.say[translatedSpellId]:format("Runic Brand"))
 			self:TargetBar(197961, 10, args.destName, nil, args.spellId)
 		end
 		proxLists[args.spellId][#proxLists[args.spellId]+1] = args.destName

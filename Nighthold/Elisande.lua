@@ -681,7 +681,7 @@ end
 function mod:DelphuricBeam(args)
 	if self:Me(args.destGUID) then
 		self:Flash(args.spellId)
-		self:Say(args.spellId)
+		self:Say(args.spellId, nil, nil, "Delphuric Beam")
 		local _, _, _, expires = self:UnitDebuff("player", args.spellName, args.spellId)
 		local t = expires - GetTime()
 		self:TargetBar(args.spellId, t, args.destName)
@@ -701,7 +701,7 @@ function mod:AblatingExplosion(args)
 
 	if self:Me(args.destGUID) then
 		self:Flash(args.spellId)
-		self:Say(args.spellId)
+		self:Say(args.spellId, nil, nil, "Ablating Explosion")
 	end
 	local timer = self:Easy() and 20.7 or timers[args.spellId][ablatingCount]
 	if timer then
@@ -745,7 +745,7 @@ do
 	function mod:ConflexiveBurstApplied(args)
 		if self:Me(args.destGUID) then
 			self:Flash(209597)
-			self:Say(209597)
+			self:Say(209597, nil, nil, "Conflexive Burst")
 			-- Need to constantly update because of fast/slow time
 			--local _, _, _, expires = self:UnitDebuff("player", args.spellName)
 			--local t = expires - GetTime()

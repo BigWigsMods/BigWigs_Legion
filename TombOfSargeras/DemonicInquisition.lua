@@ -275,7 +275,7 @@ do
 	local function printTarget(self, name, guid)
 		self:TargetMessageOld(233431, name, "orange", "alert", nil, nil, true)
 		if self:Me(guid) then
-			self:Say(233431)
+			self:Say(233431, nil, nil, "Calcified Quills")
 		end
 	end
 	function mod:CalcifiedQuills(args)
@@ -312,7 +312,7 @@ do
 		proxList[#proxList+1] = args.destName
 		if self:Me(args.destGUID) then
 			self:Flash(args.spellId)
-			self:Say(args.spellId)
+			self:Say(args.spellId, nil, nil, "Echoing Anguish")
 		end
 
 		self:OpenProximity(args.spellId, 8, proxList) -- Don't stand near others if they have the debuff

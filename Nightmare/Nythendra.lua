@@ -104,7 +104,7 @@ do
 		if self:Me(args.destGUID) then
 			isOnMe = true
 			self:Flash(args.spellId)
-			self:Say(args.spellId)
+			self:Say(args.spellId, nil, nil, "Rot")
 			self:TargetBar(args.spellId, 9, args.destName)
 			self:OpenProximity(args.spellId, 10)
 			self:SayCountdown(args.spellId, 9)
@@ -154,7 +154,7 @@ end
 
 function mod:VolatileRot(args)
 	if self:Me(args.destGUID) then
-		self:Say(args.spellId)
+		self:Say(args.spellId, nil, nil, "Volatile Rot")
 		self:Flash(args.spellId)
 	end
 	self:PrimaryIcon(args.spellId, args.destName)
@@ -227,7 +227,7 @@ function mod:InfestedMindCast(args)
 	if myInfestedStacks > 9 then
 		self:MessageOld(args.spellId, "blue", "long", CL.you:format(args.spellName))
 		self:Flash(args.spellId)
-		self:Say(args.spellId)
+		self:Say(args.spellId, nil, nil, "Infested Mind")
 	else
 		self:MessageOld(args.spellId, "yellow", "long", CL.incoming:format(args.spellName))
 	end

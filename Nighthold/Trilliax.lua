@@ -204,7 +204,7 @@ do
 		if self:Me(args.destGUID) then
 			self:OpenProximity(args.spellId, 7)
 			self:TargetBar(args.spellId, 45, args.destName)
-			self:Say(args.spellId)
+			self:Say(args.spellId, nil, nil, "Sterilize")
 		end
 	end
 end

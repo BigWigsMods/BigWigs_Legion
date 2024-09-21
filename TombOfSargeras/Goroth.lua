@@ -115,7 +115,7 @@ end
 function mod:BurningArmor(args)
 	self:TargetMessageOld(args.spellId, args.destName, "yellow", not self:UnitDebuff("player", self:SpellName(234264), 234264) and "warning" or "alarm", nil, nil, true)
 	if self:Me(args.destGUID) then
-		self:Say(args.spellId)
+		self:Say(args.spellId, nil, nil, "Burning Armor")
 	end
 end
 
@@ -132,7 +132,7 @@ function mod:ShatteringStarDebuff(args)
 	local t = (self:Mythic() and shatteringTimersMythic[shatteringCounter] or shatteringTimers[shatteringCounter]) or (self:Mythic() and 29 or (shatteringCounter % 2 == 0 and 19 or 41))
 	self:Bar(233279, t, CL.count:format(args.spellName, shatteringCounter)) -- Shattering Star
 	if self:Me(args.destGUID) then
-		self:Say(233279)
+		self:Say(233279, nil, nil, "Shattering Star")
 		self:Flash(233279)
 	end
 end
@@ -158,7 +158,7 @@ do
 		end
 
 		if self:Me(args.destGUID) then
-			self:Say(args.spellId)
+			self:Say(args.spellId, nil, nil, "Crashing Comet")
 			self:Flash(args.spellId)
 			self:SayCountdown(args.spellId, 5)
 		end

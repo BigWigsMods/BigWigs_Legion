@@ -77,7 +77,7 @@ end
 
 function mod:UnstableDecay(args)
 	if self:Me(args.destGUID) then
-		self:Say(args.spellId)
+		self:Say(args.spellId, nil, nil, "Unstable Decay")
 		self:TargetBar(args.spellId, 9, args.destName)
 		self:TargetMessageOld(args.spellId, args.destName, "blue", "warning")
 	end
@@ -88,7 +88,7 @@ function mod:Befoulment(args)
 	self:TargetMessageOld(args.spellId, args.destName, "green", "alert", nil, nil, true)
 	self:TargetBar(args.spellId, 15, args.destName)
 	if self:Me(args.destGUID) then
-		self:Say(args.spellId)
+		self:Say(args.spellId, nil, nil, "Befoulment")
 	end
 end
 

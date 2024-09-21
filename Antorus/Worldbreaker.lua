@@ -159,7 +159,7 @@ do
 			isOnMe = true
 			self:PlaySound(244410, "warning")
 			self:PersonalMessage(244410)
-			self:Say(244410)
+			self:Say(244410, nil, nil, "Decimation")
 			if args.spellId ~= 246919 then -- Haywire Decimation
 				self:SayCountdown(244410, 5)
 			end
@@ -169,7 +169,7 @@ end
 
 function mod:FelBombardment(args)
 	if self:Me(args.destGUID) then
-		self:Say(args.spellId)
+		self:Say(args.spellId, nil, nil, "Fel Bombardment")
 		self:SayCountdown(args.spellId, 7)
 		self:TargetBar(args.spellId, 7, args.destName)
 		self:PlaySound(args.spellId, "warning")
