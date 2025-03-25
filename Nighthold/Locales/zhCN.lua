@@ -14,7 +14,7 @@ end
 
 L = BigWigs:NewBossLocale("Trilliax", "zhCN")
 if L then
-	L.yourLink = ">%s< 与你相连"
+	L.yourLink = "%s 与你相连"
 	L.yourLinkShort = "相连 %s"
 	L.imprint = "印记"
 end
@@ -34,8 +34,8 @@ if L then
 	L.leftBeam = "左侧光束"
 	L.rightBeam = "右侧光束"
 
-	L.goRight = "> 往右 >"
-	L.goLeft = "< 往左 <"
+	L.goRight = "往右"
+	L.goLeft = "往左"
 
 	L.smashingBridge = "断桥"
 	L.smashingBridge_desc = "猛击断桥。可以使用此选项醒目或启用冷却。"
@@ -74,7 +74,7 @@ if L then
 
 	L.empowered = "（强化）%s"
 	L.gains = "古尔丹获得 >%s<"
-	--L.p2_start = "You failed, heroes! The ritual is upon us! But first, I'll indulge myself a bit... and finish you!"
+	L.p2_start = "你们输了，英雄！仪式即将完成！但我要先放纵一下……杀了他们！"
 	L.p4_mythic_start_yell = "该让这个恶魔猎手的灵魂回到躯体中……防止军团之王占据它了！"
 
 	L.nightorb_desc = "召唤暗夜宝珠，击杀后将出现时间停止力场。"
