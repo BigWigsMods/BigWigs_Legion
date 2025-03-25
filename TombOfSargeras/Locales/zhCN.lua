@@ -35,7 +35,7 @@ end
 
 L = BigWigs:NewBossLocale("Maiden of Vigilance", "zhCN")
 if L then
-	L.infusionChanged = "灌注>改变<：%s"
+	L.infusionChanged = "灌注改变：%s"
 	L.sameInfusion = "相同灌注：%s"
 	L.fel = "邪能"
 	L.light = "光明"
