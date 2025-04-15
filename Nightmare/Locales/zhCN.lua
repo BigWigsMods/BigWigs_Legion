@@ -2,19 +2,19 @@ local L = BigWigs:NewBossLocale("Cenarius", "zhCN")
 if not L then return end
 if L then
 	L.forces = "梦魇大军"
-	L.bramblesSay = ">%s< 附近荆棘"
+	L.bramblesSay = "%s 附近荆棘"
 	L.custom_off_multiple_breath_bar = "显示多重腐败之息计时条"
 	L.custom_off_multiple_breath_bar_desc = "默认 BigWigs 将只显示一条幼龙的腐败之息。启用此选项将看到每条幼龙的腐败之息。"
 end
 
 L = BigWigs:NewBossLocale("Elerethe Renferal", "zhCN")
 if L then
-	L.isLinkedWith = ">%s< 与 >%s< 相连"
-	L.yourLink = ">你< 与 >%s< 相连"
-	L.yourLinkShort = "与 >%s< 相连"
+	L.isLinkedWith = "%s 与 %s 相连"
+	L.yourLink = "你 与 %s 相连"
+	L.yourLinkShort = "与 %s 相连"
 
-	--L.custom_off_webofpain_marker = "Web of Pain marker"
-	--L.custom_off_webofpain_marker_desc = "Mark Web of Pain targets with {rt1}{rt2}{rt3}{rt4}, requires promoted or leader. The tanks will be marked with {rt1} and {rt2}. The other targets with {rt3} and {rt4}."
+	L.custom_off_webofpain_marker = "痛苦之网标记"
+	L.custom_off_webofpain_marker_desc = "使用 {rt1}{rt2}{rt3}{rt4} 标记痛苦之网，坦克会被标记 {rt1}和{rt2}，其他目标会被标记 {rt3}和{rt4}。需要权限"
 end
 
 L = BigWigs:NewBossLocale("Il'gynoth", "zhCN")
@@ -38,6 +38,6 @@ end
 
 L = BigWigs:NewBossLocale("Xavius", "zhCN")
 if L then
-	L.linked = ">你< 恐惧连结！- 与 >%s< 相连！"
+	L.linked = "你 恐惧连结！- 与 %s 相连！"
 	L.dreamHealers = "梦境治疗者"
 end

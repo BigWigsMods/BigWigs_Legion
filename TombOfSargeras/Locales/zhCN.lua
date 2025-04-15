@@ -35,7 +35,7 @@ end
 
 L = BigWigs:NewBossLocale("Maiden of Vigilance", "zhCN")
 if L then
-	L.infusionChanged = "灌注>改变<：%s"
+	L.infusionChanged = "灌注 改变：%s"
 	L.sameInfusion = "相同灌注：%s"
 	L.fel = "邪能"
 	L.light = "光明"
@@ -59,7 +59,7 @@ if L then
 	L.energy_leak_desc = "当第一阶段首领能量泄漏时显示警报。"
 	L.energy_leak_msg = "能量泄漏！（%d）"
 
-	L.warmup_trigger = "你们眼前的躯壳曾承载过萨格拉斯的力量" -- The husk before you was once a vessel for the might of Sargeras. But this temple itself is our prize. The means by which we will reduce your world to cinders!
+	L.warmup_trigger = "你们眼前的躯壳曾承载过萨格拉斯的力量" -- 你们眼前的躯壳曾承载过萨格拉斯的力量。但这座圣殿才是我们想要的。它能让我们将这世界化为灰烬！
 
 	L.absorb = "吸收"
 	L.absorb_text = "%s （|cff%s%.0f%%|r）"
