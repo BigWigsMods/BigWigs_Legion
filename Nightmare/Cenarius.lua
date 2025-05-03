@@ -264,9 +264,8 @@ do
 				self:StackMessageOld(args.spellId, args.destName, amount, "orange", "warning")
 			end
 		end
-		local t = GetTime()
-		if t-prev > 2 then
-			prev = t
+		if args.time-prev > 2 then
+			prev = args.time
 			self:SetInfoByTable(args.spellId, nightmareStacks)
 		end
 	end
@@ -350,12 +349,13 @@ function mod:EntanglingNightmares(args)
 end
 
 -- untested
-local prev = 0
-function mod:CorruptAlliesOfNature(args)
-	local t = GetTime()
-	if t-prev > 10 then
-		prev = t
-		self:MessageOld(args.spellId, "yellow", "info", CL.other:format(args.spellName, args.destName))
+do
+	local prev = 0
+	function mod:CorruptAlliesOfNature(args)
+		if args.time-prev > 10 then
+			prev = args.time
+			self:MessageOld(args.spellId, "yellow", "info", CL.other:format(args.spellName, args.destName))
+		end
 	end
 end
 
@@ -401,9 +401,8 @@ do
 	function mod:DesiccatingStomp(args)
 		self:StopBar(CL.count:format(args.spellName, getMobNumber(105468, args.sourceGUID))) -- Desiccating Stomp
 		self:MessageOld(226821, "orange", "long", CL.casting:format(args.spellName))
-		local t = GetTime()
-		if t-prev > 4 then
-			prev = t
+		if args.time-prev > 4 then
+			prev = args.time
 			local spellText = CL.count:format(args.spellName, getMobNumber(105468, args.sourceGUID))
 			self:CastBar(226821, self:Mythic() and 6.1 or 3, spellText)
 			self:ScheduleTimer("Bar", 6.1, 226821, 27, spellText)
@@ -470,9 +469,8 @@ do
 			self:OpenProximity(args.spellId, 8, proxList)
 		end
 
-		local t = GetTime()
-		if t-prev > 19 and (not scheduled) then -- prevent debuff spread to reset timer
-			prev = t
+		if args.time-prev > 19 and (not scheduled) then -- prevent debuff spread to reset timer
+			prev = args.time
 			scheduled = self:ScheduleTimer(warn, 0.1, self, args.spellId, args.spellName, args.sourceGUID)
 			self:Bar(args.spellId, 20.6, CL.count:format(args.spellName, getMobNumber(105495, args.sourceGUID)))
 		end

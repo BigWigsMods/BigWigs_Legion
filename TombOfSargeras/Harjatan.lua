@@ -17,7 +17,6 @@ local rageCounter = 0
 local roarCounter = 0
 local skipDrawIn = true
 local nextDrawIn = 0
-local drawInCheck = nil
 
 --------------------------------------------------------------------------------
 -- Localization
@@ -98,7 +97,7 @@ function mod:OnEngage()
 	self:CDBar(232192, 17.5) -- Commanding Roar
 	self:CDBar(231854, 20.7) -- Unchecked Rage
 	self:CDBar(232061, 58) -- Draw In
-	self:ScheduleTimer("drawInCheck", 58, self)
+	self:ScheduleTimer("DrawInCheck", 58)
 	if self:Mythic() then
 		self:Bar(240319, 30) -- Hatching
 	end
@@ -117,12 +116,12 @@ end
 -- Event Handlers
 --
 
-function mod:drawInCheck(self)
+function mod:DrawInCheck()
 	if skipDrawIn then
 		self:MessageOld(232061, "orange", "alarm", CL.interrupted:format(self:SpellName(232061))) -- Draw In Interrupted
 		nextDrawIn = GetTime() + 58
 		self:CDBar(232061, 58) -- Draw In
-		self:ScheduleTimer("drawInCheck", 58, self)
+		self:ScheduleTimer("DrawInCheck", 58)
 	end
 end
 

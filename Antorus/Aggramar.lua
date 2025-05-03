@@ -214,7 +214,7 @@ do
 			end
 		end
 
-		local castPos = max(comboCount*2-1, 1)
+		local castPos = math.max(comboCount*2-1, 1)
 		mod:SetInfo(244688, castPos, t > 0 and nextSpell..castTime:format(t) or "")
 		mod:SetInfoBar(244688, castPos, t > 0 and t/comboSpellLookup[comboSpells[comboCount]].castTime or 0)
 		if t > 0 then

@@ -22,7 +22,6 @@ local crashingWaveStage3Mythic = {32.5, 33, 42, 39}
 local hydraShotCounter = 1
 local bufferfishCounter = 1
 local devouringMawActive = false
-local abs = math.abs
 
 --------------------------------------------------------------------------------
 -- Localization
@@ -351,8 +350,8 @@ do
 			local name = args.destName
 			local expires = debuffs[name] -- time when the debuff should expire
 			if expires then
-				local abs = abs(GetTime()-expires) -- difference between now and when it should've expired
-				if abs > 0.1 then -- removed early, probably fed the fish
+				local diff = math.abs(GetTime()-expires) -- difference between now and when it should've expired
+				if diff > 0.1 then -- removed early, probably fed the fish
 					fedTable[name] = (fedTable[name] or 0) + 1
 					fedCount = fedCount + 1
 					self:SetInfoTitle(234621, L.inks_fed_count:format(fedCount, fedsNeeded))

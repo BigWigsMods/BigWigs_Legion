@@ -167,21 +167,16 @@ function mod:FelBeamCast(args)
 	self:MessageOld(args.spellId, "yellow", "info", args.spellName)
 end
 
-do
-	local spellName = mod:SpellName(221153) -- "Beam"
-	function mod:FelBeamSuccess(args)
-		beamCount = beamCount + 1
-		local t = timers[args.spellId][beamCount]
-		if t then
-			local text = CL.count:format(spellName, beamCount) .. getBeamText(beamCount)
-			self:Bar(args.spellId, t, text)
+function mod:FelBeamSuccess(args)
+	beamCount = beamCount + 1
+	local t = timers[args.spellId][beamCount]
+	if t then
+		self:Bar(args.spellId, t, CL.count:format(CL.beam, beamCount) .. getBeamText(beamCount))
 
-			-- Additional timer to plan movement ahead
-			local t2 = timers[args.spellId][beamCount+1]
-			if t2 then
-				local text = CL.count:format(spellName, beamCount+1) .. getBeamText(beamCount+1)
-				self:Bar(args.spellId, t+t2, text)
-			end
+		-- Additional timer to plan movement ahead
+		local t2 = timers[args.spellId][beamCount+1]
+		if t2 then
+			self:Bar(args.spellId, t+t2, CL.count:format(CL.beam, beamCount+1) .. getBeamText(beamCount+1))
 		end
 	end
 end

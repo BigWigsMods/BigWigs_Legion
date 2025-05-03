@@ -265,7 +265,7 @@ end
 
 --[[ Stage Two ]]--
 do
-	local timers = {
+	local gravTimers = {
 		[205984] = 30,
 		[214167] = 28,
 		[214335] = 62,
@@ -273,7 +273,7 @@ do
 	function mod:GravitationalPullSuccess(args)
 		-- Only show this once by using the success event
 		self:TargetMessageOld(args.spellId, args.destName, "orange", "warning", nil, nil, self:Tank())
-		self:CDBar(args.spellId, timers[args.spellId])
+		self:CDBar(args.spellId, gravTimers[args.spellId])
 		if self:Me(args.destGUID) then
 			self:Say(args.spellId, nil, nil, "Gravitational Pull")
 		end
