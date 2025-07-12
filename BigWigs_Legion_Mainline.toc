@@ -33,6 +33,7 @@
 ## X-Website: https://github.com/BigWigsMods/BigWigs_Legion
 ## X-Curse-Project-ID: 300657
 ## X-WoWI-ID: 24768
+## X-Wago-ID: 96dorENO
 ## X-BigWigs-ExtraMenu: -619
 ## X-BigWigs-LoadOn-InstanceId: 1712, 1779, 1530, 1520, 1676, 1648
 ## X-BigWigs-LoadOn-WorldBoss: -630, 108829, -630, 109331, -634, 107023, -630, 102075, -650, 110378, -650, 99929, -641, 108678, -641, 108879, -634, 106981, -634, 106982, -634, 106984, -680, 110321, -646, 121124, -646, 117239, -646, 117303, -646, 117470

@@ -10,4 +10,5 @@ A collection of BigWigs modules from the **Legion** era, including:
 * Argus World Bosses
 
 ## Download
-<https://www.curseforge.com/wow/addons/bigwigs_legion>
+* <https://www.curseforge.com/wow/addons/bigwigs_legion>
+* <https://addons.wago.io/addons/bigwigs-legion>
