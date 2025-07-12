@@ -316,7 +316,7 @@ end
 do
 	local list = mod:NewTargetList()
 	function mod:VolatileWound(args)
-		if UnitIsPlayer(args.destName) then
+		if self:Player(args.destFlags) then
 			if self:Me(args.destGUID) then
 				if not args.amount then
 					self:TargetMessageOld(args.spellId, args.destName, "blue", "alarm")

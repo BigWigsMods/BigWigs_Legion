@@ -511,7 +511,7 @@ do
 end
 
 function mod:TemporalCharge(args)
-	if UnitIsPlayer(args.destName) then
+	if self:Player(args.destFlags) then
 		self:TargetMessageOld(args.spellId, args.destName, "green", "info")
 	end
 end

@@ -270,7 +270,7 @@ function mod:SucculentFeastRemoved(args)
 end
 
 function mod:Energized(args)
-	if not UnitIsPlayer(args.destName) then
+	if not self:Player(args.destFlags) then
 		self:MessageOld(args.spellId, "red", self:Dispeller("magic", true) and "alert", CL.on:format(args.spellName, args.destName))
 		self:Bar(args.spellId, 20.5, CL.other:format(L.imprint, self:SpellName(214670))) -- Energized
 	end
