@@ -14,7 +14,7 @@ if L then
 	L.yourLinkShort = "Enlazado con %s"
 
 	L.custom_off_webofpain_marker = "Marcas de Telaraña de dolor"
-	L.custom_off_webofpain_marker_desc = "Marca a los objetivos de Telaraña de dolor con {rt1}{rt2}{rt3}{rt4}, requiere asistente o líder. Los tanques serán marcados con {rt1} y {rt2}. Los otros objetivos con {rt3} y {rt4}."
+	L.custom_off_webofpain_marker_desc = "Marca a los objetivos de Telaraña de dolor con {rt1}{rt2}{rt3}{rt4}, requiere ser líder de banda o asistente de banda. Los tanques serán marcados con {rt1} y {rt2}. Los otros objetivos con {rt3} y {rt4}."
 end
 
 L = BigWigs:NewBossLocale("Il'gynoth", "esES") or BigWigs:NewBossLocale("Il'gynoth", "esMX")
