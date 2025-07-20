@@ -25,8 +25,8 @@ if L then
 	L.gotEssence = "Esencia recogida"
 
 	L.adds_desc = "Temporizadores y avisos para cuando aparezcan esbirros."
-	--L.adds_yell1 = "Underlings! Get in here!"
-	--L.adds_yell2 = "Show these pretenders how to fight!"
+	L.adds_yell1 = "¡Esbirros! ¡Adelante!"
+	L.adds_yell2 = "¡Mostrad a estos farsantes cómo se lucha!"
 end
 
 L = BigWigs:NewBossLocale("Krosus", "esES") or BigWigs:NewBossLocale("Krosus", "esMX")
@@ -70,11 +70,10 @@ end
 
 L = BigWigs:NewBossLocale("Gul'dan", "esES") or BigWigs:NewBossLocale("Gul'dan", "esMX")
 if L then
-	--L.warmup_trigger = "Have you forgotten" -- Have you forgotten your humiliation on the Broken Shore? How your precious high king was bent and broken before me? Will you beg for your lives as he did, whimpering like some worthless dog?
-
-	--L.empowered = "(E) %s" -- (E) Eye of Gul'dan
+	L.warmup_trigger = ¿Habéis olvidado" -- ¿Habéis olvidado cómo os humillé en la Costa Abrupta? ¿Cómo vuestro querido Rey yacía derrotado a mis pies? ¿Suplicaréis por vuestra vida como lo hizo él, gimiendo como un perro indigno?
+	L.empowered = "(O) %s" -- (O) Ojo de Gul'dan
 	L.gains = "Gul'dan obtiene %s"
-	--L.p2_start = "You failed, heroes! The ritual is upon us! But first, I'll indulge myself a bit... and finish you!"
+	L.p2_start = "¡Habéis fracasado, héroes! ¡El ritual tendrá lugar! Pero primero, me daré un capricho... ¡y os mataré!"
 	L.p4_mythic_start_yell = "Es hora de devolver el alma del cazador de demonios a su cuerpo... ¡y evitar que caiga en manos de la Legión!"
 
 	--L.nightorb_desc = "Summons a Nightorb, killing it will spawn a Time Zone."
