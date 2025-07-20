@@ -76,10 +76,10 @@ if L then
 	L.p2_start = "¡Habéis fracasado, héroes! ¡El ritual tendrá lugar! Pero primero, me daré un capricho... ¡y os mataré!"
 	L.p4_mythic_start_yell = "Es hora de devolver el alma del cazador de demonios a su cuerpo... ¡y evitar que caiga en manos de la Legión!"
 
-	--L.nightorb_desc = "Summons a Nightorb, killing it will spawn a Time Zone."
-	--L.timeStopZone = "Time Stop Zone"
+	L.nightorb_desc = "Invoca un Orbe nocturno, al matarlo aparecerá un Campo de tiempo detenido."
+	L.timeStopZone = "Campo de tiempo detenido"
 
-	--L.manifest_desc = "Summons a Soul Fragment of Azzinoth, killing it will spawn a Demonic Essence."
+	L.manifest_desc = "Invoca un Trozo de alma de Azzinoth, al matarlo aparecerá una Esencia demoníaca."
 
 	L.winds_desc = "Gul'dan invoca Vientos violentos para empujar a los jugadores de la plataforma."
 	
