@@ -70,7 +70,7 @@ end
 
 L = BigWigs:NewBossLocale("Gul'dan", "esES") or BigWigs:NewBossLocale("Gul'dan", "esMX")
 if L then
-	L.warmup_trigger = ¿Habéis olvidado" -- ¿Habéis olvidado cómo os humillé en la Costa Abrupta? ¿Cómo vuestro querido Rey yacía derrotado a mis pies? ¿Suplicaréis por vuestra vida como lo hizo él, gimiendo como un perro indigno?
+	L.warmup_trigger = "¿Habéis olvidado" -- ¿Habéis olvidado cómo os humillé en la Costa Abrupta? ¿Cómo vuestro querido Rey yacía derrotado a mis pies? ¿Suplicaréis por vuestra vida como lo hizo él, gimiendo como un perro indigno?
 	L.empowered = "(O) %s" -- (O) Ojo de Gul'dan
 	L.gains = "Gul'dan obtiene %s"
 	L.p2_start = "¡Habéis fracasado, héroes! ¡El ritual tendrá lugar! Pero primero, me daré un capricho... ¡y os mataré!"
