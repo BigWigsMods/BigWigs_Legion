@@ -83,7 +83,7 @@ if L then
 	L.manifest_desc = "Invoca un Trozo de alma de Azzinoth, al matarlo aparecerá una Esencia demoníaca."
 
 	L.winds_desc = "Gul'dan invoca Vientos violentos para empujar a los jugadores de la plataforma."
-	end
+end
 
 L = BigWigs:NewBossLocale("Nighthold Trash", "esES") or BigWigs:NewBossLocale("Nighthold Trash", "esMX")
 if L then
