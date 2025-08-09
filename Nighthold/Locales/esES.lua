@@ -64,7 +64,7 @@ if L then
 	L.fastTimeZone = "Zona de tiempo acelerado"
 
 	L.boss_active = "Elisande activada"
-	L.boss_active_desc = "Tiempo hasta que Elisande se activa después de limpiar la zona de esbirros."
+	L.boss_active_desc = "Tiempo hasta que Elisande se active después de limpiar la zona de esbirros."
 	L.elisande_trigger = "Vaticiné vuestra llegada, por supuesto. Los hilos del destino que os trajeron a este lugar; vuestros desesperados intentos por detener la Legión..."
 end
 
