@@ -38,7 +38,7 @@ if L then
 	L.goLeft = "< A LA IZQUIERDA <"
 
 	L.smashingBridge = "Rotura del puente"
-	L.smashingBridge_desc = "Embates que rompen el puente. Puedes utilizar esta opción para enfatizar o activar una cuenta atrás." 
+	L.smashingBridge_desc = "Embates que rompen el puente. Puedes utilizar esta opción para enfatizar o activar una cuenta atrás."
 
 	L.removedFromYou = "%s eliminada de ti" -- "Searing Brand removed from YOU!"
 end
