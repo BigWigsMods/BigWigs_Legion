@@ -208,8 +208,8 @@ function mod:MarkApplied(args)
 			self:StopBar(CL.count:format(args.spellName, amount-1), args.destName)
 		end
 
-		local tbl = self:GetPlayerAura(args.spellId)
-		self:TargetBar(-12809, tbl and tbl.duration or 35, args.destName, CL.count:format(args.spellName, amount), args.spellId)
+		local auraTbl = self:GetPlayerAura(args.spellId)
+		self:TargetBar(-12809, auraTbl and auraTbl.duration or 35, args.destName, CL.count:format(args.spellName, amount), args.spellId)
 	end
 end
 
