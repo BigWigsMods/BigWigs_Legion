@@ -111,7 +111,7 @@ do
 		if args.time - prev > 2 then
 			prev = args.time
 			self:Message("totem", "red", args.spellName, L.totem_icon)
-			self:PlaySound("stages", "long")
+			self:PlaySound("totem", "long")
 		end
 	end
 
