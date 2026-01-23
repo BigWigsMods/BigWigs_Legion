@@ -1,4 +1,4 @@
-## Interface: 110205, 110107, 110200
+## Interface: 120001, 110207, 120000
 
 ## Title: BigWigs [|cffeda55fLegion|r]
 ## Title-zhCN: BigWigs [|cffeda55f军团再临|r]
