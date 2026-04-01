@@ -7,7 +7,7 @@ local mod = BigWigs:NewBoss("Apocron", -646, 1956)
 if not mod then return end
 mod:RegisterEnableMob(121124)
 mod.otherMenu = -619
-mod.worldBoss = 121124
+mod:SetWorldModule(true)
 
 --------------------------------------------------------------------------------
 -- Initialization

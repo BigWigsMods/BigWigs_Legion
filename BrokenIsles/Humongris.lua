@@ -7,7 +7,7 @@ local mod, CL = BigWigs:NewBoss("Humongris", -641, 1770)
 if not mod then return end
 mod:RegisterEnableMob(108879)
 mod.otherMenu = -619
-mod.worldBoss = 108879
+mod:SetWorldModule(true)
 
 --------------------------------------------------------------------------------
 -- Initialization

@@ -7,7 +7,7 @@ local mod, CL = BigWigs:NewBoss("Na'zak the Fiend", -680, 1783)
 if not mod then return end
 mod:RegisterEnableMob(110321)
 mod.otherMenu = -619
-mod.worldBoss = 110321
+mod:SetWorldModule(true)
 
 --------------------------------------------------------------------------------
 -- Locals

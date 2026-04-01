@@ -7,7 +7,7 @@ local mod, CL = BigWigs:NewBoss("Calamir", -630, 1774)
 if not mod then return end
 mod:RegisterEnableMob(109331)
 mod.otherMenu = -619
-mod.worldBoss = 109331
+mod:SetWorldModule(true)
 
 --------------------------------------------------------------------------------
 -- Locals

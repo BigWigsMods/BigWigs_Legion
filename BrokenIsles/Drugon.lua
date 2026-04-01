@@ -7,7 +7,7 @@ local mod, CL = BigWigs:NewBoss("Drugon the Frostblood", -650, 1789)
 if not mod then return end
 mod:RegisterEnableMob(110378)
 mod.otherMenu = -619
-mod.worldBoss = 110378
+mod:SetWorldModule(true)
 
 --------------------------------------------------------------------------------
 -- Initialization
