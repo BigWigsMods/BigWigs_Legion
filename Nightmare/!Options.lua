@@ -8,6 +8,7 @@ BigWigs:AddColors("Nythendra", {
 	[204463] = {"blue","orange"},
 	[204504] = "blue",
 	[225943] = {"blue","yellow"},
+	["berserk"] = {"orange","red","yellow"},
 })
 
 BigWigs:AddSounds("Nythendra", {
@@ -18,6 +19,7 @@ BigWigs:AddSounds("Nythendra", {
 	[204463] = "warning",
 	[204504] = "warning",
 	[225943] = "long",
+	["berserk"] = "alarm",
 })
 
 BigWigs:AddColors("Il'gynoth", {
@@ -89,6 +91,7 @@ BigWigs:AddColors("Ursoc", {
 	[198388] = {"cyan","orange"},
 	[204859] = {"blue","yellow"},
 	[205611] = "blue",
+	["berserk"] = {"orange","red","yellow"},
 })
 
 BigWigs:AddSounds("Ursoc", {
@@ -98,6 +101,7 @@ BigWigs:AddSounds("Ursoc", {
 	[198388] = {"info","long"},
 	[204859] = {"info","warning"},
 	[205611] = "alert",
+	["berserk"] = "alarm",
 })
 
 BigWigs:AddColors("Dragons of Nightmare", {

@@ -31,6 +31,7 @@ BigWigs:AddColors("Demonic Inquisition", {
 	[235230] = "red",
 	[236283] = "blue",
 	[239401] = "red",
+	[248671] = {"orange","red"},
 	[248713] = {"blue","red"},
 	["fixate"] = "blue",
 })
@@ -46,6 +47,7 @@ BigWigs:AddSounds("Demonic Inquisition", {
 	[235230] = "warning",
 	[236283] = "alert",
 	[239401] = "alarm",
+	[248671] = "alarm",
 	[248713] = "warning",
 	["fixate"] = "long",
 })
@@ -60,6 +62,7 @@ BigWigs:AddColors("Harjatan the Bludger", {
 	[232192] = "red",
 	[233429] = {"blue","orange"},
 	[240319] = "red",
+	["berserk"] = {"orange","red","yellow"},
 })
 
 BigWigs:AddSounds("Harjatan the Bludger", {
@@ -72,6 +75,7 @@ BigWigs:AddSounds("Harjatan the Bludger", {
 	[232192] = "alert",
 	[233429] = "alarm",
 	[240319] = "warning",
+	["berserk"] = "alarm",
 })
 
 BigWigs:AddColors("Mistress Sassz'ine", {
@@ -87,6 +91,7 @@ BigWigs:AddColors("Mistress Sassz'ine", {
 	[234621] = {"green","red"},
 	[239362] = "blue",
 	[239436] = "orange",
+	["berserk"] = {"orange","red","yellow"},
 	["stages"] = "cyan",
 })
 
@@ -103,6 +108,7 @@ BigWigs:AddSounds("Mistress Sassz'ine", {
 	[234621] = {"info","warning"},
 	[239362] = "alert",
 	[239436] = "warning",
+	["berserk"] = "alarm",
 	["stages"] = "long",
 })
 
@@ -193,6 +199,7 @@ BigWigs:AddColors("Maiden of Vigilance", {
 	[241635] = "orange",
 	[241636] = "orange",
 	[248812] = "red",
+	["berserk"] = {"orange","red","yellow"},
 })
 
 BigWigs:AddSounds("Maiden of Vigilance", {
@@ -208,6 +215,7 @@ BigWigs:AddSounds("Maiden of Vigilance", {
 	[241635] = "alert",
 	[241636] = "alert",
 	[248812] = "warning",
+	["berserk"] = "alarm",
 })
 
 BigWigs:AddColors("Fallen Avatar", {
@@ -226,6 +234,7 @@ BigWigs:AddColors("Fallen Avatar", {
 	[239739] = {"blue","yellow"},
 	[240623] = "red",
 	[240728] = {"blue","orange"},
+	["berserk"] = {"orange","red","yellow"},
 	["energy_leak"] = "yellow",
 	["stages"] = {"cyan","green"},
 })
@@ -246,6 +255,7 @@ BigWigs:AddSounds("Fallen Avatar", {
 	[239739] = "alarm",
 	[240623] = "warning",
 	[240728] = "warning",
+	["berserk"] = "alarm",
 	["energy_leak"] = "info",
 	["stages"] = {"info","long"},
 })
@@ -266,6 +276,7 @@ BigWigs:AddColors("Kil'jaeden", {
 	[241721] = "blue",
 	[243982] = "red",
 	[244856] = "yellow",
+	["berserk"] = {"orange","red","yellow"},
 	["stages"] = "green",
 })
 
@@ -285,6 +296,7 @@ BigWigs:AddSounds("Kil'jaeden", {
 	[241721] = {"alert","long"},
 	[243982] = "alarm",
 	[244856] = "alert",
+	["berserk"] = "alarm",
 	["stages"] = "long",
 })
 

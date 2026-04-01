@@ -10,6 +10,7 @@ BigWigs:AddColors("Skorpyron", {
 	[204459] = "green",
 	[204471] = "orange",
 	[204744] = "blue",
+	["berserk"] = {"orange","red","yellow"},
 })
 
 BigWigs:AddSounds("Skorpyron", {
@@ -21,6 +22,7 @@ BigWigs:AddSounds("Skorpyron", {
 	[204459] = "info",
 	[204471] = "alert",
 	[204744] = "alert",
+	["berserk"] = "alarm",
 })
 
 BigWigs:AddColors("Chronomatic Anomaly", {
@@ -30,7 +32,7 @@ BigWigs:AddColors("Chronomatic Anomaly", {
 	[206617] = {"blue","red"},
 	[207228] = "orange",
 	[207871] = "blue",
-	[207976] = "cyan",
+	[207976] = {"cyan","orange","red"},
 	[211927] = "yellow",
 	[212099] = {"blue","green"},
 	[219815] = "yellow",
@@ -44,7 +46,7 @@ BigWigs:AddSounds("Chronomatic Anomaly", {
 	[206617] = "alert",
 	[207228] = "alert",
 	[207871] = "alert",
-	[207976] = "long",
+	[207976] = {"alarm","long"},
 	[211927] = "long",
 	[212099] = "info",
 	[219815] = "alert",
@@ -63,6 +65,7 @@ BigWigs:AddColors("Trilliax", {
 	[214670] = "red",
 	[215062] = "orange",
 	[215066] = "cyan",
+	["berserk"] = {"orange","red","yellow"},
 	["stages"] = "cyan",
 })
 
@@ -78,6 +81,7 @@ BigWigs:AddSounds("Trilliax", {
 	[214670] = "alert",
 	[215062] = "alarm",
 	[215066] = "long",
+	["berserk"] = "alarm",
 	["stages"] = "long",
 })
 
@@ -105,6 +109,7 @@ BigWigs:AddColors("Spellblade Aluriel", {
 	[230414] = "blue",
 	[230504] = "orange",
 	[230901] = "green",
+	["berserk"] = {"orange","red","yellow"},
 	["stages"] = "cyan",
 })
 
@@ -129,6 +134,7 @@ BigWigs:AddSounds("Spellblade Aluriel", {
 	[230403] = "long",
 	[230414] = "alert",
 	[230901] = "info",
+	["berserk"] = "alarm",
 	["stages"] = "long",
 })
 
@@ -144,6 +150,7 @@ BigWigs:AddColors("Tichondrius", {
 	[216027] = "blue",
 	[216040] = {"blue","yellow"},
 	["adds"] = "cyan",
+	["berserk"] = {"orange","red","yellow"},
 })
 
 BigWigs:AddSounds("Tichondrius", {
@@ -158,6 +165,7 @@ BigWigs:AddSounds("Tichondrius", {
 	[216027] = "alert",
 	[216040] = "warning",
 	["adds"] = "alert",
+	["berserk"] = "alarm",
 })
 
 BigWigs:AddColors("Krosus", {
@@ -222,6 +230,7 @@ BigWigs:AddColors("Star Augur Etraeus", {
 	[214167] = {"blue","orange"},
 	[214335] = {"blue","orange"},
 	[216909] = "red",
+	[222761] = {"orange","red"},
 	["stages"] = "cyan",
 })
 
@@ -239,6 +248,7 @@ BigWigs:AddSounds("Star Augur Etraeus", {
 	[214167] = "warning",
 	[214335] = "warning",
 	[216909] = "alarm",
+	[222761] = "alarm",
 	["stages"] = "long",
 })
 
@@ -258,6 +268,7 @@ BigWigs:AddColors("Grand Magistrix Elisande", {
 	[211887] = {"blue","orange"},
 	[221864] = "red",
 	[228877] = "yellow",
+	[229889] = {"orange","red"},
 	["expedient_elemental"] = "cyan",
 	["recursive_elemental"] = "cyan",
 	["stages"] = "cyan",
@@ -279,6 +290,7 @@ BigWigs:AddSounds("Grand Magistrix Elisande", {
 	[211887] = "warning",
 	[221864] = "alert",
 	[228877] = "alarm",
+	[229889] = "alarm",
 	["expedient_elemental"] = "info",
 	["recursive_elemental"] = "info",
 	["stages"] = {"info","long"},
@@ -319,6 +331,7 @@ BigWigs:AddColors("Gul'dan", {
 	[227009] = "cyan",
 	[227556] = "green",
 	[229945] = "yellow",
+	["berserk"] = {"orange","red","yellow"},
 	["manifest"] = "yellow",
 	["nightorb"] = "yellow",
 	["stages"] = "cyan",
@@ -356,6 +369,7 @@ BigWigs:AddSounds("Gul'dan", {
 	[227009] = "long",
 	[227556] = "info",
 	[229945] = "alarm",
+	["berserk"] = "alarm",
 	["manifest"] = "alert",
 	["nightorb"] = "alert",
 	["stages"] = "long",
@@ -371,6 +385,7 @@ BigWigs:AddColors("Nighthold Trash", {
 	[224568] = "yellow",
 	[224572] = "blue",
 	[224632] = {"blue","orange"},
+	[224944] = {"blue","red"},
 	[224982] = {"blue","red"},
 	[225105] = {"blue","yellow"},
 	[225390] = "blue",
@@ -386,7 +401,6 @@ BigWigs:AddColors("Nighthold Trash", {
 	[230994] = {"blue","yellow"},
 	[231005] = "red",
 	[231086] = {"blue","orange"},
-	["fear"] = {"blue","red"},
 })
 
 BigWigs:AddSounds("Nighthold Trash", {
@@ -399,6 +413,7 @@ BigWigs:AddSounds("Nighthold Trash", {
 	[224568] = "long",
 	[224572] = "alert",
 	[224632] = "warning",
+	[224944] = "long",
 	[224982] = "warning",
 	[225105] = "alert",
 	[225390] = "alert",
@@ -414,5 +429,4 @@ BigWigs:AddSounds("Nighthold Trash", {
 	[230994] = "warning",
 	[231005] = "long",
 	[231086] = "long",
-	["fear"] = "long",
 })

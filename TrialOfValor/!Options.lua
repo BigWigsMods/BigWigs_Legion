@@ -50,6 +50,7 @@ BigWigs:AddColors("Guarm-TrialOfValor", {
 	[228744] = "red",
 	[228810] = "cyan",
 	[228818] = "yellow",
+	["berserk"] = {"orange","red","yellow"},
 })
 
 BigWigs:AddSounds("Guarm-TrialOfValor", {
@@ -62,6 +63,7 @@ BigWigs:AddSounds("Guarm-TrialOfValor", {
 	[228744] = "alert",
 	[228810] = "alarm",
 	[228818] = "warning",
+	["berserk"] = "alarm",
 })
 
 BigWigs:AddColors("Helya-TrialOfValor", {
@@ -86,6 +88,7 @@ BigWigs:AddColors("Helya-TrialOfValor", {
 	[230267] = {"blue","orange"},
 	[232450] = {"blue","yellow"},
 	[232488] = {"blue","orange"},
+	["berserk"] = {"orange","red","yellow"},
 	["stages"] = "cyan",
 	["tentacle_far"] = "orange",
 	["tentacle_near"] = "orange",
@@ -113,6 +116,7 @@ BigWigs:AddSounds("Helya-TrialOfValor", {
 	[230267] = {"alarm","warning"},
 	[232450] = "long",
 	[232488] = "alarm",
+	["berserk"] = "alarm",
 	["stages"] = "long",
 	["tentacle_far"] = "long",
 	["tentacle_near"] = "long",

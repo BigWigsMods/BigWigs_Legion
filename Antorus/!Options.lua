@@ -101,6 +101,7 @@ BigWigs:AddColors("Portal Keeper Hasabel", {
 	[246925] = "blue",
 	[246929] = "blue",
 	[255805] = "red",
+	["berserk"] = {"orange","red","yellow"},
 	["stages"] = "green",
 })
 
@@ -125,6 +126,7 @@ BigWigs:AddSounds("Portal Keeper Hasabel", {
 	[246925] = "info",
 	[246929] = "info",
 	[255805] = "alarm",
+	["berserk"] = "alarm",
 	["stages"] = "long",
 })
 
@@ -160,6 +162,7 @@ BigWigs:AddColors("Imonar the Soulhunter", {
 	[248254] = "orange",
 	[250255] = {"blue","purple"},
 	[254244] = {"blue","red"},
+	["berserk"] = {"orange","red","yellow"},
 	["stages"] = "green",
 })
 
@@ -173,6 +176,7 @@ BigWigs:AddSounds("Imonar the Soulhunter", {
 	[248254] = "warning",
 	[250255] = "alarm",
 	[254244] = {"alarm","alert"},
+	["berserk"] = "alarm",
 	["stages"] = "long",
 })
 
@@ -209,6 +213,7 @@ BigWigs:AddColors("Varimathras", {
 	[243999] = {"blue","yellow"},
 	[244042] = {"blue","red"},
 	[244094] = {"blue","green","orange"},
+	["berserk"] = {"orange","red","yellow"},
 	["stages"] = "green",
 })
 
@@ -219,6 +224,7 @@ BigWigs:AddSounds("Varimathras", {
 	[243999] = "alert",
 	[244042] = "alarm",
 	[244094] = {"info","warning"},
+	["berserk"] = "alarm",
 	["stages"] = "long",
 })
 
@@ -234,6 +240,7 @@ BigWigs:AddColors("The Coven of Shivarra", {
 	[253203] = "red",
 	[253520] = {"blue","red"},
 	[253650] = "yellow",
+	["berserk"] = {"orange","red","yellow"},
 	["stages"] = "green",
 	["torment_of_the_titans"] = {"cyan","orange","red"},
 })
@@ -250,6 +257,7 @@ BigWigs:AddSounds("The Coven of Shivarra", {
 	[253203] = "info",
 	[253520] = "alarm",
 	[253650] = "alert",
+	["berserk"] = "alarm",
 	["stages"] = "long",
 	["torment_of_the_titans"] = {"info","warning"},
 })
@@ -266,6 +274,7 @@ BigWigs:AddColors("Aggramar", {
 	[254452] = {"blue","red"},
 	[255058] = "red",
 	[255061] = "orange",
+	["berserk"] = {"orange","red","yellow"},
 	["stages"] = {"cyan","green"},
 	["track_ember"] = "cyan",
 })
@@ -282,6 +291,7 @@ BigWigs:AddSounds("Aggramar", {
 	[254452] = "warning",
 	[255058] = "alarm",
 	[255061] = "warning",
+	["berserk"] = "alarm",
 	["stages"] = "long",
 	["track_ember"] = "info",
 })
@@ -313,6 +323,7 @@ BigWigs:AddColors("Argus the Unmaker", {
 	[258068] = {"blue","orange"},
 	[258834] = "yellow",
 	[258838] = {"blue","cyan","yellow"},
+	["berserk"] = {"orange","red","yellow"},
 	["combinedBurstAndBomb"] = "red",
 	["stages"] = "green",
 })
@@ -344,6 +355,7 @@ BigWigs:AddSounds("Argus the Unmaker", {
 	[258068] = "warning",
 	[258834] = "info",
 	[258838] = {"alarm","alert","warning"},
+	["berserk"] = "alarm",
 	["stages"] = "long",
 })
 
