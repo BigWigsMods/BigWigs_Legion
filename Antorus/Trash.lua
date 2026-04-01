@@ -5,7 +5,7 @@
 
 local mod, CL = BigWigs:NewBoss("Antorus Trash", 1712)
 if not mod then return end
-mod.displayName = CL.trash
+mod:SetTrashModule(true)
 mod:RegisterEnableMob(
 	-- [[ Before Garothi Worldbreaker ]] --
 	123478, -- Antoran Felguard
