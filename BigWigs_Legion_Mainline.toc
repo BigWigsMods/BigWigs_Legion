@@ -51,7 +51,6 @@ Antorus\CovenofShivarra.lua
 Antorus\Aggramar.lua
 Antorus\Argus.lua
 Antorus\Trash.lua
-Antorus\Locales\locales.xml
 ArgusInvasionPoints\Folnuna.lua
 ArgusInvasionPoints\Alluradel.lua
 ArgusInvasionPoints\Meto.lua
@@ -72,7 +71,6 @@ BrokenIsles\Sharthos.lua
 BrokenIsles\Sivash.lua
 BrokenIsles\TheSoultakers.lua
 BrokenIsles\WitheredJim.lua
-BrokenIsles\Locales\locales.xml
 Nighthold\Skorpyron.lua
 Nighthold\ChronomaticAnomaly.lua
 Nighthold\Trilliax.lua
@@ -84,7 +82,6 @@ Nighthold\Etraeus.lua
 Nighthold\Elisande.lua
 Nighthold\Guldan.lua
 Nighthold\Trash.lua
-Nighthold\Locales\locales.xml
 Nightmare\Nythendra.lua
 Nightmare\Ilgynoth.lua
 Nightmare\EleretheRenferal.lua
@@ -93,7 +90,6 @@ Nightmare\Dragons.lua
 Nightmare\Cenarius.lua
 Nightmare\Xavius.lua
 Nightmare\Trash.lua
-Nightmare\Locales\locales.xml
 TombOfSargeras\Goroth.lua
 TombOfSargeras\DemonicInquisition.lua
 TombOfSargeras\Harjatan.lua
@@ -104,10 +100,9 @@ TombOfSargeras\MaidenofVigilance.lua
 TombOfSargeras\FallenAvatar.lua
 TombOfSargeras\Kiljaeden.lua
 TombOfSargeras\Trash.lua
-TombOfSargeras\Locales\locales.xml
 TrialOfValor\Odyn.lua
 TrialOfValor\Guarm.lua
 TrialOfValor\Helya.lua
-TrialOfValor\Locales\locales.xml
 
+!Locales\[TextLocale].lua [AllowLoadTextLocale deDE, esES, esMX, frFR, itIT, koKR, ptBR, ruRU, zhCN, zhTW]
 !Options.lua
