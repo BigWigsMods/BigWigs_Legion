@@ -1,6 +1,6 @@
 -- Antorus, the Burning Throne
 
-local L = BigWigs:NewBossLocale("Argus the Unmaker", "esES")
+local L = BigWigs:NewBossLocale("Argus the Unmaker", "esMX")
 if L then
 	--L.combinedBurstAndBomb = "Combine Soulburst and Soulbomb"
 	--L.combinedBurstAndBomb_desc = "|cff71d5ffSoulbombs|r are always applied in combination with |cff71d5ffSoulbursts|r. Enable this option to combine those two messages into one."
@@ -31,7 +31,7 @@ if L then
 	--L.bomb_explosions_desc = "Show a timer for Soulburst and Soulbomb exploding."
 end
 
-L = BigWigs:NewBossLocale("Aggramar", "esES")
+L = BigWigs:NewBossLocale("Aggramar", "esMX")
 if L then
 	--L.wave_cleared = "Wave %d Cleared!" -- Wave 1 Cleared!
 
@@ -41,7 +41,7 @@ if L then
 	--L.custom_off_ember_marker_desc = "Mark Ember of Taeshalach with {rt1}{rt2}{rt3}{rt4}{rt5}, requires promoted or leader.\n|cff33ff99Mythic: This will only mark adds in the current wave and above 45 energy.|r"
 end
 
-L = BigWigs:NewBossLocale("The Coven of Shivarra", "esES")
+L = BigWigs:NewBossLocale("The Coven of Shivarra", "esMX")
 if L then
 	--L.torment_of_the_titans_desc = "The Shivarra will force the titan souls to use their abilities against the players."
 
@@ -54,7 +54,7 @@ if L then
 	--L.tormentFlames = "Flames" -- short for "Flames of Khaz'goroth" (or similar, max 10 characters)
 end
 
-L = BigWigs:NewBossLocale("Eonar the Life-Binder", "esES")
+L = BigWigs:NewBossLocale("Eonar the Life-Binder", "esMX")
 if L then
 	--L.warp_in_desc = "Shows timers and messages for each wave, along with any special adds in the wave."
 
@@ -64,7 +64,7 @@ if L then
 	--L.bats = "Fel Bats"
 end
 
-L = BigWigs:NewBossLocale("Portal Keeper Hasabel", "esES")
+L = BigWigs:NewBossLocale("Portal Keeper Hasabel", "esMX")
 if L then
 	--L.custom_on_stop_timers = "Always show ability bars"
 	--L.custom_on_stop_timers_desc = "Hasabel randomizes which off-cooldown ability she uses next. When this option is enabled, the bars for those abilities will stay on your screen."
@@ -76,19 +76,19 @@ if L then
 	--L.achiev = "'Portal Combat' achievement debuffs" -- Achievement 11928
 end
 
-L = BigWigs:NewBossLocale("Kin'garoth", "esES")
+L = BigWigs:NewBossLocale("Kin'garoth", "esMX")
 if L then
 	--L.empowered = "(E) %s" -- (E) Ruiner
 	--L.gains = "Kin'garoth gains %s" -- Kin'garoth gains Empowered Ruiner
 end
 
-L = BigWigs:NewBossLocale("Antoran High Command", "esES")
+L = BigWigs:NewBossLocale("Antoran High Command", "esMX")
 if L then
 	--L.felshieldActivated = "Felshield Activated by %s"
 	--L.felshieldUp = "Felshield Up"
 end
 
-L = BigWigs:NewBossLocale("Gorothi Worldbreaker", "esES")
+L = BigWigs:NewBossLocale("Gorothi Worldbreaker", "esMX")
 if L then
 	--L.cannon_ability_desc = "Display Messages and Bars related to the 2 cannons on the Gorothi Worldbreaker's back."
 
@@ -99,7 +99,7 @@ if L then
 	--L.decimationImpact_desc = "Show a timer for the Decimation missiles landing."
 end
 
-L = BigWigs:NewBossLocale("Antorus Trash", "esES")
+L = BigWigs:NewBossLocale("Antorus Trash", "esMX")
 if L then
 	-- [[ Before Garothi Worldbreaker ]] --
 	L.felguard = "Guardia vil antoran"
@@ -125,7 +125,7 @@ end
 
 -- Broken Isles
 
-L = BigWigs:NewBossLocale("Withered J'im", "esES")
+L = BigWigs:NewBossLocale("Withered J'im", "esMX")
 if L then
 	L.custom_on_mark_boss = "Marca J'im Marchito"
 	L.custom_on_mark_boss_desc = "Marca al verdadero J'im Marchito con {rt8}, requiere ser líder de banda o asistente de banda."
@@ -133,7 +133,7 @@ end
 
 -- The Nighthold
 
-L = BigWigs:NewBossLocale("Skorpyron", "esES")
+L = BigWigs:NewBossLocale("Skorpyron", "esMX")
 if L then
 	L.blue = "Azul"
 	L.red = "Rojo"
@@ -141,19 +141,19 @@ if L then
 	L.mode = "%s Modo"
 end
 
-L = BigWigs:NewBossLocale("Chronomatic Anomaly", "esES")
+L = BigWigs:NewBossLocale("Chronomatic Anomaly", "esMX")
 if L then
 	L.timeLeft = "%.1fs" -- s = seconds
 end
 
-L = BigWigs:NewBossLocale("Trilliax", "esES")
+L = BigWigs:NewBossLocale("Trilliax", "esMX")
 if L then
 	L.yourLink = "Estás vinculado con %s"
 	L.yourLinkShort = "Vinculado con %s"
 	L.imprint = "Huella"
 end
 
-L = BigWigs:NewBossLocale("Tichondrius", "esES")
+L = BigWigs:NewBossLocale("Tichondrius", "esMX")
 if L then
 	L.addsKilled = "Esbirros muertos"
 	L.gotEssence = "Esencia recogida"
@@ -163,7 +163,7 @@ if L then
 	L.adds_yell2 = "¡Mostrad a estos farsantes cómo se lucha!"
 end
 
-L = BigWigs:NewBossLocale("Krosus", "esES")
+L = BigWigs:NewBossLocale("Krosus", "esMX")
 if L then
 	L.leftBeam = "Láser izquierdo"
 	L.rightBeam = "Láser derecho"
@@ -177,7 +177,7 @@ if L then
 	L.removedFromYou = "%s eliminada de ti" -- "Searing Brand removed from YOU!"
 end
 
-L = BigWigs:NewBossLocale("Star Augur Etraeus", "esES")
+L = BigWigs:NewBossLocale("Star Augur Etraeus", "esMX")
 if L then
 	L.yourSign = "Tu signo"
 	L.with = "con"
@@ -187,7 +187,7 @@ if L then
 	L[216344] = "|T1391535:15:15:0:0:64:64:4:60:4:60|t|cFF00DDFFDragón|r"
 end
 
-L = BigWigs:NewBossLocale("Grand Magistrix Elisande", "esES")
+L = BigWigs:NewBossLocale("Grand Magistrix Elisande", "esMX")
 if L then
 	L.elisande = "Elisande"
 
@@ -202,7 +202,7 @@ if L then
 	L.elisande_trigger = "Vaticiné vuestra llegada, por supuesto. Los hilos del destino que os trajeron a este lugar; vuestros desesperados intentos por detener la Legión..."
 end
 
-L = BigWigs:NewBossLocale("Gul'dan", "esES")
+L = BigWigs:NewBossLocale("Gul'dan", "esMX")
 if L then
 	L.warmup_trigger = "¿Habéis olvidado" -- ¿Habéis olvidado cómo os humillé en la Costa Abrupta? ¿Cómo vuestro querido Rey yacía derrotado a mis pies? ¿Suplicaréis por vuestra vida como lo hizo él, gimiendo como un perro indigno?
 
@@ -219,7 +219,7 @@ if L then
 	L.winds_desc = "Gul'dan invoca Vientos violentos para empujar a los jugadores de la plataforma."
 end
 
-L = BigWigs:NewBossLocale("Nighthold Trash", "esES")
+L = BigWigs:NewBossLocale("Nighthold Trash", "esMX")
 if L then
 	--[[ Skorpyron to Trilliax ]]--
 	L.torm = "Torm el Bruto"
@@ -256,7 +256,7 @@ end
 
 -- Emerald Nightmare
 
-L = BigWigs:NewBossLocale("Cenarius", "esES")
+L = BigWigs:NewBossLocale("Cenarius", "esMX")
 if L then
 	L.forces = "Fuerzas"
 	L.bramblesSay = "Zarzas cerca %s"
@@ -264,7 +264,7 @@ if L then
 	L.custom_off_multiple_breath_bar_desc = "Por defecto BigWigs solo mostrará la barra de Aliento podrido de un draco. Activa esta opción si quieres ver el temporizador para cada draco."
 end
 
-L = BigWigs:NewBossLocale("Elerethe Renferal", "esES")
+L = BigWigs:NewBossLocale("Elerethe Renferal", "esMX")
 if L then
 	L.isLinkedWith = "%s está enlazado con %s"
 	L.yourLink = "Estás enlazado con %s"
@@ -274,26 +274,26 @@ if L then
 	L.custom_off_webofpain_marker_desc = "Marca a los objetivos de Telaraña de dolor con {rt1}{rt2}{rt3}{rt4}, requiere ser líder de banda o asistente de banda. Los tanques serán marcados con {rt1} y {rt2}. Los otros objetivos con {rt3} y {rt4}."
 end
 
-L = BigWigs:NewBossLocale("Il'gynoth", "esES")
+L = BigWigs:NewBossLocale("Il'gynoth", "esMX")
 if L then
 	L.remaining = "Restantes"
 	L.missed = "Perdidas"
 end
 
-L = BigWigs:NewBossLocale("Emerald Nightmare Trash", "esES")
+L = BigWigs:NewBossLocale("Emerald Nightmare Trash", "esMX")
 if L then
 	L.gelatinizedDecay = "Descomposición gelatinosa"
 	L.befouler = "Infectador Corazón Ruin"
 	L.shaman = "Chamán temible"
 end
 
-L = BigWigs:NewBossLocale("Ursoc", "esES")
+L = BigWigs:NewBossLocale("Ursoc", "esMX")
 if L then
 	L.custom_on_gaze_assist = "Asistente de Mirada enfocada"
 	L.custom_on_gaze_assist_desc = "Muestra los iconos de raid en barras y mensajes para Mirada enfocada. Usando {rt4} para los impares, y {rt6} para los pares. Requiere ayudante o líder."
 end
 
-L = BigWigs:NewBossLocale("Xavius", "esES")
+L = BigWigs:NewBossLocale("Xavius", "esMX")
 if L then
 	L.linked = "¡Ataduras de terror en TI! - ¡Enlazado con %s!"
 	L.dreamHealers = "Sanadores oníricos"
@@ -301,13 +301,13 @@ end
 
 -- Tomb of Sargeras
 
-L = BigWigs:NewBossLocale("Harjatan the Bludger", "esES")
+L = BigWigs:NewBossLocale("Harjatan the Bludger", "esMX")
 if L then
 	--L.custom_on_fixate_plates = "Fixate icon on Enemy Nameplate"
 	--L.custom_on_fixate_plates_desc = "Show an icon on the target nameplate that is fixating on you.\nRequires the use of Enemy Nameplates. This feature is currently only supported by KuiNameplates."
 end
 
-L = BigWigs:NewBossLocale("Demonic Inquisition", "esES")
+L = BigWigs:NewBossLocale("Demonic Inquisition", "esMX")
 if L then
 	--L.custom_on_fixate_plates = "Fixate icon on Enemy Nameplate"
 	--L.custom_on_fixate_plates_desc = "Show an icon on the target nameplate that is fixating on you.\nRequires the use of Enemy Nameplates. This feature is currently only supported by KuiNameplates."
@@ -318,13 +318,13 @@ if L then
 	--L.custom_on_stop_timers_desc = "Demonic Inquisition has some spells which are delayed by interupts/other casts. When this option is enabled, the bars for those abilities will stay on your screen."
 end
 
-L = BigWigs:NewBossLocale("Mistress Sassz'ine", "esES")
+L = BigWigs:NewBossLocale("Mistress Sassz'ine", "esMX")
 if L then
 	--L.inks_fed_count = "Ink (%d/%d)"
 	--L.inks_fed = "Inks fed: %s" -- %s = List of players
 end
 
-L = BigWigs:NewBossLocale("The Desolate Host", "esES")
+L = BigWigs:NewBossLocale("The Desolate Host", "esMX")
 if L then
 	--L.infobox_players = "Players"
 	--L.armor_remaining = "%s Remaining (%d)" -- Bonecage Armor Remaining (#)
@@ -335,7 +335,7 @@ if L then
 	--L.tormentingCriesSay = "Cries" -- Tormenting Cries (short say)
 end
 
-L = BigWigs:NewBossLocale("Maiden of Vigilance", "esES")
+L = BigWigs:NewBossLocale("Maiden of Vigilance", "esMX")
 if L then
 	--L.infusionChanged = "Infusion CHANGED: %s"
 	--L.sameInfusion = "Same Infusion: %s"
@@ -350,7 +350,7 @@ if L then
 	--L.stacks = "Stacks"
 end
 
-L = BigWigs:NewBossLocale("Fallen Avatar", "esES")
+L = BigWigs:NewBossLocale("Fallen Avatar", "esMX")
 if L then
 	--L.touch_impact = "Touch Impact" -- Touch of Sargeras Impact (short)
 
@@ -369,7 +369,7 @@ if L then
 	--L.cast_text = "%.1fs (|cff%s%.0f%%|r)" -- s = seconds
 end
 
-L = BigWigs:NewBossLocale("Kil'jaeden", "esES")
+L = BigWigs:NewBossLocale("Kil'jaeden", "esMX")
 if L then
 	--L.singularityImpact = "Singularity Impact"
 	--L.obeliskExplosion = "Obelisk Explosion"
@@ -395,7 +395,7 @@ if L then
 	--L.custom_on_zoom_in_desc = "This feature will set the minimap zoom to level 4 to make it easier to track Illidan, and then restore it to your previous level once the stage has ended."
 end
 
-L = BigWigs:NewBossLocale("Tomb of Sargeras Trash", "esES")
+L = BigWigs:NewBossLocale("Tomb of Sargeras Trash", "esMX")
 if L then
 	L.rune = "Runa orca"
 	L.chaosbringer = "Portador de caos infernal"
@@ -415,7 +415,7 @@ end
 
 -- Trial of Valor
 
-L = BigWigs:NewBossLocale("Odyn-TrialOfValor", "esES")
+L = BigWigs:NewBossLocale("Odyn-TrialOfValor", "esMX")
 if L then
 	--L.yields = "%s yields" -- used when Hymdall and Helya leave the fight in P2: "Hymdall yields"
 	--L[227490] = "|cFF800080Top Right|r (|T1323037:15:15:0:0:64:64:4:60:4:60|t)" -- Boss_OdunRunes_Purple
@@ -425,13 +425,13 @@ if L then
 	--L[227500] = "|cFF008000Top|r (|T1323036:15:15:0:0:64:64:4:60:4:60|t)" -- Boss_OdunRunes_Green
 end
 
-L = BigWigs:NewBossLocale("Guarm-TrialOfValor", "esES")
+L = BigWigs:NewBossLocale("Guarm-TrialOfValor", "esMX")
 if L then
 	--L.lick = "Lick" -- For translators: common name of 228248, 228253, 228228
 	--L.lick_desc = "Show bars for the different licks."
 end
 
-L = BigWigs:NewBossLocale("Helya-TrialOfValor", "esES")
+L = BigWigs:NewBossLocale("Helya-TrialOfValor", "esMX")
 if L then
 	--L.nearTrigger = "near" -- |TInterface\\Icons\\inv_misc_monsterhorn_03.blp:20|t A %s emerges near Helya! -- Translate this comment with the emote
 	--L.farTrigger = "far" -- |TInterface\\Icons\\inv_misc_monsterhorn_03.blp:20|t A %s emerges far from Helya! -- Translate this comment with the emote
