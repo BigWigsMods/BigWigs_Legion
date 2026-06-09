@@ -394,7 +394,7 @@ do
 		end
 	end
 
-	local prev, wasOnMe, scheduled = 0, nil, nil
+	local wasOnMe, scheduled = nil, nil
 
 	local function warn(self, spellId, spellName)
 		self:MessageOld(spellId, "green", "warning", wasOnMe and CL.underyou:format(spellName) or CL.near:format(spellName))
@@ -405,7 +405,6 @@ do
 	function mod:TaintOfTheSeaRemoved(args)
 		local t = GetTime()
 		if self:Me(args.destGUID) then -- warn always if it got dispelled from us
-			prev = t
 			wasOnMe = true
 			self:Say(args.spellId, L.taint_say, nil, "Taint")
 			if not scheduled then
