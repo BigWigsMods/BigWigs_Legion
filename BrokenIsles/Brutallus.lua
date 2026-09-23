@@ -3,7 +3,7 @@
 -- Module Declaration
 --
 
-local mod = BigWigs:NewBoss("Brutallus", -646, 1883)
+local mod = BigWigs:NewBoss("Brutallus (Legion)", -646, 1883)
 if not mod then return end
 mod:RegisterEnableMob(117239)
 mod.otherMenu = -619

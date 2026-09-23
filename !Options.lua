@@ -489,13 +489,13 @@ BigWigs:AddSounds("Apocron", {
 	[241518] = {"alarm","info"},
 })
 
-BigWigs:AddColors("Brutallus", {
+BigWigs:AddColors("Brutallus (Legion)", {
 	[233484] = "orange",
 	[233515] = "red",
 	[233566] = "yellow",
 })
 
-BigWigs:AddSounds("Brutallus", {
+BigWigs:AddSounds("Brutallus (Legion)", {
 	[233484] = "warning",
 	[233515] = "alert",
 	[233566] = "info",
@@ -1607,7 +1607,7 @@ BigWigs:AddSounds("Fallen Avatar", {
 	["stages"] = {"info","long"},
 })
 
-BigWigs:AddColors("Kil'jaeden", {
+BigWigs:AddColors("Kil'jaeden (Legion)", {
 	[-15543] = "yellow",
 	[235059] = "orange",
 	[236378] = {"blue","orange"},
@@ -1627,7 +1627,7 @@ BigWigs:AddColors("Kil'jaeden", {
 	["stages"] = "green",
 })
 
-BigWigs:AddSounds("Kil'jaeden", {
+BigWigs:AddSounds("Kil'jaeden (Legion)", {
 	[-15543] = "info",
 	[235059] = "warning",
 	[236378] = "alert",

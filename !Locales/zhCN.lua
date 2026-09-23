@@ -369,7 +369,7 @@ if L then
 	L.cast_text = "%.1f秒 (|cff%s%.0f%%|r)" -- s = seconds
 end
 
-L = BigWigs:NewBossLocale("Kil'jaeden", "zhCN")
+L = BigWigs:NewBossLocale("Kil'jaeden (Legion)", "zhCN")
 if L then
 	L.singularityImpact = "奇点冲击"
 	L.obeliskExplosion = "方尖碑爆炸"
